@@ -1,0 +1,1085 @@
+<!DOCTYPE html><html lang="es" data-theme="auto"><head>
+
+<link rel="preconnect" href="https://www.googletagmanager.com">
+
+  
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#00add8">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Material+Icons">
+<link rel="stylesheet" href="/css/styles.css">
+<link rel="icon" href="/images/favicon-gopher.png" sizes="any">
+<link rel="apple-touch-icon" href="/images/favicon-gopher-plain.png">
+<link rel="icon" href="/images/favicon-gopher.svg" type="image/svg+xml">
+
+  
+  
+  
+<script src="/js/site.js"></script>
+<meta name="og:url" content="https://go.dev/solutions/case-studies">
+<meta name="og:title" content="Estudios de casos: el lenguaje de programación Go en Español">
+<title>Estudios de casos: el lenguaje de programación Go en Español</title>
+
+<meta name="og:image" content="https://go.dev/doc/gopher/gopher5logo.jpg">
+<meta name="twitter:image" content="https://go.dev/doc/gopher/gopherbelly300.jpg">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@golang">
+<script async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5376430835440290" crossorigin="anonymous"></script></head>
+<body class="Site">
+  
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W8MVQXG"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  
+
+
+<header class="Site-header js-siteHeader">
+  <div class="Header Header--dark">
+    <nav class="Header-nav">
+      <a href="/">
+        <img class="js-headerLogo Header-logo" src="/images/go-logo-white.svg" alt="Go">
+      </a>
+      <div class="skip-navigation-wrapper">
+        <a class="skip-to-content-link" aria-label="Saltar al contenido principal" href="#main-content"> Saltar al contenido principal </a>
+      </div>
+      <div class="Header-rightContent">
+        <ul class="Header-menu">
+          <li class="Header-menuItem  Header-menuItem--active">
+            <a href="#" class="js-desktop-menu-hover" aria-label="Why Go" aria-describedby="dropdown-description">
+              Por qué Go <i class="material-icons" aria-hidden="true">arrow_drop_down</i>
+            </a>
+            <div class="screen-reader-only" id="dropdown-description" hidden=""> 
+              Presiona Enter para activar/desactivar el menú desplegable
+            </div>
+              <ul class="Header-submenu js-desktop-submenu-hover" aria-label="submenú">
+                  <li class="Header-submenuItem">
+                    <div>
+                        <a href="/solutions/case-studies">
+                          Estudio de casos
+                          
+                        </a>
+                    </div>
+                    <p>Problemas comunes que las empresas resuelven con Go</p>
+                  </li>
+                  <li class="Header-submenuItem">
+                    <div>
+                        <a href="/solutions/use-cases">
+                          Casos de uso
+                          
+                        </a>
+                    </div>
+                    <p>Historias sobre cómo y por qué las empresas usan Go</p>
+                  </li>
+                  <li class="Header-submenuItem">
+                    <div>
+                        <a href="https://go.dev/security/" target="_blank" title="Página todavía no traducida">
+                          Seguridad
+                          
+                         ⬀</a>
+                    </div>
+                    <p>Cómo Go puede ayudarte a mantenerte seguro de forma predeterminada</p>
+                  </li>
+              </ul>
+          </li>
+          <li class="Header-menuItem ">
+            <a href="/learn/" aria-label="Aprende" aria-describedby="dropdown-description">
+              Aprende 
+            </a>
+            <div class="screen-reader-only" id="dropdown-description" hidden=""> 
+              Presiona Enter para activar/desactivar el menú desplegable
+            </div>
+          </li>
+          <li class="Header-menuItem ">
+            <a href="#" class="js-desktop-menu-hover" aria-label="Docs" aria-describedby="dropdown-description">
+              Docs <i class="material-icons" aria-hidden="true">arrow_drop_down</i>
+            </a>
+            <div class="screen-reader-only" id="dropdown-description" hidden=""> 
+              Presiona Enter para activar/desactivar el menú desplegable
+            </div>
+              <ul class="Header-submenu js-desktop-submenu-hover" aria-label="submenú">
+                  <li class="Header-submenuItem">
+                    <div>
+                        <a href="https://go.dev/doc/effective_go" target="_blank" title="Página todavía no traducida">
+                          Go efectivo
+                          
+                         ⬀</a>
+                    </div>
+                    <p>Consejos para escribir código Go claro, eficaz e idiomático</p>
+                  </li>
+                  <li class="Header-submenuItem">
+                    <div>
+                        <a href="https://go.dev/doc" target="_blank" title="Página todavía no traducida">
+                          Ir al Manual de usuario
+                          
+                         ⬀</a>
+                    </div>
+                    <p>Una introducción completa a la creación de software con Go</p>
+                  </li>
+                  <li class="Header-submenuItem">
+                    <div>
+                        <a href="https://pkg.go.dev/std">
+                          Biblioteca estándar
+                          
+                        </a>
+                    </div>
+                    <p>Documentación de referencia para la biblioteca estándar de Go</p>
+                  </li>
+                  <li class="Header-submenuItem">
+                    <div>
+                        <a href="https://go.dev/doc/devel/release" target="_blank" title="Página todavía no traducida">
+                          Notas de la versión
+                          
+                         ⬀</a>
+                    </div>
+                    <p>Conoce las novedades de cada versión de Go</p>
+                  </li>
+              </ul>
+          </li>
+          <li class="Header-menuItem ">
+            <a href="https://pkg.go.dev" aria-label="Paquetes" aria-describedby="dropdown-description">
+              Paquetes 
+            </a>
+            <div class="screen-reader-only" id="dropdown-description" hidden=""> 
+              Presiona Enter para activar/desactivar el menú desplegable
+            </div>
+          </li>
+          <li class="Header-menuItem ">
+            <a href="#" class="js-desktop-menu-hover" aria-label="Community" aria-describedby="dropdown-description">
+              Comunidad <i class="material-icons" aria-hidden="true">arrow_drop_down</i>
+            </a>
+            <div class="screen-reader-only" id="dropdown-description" hidden=""> 
+              Presiona Enter para activar/desactivar el menú desplegable
+            </div>
+              <ul class="Header-submenu js-desktop-submenu-hover" aria-label="submenú">
+                  <li class="Header-submenuItem">
+                    <div>
+                        <a href="https://go.dev/talks/" target="_blank" title="Página todavía no traducida">
+                          Charlas Grabadas
+                          
+                         ⬀</a>
+                    </div>
+                    <p>Videos de eventos anteriores</p>
+                  </li>
+                  <li class="Header-submenuItem">
+                    <div>
+                        <a href="https://www.meetup.com/pro/go">
+                          Meetups
+                           <i class="material-icons">open_in_new</i>
+                        </a>
+                    </div>
+                    <p>Conoce a otros desarrolladores locales de Go</p>
+                  </li>
+                  <li class="Header-submenuItem">
+                    <div>
+                        <a href="https://github.com/golang/go/wiki/Conferences">
+                          Conferencias
+                           <i class="material-icons">open_in_new</i>
+                        </a>
+                    </div>
+                    <p>Aprende y establece contactos con desarrolladores de Go de todo el mundo</p>
+                  </li>
+                  <li class="Header-submenuItem">
+                    <div>
+                        <a href="https://go.dev/blog" target="_blank" title="Página todavía no traducida">
+                          Ir al blog
+                          
+                         ⬀</a>
+                    </div>
+                    <p>El blog oficial del proyecto Go.</p>
+                  </li>
+                  <li class="Header-submenuItem">
+                    <div>
+                        <a href="https://go.dev/help" target="_blank" title="Página todavía no traducida">
+                          Ir proyecto
+                          
+                         ⬀</a>
+                    </div>
+                    <p>Obtén ayuda y mantente informado acerca de Go</p>
+                  </li>
+                  <li class="Header-submenuItem">
+                    <div>
+                        Conéctate
+                    </div>
+                    <p></p>
+                      <div class="Header-socialIcons">
+                        
+                        <a class="Header-socialIcon" aria-label="Get connected with google-groups (Opens in new window)" href="https://groups.google.com/g/golang-nuts"><img src="/images/logos/social/google-groups.svg"></a>
+                        <a class="Header-socialIcon" aria-label="Get connected with github (Opens in new window)" href="https://github.com/golang"><img src="/images/logos/social/github.svg"></a>
+                        <a class="Header-socialIcon" aria-label="Get connected with twitter (Opens in new window)" href="https://twitter.com/golang"><img src="/images/logos/social/twitter.svg"></a>
+                        <a class="Header-socialIcon" aria-label="Get connected with reddit (Opens in new window)" href="https://www.reddit.com/r/golang/"><img src="/images/logos/social/reddit.svg"></a>
+                        <a class="Header-socialIcon" aria-label="Get connected with slack (Opens in new window)" href="https://invite.slack.golangbridge.org/"><img src="/images/logos/social/slack.svg"></a>
+                        <a class="Header-socialIcon" aria-label="Get connected with stack-overflow (Opens in new window)" href="https://stackoverflow.com/tags/go"><img src="/images/logos/social/stack-overflow.svg"></a>
+                      </div>
+                  </li>
+              </ul>
+          </li>
+        </ul>
+        <button class="Header-navOpen js-headerMenuButton Header-navOpen--white" aria-label="Abrir navegación.">
+        </button>
+      </div>
+    </nav>
+    
+  </div>
+</header>
+<aside class="NavigationDrawer js-header">
+  <nav class="NavigationDrawer-nav">
+    <div class="NavigationDrawer-header">
+      <a href="/">
+        <img class="NavigationDrawer-logo" src="/images/go-logo-blue.svg" alt="Go.">
+      </a>
+    </div>
+    <ul class="NavigationDrawer-list">
+        
+          <li class="NavigationDrawer-listItem js-mobile-subnav-trigger  NavigationDrawer-listItem--active NavigationDrawer-hasSubnav">
+            <a href="#"><span>Por qué Go</span> <i class="material-icons">navigate_next</i></a>
+
+            <div class="NavigationDrawer NavigationDrawer-submenuItem">
+              <nav class="NavigationDrawer-nav">
+                <div class="NavigationDrawer-header">
+                  <a href="#"><i class="material-icons">navigate_before</i>Por qué Go</a>
+                </div>
+                <ul class="NavigationDrawer-list">
+                    <li class="NavigationDrawer-listItem">
+                        <a href="/solutions/case-studies">
+                          Estudio de casos
+                          
+                        </a>
+                      
+                    </li>
+                    <li class="NavigationDrawer-listItem">
+                        <a href="/solutions/use-cases">
+                          Casos de uso
+                          
+                        </a>
+                      
+                    </li>
+                    <li class="NavigationDrawer-listItem">
+                        <a href="https://go.dev/security/" target="_blank" title="Página todavía no traducida">
+                          Seguridad
+                          
+                         ⬀</a>
+                      
+                    </li>
+                </ul>
+              </nav></div>
+            
+          </li>
+
+        
+        
+          <li class="NavigationDrawer-listItem ">
+            <a href="/learn/">Aprende</a>
+          </li>
+        
+        
+          <li class="NavigationDrawer-listItem js-mobile-subnav-trigger  NavigationDrawer-hasSubnav">
+            <a href="#"><span>Docs</span> <i class="material-icons">navigate_next</i></a>
+
+            <div class="NavigationDrawer NavigationDrawer-submenuItem">
+              <nav class="NavigationDrawer-nav">
+                <div class="NavigationDrawer-header">
+                  <a href="#"><i class="material-icons">navigate_before</i>Docs</a>
+                </div>
+                <ul class="NavigationDrawer-list">
+                    <li class="NavigationDrawer-listItem">
+                        <a href="https://go.dev/doc/effective_go" target="_blank" title="Página todavía no traducida">
+                          Go efectivo
+                          
+                         ⬀</a>
+                      
+                    </li>
+                    <li class="NavigationDrawer-listItem">
+                        <a href="https://go.dev/doc" target="_blank" title="Página todavía no traducida">
+                          Ir al Manual de usuario
+                          
+                         ⬀</a>
+                      
+                    </li>
+                    <li class="NavigationDrawer-listItem">
+                        <a href="https://pkg.go.dev/std">
+                          Biblioteca estándar
+                          
+                        </a>
+                      
+                    </li>
+                    <li class="NavigationDrawer-listItem">
+                        <a href="https://go.dev/doc/devel/release" target="_blank" title="Página todavía no traducida">
+                          Notas de la versión
+                          
+                         ⬀</a>
+                      
+                    </li>
+                </ul>
+              </nav></div>
+            
+          </li>
+
+        
+        
+          <li class="NavigationDrawer-listItem ">
+            <a href="https://pkg.go.dev">Paquetes</a>
+          </li>
+        
+        
+          <li class="NavigationDrawer-listItem js-mobile-subnav-trigger  NavigationDrawer-hasSubnav">
+            <a href="#"><span>Comunidad</span> <i class="material-icons">navigate_next</i></a>
+
+            <div class="NavigationDrawer NavigationDrawer-submenuItem">
+              <nav class="NavigationDrawer-nav">
+                <div class="NavigationDrawer-header">
+                  <a href="#"><i class="material-icons">navigate_before</i>Comunidad</a>
+                </div>
+                <ul class="NavigationDrawer-list">
+                    <li class="NavigationDrawer-listItem">
+                        <a href="https://go.dev/talks/" target="_blank" title="Página todavía no traducida">
+                          Charlas Grabadas
+                          
+                         ⬀</a>
+                      
+                    </li>
+                    <li class="NavigationDrawer-listItem">
+                        <a href="https://www.meetup.com/pro/go">
+                          Meetups
+                           <i class="material-icons">open_in_new</i>
+                        </a>
+                      
+                    </li>
+                    <li class="NavigationDrawer-listItem">
+                        <a href="https://github.com/golang/go/wiki/Conferences">
+                          Conferencias
+                           <i class="material-icons">open_in_new</i>
+                        </a>
+                      
+                    </li>
+                    <li class="NavigationDrawer-listItem">
+                        <a href="https://go.dev/blog" target="_blank" title="Página todavía no traducida">
+                          Ir al blog
+                          
+                         ⬀</a>
+                      
+                    </li>
+                    <li class="NavigationDrawer-listItem">
+                        <a href="https://go.dev/help" target="_blank" title="Página todavía no traducida">
+                          Ir proyecto
+                          
+                         ⬀</a>
+                      
+                    </li>
+                    <li class="NavigationDrawer-listItem">
+                        <div>Conéctate</div>
+                        <div class="Header-socialIcons">
+                          
+                            <a class="Header-socialIcon" href="https://groups.google.com/g/golang-nuts"><img src="/images/logos/social/google-groups.svg"></a>
+                            <a class="Header-socialIcon" href="https://github.com/golang"><img src="/images/logos/social/github.svg"></a>
+                            <a class="Header-socialIcon" href="https://twitter.com/golang"><img src="/images/logos/social/twitter.svg"></a>
+                            <a class="Header-socialIcon" href="https://www.reddit.com/r/golang/"><img src="/images/logos/social/reddit.svg"></a>
+                            <a class="Header-socialIcon" href="https://invite.slack.golangbridge.org/"><img src="/images/logos/social/slack.svg"></a>
+                            <a class="Header-socialIcon" href="https://stackoverflow.com/tags/go"><img src="/images/logos/social/stack-overflow.svg"></a>
+                        </div>
+                    </li>
+                </ul>
+              </nav></div>
+            
+          </li>
+
+        
+    </ul>
+  </nav>
+</aside>
+<div class="NavigationDrawer-scrim js-scrim" role="presentation"></div>
+<main class="SiteContent SiteContent--default" id="main-content">
+  <section class="Solutions-headline">
+  <div class="GoCarousel" id="SolutionsHeroCarousel-carousel">
+    <div class="GoCarousel-controlsContainer">
+      <div class="GoCarousel-wrapper SolutionsHeroCarousel-wrapper">
+<ol class="SiteBreadcrumb">
+<li class="BreadcrumbNav-li ">
+  <a class="BreadcrumbNav-link" href="/solutions/">
+  Why Go
+  </a>
+</li>
+<li class="BreadcrumbNav-li active">
+  <a class="BreadcrumbNav-link" href="/solutions/case-studies">
+  Estudio de casos
+  </a>
+</li>
+</ol>
+        <ul class="js-solutionsHeroCarouselSlides SolutionsHeroCarousel-slides">
+              <li class="SolutionsHeroCarousel-slide">
+                <div class="Solutions-headlineImg">
+                  <img src="/images/go_google_case_study_carousel.png" alt="Using Go at Google">
+                </div>
+                <div class="Solutions-headlineText">
+                  <p class="Solutions-headlineNotification">RECIENTEMENTE ACTUALIZADO</p>
+                  <h2>
+                    Uso de Go en Google
+                  </h2>
+                  <p class="Solutions-headlineBody">
+                    Go se creó en Google en 2007 y, desde entonces, los equipos de ingeniería de Google han adoptado Go para crear productos y servicios a escala masiva.
+                    <a href="https://go.dev/solutions/google/" aria-describedby="casestudy-description" target="_blank" title="Página todavía no traducida">Más información
+                       ⬀<i class="material-icons Solutions-forwardArrowIcon" aria-hidden="true">arrow_forward</i>
+                    </a>
+                  </p>
+                </div>
+              </li>
+              <li class="SolutionsHeroCarousel-slide">
+                <div class="Solutions-headlineImg">
+                  <img src="/images/go_paypal_case_study.png" alt="PayPal Taps Go to Modernize and Scale">
+                </div>
+                <div class="Solutions-headlineText">
+                  <p class="Solutions-headlineNotification">RECIENTEMENTE ACTUALIZADO</p>
+                  <h2>
+                    PayPal Taps Go para modernizar y escalar
+                  </h2>
+                  <p class="Solutions-headlineBody">
+                    El valor de Go al producir código limpio y eficiente que se escala fácilmente a medida que aumenta la implementación del software hizo que el lenguaje fuera una excelente opción para respaldar los objetivos de PayPal.
+                    <a href="https://go.dev/solutions/paypal" aria-describedby="casestudy-description" target="_blank" title="Página todavía no traducida">Más información
+                       ⬀<i class="material-icons Solutions-forwardArrowIcon" aria-hidden="true">arrow_forward</i>
+                    </a>
+                  </p>
+                </div>
+              </li>
+              <li class="SolutionsHeroCarousel-slide">
+                <div class="Solutions-headlineImg">
+                  <img src="/images/go_amex_case_study.png" alt="American Express Uses Go for Payments &amp; Rewards">
+                </div>
+                <div class="Solutions-headlineText">
+                  <p class="Solutions-headlineNotification">RECIENTEMENTE ACTUALIZADO</p>
+                  <h2>
+                    American Express usa Go para pagos y recompensas
+                  </h2>
+                  <p class="Solutions-headlineBody">
+                    Go proporciona a American Express la velocidad y escalabilidad que necesita tanto para sus redes de pago como de recompensas.
+                    <a href="https://go.dev/solutions/americanexpress" aria-describedby="casestudy-description" target="_blank" title="Página todavía no traducida">Más información
+                       ⬀<i class="material-icons Solutions-forwardArrowIcon" aria-hidden="true">arrow_forward</i>
+                    </a>
+                  </p>
+                </div>
+              </li>
+        </ul>
+      </div>
+      <div class="screen-reader-only" id="casestudy-description" hidden="">
+          Se abre en una ventana nueva.
+    </div>
+      <button class="js-solutionsHeroCarouselPrev GoCarousel-controlPrev GoCarousel-controlPrev-solutionsHero" hidden="">
+        <i class="GoCarousel-icon material-icons">navigate_before</i>
+      </button>
+      <button class="js-solutionsHeroCarouselNext GoCarousel-controlNext GoCarousel-controlNext-solutionsHero">
+        <i class="GoCarousel-icon material-icons">navigate_next</i>
+      </button>
+    </div>
+  </div>
+</section>
+<section class="Solutions-useCases">
+  <div class="Container">
+    <ul class="MarketingCardList">
+          <li class="MarketingCard">
+            <a href="https://blog.allegro.tech/2016/03/writing-fast-cache-service-in-go.html" target="_blank" rel="noopener">
+              <div class="MarketingCard-section">
+                <img height="36" class="DarkMode-img" loading="lazy" alt="Allegro" src="/images/logos/allegro_dark.svg">
+                <img height="36" class="LightMode-img" loading="lazy" alt="Allegro" src="/images/logos/allegro_light.svg">
+              </div>
+              <div class="MarketingCard-section MarketingCard-section__spacer">
+                <h2 class="MarketingCard-title">Allegro – Escribiendo un servicio de caché muy rápido con millones de entradas en Go</h2>
+                <p class="MarketingCard-body">
+                  "Finalmente, aceleramos nuestra aplicación de más de 2,5 segundos a menos de 250 milisegundos para la solicitud más larga".
+                </p>
+              </div>
+              <div class="MarketingCard-section__bottom" aria-describedby="casestudy-description">
+                <p class="MarketingCard-action">Ver estudio de caso</p>
+              </div>
+            </a>
+          </li>
+          <li class="MarketingCard">
+            <a href="https://go.dev/solutions/americanexpress" target="_blank" title="Página todavía no traducida">
+              <div class="MarketingCard-section">
+                <img height="36" class="DarkMode-img" loading="lazy" alt="American Express" src="/images/logos/american-express.svg">
+                <img height="36" class="LightMode-img" loading="lazy" alt="American Express" src="/images/logos/american-express.svg">
+              </div>
+              <div class="MarketingCard-section MarketingCard-section__spacer">
+                <h2 class="MarketingCard-title">American Express usa Go para pagos y recompensas</h2>
+                <p class="MarketingCard-body">
+                  Go brinda a American Express la velocidad y escalabilidad que necesita tanto para sus redes de pago como para sus recompensas.
+                </p>
+              </div>
+              <div class="MarketingCard-section__bottom" aria-describedby="casestudy-description">
+                <p class="MarketingCard-action">Ver estudio de caso</p>
+              </div>
+            </a>
+          </li>
+          <li class="MarketingCard">
+            <a href="https://labs.armut.com/how-we-decreased-one-of-our-apis-response-time-by-87-and-used-less-resources-ce847e83308" target="_blank" rel="noopener">
+              <div class="MarketingCard-section">
+                <img height="36" class="DarkMode-img" loading="lazy" alt="Armut" src="/images/logos/armut_dark.png">
+                <img height="36" class="LightMode-img" loading="lazy" alt="Armut" src="/images/logos/armut_light.png">
+              </div>
+              <div class="MarketingCard-section MarketingCard-section__spacer">
+                <h2 class="MarketingCard-title">Cómo Armut Labs usa Go </h2>
+                <p class="MarketingCard-body">
+                  Aprende cómo Armut Labs redujo el consumo de recursos y el tiempo de respuesta de la API después de pasar de C# y .net core a Go.
+                </p>
+              </div>
+              <div class="MarketingCard-section__bottom" aria-describedby="casestudy-description">
+                <p class="MarketingCard-action">Ver estudio de caso</p>
+              </div>
+            </a>
+          </li>
+          <li class="MarketingCard">
+            <a href="https://bitly.com/blog/why-we-write-everything-in-go/?utm_source=go-dev&amp;utm_medium=referral&amp;utm_campaign=go-dev&amp;utm_content=case-study" target="_blank" rel="noopener">
+              <div class="MarketingCard-section">
+                <img height="36" class="DarkMode-img" loading="lazy" alt="Bitly" src="/images/logos/bitly.svg">
+                <img height="36" class="LightMode-img" loading="lazy" alt="Bitly" src="/images/logos/bitly.svg">
+              </div>
+              <div class="MarketingCard-section MarketingCard-section__spacer">
+                <h2 class="MarketingCard-title">Bitly - Por qué escribimos todo en Go</h2>
+                <p class="MarketingCard-body">
+                  En 2014, escribimos un pequeño proyecto de código abierto llamado NSQ (nsq.io) y pusimos a prueba un nuevo lenguaje prometedor llamado Go. Nos gustó tanto lo que vimos que comenzamos a escribir todo lo nuevo en Go y poco después comenzamos a migrar todos los servicios heredados a Go también.
+                </p>
+              </div>
+              <div class="MarketingCard-section__bottom" aria-describedby="casestudy-description">
+                <p class="MarketingCard-action">Ver estudio de caso</p>
+              </div>
+            </a>
+          </li>
+          <li class="MarketingCard">
+            <a href="https://medium.com/capital-one-tech/a-serverless-and-go-journey-credit-offers-api-74ef1f9fde7f" target="_blank" rel="noopener">
+              <div class="MarketingCard-section">
+                <img height="36" class="DarkMode-img" loading="lazy" alt="Capital One" src="/images/logos/capitalone_dark.svg">
+                <img height="36" class="LightMode-img" loading="lazy" alt="Capital One" src="/images/logos/capitalone_light.svg">
+              </div>
+              <div class="MarketingCard-section MarketingCard-section__spacer">
+                <h2 class="MarketingCard-title">Capital One - Un viaje con serverless y Go</h2>
+                <p class="MarketingCard-body">
+                  En ese momento, ningún miembro del equipo conocía Go, pero al cabo de un mes, todos escribían en Go y estábamos construyendo los endpoints. Fue la flexibilidad, lo fácil que era de usar y el concepto realmente interesante detrás de Go (cómo Go maneja la concurrencia nativa, la recolección de basura y, por supuesto, la seguridad y la velocidad) lo que ayudó a involucrarnos durante la construcción. Además, ¿quién puede vencer a esa linda mascota?
+                </p>
+              </div>
+              <div class="MarketingCard-section__bottom" aria-describedby="casestudy-description">
+                <p class="MarketingCard-action">Ver estudio de caso</p>
+              </div>
+            </a>
+          </li>
+          <li class="MarketingCard">
+            <a href="https://blog.cloudflare.com/graceful-upgrades-in-go/" target="_blank" rel="noopener">
+              <div class="MarketingCard-section">
+                <img height="36" class="DarkMode-img" loading="lazy" alt="Cloudflare" src="/images/logos/cloudflare_dark.svg">
+                <img height="36" class="LightMode-img" loading="lazy" alt="Cloudflare" src="/images/logos/cloudflare_light.svg">
+              </div>
+              <div class="MarketingCard-section MarketingCard-section__spacer">
+                <h2 class="MarketingCard-title">Actualizaciones elegantes en Go</h2>
+                <p class="MarketingCard-body">
+                  Cloudflare acelera y protege millones de sitios web, API, servicios SaaS y otras propiedades conectadas a Internet. "Go está en el corazón de los servicios de CloudFlare, incluido el manejo de la compresión para conexiones HTTP de alta latencia, toda nuestra infraestructura DNS, SSL, pruebas de carga y más".
+                </p>
+              </div>
+              <div class="MarketingCard-section__bottom" aria-describedby="casestudy-description">
+                <p class="MarketingCard-action">Ver estudio de caso</p>
+              </div>
+            </a>
+          </li>
+          <li class="MarketingCard">
+            <a href="https://www.cockroachlabs.com/blog/why-go-was-the-right-choice-for-cockroachdb/" target="_blank" rel="noopener">
+              <div class="MarketingCard-section">
+                <img height="36" class="DarkMode-img" loading="lazy" alt="Cockroach Labs" src="/images/logos/cockroach.svg">
+                <img height="36" class="LightMode-img" loading="lazy" alt="Cockroach Labs" src="/images/logos/cockroach.svg">
+              </div>
+              <div class="MarketingCard-section MarketingCard-section__spacer">
+                <h2 class="MarketingCard-title">Cockroach Labs: por qué elegimos crear nuestra base de datos con Go</h2>
+                <p class="MarketingCard-body">
+                  Los beneficios de rendimiento, la recolección de basura y la baja barrera de entrada de Go lo convirtieron en una excelente opción para CockroachDB.
+                </p>
+              </div>
+              <div class="MarketingCard-section__bottom" aria-describedby="casestudy-description">
+                <p class="MarketingCard-action">Ver estudio de caso</p>
+              </div>
+            </a>
+          </li>
+          <li class="MarketingCard">
+            <a href="https://jaxenter.com/golang-curve-163187.html" target="_blank" rel="noopener">
+              <div class="MarketingCard-section">
+                <img height="36" class="DarkMode-img" loading="lazy" alt="Curve" src="/images/logos/curve.png">
+                <img height="36" class="LightMode-img" loading="lazy" alt="Curve" src="/images/logos/curve.png">
+              </div>
+              <div class="MarketingCard-section MarketingCard-section__spacer">
+                <h2 class="MarketingCard-title">Cómo Curve está triunfando con Golang</h2>
+                <p class="MarketingCard-body">
+                  Curve comparte cómo la eficiencia, la biblioteca estándar y la próspera comunidad de Go les ayudan a trasladar la banca a la nube.
+                </p>
+              </div>
+              <div class="MarketingCard-section__bottom" aria-describedby="casestudy-description">
+                <p class="MarketingCard-action">Ver estudio de caso</p>
+              </div>
+            </a>
+          </li>
+          <li class="MarketingCard">
+            <a href="https://blogs.dropbox.com/tech/2014/07/open-sourcing-our-go-libraries/" target="_blank" rel="noopener">
+              <div class="MarketingCard-section">
+                <img height="36" class="DarkMode-img" loading="lazy" alt="Dropbox" src="/images/logos/dropbox.png">
+                <img height="36" class="LightMode-img" loading="lazy" alt="Dropbox" src="/images/logos/dropbox.png">
+              </div>
+              <div class="MarketingCard-section MarketingCard-section__spacer">
+                <h2 class="MarketingCard-title">Dropbox: código abierto para nuestras bibliotecas Go</h2>
+                <p class="MarketingCard-body">
+                  Hace aproximadamente un año, decidimos migrar nuestros backends críticos para el rendimiento de Python a Go para aprovechar un mejor soporte de concurrencia y una velocidad de ejecución más rápida. ... En este punto, hemos trasladado con éxito la mayor parte de nuestra infraestructura a Go.
+                </p>
+              </div>
+              <div class="MarketingCard-section__bottom" aria-describedby="casestudy-description">
+                <p class="MarketingCard-action">Ver estudio de caso</p>
+              </div>
+            </a>
+          </li>
+          <li class="MarketingCard">
+            <a href="https://entgo.io/blog/2019/10/03/introducing-ent/" target="_blank" rel="noopener">
+              <div class="MarketingCard-section">
+                <img height="36" class="DarkMode-img" loading="lazy" alt="Facebook" src="/images/logos/meta_dark.svg">
+                <img height="36" class="LightMode-img" loading="lazy" alt="Facebook" src="/images/logos/meta_light.svg">
+              </div>
+              <div class="MarketingCard-section MarketingCard-section__spacer">
+                <h2 class="MarketingCard-title">Cómo Facebook construyó un framework de entidad en Go</h2>
+                <p class="MarketingCard-body">
+                  Aprende sobre la decisión de un equipo de ingeniería de Facebook de escribir un nuevo framework de entidad (ORM) en Go.
+                </p>
+              </div>
+              <div class="MarketingCard-section__bottom" aria-describedby="casestudy-description">
+                <p class="MarketingCard-action">Ver estudio de caso</p>
+              </div>
+            </a>
+          </li>
+          <li class="MarketingCard">
+            <a href="https://go.dev/solutions/google/" target="_blank" title="Página todavía no traducida">
+              <div class="MarketingCard-section">
+                <img height="36" class="DarkMode-img" loading="lazy" alt="Google" src="/images/logos/google.svg">
+                <img height="36" class="LightMode-img" loading="lazy" alt="Google" src="/images/logos/google.svg">
+              </div>
+              <div class="MarketingCard-section MarketingCard-section__spacer">
+                <h2 class="MarketingCard-title">Uso de Go en Google</h2>
+                <p class="MarketingCard-body">
+                  Go se creó en Google en 2007 y, desde entonces, los equipos de ingeniería de Google han adoptado Go para crear productos y servicios a escala masiva.
+                </p>
+              </div>
+              <div class="MarketingCard-section__bottom" aria-describedby="casestudy-description">
+                <p class="MarketingCard-action">Ver estudio de caso</p>
+              </div>
+            </a>
+          </li>
+          <li class="MarketingCard">
+            <a href="https://medium.com/grail-eng/bigslice-a-cluster-computing-system-for-go-7e03acd2419b" target="_blank" rel="noopener">
+              <div class="MarketingCard-section">
+                <img height="36" class="DarkMode-img" loading="lazy" alt="GRAIL" src="/images/logos/grail_dark.png">
+                <img height="36" class="LightMode-img" loading="lazy" alt="GRAIL" src="/images/logos/grail_light.png">
+              </div>
+              <div class="MarketingCard-section MarketingCard-section__spacer">
+                <h2 class="MarketingCard-title">Bigslice - un sistema informático de clúster en Go</h2>
+                <p class="MarketingCard-body">
+                  En GRAIL utilizamos el lenguaje de programación Go para la mayoría de nuestras tareas de bioinformática, procesamiento de datos y aprendizaje automático. La simplicidad de Go facilita el aprendizaje de los recién llegados; su semántica de runtime transparente hace que sea fácil razonar sobre el rendimiento; y su capacidad para controlar el diseño y la asignación de datos hace posible escribir código de procesamiento de datos de alto rendimiento.
+                </p>
+              </div>
+              <div class="MarketingCard-section__bottom" aria-describedby="casestudy-description">
+                <p class="MarketingCard-action">Ver estudio de caso</p>
+              </div>
+            </a>
+          </li>
+          <li class="MarketingCard">
+            <a href="https://go.dev/solutions/mercadolibre" target="_blank" title="Página todavía no traducida">
+              <div class="MarketingCard-section">
+                <img height="36" class="DarkMode-img" loading="lazy" alt="MercadoLibre" src="/images/logos/mercadolibre_dark.svg">
+                <img height="36" class="LightMode-img" loading="lazy" alt="MercadoLibre" src="/images/logos/mercadolibre_light.svg">
+              </div>
+              <div class="MarketingCard-section MarketingCard-section__spacer">
+                <h2 class="MarketingCard-title">MercadoLibre Crece con Go</h2>
+                <p class="MarketingCard-body">
+                  Go proporciona código limpio y eficiente que escala fácilmente a medida que crece el comercio en línea de MercadoLibre y aumenta la productividad de los desarrolladores al permitir que sus ingenieros atiendan a su audiencia cada vez mayor mientras escriben menos código.
+                </p>
+              </div>
+              <div class="MarketingCard-section__bottom" aria-describedby="casestudy-description">
+                <p class="MarketingCard-action">Ver estudio de caso</p>
+              </div>
+            </a>
+          </li>
+          <li class="MarketingCard">
+            <a href="https://cloudblogs.microsoft.com/opensource/2018/02/21/go-lang-brian-ketelsen-explains-fast-growth/" target="_blank" rel="noopener">
+              <div class="MarketingCard-section">
+                <img height="36" class="DarkMode-img" loading="lazy" alt="Microsoft" src="/images/logos/microsoft_dark.svg">
+                <img height="36" class="LightMode-img" loading="lazy" alt="Microsoft" src="/images/logos/microsoft_light.svg">
+              </div>
+              <div class="MarketingCard-section MarketingCard-section__spacer">
+                <h2 class="MarketingCard-title">Cómo Microsoft adopta a Go</h2>
+                <p class="MarketingCard-body">
+                  Aprende cómo Microsoft ha ayudado a respaldar Go y cómo lo utiliza para impulsar partes de su infraestructura en la nube.
+                </p>
+              </div>
+              <div class="MarketingCard-section__bottom" aria-describedby="casestudy-description">
+                <p class="MarketingCard-action">Ver estudio de caso</p>
+              </div>
+            </a>
+          </li>
+          <li class="MarketingCard">
+            <a href="https://www.infoq.com/news/2017/03/monzo-bank-golang/" target="_blank" rel="noopener">
+              <div class="MarketingCard-section">
+                <img height="36" class="DarkMode-img" loading="lazy" alt="Monzo" src="/images/logos/monzo_dark.svg">
+                <img height="36" class="LightMode-img" loading="lazy" alt="Monzo" src="/images/logos/monzo_light.svg">
+              </div>
+              <div class="MarketingCard-section MarketingCard-section__spacer">
+                <h2 class="MarketingCard-title">Monzo – Construyendo un banco con Golang, microservicios y contenedores</h2>
+                <p class="MarketingCard-body">
+                  "Go es un lenguaje perfecto para crear arquitecturas de microservicios, y las características de concurrencia, y el lenguaje en general, han permitido la creación fácil de servicios en red pequeños y simples en Monzo que se centran en el 'principio de responsabilidad única'.”
+                </p>
+              </div>
+              <div class="MarketingCard-section__bottom" aria-describedby="casestudy-description">
+                <p class="MarketingCard-action">Ver estudio de caso</p>
+              </div>
+            </a>
+          </li>
+          <li class="MarketingCard">
+            <a href="https://medium.com/netflix-techblog/application-data-caching-using-ssds-5bf25df851ef" target="_blank" rel="noopener">
+              <div class="MarketingCard-section">
+                <img height="36" class="DarkMode-img" loading="lazy" alt="Netflix" src="/images/logos/netflix.svg">
+                <img height="36" class="LightMode-img" loading="lazy" alt="Netflix" src="/images/logos/netflix.svg">
+              </div>
+              <div class="MarketingCard-section MarketingCard-section__spacer">
+                <h2 class="MarketingCard-title">Netflix - almacenamiento en caché de datos de aplicaciones mediante SSD</h2>
+                <p class="MarketingCard-body">
+                  La decisión de usar Go fue deliberada, porque necesitábamos algo que tuviera una latencia más baja que Java (donde las pausas en la recolección de basura son un problema) y que fuera más productivo para los desarrolladores que C, y que al mismo tiempo manejara decenas de miles de conexiones de clientes. Go encaja bien en este espacio.
+                </p>
+              </div>
+              <div class="MarketingCard-section__bottom" aria-describedby="casestudy-description">
+                <p class="MarketingCard-action">Ver estudio de caso</p>
+              </div>
+            </a>
+          </li>
+          <li class="MarketingCard">
+            <a href="https://go.dev/solutions/paypal" target="_blank" title="Página todavía no traducida">
+              <div class="MarketingCard-section">
+                <img height="36" class="DarkMode-img" loading="lazy" alt="PayPal" src="/images/logos/paypal.svg">
+                <img height="36" class="LightMode-img" loading="lazy" alt="PayPal" src="/images/logos/paypal.svg">
+              </div>
+              <div class="MarketingCard-section MarketingCard-section__spacer">
+                <h2 class="MarketingCard-title">PayPal Taps Go para modernizar y escalar</h2>
+                <p class="MarketingCard-body">
+                  El valor de Go al producir código limpio y eficiente que se escala fácilmente a medida que aumenta la implementación del software hizo que el lenguaje fuera una excelente opción para respaldar los objetivos de PayPal.
+                </p>
+              </div>
+              <div class="MarketingCard-section__bottom" aria-describedby="casestudy-description">
+                <p class="MarketingCard-action">Ver estudio de caso</p>
+              </div>
+            </a>
+          </li>
+          <li class="MarketingCard">
+            <a href="https://technology.riotgames.com/news/leveraging-golang-game-development-and-operations" target="_blank" rel="noopener">
+              <div class="MarketingCard-section">
+                <img height="36" class="DarkMode-img" loading="lazy" alt="Riot Games" src="/images/logos/riot_dark.svg">
+                <img height="36" class="LightMode-img" loading="lazy" alt="Riot Games" src="/images/logos/riot_light.svg">
+              </div>
+              <div class="MarketingCard-section MarketingCard-section__spacer">
+                <h2 class="MarketingCard-title">Riot Games: Aprovechando Golang para el desarrollo y las operaciones de juegos</h2>
+                <p class="MarketingCard-body">
+                  Aprende cómo Riot usa Go para desarrollar, implementar y operar microservicios backend a escala, a nivel mundial. Comparten su experiencia en casos de uso, con ejemplos específicos, y hablan del valor de la comunidad de gopher.
+                </p>
+              </div>
+              <div class="MarketingCard-section__bottom" aria-describedby="casestudy-description">
+                <p class="MarketingCard-action">Ver estudio de caso</p>
+              </div>
+            </a>
+          </li>
+          <li class="MarketingCard">
+            <a href="https://www.zdnet.com/article/salesforce-why-we-ditched-python-for-googles-go-language-in-einstein-analytics/" target="_blank" rel="noopener">
+              <div class="MarketingCard-section">
+                <img height="36" class="DarkMode-img" loading="lazy" alt="Salesforce" src="/images/logos/salesforce.svg">
+                <img height="36" class="LightMode-img" loading="lazy" alt="Salesforce" src="/images/logos/salesforce.svg">
+              </div>
+              <div class="MarketingCard-section MarketingCard-section__spacer">
+                <h2 class="MarketingCard-title">Salesforce - From Python/C to Go</h2>
+                <p class="MarketingCard-body">
+                  Una de las grandes ventajas es que las funciones multiplataforma de Go facilitan la transferencia de código.
+                </p>
+              </div>
+              <div class="MarketingCard-section__bottom" aria-describedby="casestudy-description">
+                <p class="MarketingCard-action">Ver estudio de caso</p>
+              </div>
+            </a>
+          </li>
+          <li class="MarketingCard">
+            <a href="https://www.facebook.com/sixtkarriere/posts/find-out-more-about-golang-at-sixt-to-become-a-godeveloper-mfd-at-sixt-click-her/2049632898495842/" target="_blank" rel="noopener">
+              <div class="MarketingCard-section">
+                <img height="36" class="DarkMode-img" loading="lazy" alt="SIXT" src="/images/logos/sixt_dark.svg">
+                <img height="36" class="LightMode-img" loading="lazy" alt="SIXT" src="/images/logos/sixt_light.svg">
+              </div>
+              <div class="MarketingCard-section MarketingCard-section__spacer">
+                <h2 class="MarketingCard-title">Descubre más sobre Golang en SIXT</h2>
+                <p class="MarketingCard-body">
+                  “Hemos estado usando Golang en SIXT desde 2015. En aquel entonces no había mucha gente aquí en nuestra área que estuviera usando Golang en modo de producción, en su mayoría proyectos paralelos. Así que fue realmente un movimiento audaz por nuestra parte, pero resultó ser bastante exitoso. Avance rápido hasta 2019, tenemos más de 15 equipos usando Golang. Muchas de las aplicaciones que han creado son básicamente la base de la mayor parte de nuestra oferta de productos de movilidad, incluidos Rent, Ride and Share”.
+                </p>
+              </div>
+              <div class="MarketingCard-section__bottom" aria-describedby="casestudy-description">
+                <p class="MarketingCard-action">Ver estudio de caso</p>
+              </div>
+            </a>
+          </li>
+          <li class="MarketingCard">
+            <a href="https://getstream.io/blog/switched-python-go/" target="_blank" rel="noopener">
+              <div class="MarketingCard-section">
+                <img height="36" class="DarkMode-img" loading="lazy" alt="Stream" src="/images/logos/getstream_dark.svg">
+                <img height="36" class="LightMode-img" loading="lazy" alt="Stream" src="/images/logos/getstream_light.svg">
+              </div>
+              <div class="MarketingCard-section MarketingCard-section__spacer">
+                <h2 class="MarketingCard-title">Stream - por qué cambiamos de Python a Go</h2>
+                <p class="MarketingCard-body">
+                  La combinación de Go de un excelente ecosistema, fácil incorporación para nuevos desarrolladores, rendimiento rápido, soporte sólido para concurrencia y un entorno de programación productivo lo convierten en una excelente opción. Permitió a un pequeño equipo de desarrollo en Stream alimentar feeds y chatear para más de 500 millones de usuarios finales.
+                </p>
+              </div>
+              <div class="MarketingCard-section__bottom" aria-describedby="casestudy-description">
+                <p class="MarketingCard-action">Ver estudio de caso</p>
+              </div>
+            </a>
+          </li>
+          <li class="MarketingCard">
+            <a href="https://tech.trivago.com/2020/03/02/why-we-chose-go/" target="_blank" rel="noopener">
+              <div class="MarketingCard-section">
+                <img height="36" class="DarkMode-img" loading="lazy" alt="Trivago" src="/images/logos/trivago_dark.svg">
+                <img height="36" class="LightMode-img" loading="lazy" alt="Trivago" src="/images/logos/trivago_light.svg">
+              </div>
+              <div class="MarketingCard-section MarketingCard-section__spacer">
+                <h2 class="MarketingCard-title">Trivago – Por qué elegimos Go</h2>
+                <p class="MarketingCard-body">
+                  “La simplicidad de Go y sus herramientas sofisticadas nos permiten escalar no solo nuestro servicio sino, más importante aún, el proceso de ingeniería de software en sí. Reducir la fricción a la hora de incorporar y formar a alguien tiene un impacto significativo en la productividad de la empresa, más aún en un entorno en constante movimiento como trivago”.
+                </p>
+              </div>
+              <div class="MarketingCard-section__bottom" aria-describedby="casestudy-description">
+                <p class="MarketingCard-action">Ver estudio de caso</p>
+              </div>
+            </a>
+          </li>
+          <li class="MarketingCard">
+            <a href="https://blog.twitch.tv/en/2016/07/05/gos-march-to-low-latency-gc-a6fa96f06eb7/" target="_blank" rel="noopener">
+              <div class="MarketingCard-section">
+                <img height="36" class="DarkMode-img" loading="lazy" alt="Twitch" src="/images/logos/twitch.svg">
+                <img height="36" class="LightMode-img" loading="lazy" alt="Twitch" src="/images/logos/twitch.svg">
+              </div>
+              <div class="MarketingCard-section MarketingCard-section__spacer">
+                <h2 class="MarketingCard-title">Twitch - La marcha de Go hacia GC de baja latencia</h2>
+                <p class="MarketingCard-body">
+                  Utilizamos Go en Twitch para muchos de nuestros sistemas más ocupados. Su simplicidad, seguridad, rendimiento y legibilidad lo convierten en una buena herramienta para los problemas que encontramos al ofrecer video en vivo y chat a nuestros millones de usuarios.
+                </p>
+              </div>
+              <div class="MarketingCard-section__bottom" aria-describedby="casestudy-description">
+                <p class="MarketingCard-action">Ver estudio de caso</p>
+              </div>
+            </a>
+          </li>
+          <li class="MarketingCard">
+            <a href="https://blog.twitter.com/engineering/en_us/a/2015/handling-five-billion-sessions-a-day-in-real-time.html" target="_blank" rel="noopener">
+              <div class="MarketingCard-section">
+                <img height="36" class="DarkMode-img" loading="lazy" alt="Twitter" src="/images/logos/twitter.svg">
+                <img height="36" class="LightMode-img" loading="lazy" alt="Twitter" src="/images/logos/twitter.svg">
+              </div>
+              <div class="MarketingCard-section MarketingCard-section__spacer">
+                <h2 class="MarketingCard-title">Twitter: 5 mil millones de sesiones al día en tiempo real</h2>
+                <p class="MarketingCard-body">
+                  Ahora vemos alrededor de cinco mil millones de sesiones por día, y seguimos creciendo. Cientos de millones de dispositivos envían millones de eventos cada segundo al endpoint de Answers. Durante el tiempo que le llevó leer hasta aquí, el back-end de Answers habrá recibido y procesado alrededor de 10.000.000 de eventos analíticos.
+                </p>
+              </div>
+              <div class="MarketingCard-section__bottom" aria-describedby="casestudy-description">
+                <p class="MarketingCard-action">Ver estudio de caso</p>
+              </div>
+            </a>
+          </li>
+          <li class="MarketingCard">
+            <a href="https://eng.uber.com/aresdb/" target="_blank" rel="noopener">
+              <div class="MarketingCard-section">
+                <img height="36" class="DarkMode-img" loading="lazy" alt="Uber" src="/images/logos/uber_dark.svg">
+                <img height="36" class="LightMode-img" loading="lazy" alt="Uber" src="/images/logos/uber_light.svg">
+              </div>
+              <div class="MarketingCard-section MarketingCard-section__spacer">
+                <h2 class="MarketingCard-title">Uber - motor de análisis de potencia de GPU en Go</h2>
+                <p class="MarketingCard-body">
+                  AresDB [,escrito en Go,] se usa ampliamente en Uber para impulsar nuestros paneles de análisis de datos en tiempo real, lo que nos permite tomar decisiones a escala basadas en datos sobre innumerables aspectos de nuestro negocio.
+                </p>
+              </div>
+              <div class="MarketingCard-section__bottom" aria-describedby="casestudy-description">
+                <p class="MarketingCard-action">Ver estudio de caso</p>
+              </div>
+            </a>
+          </li>
+          <li class="MarketingCard">
+            <a href="https://medium.com/tech-at-wildlife-studios/pitaya-wildlifes-golang-go-af57865f7a11" target="_blank" rel="noopener">
+              <div class="MarketingCard-section">
+                <img height="36" class="DarkMode-img" loading="lazy" alt="Wildlife Studios" src="/images/logos/wildlife_dark.svg">
+                <img height="36" class="LightMode-img" loading="lazy" alt="Wildlife Studios" src="/images/logos/wildlife_light.svg">
+              </div>
+              <div class="MarketingCard-section MarketingCard-section__spacer">
+                <h2 class="MarketingCard-title">Cómo Wildlife Studios construye sistemas backend en Go</h2>
+                <p class="MarketingCard-body">
+                  Wildlife es una empresa global nativa de Brasil enfocada en juegos móviles. Nuestro objetivo es desarrollar juegos que hagan felices a miles de millones de personas. Tenemos casi 40 millones de usuarios assets diarios y confiamos en Go como el lenguaje principal para nuestra plataforma principal, dadas sus características para escalar nuestros servicios backend.
+                </p>
+              </div>
+              <div class="MarketingCard-section__bottom" aria-describedby="casestudy-description">
+                <p class="MarketingCard-action">Ver estudio de caso</p>
+              </div>
+            </a>
+          </li>
+    <ul>
+  </ul></ul></div>
+</section>
+
+</main>
+<footer class="Site-footer">
+  <div class="Footer">
+    <div class="Container">
+      <div class="Footer-links">
+          <div class="Footer-linkColumn">
+            <a href="/solutions/" class="Footer-link Footer-link--primary" aria-describedby="footer-description">
+              Why Go
+            </a>
+              <a href="/solutions/use-cases" class="Footer-link" aria-describedby="footer-description">
+                Casos de uso
+              </a>
+              <a href="/solutions/case-studies" class="Footer-link" aria-describedby="footer-description">
+                Estudio de casos
+              </a>
+          </div>
+          <div class="Footer-linkColumn">
+            <a href="/learn/" class="Footer-link Footer-link--primary" aria-describedby="footer-description">
+              Comienza
+            </a>
+              <a href="https://go.dev/play" class="Footer-link" aria-describedby="footer-description" target="_blank" title="Página todavía no traducida">
+                Playground
+               ⬀</a>
+              <a href="https://go.dev/tour/" class="Footer-link" aria-describedby="footer-description" target="_blank" title="Página todavía no traducida">
+                Tour
+               ⬀</a>
+              <a href="https://stackoverflow.com/questions/tagged/go?tab=Newest" class="Footer-link" aria-describedby="footer-description">
+                Stack Overflow
+              </a>
+              <a href="https://go.dev/help/" class="Footer-link" aria-describedby="footer-description" target="_blank" title="Página todavía no traducida">
+                Ayuda
+               ⬀</a>
+          </div>
+          <div class="Footer-linkColumn">
+            <a href="https://pkg.go.dev" class="Footer-link Footer-link--primary" aria-describedby="footer-description">
+              Paquetes
+            </a>
+              <a href="https://go.dev/pkg/" class="Footer-link" aria-describedby="footer-description" target="_blank" title="Página todavía no traducida">
+                Biblioteca estándar
+               ⬀</a>
+              <a href="https://pkg.go.dev/about" class="Footer-link" aria-describedby="footer-description">
+                Acerca de los Paquetes Go
+              </a>
+          </div>
+          <div class="Footer-linkColumn">
+            <a href="https://go.dev/project" class="Footer-link Footer-link--primary" aria-describedby="footer-description" target="_blank" title="Página todavía no traducida">
+              Acerca de
+             ⬀</a>
+              <a href="https://go.dev/dl/" class="Footer-link" aria-describedby="footer-description" target="_blank" title="Página todavía no traducida">
+                Descargar
+               ⬀</a>
+              <a href="https://go.dev/blog/" class="Footer-link" aria-describedby="footer-description" target="_blank" title="Página todavía no traducida">
+                Blog
+               ⬀</a>
+              <a href="https://github.com/golang/go/issues" class="Footer-link" aria-describedby="footer-description">
+                Issue Tracker
+              </a>
+              <a href="https://go.dev/doc/devel/release" class="Footer-link" aria-describedby="footer-description" target="_blank" title="Página todavía no traducida">
+                Notas de la versión
+               ⬀</a>
+              <a href="https://go.dev/brand" class="Footer-link" aria-describedby="footer-description" target="_blank" title="Página todavía no traducida">
+                Pautas de marca
+               ⬀</a>
+              <a href="https://go.dev/conduct" class="Footer-link" aria-describedby="footer-description" target="_blank" title="Página todavía no traducida">
+                Código de Conducta
+               ⬀</a>
+          </div>
+          <div class="Footer-linkColumn">
+            <a href="https://www.twitter.com/golang" class="Footer-link Footer-link--primary" aria-describedby="footer-description">
+              Conéctate
+            </a>
+              <a href="https://www.twitter.com/golang" class="Footer-link" aria-describedby="footer-description">
+                Twitter
+              </a>
+              <a href="https://github.com/golang" class="Footer-link" aria-describedby="footer-description">
+                GitHub
+              </a>
+              <a href="https://invite.slack.golangbridge.org/" class="Footer-link" aria-describedby="footer-description">
+                Slack
+              </a>
+              <a href="https://reddit.com/r/golang" class="Footer-link" aria-describedby="footer-description">
+                r/golang
+              </a>
+              <a href="https://www.meetup.com/pro/go" class="Footer-link" aria-describedby="footer-description">
+                Meetup
+              </a>
+              <a href="https://golangweekly.com/" class="Footer-link" aria-describedby="footer-description">
+                Golang Weekly
+              </a>
+          </div>
+      </div>
+    </div>
+  </div>
+  <div class="screen-reader-only" id="footer-description" hidden="">
+          Se abre en una ventana nueva.
+  </div>
+  <div class="Footer">
+    <div class="Container Container--fullBleed">
+      <div class="Footer-bottom">
+        <img class="Footer-gopher" src="/images/gophers/pilot-bust.svg" alt="The Go Gopher">
+        <ul class="Footer-listRow">
+          <li class="Footer-listItem">
+            <a href="https://go.dev/copyright" aria-describedby="footer-description" target="_blank" title="Página todavía no traducida">Copyright ⬀</a>
+          </li>
+          <li class="Footer-listItem">
+            <a href="https://go.dev/tos" aria-describedby="footer-description" target="_blank" title="Página todavía no traducida">Términos de servicio ⬀</a>
+          </li>
+          <li class="Footer-listItem">
+            <a href="http://www.google.com/intl/en/policies/privacy/" aria-describedby="footer-description" target="_blank" rel="noopener">
+              Política de Privacidad
+            </a>
+            </li>
+          <li class="Footer-listItem">
+            <a href="https://go.dev/s/website-issue" aria-describedby="footer-description" target="_blank" rel="noopener" title="Página todavía no traducida">
+              Informar un problema
+             ⬀</a>
+          </li>
+          <li class="Footer-listItem go-Footer-listItem">
+            <button class="go-Button go-Button--text go-Footer-toggleTheme js-toggleTheme" aria-label="Alternar tema">
+              <img data-value="auto" class="go-Icon go-Icon--inverted" height="24" width="24" src="/images/icons/brightness_6_gm_grey_24dp.svg" alt="System theme">
+              <img data-value="dark" class="go-Icon go-Icon--inverted" height="24" width="24" src="/images/icons/brightness_2_gm_grey_24dp.svg" alt="Dark theme">
+              <img data-value="light" class="go-Icon go-Icon--inverted" height="24" width="24" src="/images/icons/light_mode_gm_grey_24dp.svg" alt="Light theme">
+            </button>
+          </li>
+        </ul>
+        <a class="Footer-googleLogo" target="_blank" href="https://google.com" rel="noopener">
+          <img class="Footer-googleLogoImg" src="/images/google-white.png" alt="Google logo">
+        </a>
+      </div>
+    </div>
+  </div>
+  <script src="/js/jquery.js"></script>
+  <script src="/js/carousels.js"></script>
+  <script src="/js/searchBox.js"></script>
+  <script src="/js/misc.js"></script>
+  <script src="/js/hats.js"></script>
+  
+  <script src="/js/godocs.js"></script>
+  <script async="" src="/js/copypaste.js"></script>
+</footer>
+<section class="Cookie-notice js-cookieNotice">
+  <div>go.dev utiliza cookies de Google para ofrecer y mejorar la calidad de sus servicios y analizar el tráfico. <a target="_blank" href="https://policies.google.com/technologies/cookies">Más información.</a></div>
+  <div><button class="go-Button">Ok</button></div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body></html>

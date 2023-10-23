@@ -1,0 +1,657 @@
+<!DOCTYPE html><html lang="es" data-theme="auto"><head>
+
+<link rel="preconnect" href="https://www.googletagmanager.com">
+
+  
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#00add8">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Material+Icons">
+<link rel="stylesheet" href="/css/styles.css">
+<link rel="icon" href="/images/favicon-gopher.png" sizes="any">
+<link rel="apple-touch-icon" href="/images/favicon-gopher-plain.png">
+<link rel="icon" href="/images/favicon-gopher.svg" type="image/svg+xml">
+
+  
+  
+  
+<script src="/js/site.js"></script>
+<meta name="og:url" content="https://go.dev/solutions/use-cases">
+<meta name="og:title" content="Casos de uso: el lenguaje de programación Go en Español">
+<title>Casos de uso: el lenguaje de programación Go en Español</title>
+
+<meta name="og:image" content="https://go.dev/doc/gopher/gopher5logo.jpg">
+<meta name="twitter:image" content="https://go.dev/doc/gopher/gopherbelly300.jpg">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@golang">
+<script async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5376430835440290" crossorigin="anonymous"></script></head>
+<body class="Site">
+  
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W8MVQXG"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  
+
+
+<header class="Site-header js-siteHeader">
+  <div class="Header Header--dark">
+    <nav class="Header-nav">
+      <a href="/">
+        <img class="js-headerLogo Header-logo" src="/images/go-logo-white.svg" alt="Go">
+      </a>
+      <div class="skip-navigation-wrapper">
+        <a class="skip-to-content-link" aria-label="Saltar al contenido principal" href="#main-content"> Saltar al contenido principal </a>
+      </div>
+      <div class="Header-rightContent">
+        <ul class="Header-menu">
+          <li class="Header-menuItem  Header-menuItem--active">
+            <a href="#" class="js-desktop-menu-hover" aria-label="Why Go" aria-describedby="dropdown-description">
+              Por qué Go <i class="material-icons" aria-hidden="true">arrow_drop_down</i>
+            </a>
+            <div class="screen-reader-only" id="dropdown-description" hidden=""> 
+              Presiona Enter para activar/desactivar el menú desplegable
+            </div>
+              <ul class="Header-submenu js-desktop-submenu-hover" aria-label="submenú">
+                  <li class="Header-submenuItem">
+                    <div>
+                        <a href="/solutions/case-studies">
+                          Estudio de casos
+                          
+                        </a>
+                    </div>
+                    <p>Problemas comunes que las empresas resuelven con Go</p>
+                  </li>
+                  <li class="Header-submenuItem">
+                    <div>
+                        <a href="/solutions/use-cases">
+                          Casos de uso
+                          
+                        </a>
+                    </div>
+                    <p>Historias sobre cómo y por qué las empresas usan Go</p>
+                  </li>
+                  <li class="Header-submenuItem">
+                    <div>
+                        <a href="https://go.dev/security/" target="_blank" title="Página todavía no traducida">
+                          Seguridad
+                          
+                         ⬀</a>
+                    </div>
+                    <p>Cómo Go puede ayudarte a mantenerte seguro de forma predeterminada</p>
+                  </li>
+              </ul>
+          </li>
+          <li class="Header-menuItem ">
+            <a href="/learn/" aria-label="Aprende" aria-describedby="dropdown-description">
+              Aprende 
+            </a>
+            <div class="screen-reader-only" id="dropdown-description" hidden=""> 
+              Presiona Enter para activar/desactivar el menú desplegable
+            </div>
+          </li>
+          <li class="Header-menuItem ">
+            <a href="#" class="js-desktop-menu-hover" aria-label="Docs" aria-describedby="dropdown-description">
+              Docs <i class="material-icons" aria-hidden="true">arrow_drop_down</i>
+            </a>
+            <div class="screen-reader-only" id="dropdown-description" hidden=""> 
+              Presiona Enter para activar/desactivar el menú desplegable
+            </div>
+              <ul class="Header-submenu js-desktop-submenu-hover" aria-label="submenú">
+                  <li class="Header-submenuItem">
+                    <div>
+                        <a href="https://go.dev/doc/effective_go" target="_blank" title="Página todavía no traducida">
+                          Go efectivo
+                          
+                         ⬀</a>
+                    </div>
+                    <p>Consejos para escribir código Go claro, eficaz e idiomático</p>
+                  </li>
+                  <li class="Header-submenuItem">
+                    <div>
+                        <a href="https://go.dev/doc" target="_blank" title="Página todavía no traducida">
+                          Ir al Manual de usuario
+                          
+                         ⬀</a>
+                    </div>
+                    <p>Una introducción completa a la creación de software con Go</p>
+                  </li>
+                  <li class="Header-submenuItem">
+                    <div>
+                        <a href="https://pkg.go.dev/std">
+                          Biblioteca estándar
+                          
+                        </a>
+                    </div>
+                    <p>Documentación de referencia para la biblioteca estándar de Go</p>
+                  </li>
+                  <li class="Header-submenuItem">
+                    <div>
+                        <a href="https://go.dev/doc/devel/release" target="_blank" title="Página todavía no traducida">
+                          Notas de la versión
+                          
+                         ⬀</a>
+                    </div>
+                    <p>Conoce las novedades de cada versión de Go</p>
+                  </li>
+              </ul>
+          </li>
+          <li class="Header-menuItem ">
+            <a href="https://pkg.go.dev" aria-label="Paquetes" aria-describedby="dropdown-description">
+              Paquetes 
+            </a>
+            <div class="screen-reader-only" id="dropdown-description" hidden=""> 
+              Presiona Enter para activar/desactivar el menú desplegable
+            </div>
+          </li>
+          <li class="Header-menuItem ">
+            <a href="#" class="js-desktop-menu-hover" aria-label="Community" aria-describedby="dropdown-description">
+              Comunidad <i class="material-icons" aria-hidden="true">arrow_drop_down</i>
+            </a>
+            <div class="screen-reader-only" id="dropdown-description" hidden=""> 
+              Presiona Enter para activar/desactivar el menú desplegable
+            </div>
+              <ul class="Header-submenu js-desktop-submenu-hover" aria-label="submenú">
+                  <li class="Header-submenuItem">
+                    <div>
+                        <a href="https://go.dev/talks/" target="_blank" title="Página todavía no traducida">
+                          Charlas Grabadas
+                          
+                         ⬀</a>
+                    </div>
+                    <p>Videos de eventos anteriores</p>
+                  </li>
+                  <li class="Header-submenuItem">
+                    <div>
+                        <a href="https://www.meetup.com/pro/go">
+                          Meetups
+                           <i class="material-icons">open_in_new</i>
+                        </a>
+                    </div>
+                    <p>Conoce a otros desarrolladores locales de Go</p>
+                  </li>
+                  <li class="Header-submenuItem">
+                    <div>
+                        <a href="https://github.com/golang/go/wiki/Conferences">
+                          Conferencias
+                           <i class="material-icons">open_in_new</i>
+                        </a>
+                    </div>
+                    <p>Aprende y establece contactos con desarrolladores de Go de todo el mundo</p>
+                  </li>
+                  <li class="Header-submenuItem">
+                    <div>
+                        <a href="https://go.dev/blog" target="_blank" title="Página todavía no traducida">
+                          Ir al blog
+                          
+                         ⬀</a>
+                    </div>
+                    <p>El blog oficial del proyecto Go.</p>
+                  </li>
+                  <li class="Header-submenuItem">
+                    <div>
+                        <a href="https://go.dev/help" target="_blank" title="Página todavía no traducida">
+                          Ir proyecto
+                          
+                         ⬀</a>
+                    </div>
+                    <p>Obtén ayuda y mantente informado acerca de Go</p>
+                  </li>
+                  <li class="Header-submenuItem">
+                    <div>
+                        Conéctate
+                    </div>
+                    <p></p>
+                      <div class="Header-socialIcons">
+                        
+                        <a class="Header-socialIcon" aria-label="Get connected with google-groups (Opens in new window)" href="https://groups.google.com/g/golang-nuts"><img src="/images/logos/social/google-groups.svg"></a>
+                        <a class="Header-socialIcon" aria-label="Get connected with github (Opens in new window)" href="https://github.com/golang"><img src="/images/logos/social/github.svg"></a>
+                        <a class="Header-socialIcon" aria-label="Get connected with twitter (Opens in new window)" href="https://twitter.com/golang"><img src="/images/logos/social/twitter.svg"></a>
+                        <a class="Header-socialIcon" aria-label="Get connected with reddit (Opens in new window)" href="https://www.reddit.com/r/golang/"><img src="/images/logos/social/reddit.svg"></a>
+                        <a class="Header-socialIcon" aria-label="Get connected with slack (Opens in new window)" href="https://invite.slack.golangbridge.org/"><img src="/images/logos/social/slack.svg"></a>
+                        <a class="Header-socialIcon" aria-label="Get connected with stack-overflow (Opens in new window)" href="https://stackoverflow.com/tags/go"><img src="/images/logos/social/stack-overflow.svg"></a>
+                      </div>
+                  </li>
+              </ul>
+          </li>
+        </ul>
+        <button class="Header-navOpen js-headerMenuButton Header-navOpen--white" aria-label="Abrir navegación.">
+        </button>
+      </div>
+    </nav>
+    
+  </div>
+</header>
+<aside class="NavigationDrawer js-header">
+  <nav class="NavigationDrawer-nav">
+    <div class="NavigationDrawer-header">
+      <a href="/">
+        <img class="NavigationDrawer-logo" src="/images/go-logo-blue.svg" alt="Go.">
+      </a>
+    </div>
+    <ul class="NavigationDrawer-list">
+        
+          <li class="NavigationDrawer-listItem js-mobile-subnav-trigger  NavigationDrawer-listItem--active NavigationDrawer-hasSubnav">
+            <a href="#"><span>Por qué Go</span> <i class="material-icons">navigate_next</i></a>
+
+            <div class="NavigationDrawer NavigationDrawer-submenuItem">
+              <nav class="NavigationDrawer-nav">
+                <div class="NavigationDrawer-header">
+                  <a href="#"><i class="material-icons">navigate_before</i>Por qué Go</a>
+                </div>
+                <ul class="NavigationDrawer-list">
+                    <li class="NavigationDrawer-listItem">
+                        <a href="/solutions/case-studies">
+                          Estudio de casos
+                          
+                        </a>
+                      
+                    </li>
+                    <li class="NavigationDrawer-listItem">
+                        <a href="/solutions/use-cases">
+                          Casos de uso
+                          
+                        </a>
+                      
+                    </li>
+                    <li class="NavigationDrawer-listItem">
+                        <a href="https://go.dev/security/" target="_blank" title="Página todavía no traducida">
+                          Seguridad
+                          
+                         ⬀</a>
+                      
+                    </li>
+                </ul>
+              </nav></div>
+            
+          </li>
+
+        
+        
+          <li class="NavigationDrawer-listItem ">
+            <a href="/learn/">Aprende</a>
+          </li>
+        
+        
+          <li class="NavigationDrawer-listItem js-mobile-subnav-trigger  NavigationDrawer-hasSubnav">
+            <a href="#"><span>Docs</span> <i class="material-icons">navigate_next</i></a>
+
+            <div class="NavigationDrawer NavigationDrawer-submenuItem">
+              <nav class="NavigationDrawer-nav">
+                <div class="NavigationDrawer-header">
+                  <a href="#"><i class="material-icons">navigate_before</i>Docs</a>
+                </div>
+                <ul class="NavigationDrawer-list">
+                    <li class="NavigationDrawer-listItem">
+                        <a href="https://go.dev/doc/effective_go" target="_blank" title="Página todavía no traducida">
+                          Go efectivo
+                          
+                         ⬀</a>
+                      
+                    </li>
+                    <li class="NavigationDrawer-listItem">
+                        <a href="https://go.dev/doc" target="_blank" title="Página todavía no traducida">
+                          Ir al Manual de usuario
+                          
+                         ⬀</a>
+                      
+                    </li>
+                    <li class="NavigationDrawer-listItem">
+                        <a href="https://pkg.go.dev/std">
+                          Biblioteca estándar
+                          
+                        </a>
+                      
+                    </li>
+                    <li class="NavigationDrawer-listItem">
+                        <a href="https://go.dev/doc/devel/release" target="_blank" title="Página todavía no traducida">
+                          Notas de la versión
+                          
+                         ⬀</a>
+                      
+                    </li>
+                </ul>
+              </nav></div>
+            
+          </li>
+
+        
+        
+          <li class="NavigationDrawer-listItem ">
+            <a href="https://pkg.go.dev">Paquetes</a>
+          </li>
+        
+        
+          <li class="NavigationDrawer-listItem js-mobile-subnav-trigger  NavigationDrawer-hasSubnav">
+            <a href="#"><span>Comunidad</span> <i class="material-icons">navigate_next</i></a>
+
+            <div class="NavigationDrawer NavigationDrawer-submenuItem">
+              <nav class="NavigationDrawer-nav">
+                <div class="NavigationDrawer-header">
+                  <a href="#"><i class="material-icons">navigate_before</i>Comunidad</a>
+                </div>
+                <ul class="NavigationDrawer-list">
+                    <li class="NavigationDrawer-listItem">
+                        <a href="https://go.dev/talks/" target="_blank" title="Página todavía no traducida">
+                          Charlas Grabadas
+                          
+                         ⬀</a>
+                      
+                    </li>
+                    <li class="NavigationDrawer-listItem">
+                        <a href="https://www.meetup.com/pro/go">
+                          Meetups
+                           <i class="material-icons">open_in_new</i>
+                        </a>
+                      
+                    </li>
+                    <li class="NavigationDrawer-listItem">
+                        <a href="https://github.com/golang/go/wiki/Conferences">
+                          Conferencias
+                           <i class="material-icons">open_in_new</i>
+                        </a>
+                      
+                    </li>
+                    <li class="NavigationDrawer-listItem">
+                        <a href="https://go.dev/blog" target="_blank" title="Página todavía no traducida">
+                          Ir al blog
+                          
+                         ⬀</a>
+                      
+                    </li>
+                    <li class="NavigationDrawer-listItem">
+                        <a href="https://go.dev/help" target="_blank" title="Página todavía no traducida">
+                          Ir proyecto
+                          
+                         ⬀</a>
+                      
+                    </li>
+                    <li class="NavigationDrawer-listItem">
+                        <div>Conéctate</div>
+                        <div class="Header-socialIcons">
+                          
+                            <a class="Header-socialIcon" href="https://groups.google.com/g/golang-nuts"><img src="/images/logos/social/google-groups.svg"></a>
+                            <a class="Header-socialIcon" href="https://github.com/golang"><img src="/images/logos/social/github.svg"></a>
+                            <a class="Header-socialIcon" href="https://twitter.com/golang"><img src="/images/logos/social/twitter.svg"></a>
+                            <a class="Header-socialIcon" href="https://www.reddit.com/r/golang/"><img src="/images/logos/social/reddit.svg"></a>
+                            <a class="Header-socialIcon" href="https://invite.slack.golangbridge.org/"><img src="/images/logos/social/slack.svg"></a>
+                            <a class="Header-socialIcon" href="https://stackoverflow.com/tags/go"><img src="/images/logos/social/stack-overflow.svg"></a>
+                        </div>
+                    </li>
+                </ul>
+              </nav></div>
+            
+          </li>
+
+        
+    </ul>
+  </nav>
+</aside>
+<div class="NavigationDrawer-scrim js-scrim" role="presentation"></div>
+<main class="SiteContent SiteContent--default" id="main-content">
+  <section class="Solutions-header">
+  <div class="Container">
+<ol class="SiteBreadcrumb">
+<li class="BreadcrumbNav-li ">
+  <a class="BreadcrumbNav-link" href="/solutions/">
+  Why Go
+  </a>
+</li>
+<li class="BreadcrumbNav-li active">
+  <a class="BreadcrumbNav-link" href="/solutions/use-cases">
+  Casos de uso
+  </a>
+</li>
+</ol>
+    <h1 class="Solutions-useCase__title">Casos de uso</h1>
+  </div>
+</section>
+<section class="Solutions-useCases">
+  <div class="Container">
+    <ul class="MarketingCardList">
+        <li class="MarketingCard">
+          <a href="https://go.dev/solutions/cloud" target="_blank" title="Página todavía no traducida">
+            <div class="MarketingCard-section">
+              <img class="LightMode-img" loading="lazy" alt="cloud icon" src="/solutions/cloud-green.svg">
+              <img class="DarkMode-img" loading="lazy" alt="cloud icon" src="/solutions/cloud-white.svg">
+            </div>
+            <div class="MarketingCard-section MarketingCard-section__spacer">
+              <h3 class="MarketingCard-title">Servicios de red y nube</h3>
+              <p class="MarketingCard-body">
+                Con un sólido ecosistema de herramientas y API en los principales proveedores de nube, es más fácil que nunca crear servicios con Go.
+              </p>
+            </div>
+            <div class="MarketingCard-section__bottom" aria-describedby="usecase-description">
+              <p class="MarketingCard-action">
+                Aprende más
+              </p>
+            </div>
+          </a>
+        </li>
+        <li class="MarketingCard">
+          <a href="https://go.dev/solutions/clis" target="_blank" title="Página todavía no traducida">
+            <div class="MarketingCard-section">
+              <img class="LightMode-img" loading="lazy" alt="CLI icon" src="/solutions/clis-green.svg">
+              <img class="DarkMode-img" loading="lazy" alt="CLI icon" src="/solutions/clis-white.svg">
+            </div>
+            <div class="MarketingCard-section MarketingCard-section__spacer">
+              <h3 class="MarketingCard-title">Interfaces de línea de comandos (CLI)</h3>
+              <p class="MarketingCard-body">
+                Con paquetes populares de código abierto y una biblioteca estándar sólida, usa Go para crear CLI rápidas y elegantes.
+              </p>
+            </div>
+            <div class="MarketingCard-section__bottom" aria-describedby="usecase-description">
+              <p class="MarketingCard-action">
+                Aprende más
+              </p>
+            </div>
+          </a>
+        </li>
+        <li class="MarketingCard">
+          <a href="https://go.dev/solutions/webdev" target="_blank" title="Página todavía no traducida">
+            <div class="MarketingCard-section">
+              <img class="LightMode-img" loading="lazy" alt="web dev icon" src="/solutions/webdev-green.svg">
+              <img class="DarkMode-img" loading="lazy" alt="web dev icon" src="/solutions/webdev-white.svg">
+            </div>
+            <div class="MarketingCard-section MarketingCard-section__spacer">
+              <h3 class="MarketingCard-title">Desarrollo Web</h3>
+              <p class="MarketingCard-body">
+                Con un rendimiento de memoria mejorado y soporte para varios IDE, Go impulsa aplicaciones web rápidas y escalables.
+              </p>
+            </div>
+            <div class="MarketingCard-section__bottom" aria-describedby="usecase-description">
+              <p class="MarketingCard-action">
+                Aprende más
+              </p>
+            </div>
+          </a>
+        </li>
+        <li class="MarketingCard">
+          <a href="https://go.dev/solutions/devops" target="_blank" title="Página todavía no traducida">
+            <div class="MarketingCard-section">
+              <img class="LightMode-img" loading="lazy" alt="ops icon" src="/solutions/devops-green.svg">
+              <img class="DarkMode-img" loading="lazy" alt="ops icon" src="/solutions/devops-white.svg">
+            </div>
+            <div class="MarketingCard-section MarketingCard-section__spacer">
+              <h3 class="MarketingCard-title">Ingeniería de confiabilidad de sitios y operaciones de desarrollo</h3>
+              <p class="MarketingCard-body">
+                Con tiempos de compilación rápidos, sintaxis optimizada, un formateador automático y un generador de documentación, Go está diseñado para impulsar DevOps y SRE.
+              </p>
+            </div>
+            <div class="MarketingCard-section__bottom" aria-describedby="usecase-description">
+              <p class="MarketingCard-action">
+                Aprende más
+              </p>
+            </div>
+          </a>
+        </li>
+    </ul>
+  </div>
+  <div class="screen-reader-only" id="usecase-description" hidden="">
+          Se abre en una ventana nueva.
+    </div>
+</section>
+
+</main>
+<footer class="Site-footer">
+  <div class="Footer">
+    <div class="Container">
+      <div class="Footer-links">
+          <div class="Footer-linkColumn">
+            <a href="/solutions/" class="Footer-link Footer-link--primary" aria-describedby="footer-description">
+              Why Go
+            </a>
+              <a href="/solutions/use-cases" class="Footer-link" aria-describedby="footer-description">
+                Casos de uso
+              </a>
+              <a href="/solutions/case-studies" class="Footer-link" aria-describedby="footer-description">
+                Estudio de casos
+              </a>
+          </div>
+          <div class="Footer-linkColumn">
+            <a href="/learn/" class="Footer-link Footer-link--primary" aria-describedby="footer-description">
+              Comienza
+            </a>
+              <a href="https://go.dev/play" class="Footer-link" aria-describedby="footer-description" target="_blank" title="Página todavía no traducida">
+                Playground
+               ⬀</a>
+              <a href="https://go.dev/tour/" class="Footer-link" aria-describedby="footer-description" target="_blank" title="Página todavía no traducida">
+                Tour
+               ⬀</a>
+              <a href="https://stackoverflow.com/questions/tagged/go?tab=Newest" class="Footer-link" aria-describedby="footer-description">
+                Stack Overflow
+              </a>
+              <a href="https://go.dev/help/" class="Footer-link" aria-describedby="footer-description" target="_blank" title="Página todavía no traducida">
+                Ayuda
+               ⬀</a>
+          </div>
+          <div class="Footer-linkColumn">
+            <a href="https://pkg.go.dev" class="Footer-link Footer-link--primary" aria-describedby="footer-description">
+              Paquetes
+            </a>
+              <a href="https://go.dev/pkg/" class="Footer-link" aria-describedby="footer-description" target="_blank" title="Página todavía no traducida">
+                Biblioteca estándar
+               ⬀</a>
+              <a href="https://pkg.go.dev/about" class="Footer-link" aria-describedby="footer-description">
+                Acerca de los Paquetes Go
+              </a>
+          </div>
+          <div class="Footer-linkColumn">
+            <a href="https://go.dev/project" class="Footer-link Footer-link--primary" aria-describedby="footer-description" target="_blank" title="Página todavía no traducida">
+              Acerca de
+             ⬀</a>
+              <a href="https://go.dev/dl/" class="Footer-link" aria-describedby="footer-description" target="_blank" title="Página todavía no traducida">
+                Descargar
+               ⬀</a>
+              <a href="https://go.dev/blog/" class="Footer-link" aria-describedby="footer-description" target="_blank" title="Página todavía no traducida">
+                Blog
+               ⬀</a>
+              <a href="https://github.com/golang/go/issues" class="Footer-link" aria-describedby="footer-description">
+                Issue Tracker
+              </a>
+              <a href="https://go.dev/doc/devel/release" class="Footer-link" aria-describedby="footer-description" target="_blank" title="Página todavía no traducida">
+                Notas de la versión
+               ⬀</a>
+              <a href="https://go.dev/brand" class="Footer-link" aria-describedby="footer-description" target="_blank" title="Página todavía no traducida">
+                Pautas de marca
+               ⬀</a>
+              <a href="https://go.dev/conduct" class="Footer-link" aria-describedby="footer-description" target="_blank" title="Página todavía no traducida">
+                Código de Conducta
+               ⬀</a>
+          </div>
+          <div class="Footer-linkColumn">
+            <a href="https://www.twitter.com/golang" class="Footer-link Footer-link--primary" aria-describedby="footer-description">
+              Conéctate
+            </a>
+              <a href="https://www.twitter.com/golang" class="Footer-link" aria-describedby="footer-description">
+                Twitter
+              </a>
+              <a href="https://github.com/golang" class="Footer-link" aria-describedby="footer-description">
+                GitHub
+              </a>
+              <a href="https://invite.slack.golangbridge.org/" class="Footer-link" aria-describedby="footer-description">
+                Slack
+              </a>
+              <a href="https://reddit.com/r/golang" class="Footer-link" aria-describedby="footer-description">
+                r/golang
+              </a>
+              <a href="https://www.meetup.com/pro/go" class="Footer-link" aria-describedby="footer-description">
+                Meetup
+              </a>
+              <a href="https://golangweekly.com/" class="Footer-link" aria-describedby="footer-description">
+                Golang Weekly
+              </a>
+          </div>
+      </div>
+    </div>
+  </div>
+  <div class="screen-reader-only" id="footer-description" hidden="">
+          Se abre en una ventana nueva.
+  </div>
+  <div class="Footer">
+    <div class="Container Container--fullBleed">
+      <div class="Footer-bottom">
+        <img class="Footer-gopher" src="/images/gophers/pilot-bust.svg" alt="The Go Gopher">
+        <ul class="Footer-listRow">
+          <li class="Footer-listItem">
+            <a href="https://go.dev/copyright" aria-describedby="footer-description" target="_blank" title="Página todavía no traducida">Copyright ⬀</a>
+          </li>
+          <li class="Footer-listItem">
+            <a href="https://go.dev/tos" aria-describedby="footer-description" target="_blank" title="Página todavía no traducida">Términos de servicio ⬀</a>
+          </li>
+          <li class="Footer-listItem">
+            <a href="http://www.google.com/intl/en/policies/privacy/" aria-describedby="footer-description" target="_blank" rel="noopener">
+              Política de Privacidad
+            </a>
+            </li>
+          <li class="Footer-listItem">
+            <a href="https://go.dev/s/website-issue" aria-describedby="footer-description" target="_blank" rel="noopener" title="Página todavía no traducida">
+              Informar un problema
+             ⬀</a>
+          </li>
+          <li class="Footer-listItem go-Footer-listItem">
+            <button class="go-Button go-Button--text go-Footer-toggleTheme js-toggleTheme" aria-label="Alternar tema">
+              <img data-value="auto" class="go-Icon go-Icon--inverted" height="24" width="24" src="/images/icons/brightness_6_gm_grey_24dp.svg" alt="System theme">
+              <img data-value="dark" class="go-Icon go-Icon--inverted" height="24" width="24" src="/images/icons/brightness_2_gm_grey_24dp.svg" alt="Dark theme">
+              <img data-value="light" class="go-Icon go-Icon--inverted" height="24" width="24" src="/images/icons/light_mode_gm_grey_24dp.svg" alt="Light theme">
+            </button>
+          </li>
+        </ul>
+        <a class="Footer-googleLogo" target="_blank" href="https://google.com" rel="noopener">
+          <img class="Footer-googleLogoImg" src="/images/google-white.png" alt="Google logo">
+        </a>
+      </div>
+    </div>
+  </div>
+  <script src="/js/jquery.js"></script>
+  <script src="/js/carousels.js"></script>
+  <script src="/js/searchBox.js"></script>
+  <script src="/js/misc.js"></script>
+  <script src="/js/hats.js"></script>
+  
+  <script src="/js/godocs.js"></script>
+  <script async="" src="/js/copypaste.js"></script>
+</footer>
+<section class="Cookie-notice js-cookieNotice">
+  <div>go.dev utiliza cookies de Google para ofrecer y mejorar la calidad de sus servicios y analizar el tráfico. <a target="_blank" href="https://policies.google.com/technologies/cookies">Más información.</a></div>
+  <div><button class="go-Button">Ok</button></div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body></html>
