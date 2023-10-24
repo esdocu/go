@@ -16,9 +16,9 @@
   
   
 <script src="/js/site.js"></script>
-<meta name="og:url" content="https://go.dev/solutions/use-cases">
-<meta name="og:title" content="Casos de uso: el lenguaje de programación Go en Español">
-<title>Casos de uso: el lenguaje de programación Go en Español</title>
+<meta name="og:url" content="https://go.dev/solutions/cloud">
+<meta name="og:title" content="Go para servicios de red y nube: el lenguaje de programación Go en Español">
+<title>Go para servicios de red y nube: el lenguaje de programación Go en Español</title>
 
 <meta name="og:image" content="https://go.dev/doc/gopher/gopher5logo.jpg">
 <meta name="twitter:image" content="https://go.dev/doc/gopher/gopherbelly300.jpg">
@@ -218,6 +218,17 @@
       </div>
     </nav>
     
+    <div class="UseCaseSubNav js-useCaseSubnav">
+      <button class="UseCaseSubNav-menuHeader js-useCaseSubnavHeader">
+        Saltar a
+        <img class="UseCaseSubNav-menuIcon js-useCaseSubnavMenuIcon" alt="Open menu icon" src="/images/icons/chevron-down.svg">
+      </button>
+      <div class="UseCaseSubNav-menu js-useCaseSubnavMenu">
+        <div class="UseCaseSubNav-anchorLinks js-useCaseSubnavLinks">
+        </div>
+      </div>
+    </div>
+    
   </div>
 </header>
 <aside class="NavigationDrawer js-header">
@@ -387,108 +398,395 @@
 </aside>
 <div class="NavigationDrawer-scrim js-scrim" role="presentation"></div>
 <main class="SiteContent SiteContent--default" id="main-content">
-  <section class="Solutions-header">
-  <div class="Container">
+  
+<div>
+  <div class="WhoUsesSubPage-hero--useCase">
+    <div class="WhoUsesSubPage-heroInner--useCase">
+      <div class="WhoUsesSubPage-heroContent--useCase">
+        <div class="WhoUsesSubPage-heroText--useCase">
+          
 <ol class="SiteBreadcrumb">
+  
 <li class="BreadcrumbNav-li ">
   <a class="BreadcrumbNav-link" href="/solutions/">
   Por qué Go
   </a>
 </li>
 <li class="BreadcrumbNav-li active">
-  <a class="BreadcrumbNav-link" href="/solutions/use-cases">
-  Casos de uso
+  <a class="BreadcrumbNav-link" href="/solutions/cloud">
+  Go para servicios de red y nube
   </a>
 </li>
 </ol>
-    <h1 class="Solutions-useCase__title">Casos de uso</h1>
+          <h1>Go para servicios de red y nube</h1>
+          
+          
+            <div class="Article-date">4 octubre 2019</div>
+          
+        </div>
+          
+        </div>
+      </div>
+
   </div>
-</section>
-<section class="Solutions-useCases">
-  <div class="Container">
-    <ul class="MarketingCardList">
-        <li class="MarketingCard">
-          <a href="/solutions/cloud">
-            <div class="MarketingCard-section">
-              <img class="LightMode-img" loading="lazy" alt="cloud icon" src="/solutions/cloud-green.svg">
-              <img class="DarkMode-img" loading="lazy" alt="cloud icon" src="/solutions/cloud-white.svg">
-            </div>
-            <div class="MarketingCard-section MarketingCard-section__spacer">
-              <h3 class="MarketingCard-title">Servicios de red y nube</h3>
-              <p class="MarketingCard-body">
-                Con un sólido ecosistema de herramientas y API en los principales proveedores de nube, es más fácil que nunca crear servicios con Go.
-              </p>
-            </div>
-            <div class="MarketingCard-section__bottom" aria-describedby="usecase-description">
-              <p class="MarketingCard-action">
-                Aprende más
-              </p>
-            </div>
-          </a>
-        </li>
-        <li class="MarketingCard">
-          <a href="https://go.dev/solutions/clis" target="_blank" title="Página todavía no traducida">
-            <div class="MarketingCard-section">
-              <img class="LightMode-img" loading="lazy" alt="CLI icon" src="/solutions/clis-green.svg">
-              <img class="DarkMode-img" loading="lazy" alt="CLI icon" src="/solutions/clis-white.svg">
-            </div>
-            <div class="MarketingCard-section MarketingCard-section__spacer">
-              <h3 class="MarketingCard-title">Interfaces de línea de comandos (CLI)</h3>
-              <p class="MarketingCard-body">
-                Con paquetes populares de código abierto y una biblioteca estándar sólida, usa Go para crear CLI rápidas y elegantes.
-              </p>
-            </div>
-            <div class="MarketingCard-section__bottom" aria-describedby="usecase-description">
-              <p class="MarketingCard-action">
-                Aprende más
-              </p>
-            </div>
-          </a>
-        </li>
-        <li class="MarketingCard">
-          <a href="https://go.dev/solutions/webdev" target="_blank" title="Página todavía no traducida">
-            <div class="MarketingCard-section">
-              <img class="LightMode-img" loading="lazy" alt="web dev icon" src="/solutions/webdev-green.svg">
-              <img class="DarkMode-img" loading="lazy" alt="web dev icon" src="/solutions/webdev-white.svg">
-            </div>
-            <div class="MarketingCard-section MarketingCard-section__spacer">
-              <h3 class="MarketingCard-title">Desarrollo Web</h3>
-              <p class="MarketingCard-body">
-                Con un rendimiento de memoria mejorado y soporte para varios IDE, Go impulsa aplicaciones web rápidas y escalables.
-              </p>
-            </div>
-            <div class="MarketingCard-section__bottom" aria-describedby="usecase-description">
-              <p class="MarketingCard-action">
-                Aprende más
-              </p>
-            </div>
-          </a>
-        </li>
-        <li class="MarketingCard">
-          <a href="https://go.dev/solutions/devops" target="_blank" title="Página todavía no traducida">
-            <div class="MarketingCard-section">
-              <img class="LightMode-img" loading="lazy" alt="ops icon" src="/solutions/devops-green.svg">
-              <img class="DarkMode-img" loading="lazy" alt="ops icon" src="/solutions/devops-white.svg">
-            </div>
-            <div class="MarketingCard-section MarketingCard-section__spacer">
-              <h3 class="MarketingCard-title">Ingeniería de confiabilidad de sitios y operaciones de desarrollo</h3>
-              <p class="MarketingCard-body">
-                Con tiempos de compilación rápidos, sintaxis optimizada, un formateador automático y un generador de documentación, Go está diseñado para impulsar DevOps y SRE.
-              </p>
-            </div>
-            <div class="MarketingCard-section__bottom" aria-describedby="usecase-description">
-              <p class="MarketingCard-action">
-                Aprende más
-              </p>
-            </div>
-          </a>
-        </li>
-    </ul>
+  <article class="Article Article--solutions">
+    
+      <div class="UseCase-content">
+        <div class="UseCase-contentAside">
+          <div class="js-useCaseStickyNav UseCaseSubNav-anchorLinks">
+          </div>
+        </div>
+        <div class="UseCase-contentBody js-useCaseContentBody">
+          
+          
+          <h2 id="overview" class="sectionHeading">Descripción general</h2>
+<div class="UseCase-halfColumn">
+    <h3>Go ayuda a las empresas a construir y escalar sistemas de computación en la nube</h3>
+    <p>A medida que las aplicaciones y el procesamiento se trasladan a la nube, la concurrencia se convierte en un problema muy importante. Los sistemas de computación en la nube, por su propia naturaleza, comparten y escalan recursos. Coordinar el acceso a recursos compartidos es un problema que afecta el procesamiento de todas las aplicaciones en la nube y requiere lenguajes de programación "explícitamente orientados a desarrollar aplicaciones concurrentes altamente confiables".</p>
   </div>
-  <div class="screen-reader-only" id="usecase-description" hidden="">
-          Se abre en una ventana nueva.
-    </div>
-</section>
+<div class="QuoteBlock">
+  <p class="QuoteBlock-body">
+    Go hace que escalar como empresa sea muy fácil. Esto es muy importante porque, a medida que nuestro equipo de ingeniería crece, cada servicio puede ser gestionado por una unidad diferente.
+  </p>
+    <div class="QuoteBlock-author">
+        <a class="QuoteBlock-link" href="https://builtin.com/software-engineering-perspectives/golang-advantages" target="_blank" rel="noopener">
+      — Ruchi Malik,&nbsp;<span>desarrollador en Choozle</span>
+      </a></div>
+</div>
+<h2 id="key-benefits" class="sectionHeading">Beneficios clave</h2>
+<h3 id="address-tradeoff-between-development-cycle-time-and-server-performance">Abordar el equilibrio entre el tiempo del ciclo de desarrollo y el rendimiento del servidor</h3>
+<p>Go se creó para abordar exactamente estas necesidades de concurrencia para aplicaciones escaladas, microservicios y desarrollo en la nube. De hecho, más del 75 por ciento de los proyectos de Cloud Native Computing Foundation están escritos en Go.</p>
+<p>Go ayuda a reducir la necesidad de hacer esta compensación, con sus tiempos de compilación rápidos que permiten el desarrollo iterativo, menor uso de memoria y CPU. Los servidores creados con Go experimentan tiempos de inicio instantáneos y son más baratos de ejecutar en implementaciones de pago por uso y sin servidor.</p>
+<h3 id="address-challenges-with-the-modern-cloud-delivering-standard-idiomatic-apis">Aborda los desafíos con la nube moderna, ofreciendo API idiomáticas estándar</h3>
+<p>Go aborda muchos desafíos que enfrentan los desarrolladores con la nube moderna, ofreciendo API idiomáticas estándar y concurrencia integrada para aprovechar los procesadores multinúcleo. La baja latencia y el ajuste "sin botones" de Go hacen de Go un excelente equilibrio entre rendimiento y productividad, lo que otorga a los equipos de ingeniería el poder de elegir y el poder de moverse.</p>
+<h2 id="use-case" class="sectionHeading">Caso de uso</h2>
+<h3 id="use-go-for-cloud-computing">Usa Go para Cloud Computing</h3>
+<p>Las fortalezas de Go brillan cuando se trata de servicios de building. Su velocidad y soporte integrado para la concurrencia dan como resultado servicios rápidos y eficientes, mientras que el tipado estática, las herramientas sólidas y el énfasis en la simplicidad y la legibilidad ayudan a crear código confiable y fácil de mantener.</p>
+<p>Go tiene un ecosistema sólido que respalda el desarrollo de servicios. La <a href="https://go.dev/pkg/" target="_blank" title="Página todavía no traducida">biblioteca estándar ⬀</a> incluye paquetes para necesidades comunes como servidores y clientes HTTP, análisis JSON/XML, bases de datos SQL y una variedad de funciones de seguridad/cifrado, mientras que el tiempo de ejecución Go incluye herramientas para <a href="https://go.dev/doc/articles/race_detector.html" target="_blank" title="Página todavía no traducida">race detection ⬀</a>, <a href="https://go.dev/pkg/testing/#hdr-Benchmarks" target="_blank" title="Página todavía no traducida">benchmarking ⬀</a>/profiling, generación de código y análisis de código estático.</p>
+<p>Los principales proveedores de Cloud (<a href="https://cloud.google.com/go/home" rel="noreferrer" target="_blank">GCP</a>, <a href="https://aws.amazon.com/sdk-for-go/" rel="noreferrer" target="_blank">AWS</a>, <a href="https://docs.microsoft.com/en-us/azure/go/" rel="noreferrer" target="_blank">Azure</a>) tienen API Go para sus servicios y bibliotecas populares de código abierto brindan soporte para herramientas API. (<a href="https://github.com/go-swagger/go-swagger" rel="noreferrer" target="_blank">Swagger</a>), transporte (<a href="https://github.com/golang/protobuf" rel="noreferrer" target="_blank">búferes de protocolo</a>, <a href="https://grpc.io/docs/quickstart/go/" rel="noreferrer" target="_blank">gRPC</a>), monitoreo (<a href="https://godoc.org/go.opencensus.io" rel="noreferrer" target="_blank">OpenCensus</a>), mapeo relacional de objetos (<a href="https://gorm.io/" rel="noreferrer" target="_blank">gORM</a>) y autenticación (<a href="https://github.com/dgrijalva/jwt-go" rel="noreferrer" target="_blank">JWT</a>). La comunidad de código abierto también ha proporcionado varios frameworks de servicios, incluidos <a href="https://gokit.io/" rel="noreferrer" target="_blank">Go Kit</a>, <a href="https://micro.mu/docs/go-micro.html" rel="noreferrer" target="_blank">Go Micro</a> y <a href="https://github.com/nytimes/gizmo" rel="noreferrer" target="_blank">Gizmo</a>, que puede ser una excelente manera de comenzar rápidamente.</p>
+<h3 id="go-tools-for-cloud-computing">Herramientas Go para Cloud Computing</h3>
+<div class="ToolsBlurbs">
+  <div class="ToolsBlurbs-blurb">
+    <a class="ToolsBlurbs-blurbHeader" href="https://www.docker.com/">
+      <img class="ToolsBlurbs-blurbIcon" src="/images/logos/docker.svg" alt="Docker">
+      <span>Docker</span>
+    </a>
+      <p class="ToolsBlurbs-blurbBody">
+        Docker es una plataforma como servicio que entrega software en contenedores. Los contenedores agrupan software, bibliotecas y archivos de configuración, están alojados en un Docker Engine y se ejecutan en un único kernel de sistema operativo (que utiliza menos recursos del sistema que las máquinas virtuales).
+      </p>
+      <p class="ToolsBlurbs-blurbBody">
+        Los desarrolladores de la nube usan Docker para administrar su código Go y admitir múltiples plataformas, ya que Docker admite el flujo de trabajo de desarrollo y el proceso de implementación.
+      </p>
+  </div>
+  <div class="ToolsBlurbs-blurb">
+    <a class="ToolsBlurbs-blurbHeader" href="https://kubernetes.io/">
+      <img class="ToolsBlurbs-blurbIcon" src="/images/logos/kubernetes.svg" alt="Kubernetes">
+      <span>Kubernetes</span>
+    </a>
+      <p class="ToolsBlurbs-blurbBody">
+        Kubernetes es un sistema de orquestación de contenedores de código abierto, escrito en Go, para automatizar la implementación de aplicaciones web. Las aplicaciones web a menudo se crean utilizando contenedores (como se indicó anteriormente) empaquetados con sus dependencias y configuraciones. Kubernetes ayuda a implementar y administrar esos contenedores a escala. Los programadores de la nube utilizan Kubernetes para crear, entregar y escalar aplicaciones en contenedores rápidamente, gestionando la creciente complejidad a través de API que controlan cómo se ejecutarán los contenedores.
+      </p>
+  </div>
+</div>
+<div class="FeaturedUsers">
+<h2 id="featured-users" class="sectionHeading">Usuarios destacados</h2>
+<table>
+  <thead>
+    <tr>
+      <th class="FeaturedUsers--hiddenMobile">Cliente</th>
+      <th>Breve introducción</th>
+      <th>Proyectos usando go</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="js-featuredUsersRow FeaturedUsers-row">
+      <td class="FeaturedUsers--hiddenMobile">
+        <img src="/images/logos/google-cloud.svg" alt="Google" class="DarkMode-img">
+        <img src="/images/logos/google-cloud.svg" alt="Google" class="LightMode-img">
+      </td>
+      <td>
+        <img class="FeaturedUsers--hiddenDesktop" src="/images/logos/google-cloud.svg" alt="Google">
+        Google Cloud utiliza Go en su ecosistema de productos y herramientas, incluidos Kubernetes, gVisor, Knative, Istio y Anthos. Go es totalmente compatible con Google Cloud en todas las API y runtimes.
+      </td>
+      <td>
+        <ul>
+          <li><a href="http://cloud.google.com/go">Go en Google Cloud Platform</a></li>
+        </ul>
+      </td>
+    </tr>
+    <tr class="js-featuredUsersRow FeaturedUsers-row">
+      <td class="FeaturedUsers--hiddenMobile">
+        <img src="/images/logos/capitalone_dark.svg" alt="Capital One" class="DarkMode-img">
+        <img src="/images/logos/capitalone_light.svg" alt="Capital One" class="LightMode-img">
+      </td>
+      <td>
+        <img class="FeaturedUsers--hiddenDesktop" src="/images/logos/capitalone_light.svg" alt="Capital One">
+        Capital One usa Go para impulsar la API de ofertas de crédito, un servicio crítico. El equipo de ingeniería también está construyendo su arquitectura sin servidor con Go, citando la velocidad y simplicidad de Go, y mencionando que "[ellos] no querían funcionar en serverless sin Go".
+      </td>
+      <td>
+        <ul>
+          <li><a href="https://medium.com/capital-one-tech/a-serverless-and-go-journey-credit-offers-api-74ef1f9fde7f">API de ofertas de crédito</a></li>
+        </ul>
+      </td>
+    </tr>
+    <tr class="js-featuredUsersRow FeaturedUsers-row">
+      <td class="FeaturedUsers--hiddenMobile">
+        <img src="/images/logos/dropbox.svg" alt="Dropbox" class="DarkMode-img">
+        <img src="/images/logos/dropbox.svg" alt="Dropbox" class="LightMode-img">
+      </td>
+      <td>
+        <img class="FeaturedUsers--hiddenDesktop" src="/images/logos/dropbox.svg" alt="Dropbox">
+        Dropbox se creó en Python, pero en 2013 decidió migrar sus backends de rendimiento crítico a Go. Hoy en día, la mayor parte de la infraestructura de la empresa está escrita en Go.
+      </td>
+      <td>
+        <ul>
+          <li><a href="https://blogs.dropbox.com/tech/2014/07/open-sourcing-our-go-libraries/">Bibliotecas de Dropbox</a></li>
+        </ul>
+      </td>
+    </tr>
+    <tr class="js-featuredUsersRow FeaturedUsers-row" hidden="">
+      <td class="FeaturedUsers--hiddenMobile">
+        <img src="/images/logos/mercadolibre_dark.svg" alt="Mercado Libre" class="DarkMode-img">
+        <img src="/images/logos/mercadolibre_light.svg" alt="Mercado Libre" class="LightMode-img">
+      </td>
+      <td>
+        <img class="FeaturedUsers--hiddenDesktop" src="/images/logos/mercadolibre_light.svg" alt="Mercado Libre">
+        MercadoLibre utiliza Go para escalar su plataforma de comercio electrónico. Go produce código eficiente que escala fácilmente a medida que crece el comercio en línea de MercadoLibre. Go mejora su productividad al tiempo que agiliza y amplía los servicios de MercadoLibre.
+      </td>
+      <td>
+        <ul>
+          <li><a href="http://go.dev/solutions/mercadolibre">MercadoLibre &amp; Go</a></li>
+        </ul>
+      </td>
+    </tr>
+    <tr class="js-featuredUsersRow FeaturedUsers-row" hidden="">
+      <td class="FeaturedUsers--hiddenMobile">
+        <img src="/images/logos/the-new-york-times-icon.svg" alt="The New York Times" class="DarkMode-img">
+        <img src="/images/logos/the-new-york-times-icon.svg" alt="The New York Times" class="LightMode-img">
+      </td>
+      <td>
+        <img class="FeaturedUsers--hiddenDesktop" src="/images/logos/the-new-york-times-icon.svg" alt="The New York Times">
+        The New York Times adoptó Go "para crear mejores servicios de back-end". A medida que el uso de Go se expandió en la empresa, sintieron la necesidad de crear un conjunto de herramientas para "ayudar a los desarrolladores a configurar y crear rápidamente API de microservicios y pubsub daemons", que tienen de código abierto.
+      </td>
+      <td>
+        <ul>
+          <li><a href="https://open.nytimes.com/introducing-gizmo-aa7ea463b208">NYTimes - Gizmo</a></li>
+          <li><a href="https://github.com/nytimes/gizmo">Gizmo GitHub</a></li>
+        </ul>
+      </td>
+    </tr>
+    <tr class="js-featuredUsersRow FeaturedUsers-row" hidden="">
+      <td class="FeaturedUsers--hiddenMobile">
+        <img src="/images/logos/twitch.svg" alt="Twitch" class="DarkMode-img">
+        <img src="/images/logos/twitch.svg" alt="Twitch" class="LightMode-img">
+      </td>
+      <td>
+        <img class="FeaturedUsers--hiddenDesktop" src="/images/logos/twitch.svg" alt="Twitch">
+        Twitch usa Go para alimentar muchos de sus sistemas más ocupados que ofrecen video en vivo y chat a millones de usuarios.
+      </td>
+      <td>
+        <ul>
+          <li><a href="https://blog.twitch.tv/en/2016/07/05/gos-march-to-low-latency-gc-a6fa96f06eb7/">La marcha de Go hacia GC de baja latencia</a></li>
+        </ul>
+      </td>
+    </tr>
+    <tr class="js-featuredUsersRow FeaturedUsers-row" hidden="">
+      <td class="FeaturedUsers--hiddenMobile">
+        <img src="/images/logos/uber_dark.svg" alt="Uber" class="DarkMode-img">
+        <img src="/images/logos/uber_light.svg" alt="Uber" class="LightMode-img">
+      </td>
+      <td>
+        <img class="FeaturedUsers--hiddenDesktop" src="/images/logos/uber_light.svg" alt="Uber">
+        Uber utiliza Go para impulsar varios de sus servicios críticos que impactan la experiencia de millones de conductores y pasajeros en todo el mundo. Desde su motor de análisis en tiempo real, AresDB, hasta su microservicio para consultas geográficas, Geofence, y su programador de recursos, Peloton.
+      </td>
+      <td>
+        <ul>
+          <li><a href="https://eng.uber.com/aresdb/">AresDB</a></li>
+          <li><a href="https://eng.uber.com/go-geofence/">Geofence</a></li>
+          <li><a href="https://eng.uber.com/open-sourcing-peloton/">Peloton</a></li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<button class="js-moreProjectsBtn FeaturedUsers-moreProjectsBtn" type="button">
+ Más proyectos
+</button>
+</div>
+<h2 id="get-started" class="sectionHeading">Comienza</h2>
+<h3 id="go-books-for-cloud-computing">Ir a libros para la computación en la nube</h3>
+<ul class="Learn-tileList">
+    <li class="Learn-tile">
+        <a href="https://www.amazon.com/Building-Microservices-Go-efficient-microservices/dp/1786468662/">
+              <img class="Learn-tileThumbnail Learn-tileThumbnail--book" alt="Building Microservices with Go thumbnail." src="/images/books/building-microservices-with-go.jpg">
+            <span class="Learn-tileTitle">
+                Creación de microservicios con Go
+            </span>
+        </a>
+    </li>
+    <li class="Learn-tile">
+        <a href="https://www.amazon.com/dp/1788622596/ref=cm_sw_r_tw_dp_U_x_-aZWDbS8PD7R4">
+              <img class="Learn-tileThumbnail Learn-tileThumbnail--book" alt="Hands-On Software Architecture with Golang thumbnail." src="/images/books/hands-on-software-architecture-with-golang.jpg">
+            <span class="Learn-tileTitle">
+                Arquitectura de software práctica con Golang
+            </span>
+        </a>
+    </li>
+    <li class="Learn-tile">
+        <a href="https://www.amazon.com/Building-RESTful-Web-services-gracefully-ebook/dp/B072QB8KL1">
+              <img class="Learn-tileThumbnail Learn-tileThumbnail--book" alt="Building RESTful Web services with Go thumbnail." src="/images/books/building-restful-web-services-with-go.jpg">
+            <span class="Learn-tileTitle">
+                Creación de servicios web RESTful con Go
+            </span>
+        </a>
+    </li>
+    <li class="Learn-tile">
+        <a href="https://www.amazon.com/Mastering-Web-Services-Nathan-Kozyra/dp/178398130X">
+              <img class="Learn-tileThumbnail Learn-tileThumbnail--book" alt="Mastering Go Web Services thumbnail." src="/images/books/mastering-go-web-services.jpg">
+            <span class="Learn-tileTitle">
+                Dominar los servicios web de Go
+            </span>
+        </a>
+    </li>
+</ul>
+<div class="WhoUsesCaseStudy-librariesWrapper">
+  <div class="headerWithLink">
+    <h3>Frameworks web</h3>
+  </div>
+  <ul class="WhoUsesCaseStudy-librariesList">
+    <li class="WhoUsesCaseStudy-library">
+      <a class="WhoUsesCaseStudy-libraryTitle" href="https://gobuffalo.io/en/">Buffalo</a>
+      <p>Un framework para el desarrollo web rápido en Go, curando bibliotecas Go y JS juntas.</p>
+    </li>
+    <li class="WhoUsesCaseStudy-library">
+      <a class="WhoUsesCaseStudy-libraryTitle" href="https://echo.labstack.com/">Echo</a>
+      <p>Un framework web Go minimalista, extensible y de alto rendimiento</p>
+    </li>
+    <li class="WhoUsesCaseStudy-library">
+      <a class="WhoUsesCaseStudy-libraryTitle" href="https://www.flamingo.me/">Flamingo</a>
+      <p>Un framework rápido de código abierto basado en Go con una arquitectura limpia y escalable</p>
+    </li>
+    <li class="WhoUsesCaseStudy-library">
+      <a class="WhoUsesCaseStudy-libraryTitle" href="https://gin-gonic.com/">Gin</a>
+      <p>Un framework web escrito en Go, con una API tipo martini.</p>
+    </li>
+    <li class="WhoUsesCaseStudy-library">
+      <a class="WhoUsesCaseStudy-libraryTitle" href="http://www.gorillatoolkit.org/">Gorilla</a>
+      <p>Un kit de herramientas web para el lenguaje de programación Go.</p>
+    </li>
+  </ul>
+  <a class="WhoUsesCaseStudy-librariesViewMoreLink" href="https://pkg.go.dev/search?q=web+framework">Ver más</a>
+</div>
+<div class="WhoUsesCaseStudy-librariesWrapper">
+  <div class="headerWithLink">
+    <h3>Routers</h3>
+  </div>
+  <ul class="WhoUsesCaseStudy-librariesList">
+    <li class="WhoUsesCaseStudy-library">
+      <a class="WhoUsesCaseStudy-libraryTitle" href="https://pkg.go.dev/github.com/julienschmidt/httprouter?tab=overview">julienschmidt/httprouter</a>
+      <p>Un enrutador de solicitudes HTTP liviano y de alto rendimiento</p>
+    </li>
+    <li class="WhoUsesCaseStudy-library">
+      <a class="WhoUsesCaseStudy-libraryTitle" href="https://pkg.go.dev/github.com/gorilla/mux?tab=overview">gorilla/mux</a>
+      <p>Un potente enrutador HTTP y comparador de URL para crear servidores web Go con 🦍</p>
+    </li>
+    <li class="WhoUsesCaseStudy-library">
+      <a class="WhoUsesCaseStudy-libraryTitle" href="https://pkg.go.dev/github.com/go-chi/chi?tab=overview">Chi</a>
+      <p>Un enrutador liviano, idiomático y componible para crear servicios Go HTTP.</p>
+    </li>
+    <li class="WhoUsesCaseStudy-library">
+      <a class="WhoUsesCaseStudy-libraryTitle" href="https://pkg.go.dev/net/http">net/http</a>
+      <p>Un paquete HTTP de biblioteca estándar</p>
+    </li>
+  </ul>
+  <a class="WhoUsesCaseStudy-librariesViewMoreLink" href="https://pkg.go.dev/search?q=http%20router">Ver más</a>
+</div>
+<div class="WhoUsesCaseStudy-librariesWrapper">
+  <div class="headerWithLink">
+    <h3>Template Engines</h3>
+  </div>
+  <ul class="WhoUsesCaseStudy-librariesList">
+    <li class="WhoUsesCaseStudy-library">
+      <a class="WhoUsesCaseStudy-libraryTitle" href="https://pkg.go.dev/html/template">html/template</a>
+      <p>Un motor de plantillas HTML de biblioteca estándar</p>
+    </li>
+    <li class="WhoUsesCaseStudy-library">
+      <a class="WhoUsesCaseStudy-libraryTitle" href="https://pkg.go.dev/github.com/flosch/pongo2?tab=overview">flosch/pongo2</a>
+      <p>Una sintaxis de Django como lenguaje de plantillas</p>
+    </li>
+  </ul>
+  <a class="WhoUsesCaseStudy-librariesViewMoreLink" href="https://pkg.go.dev/search?q=templates">Ver más</a>
+</div>
+<div class="WhoUsesCaseStudy-librariesWrapper">
+  <div class="headerWithLink">
+    <h3>Bases de datos y controladores</h3>
+  </div>
+  <ul class="WhoUsesCaseStudy-librariesList">
+    <li class="WhoUsesCaseStudy-library">
+      <a class="WhoUsesCaseStudy-libraryTitle" href="https://pkg.go.dev/database/sql">database/sql</a>
+      <p>Una interfaz de biblioteca estándar con soporte de controladores para MySQL, Postgres, Oracle, MS SQL, BigQuery y la mayoría de las bases de datos SQL</p>
+    </li>
+    <li class="WhoUsesCaseStudy-library">
+      <a class="WhoUsesCaseStudy-libraryTitle" href="https://pkg.go.dev/go.mongodb.org/mongo-driver/mongo?tab=overview">mongo-driver/mongo</a>
+      <p>El controlador compatible con MongoDB para Go</p>
+    </li>
+    <li class="WhoUsesCaseStudy-library">
+      <a class="WhoUsesCaseStudy-libraryTitle" href="https://pkg.go.dev/github.com/elastic/go-elasticsearch/v8?tab=overview">elastic/go-elasticsearch</a>
+      <p>Un cliente Elasticsearch para Go</p>
+    </li>
+    <li class="WhoUsesCaseStudy-library">
+      <a class="WhoUsesCaseStudy-libraryTitle" href="https://gorm.io/">GORM</a>
+      <p>Una biblioteca ORM para Go</p>
+    </li>
+    <li class="WhoUsesCaseStudy-library">
+      <a class="WhoUsesCaseStudy-libraryTitle" href="http://blevesearch.com/">Bleve</a>
+      <p>Búsqueda e indexación de texto completo para Go</p>
+    </li>
+    <li class="WhoUsesCaseStudy-library">
+      <a class="WhoUsesCaseStudy-libraryTitle" href="https://www.cockroachlabs.com/">CockroachDB</a>
+      <p>Una evolución de la base de datos, diseñada para la nube para ofrecer SQL distribuido, resiliente y consistente a escala</p>
+    </li>
+  </ul>
+  <a class="WhoUsesCaseStudy-librariesViewMoreLink" href="https://pkg.go.dev/search?q=database%20OR%20sql">Ver más</a>
+</div>
+<div class="WhoUsesCaseStudy-librariesWrapper">
+  <div class="headerWithLink">
+    <h3>Bibliotecas Web</h3>
+  </div>
+  <ul class="WhoUsesCaseStudy-librariesList">
+    <li class="WhoUsesCaseStudy-library">
+      <a class="WhoUsesCaseStudy-libraryTitle" href="https://pkg.go.dev/github.com/markbates/goth?tab=overview">markbates/goth</a>
+      <p>Autenticación para aplicaciones web</p>
+    </li>
+    <li class="WhoUsesCaseStudy-library">
+      <a class="WhoUsesCaseStudy-libraryTitle" href="https://pkg.go.dev/github.com/jinzhu/gorm?tab=overview">jinzhu/gorm</a>
+      <p>Una biblioteca ORM para Go</p>
+    </li>
+    <li class="WhoUsesCaseStudy-library">
+      <a class="WhoUsesCaseStudy-libraryTitle" href="https://pkg.go.dev/github.com/dgrijalva/jwt-go?tab=overview">dgrijalva/jwt-go</a>
+      <p>Una implementación Go de tokens web json</p>
+    </li>
+  </ul>
+  <a class="WhoUsesCaseStudy-librariesViewMoreLink" href="https://pkg.go.dev/search?q=web">Ver más</a>
+</div>
+<div class="WhoUsesCaseStudy-librariesWrapper">
+  <div class="headerWithLink">
+    <h3>Otros Proyectos</h3>
+  </div>
+  <ul class="WhoUsesCaseStudy-librariesList">
+    <li class="WhoUsesCaseStudy-library">
+      <a class="WhoUsesCaseStudy-libraryTitle" href="https://pkg.go.dev/github.com/gopherjs/gopherjs?tab=overview">gopherjs</a>
+      <p>Un compilador de Go a JavaScript que permite a los desarrolladores escribir código de interfaz de usuario en Go que se ejecutará en todos los navegadores.</p>
+    </li>
+  </ul>
+  <a class="WhoUsesCaseStudy-librariesViewMoreLink" href="">Ver más</a>
+</div>
+
+        </div>
+      </div>
+    
+  </article>
+</div>
 
 </main>
 <footer class="Site-footer">
