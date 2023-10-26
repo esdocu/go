@@ -16,9 +16,9 @@
   
   
 <script src="/js/site.js"></script>
-<meta name="og:url" content="https://go.dev/solutions/">
-<meta name="og:title" content="Por qué Go - El lenguaje de programación Go en Español">
-<title>Por qué Go - El lenguaje de programación Go en Español</title>
+<meta name="og:url" content="https://go.dev/security/best-practices">
+<meta name="og:title" content="Mejores prácticas de seguridad para desarrolladores de Go: el lenguaje de programación Go en Español">
+<title>Mejores prácticas de seguridad para desarrolladores de Go: el lenguaje de programación Go en Español</title>
 
 <meta name="og:image" content="https://go.dev/doc/gopher/gopher5logo.jpg">
 <meta name="twitter:image" content="https://go.dev/doc/gopher/gopherbelly300.jpg">
@@ -43,7 +43,7 @@
       </div>
       <div class="Header-rightContent">
         <ul class="Header-menu">
-          <li class="Header-menuItem  Header-menuItem--active">
+          <li class="Header-menuItem ">
             <a href="#" class="js-desktop-menu-hover" aria-label="Por qué Go" aria-describedby="dropdown-description">
               Por qué Go <i class="material-icons" aria-hidden="true">arrow_drop_down</i>
             </a>
@@ -229,7 +229,7 @@
     </div>
     <ul class="NavigationDrawer-list">
         
-          <li class="NavigationDrawer-listItem js-mobile-subnav-trigger  NavigationDrawer-listItem--active NavigationDrawer-hasSubnav">
+          <li class="NavigationDrawer-listItem js-mobile-subnav-trigger  NavigationDrawer-hasSubnav">
             <a href="#"><span>Por qué Go</span> <i class="material-icons">navigate_next</i></a>
 
             <div class="NavigationDrawer NavigationDrawer-submenuItem">
@@ -388,16 +388,31 @@
 <div class="NavigationDrawer-scrim js-scrim" role="presentation"></div>
 <main class="SiteContent SiteContent--default" id="main-content">
   
-  <article class="Article Article--solutions">
+  <article class="Article Article--security">
 
     
-    <h1>Por qué Go</h1>
-    <h2><a href="/solutions/case-studies">Casos de estudio</a></h2>
-Problemas comunes que las empresas resuelven con Go.
-<h2><a href="/solutions/use-cases">Casos de uso</a></h2>
-Historias sobre cómo y por qué las empresas utilizan Go.
-<h2><a href="https://go.dev/security/policy" rel="nofollow" target="_blank" title="Página todavía no traducida">Política de seguridad ⬀</a></h2>
-Cómo Go puede ayudarle a mantenerse seguro de forma predeterminada.
+    <h1>Mejores prácticas de seguridad para desarrolladores de Go</h1>
+    <p><a href="/security">Volver a Seguridad en Go</a></p>
+<p>Esta página proporciona a los desarrolladores de Go las mejores prácticas para priorizar la seguridad de sus proyectos. Desde automatizar tests con fuzzing hasta verificar fácilmente las condiciones de carrera, estos consejos pueden ayudar a que tu código base sea más seguro y confiable.</p>
+<h2 id="scan-source-code-and-binaries-for-vulnerabilities">Escanea el código fuente y los binarios en busca de vulnerabilidades</h2>
+<p>Escanear periódicamente tu código y archivos binarios en busca de vulnerabilidades ayuda a identificar posibles riesgos de seguridad de manera temprana. Puedes usar <a href="https://pkg.go.dev/golang.org/x/vuln/cmd/govulncheck" rel="noreferrer" target="_blank">govulncheck</a>, respaldado por la <a href="https://pkg.go.dev" rel="noreferrer" target="_blank">base de datos de vulnerabilidades de Go</a> para escanear tu código en busca de vulnerabilidades y analizar cuáles realmente te afectan. Comienza con <a href="https://go.dev/doc/tutorial/govulncheck" rel="nofollow" target="_blank" title="Página todavía no traducida">el tutorial de govulncheck ⬀</a>.</p>
+<p>Govulncheck también se puede integrar en flujos de CI/CD. El equipo de Go proporciona una <a href="https://github.com/marketplace/actions/golang-govulncheck-action" rel="noreferrer" target="_blank">GitHub Action para govulncheck</a> en GitHub Marketplace. Govulncheck también admite un indicador <code>-json</code> para ayudar a los desarrolladores a integrar el escaneo de vulnerabilidades con otros sistemas CI/CD.</p>
+<p>También puedes buscar vulnerabilidades directamente en tu editor de código usando la <a href="https://go.dev/security/vuln/editor" rel="nofollow" target="_blank" title="Página todavía no traducida">Extensión Go para Visual Studio Code ⬀</a>. Comienza con <a href="https://go.dev/doc/tutorial/govulncheck-ide" rel="nofollow" target="_blank" title="Página todavía no traducida">este tutorial ⬀</a>.</p>
+<h2 id="keep-your-go-version-and-dependencies-up-to-date">Mantén actualizada tu versión de Go y tus dependencias</h2>
+<p>Mantener tu <a href="https://go.dev/doc/install" rel="nofollow" target="_blank" title="Página todavía no traducida">Versión Go actualizada ⬀</a> ofrece acceso a las últimas funciones del lenguaje, mejoras de rendimiento y parches para vulnerabilidades de seguridad conocidas. Una versión actualizada de Go también garantiza la compatibilidad con versiones más recientes de dependencias, lo que ayuda a evitar posibles problemas de integración. Revisa el <a href="https://go.dev/doc/devel/release" rel="nofollow" target="_blank" title="Página todavía no traducida">Historial de lanzamientos de Go ⬀</a> para ver qué cambios se han realizado en Go entre lanzamientos. El equipo de Go emite lanzamientos puntuales a lo largo del ciclo de lanzamiento para solucionar errores de seguridad. Asegúrate de actualizar a la última versión menor de Go para asegurarse de tener las últimas correcciones de seguridad.</p>
+<p>Mantener dependencias de terceros actualizadas también es crucial para la seguridad, el rendimiento y el cumplimiento del software con los últimos estándares en el ecosistema Go. Sin embargo, actualizar a las últimas versiones sin una revisión exhaustiva <a href="https://research.swtch.com/npm-colors" rel="noreferrer" target="_blank">también puede ser riesgoso</a>, ya que podría introducir nuevos errores, cambios incompatibles o incluso código malicioso. Por lo tanto, si bien es esencial actualizar las dependencias para obtener los últimos parches y mejoras de seguridad, cada actualización debe revisarse y probarse cuidadosamente.</p>
+<h2 id="test-with-fuzzing-to-uncover-edge-case-exploits">Testing con fuzzing para descubrir edge-case exploits</h2>
+<p><a href="https://go.dev/security/fuzz" rel="nofollow" target="_blank" title="Página todavía no traducida">Fuzzing ⬀</a> es un tipo de testing que utilizan una guía de cobertura para manipular entradas aleatorias y recorrer el código para encontrar e informar vulnerabilidades potenciales como inyecciones de SQL, desbordamientos de búfer, denegación de servicio y ataques de cross-site scripting. Fuzzing a menudo puede llegar a casos extremos que los programadores pasan por alto o consideran demasiado improbables para probar. Comienza con <a href="https://go.dev/doc/tutorial/fuzz" rel="nofollow" target="_blank" title="Página todavía no traducida">este tutorial ⬀</a>.</p>
+<h2 id="check-for-race-conditions-with-gos-race-detector">Verifica las condiciones de carrera con el detector de carrera de Go</h2>
+<p>Las condiciones de carrera ocurren cuando dos o más <a href="https://go.dev/tour/concurrency/1" rel="nofollow" target="_blank" title="Página todavía no traducida">gorrutinas ⬀</a>
+acceden al mismo recurso simultáneamente y al menos uno de esos accesos es una escritura. Esto puede generar problemas impredecibles y difíciles de diagnosticar en tu software. Identifica posibles condiciones de carrera en tu código Go utilizando el software integrado <a href="https://go.dev/doc/articles/race_detector" rel="nofollow" target="_blank" title="Página todavía no traducida">detector de carreras ⬀</a>, que puede ayudarte a garantizar la seguridad y confiabilidad de tus programas concurrentes. Sin embargo, el detector de carreras encuentra carreras que ocurren en tiempo de ejecución, por lo que no encontrará carreras en rutas de código que no se ejecuten.</p>
+<p>Para usar el detector de carrera, agrega el indicador <code>-race</code> cuando ejecutes tus tests o crees tu aplicación, por ejemplo, <code>go test -race</code>. Esto compilará tu código con el detector de carreras habilitado e informará cualquier condición de carrera que detecte en tiempo de ejecución. Cuando el detector de carreras encuentre una carrera de datos en el programa, <a href="https://go.dev/doc/articles/race_detector" rel="nofollow" target="_blank" title="Página todavía no traducida">imprime un informe ⬀</a> que contiene seguimientos de pila para accesos en conflicto y pilas donde se crearon las rutinas involucradas.</p>
+<h2 id="use-vet-to-examine-suspicious-constructs">Usa Vet para examinar construcciones sospechosas</h2>
+<p>El <a href="https://pkg.go.dev/cmd/vet" rel="noreferrer" target="_blank">comando vet</a> de Go es diseñado para analizar tu código fuente y señalar problemas potenciales que podrían no ser necesariamente errores de sintaxis, pero que podrían generar problemas durante el tiempo de ejecución. Estos incluyen construcciones sospechosas, como código inalcanzable, variables no utilizadas y errores comunes en torno a las rutinas. Al detectar estos problemas desde el principio durante el proceso de desarrollo, go vet ayuda a mantener la calidad del código, reduce el tiempo de depuración y mejora la confiabilidad general del software. Para ejecutar go vet para un proyecto específico, ejecuta:</p>
+<pre><code>go vet ./...
+</code></pre>
+<h2 id="subscribe-to-golang-announce-for-notification-of-security-releases">Suscríbete a golang-announce para recibir notificaciones sobre versiones de seguridad</h2>
+<p>Las versiones de Go que contienen correcciones de seguridad se anuncian previamente en la lista de correo de bajo volumen <a href="https://groups.google.com/group/golang-announce" rel="noreferrer" target="_blank">golang-announce@googlegroups.com</a>. Si deseas saber cuándo están en camino las correcciones de seguridad para Go, suscríbete.</p>
 
 
     
