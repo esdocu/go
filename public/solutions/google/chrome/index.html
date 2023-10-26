@@ -16,9 +16,9 @@
   
   
 <script src="/js/site.js"></script>
-<meta name="og:url" content="https://go.dev/solutions/google/">
-<meta name="og:title" content="Uso de Go en Google: el lenguaje de programación Go en Español">
-<title>Uso de Go en Google: el lenguaje de programación Go en Español</title>
+<meta name="og:url" content="https://go.dev/solutions/google/chrome">
+<meta name="og:title" content="El servicio de optimización de contenido de Chrome se ejecuta en Go: el lenguaje de programación Go en Español">
+<title>El servicio de optimización de contenido de Chrome se ejecuta en Go: el lenguaje de programación Go en Español</title>
 
 <meta name="og:image" content="https://go.dev/doc/gopher/gopher5logo.jpg">
 <meta name="twitter:image" content="https://go.dev/doc/gopher/gopherbelly300.jpg">
@@ -401,21 +401,24 @@
   Por qué Go
   </a>
 </li>
-<li class="BreadcrumbNav-li active">
+<li class="BreadcrumbNav-li ">
   <a class="BreadcrumbNav-link" href="/solutions/google/">
   Uso de Go en Google
   </a>
 </li>
+<li class="BreadcrumbNav-li active">
+  <a class="BreadcrumbNav-link" href="/solutions/google/chrome">
+  El servicio de optimización de contenido de Chrome se ejecuta en Go
+  </a>
+</li>
 </ol>
-          <h1>Uso de Go en Google</h1>
+          <h1>El servicio de optimización de contenido de Chrome se ejecuta en Go</h1>
           
-          
-            <div class="Article-date">27 agosto 2020</div>
           
         </div>
           
             <div class="WhoUsesSubPage-heroImg">
-              <img src="/images/go_core_data_case_study.png" alt="Google">
+              <img src="/images/go_chrome_case_study.png" alt="Chrome">
             </div>
           
         </div>
@@ -426,48 +429,34 @@
     
       <div class="CaseStudy-content">
         <div class="CaseStudy-contentBody">
-          <div class="PullQuote">
-  <div class="PullQuote-quoteHeader">
-    <img class="PullQuote-image" src="/images/quote.svg" alt="Quotation mark.">
-  </div>
-  <p class="PullQuote-body">
-    </p><p>Go comenzó en septiembre de 2007, cuando Robert Griesemer, Ken Thompson y yo comenzamos a discutir un nuevo lenguaje para abordar los desafíos de ingeniería que nosotros y nuestros colegas de Google encarábamos en nuestro trabajo diario.</p>
-<p>Cuando lanzamos Go por primera vez al público en noviembre de 2009, no sabíamos si el lenguaje sería adoptado ampliamente o si podría influir en los lenguajes futuros. Mirando hacia atrás desde 2020, Go ha tenido éxito en ambos aspectos: se usa ampliamente tanto dentro como fuera de Google, y sus enfoques para la concurrencia de redes y la ingeniería de software han tenido un efecto notable en otros lenguajes y sus herramientas.</p>
-<p>Go ha resultado tener un alcance mucho más amplio de lo que esperábamos. Su crecimiento en la industria ha sido fenomenal y ha impulsado muchos proyectos en Google.</p>
-  <p></p>
-  <div class="PullQuote-author">
-    <span>
-      — Rob Pike</span>
-  </div>
+          <p>Cuando te viene a la mente el producto Chrome, probablemente pienses únicamente en el navegador instalado por el usuario. Pero detrás de escena, Chrome tiene una extensa flota de backends. Entre ellos se encuentra el servicio Chrome Optimization Guide. Este servicio forma una base importante para la estrategia de experiencia del usuario de Chrome, opera en la ruta crítica para los usuarios y se implementa en Go.</p>
+<p>El servicio Chrome Optimization Guide está diseñado para llevar el poder de Google a Chrome al proporcionar sugerencias al navegador instalado sobre qué optimizaciones se pueden realizar al cargar una página, así como cuándo se pueden aplicar de manera más efectiva. Comprende una conjunción de servidores en tiempo real y análisis de registros por lotes.</p>
+<p>Todos los usuarios del modo Lite de Chrome reciben datos a través del servicio a través de los siguientes mecanismos: un envío de blobs de datos que proporciona sugerencias para sitios conocidos en su geografía, un registro en los servidores de Google para recuperar sugerencias para hosts que el usuario específico visita con frecuencia, y bajo demanda para cargas de páginas para las cuales aún no hay una pista en el dispositivo. Si el servicio Chrome Optimization Guide desapareciera repentinamente, los usuarios podrían notar un cambio dramático en la velocidad de carga de sus páginas y la cantidad de datos consumidos mientras navegan por la web.</p>
+<div class="BackgroundQuote">
+    <p class="BackgroundQuote-body">
+      “Dado que Go fue un éxito para nosotros, planeamos continuar usándolo cuando corresponda”
+    </p>
+    <div class="BackgroundQuote-author">
+      <span>— Sophie Chang</span>
+      ,&nbsp;
+      <span class="BackgroundQuote-title">Ingeniero de software</span>
+    </div>
 </div>
-<p>Las siguientes historias son una pequeña muestra de las muchas formas en que se utiliza Go en Google.</p>
-<h3 id="how-googles-core-data-solutions-team-uses-go">Cómo utiliza Go el equipo de Core Data Solutions de Google</h3>
-<p>La misión de Google es "organizar la información del mundo y hacerla universalmente accesible y útil". Uno de los equipos responsables de organizar esa información es el equipo de Core Data Solutions de Google. El equipo, entre otras cosas, mantiene servicios para indexar páginas web en todo el mundo. Estos servicios de indexación web ayudan a respaldar productos como la Búsqueda de Google al mantener los resultados de búsqueda actualizados y completos, y están escritos en Go.</p>
-<p><a href="https://go.dev/solutions/google/coredata" rel="nofollow" target="_blank" title="Página todavía no traducida">Conoce más ⬀</a></p>
-<hr>
-<h3 id="chrome-content-optimization-service-runs-on-go">El servicio de optimización de contenido de Chrome se ejecuta en Go</h3>
-<p>Cuando te viene a la mente el producto Chrome, probablemente pienses únicamente en el navegador instalado por el usuario. Pero detrás de escena, Chrome tiene una extensa flota de backends. Entre ellos se encuentra el servicio Guía de optimización de Chrome. Este servicio forma una base importante para la estrategia de experiencia del usuario de Chrome, opera en la ruta crítica para los usuarios y se implementa en Go.</p>
-<p><a href="/solutions/google/chrome/">Conoce más</a></p>
-<hr>
-<h3 id="how-the-firebase-hosting-team-scaled-with-go">Cómo el equipo de Firebase Hosting creció con Go</h3>
-<p>El equipo de Firebase Hosting brinda servicios de alojamiento web estático para clientes de Google Cloud. Proporcionan un servidor web estático que se encuentra detrás de una red global de entrega de contenido y ofrecen a los usuarios herramientas que son fáciles de usar. El equipo también desarrolla funciones que van desde la carga de archivos del sitio hasta el registro de dominios y el seguimiento del uso.</p>
-<p><a href="https://go.dev/solutions/google/firebase" rel="nofollow" target="_blank" title="Página todavía no traducida">Conoce más ⬀</a></p>
-<hr>
-<h3 id="actuating-google-production-how-googles-site-reliability-engineering-team-uses-go">Activación de la producción de Google: cómo utiliza Go el equipo de ingeniería de confiabilidad del sitio de Google</h3>
-<p>Google ejecuta una pequeña cantidad de servicios muy grandes. Esos servicios están impulsados por una infraestructura global que cubre todo lo que uno necesita: sistemas de almacenamiento, balanceadores de carga, redes, registros, monitoreo y mucho más. Sin embargo, no es un sistema estático; no puede serlo. La arquitectura evoluciona, se crean nuevos productos e ideas, se deben implementar nuevas versiones, implementar configuraciones, actualizar el esquema de la base de datos y más. Terminamos implementando cambios en nuestros sistemas docenas de veces por segundo.</p>
-<p><a href="https://go.dev/solutions/google/sitereliability" rel="nofollow" target="_blank" title="Página todavía no traducida">Conoce más ⬀</a></p>
+<p>Cuando el equipo de ingeniería de Chrome comenzó a crear el servicio, solo unos pocos miembros se sentían cómodos con Go. La mayor parte del equipo estaba más familiarizado con C++, pero encontraron que el complejo texto repetitivo necesario para poner en funcionamiento un servidor C++ era demasiado. El equipo compartió que "[ellos] estaban bastante motivados para aprender Go debido a su simplicidad, rápido desarrollo y ecosistema" y que “[su] sentido de la aventura fue recompensado”. Millones de usuarios confían en este servicio para mejorar su experiencia con Chrome y elegir Go no fue una decisión fácil. Después de su experiencia hasta ahora, el equipo también compartió que "dado que Go fue un éxito para nosotros, planeamos continuar usándolo cuando corresponda".</p>
+<p>Además del equipo de Chrome Optimization Guide, los equipos de ingeniería de Google han adoptado Go en su proceso de desarrollo. Obtén más información sobre cómo los equipos de <a href="https://go.dev/solutions/google/coredata" rel="nofollow" target="_blank" title="Página todavía no traducida">CoreData Solutions ⬀</a> y <a href="https://go.dev/solutions/google/firebase" rel="nofollow" target="_blank" title="Página todavía no traducida">FirebaseHosting ⬀</a> utilizan Go para compilar rápidamente software fiable y eficiente a escala.</p>
+<p><em>Nota editorial: El equipo de Go quisiera agradecer a Sophie Chang por sus contribuciones a esta historia.</em></p>
 
         </div>
         <div class="CaseStudy-contentAside">
           <div class="CaseStudy-aboutBlock">
-            <img src="/images/logos/google.svg" class="CaseStudy-aboutBlockImg DarkMode-img" alt="Google">
-            <img src="/images/logos/google.svg" class="CaseStudy-aboutBlockImg LightMode-img" alt="Google">
+            <img src="/images/logos/chrome.svg" class="CaseStudy-aboutBlockImg DarkMode-img" alt="Chrome">
+            <img src="/images/logos/chrome.svg" class="CaseStudy-aboutBlockImg LightMode-img" alt="Chrome">
             <h3 class="CaseStudy-aboutBlockTitle">
-              Acerca de Google
+              Acerca de Chrome
             </h3>
             
-              <p></p><p>Google es una empresa de tecnología cuya misión es organizar la información del mundo y hacerla universalmente accesible y útil.</p>
-<p>Go fue creado en Google en 2007 para mejorar la productividad de la programación en una era de máquinas en red multinúcleo y grandes bases de código. Hoy, más de 10 años desde su anuncio público en 2009, el uso de Go dentro de Google ha crecido enormemente.</p>
+              <p></p><p>Google Chrome es un navegador web más simple, seguro y rápido que nunca, con la inteligencia de Google incorporada.</p>
+<p>En este estudio de caso, el equipo de Chrome Optimization Guide compartió cómo experimentaron con Go, cómo mejoraron rápidamente y sus planes para usar Go en el futuro.</p>
 <p></p>
             
           </div>
