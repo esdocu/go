@@ -16,9 +16,9 @@
   
   
 <script src="/js/site.js"></script>
-<meta name="og:url" content="https://go.dev/solutions/google/chrome">
-<meta name="og:title" content="El servicio de optimización de contenido de Chrome se ejecuta en Go: el lenguaje de programación Go en Español">
-<title>El servicio de optimización de contenido de Chrome se ejecuta en Go: el lenguaje de programación Go en Español</title>
+<meta name="og:url" content="https://go.dev/solutions/google/firebase">
+<meta name="og:title" content="Cómo el equipo de Firebase Hosting escaló con Go - El lenguaje de programación Go en Español">
+<title>Cómo el equipo de Firebase Hosting escaló con Go - El lenguaje de programación Go en Español</title>
 
 <meta name="og:image" content="https://go.dev/doc/gopher/gopher5logo.jpg">
 <meta name="twitter:image" content="https://go.dev/doc/gopher/gopherbelly300.jpg">
@@ -407,18 +407,18 @@
   </a>
 </li>
 <li class="BreadcrumbNav-li active">
-  <a class="BreadcrumbNav-link" href="/solutions/google/chrome">
-  El servicio de optimización de contenido de Chrome se ejecuta en Go
+  <a class="BreadcrumbNav-link" href="/solutions/google/firebase">
+  Cómo el equipo de Firebase Hosting creció con Go
   </a>
 </li>
 </ol>
-          <h1>El servicio de optimización de contenido de Chrome se ejecuta en Go</h1>
+          <h1>Cómo el equipo de Firebase Hosting creció con Go</h1>
           
           
         </div>
           
             <div class="WhoUsesSubPage-heroImg">
-              <img src="/images/go_chrome_case_study.png" alt="Chrome">
+              <img src="/images/go_firebase_case_study.png" alt="Firebase">
             </div>
           
         </div>
@@ -429,34 +429,37 @@
     
       <div class="CaseStudy-content">
         <div class="CaseStudy-contentBody">
-          <p>Cuando te viene a la mente el producto Chrome, probablemente pienses únicamente en el navegador instalado por el usuario. Pero detrás de escena, Chrome tiene una extensa flota de backends. Entre ellos se encuentra el servicio Chrome Optimization Guide. Este servicio forma una base importante para la estrategia de experiencia del usuario de Chrome, opera en la ruta crítica para los usuarios y se implementa en Go.</p>
-<p>El servicio Chrome Optimization Guide está diseñado para llevar el poder de Google a Chrome al proporcionar sugerencias al navegador instalado sobre qué optimizaciones se pueden realizar al cargar una página, así como cuándo se pueden aplicar de manera más efectiva. Comprende una conjunción de servidores en tiempo real y análisis de registros por lotes.</p>
-<p>Todos los usuarios del modo Lite de Chrome reciben datos a través del servicio a través de los siguientes mecanismos: un envío de blobs de datos que proporciona sugerencias para sitios conocidos en su geografía, un registro en los servidores de Google para recuperar sugerencias para hosts que el usuario específico visita con frecuencia, y bajo demanda para cargas de páginas para las cuales aún no hay una pista en el dispositivo. Si el servicio Chrome Optimization Guide desapareciera repentinamente, los usuarios podrían notar un cambio dramático en la velocidad de carga de sus páginas y la cantidad de datos consumidos mientras navegan por la web.</p>
+          <p>El equipo de Firebase Hosting brinda servicios de alojamiento web estático para los clientes de Google Cloud. Proporcionan un servidor web estático que se encuentra detrás de una red global de entrega de contenido y ofrecen a los usuarios herramientas fáciles de usar. El equipo también desarrolla funciones que van desde la carga de archivos del sitio hasta el registro de dominios y el seguimiento del uso.</p>
+<p>Antes de unirte a Google, la pila tecnológica de Firebase Hosting se escribió en Node.js. El equipo empezó a utilizar Go cuando necesitaban interoperar con otros servicios de Google. Decidieron utilizar Go para ayudarles a escalar de manera fácil y eficiente, sabiendo que "la simultaneidad seguiría siendo una gran necesidad". "Confiaban en que Go tendría más rendimiento" y "les gustó que Go fuera más conciso" que otros lenguajes que estaban considerando, dijo Michael Bleigh, un ingeniero de software del equipo.</p>
+<p>A partir de un pequeño servicio escrito en Go, el equipo migró todo su backend en una serie de movimientos. El equipo identificó progresivamente funciones importantes que querían implementar y, en el proceso, las reescribió en Go y las trasladó a Google Cloud y al sistema interno de gestión de clústeres de Google. <strong>Ahora el equipo de Firebase Hosting ha reemplazado el 100% del código backend de Node.js con Go.</strong></p>
+<p>La experiencia del equipo escribiendo en Go comenzó con un ingeniero. "Gracias al aprendizaje entre pares y al hecho de que, en general, es fácil comenzar con Go, ahora todos en el equipo tienen experiencia en desarrollo de Go", dijo Bleigh. Descubrieron que, si bien la mayoría de las personas nuevas en el equipo no han tenido ninguna experiencia con Go, "la mayoría son productivas en un par de semanas".</p>
+<p>"Al usar Go, es fácil ver cómo está organizado el código y qué hace", dijo Bleigh, hablando en nombre del equipo. “Go es generalmente muy legible y comprensible. El manejo de errores, los receptores y las interfaces del lenguaje son fáciles de entender debido a los modismos del lenguaje”.</p>
+<p>La concurrencia sigue siendo un enfoque para el equipo a medida que escalan. Robert Rossney, un ingeniero de software, compartió que "Go hace que sea muy fácil poner todas las cosas de concurrencia dura en un solo lugar, y en todos los demás lugares está abstraído". Rossney también habló de los beneficios de utilizar un lenguaje creado teniendo en cuenta la concurrencia y dijo que “también hay muchas formas de lograr la concurrencia en Go. Hemos tenido que aprender cuándo cada ruta es mejor, cómo determinar cuándo un problema es un problema de concurrencia, cómo depurar, pero eso se debe al hecho de que realmente se pueden escribir estos patrones en código Go”.</p>
 <div class="BackgroundQuote">
     <p class="BackgroundQuote-body">
-      “Dado que Go fue un éxito para nosotros, planeamos continuar usándolo cuando corresponda”
+      "En términos generales, no hay un momento en el equipo en el que nos sintamos frustrados con Go, simplemente se despeja el camino y te permite trabajar".
     </p>
     <div class="BackgroundQuote-author">
-      <span>— Sophie Chang</span>
+      <span>— Robert Rossney</span>
       ,&nbsp;
       <span class="BackgroundQuote-title">Ingeniero de software</span>
     </div>
 </div>
-<p>Cuando el equipo de ingeniería de Chrome comenzó a crear el servicio, solo unos pocos miembros se sentían cómodos con Go. La mayor parte del equipo estaba más familiarizado con C++, pero encontraron que el complejo texto repetitivo necesario para poner en funcionamiento un servidor C++ era demasiado. El equipo compartió que "[ellos] estaban bastante motivados para aprender Go debido a su simplicidad, rápido desarrollo y ecosistema" y que “[su] sentido de la aventura fue recompensado”. Millones de usuarios confían en este servicio para mejorar su experiencia con Chrome y elegir Go no fue una decisión fácil. Después de su experiencia hasta ahora, el equipo también compartió que "dado que Go fue un éxito para nosotros, planeamos continuar usándolo cuando corresponda".</p>
-<p>Además del equipo de Chrome Optimization Guide, los equipos de ingeniería de Google han adoptado Go en su proceso de desarrollo. Obtén más información sobre cómo los equipos de <a href="/solutions/google/coredata/">CoreData Solutions</a> y <a href="/solutions/google/firebase/">FirebaseHosting</a> utilizan Go para compilar rápidamente software fiable y eficiente a escala.</p>
-<p><em>Nota editorial: El equipo de Go quisiera agradecer a Sophie Chang por sus contribuciones a esta historia.</em></p>
+<p>Cientos de miles de clientes alojan sus sitios web con Firebase Hosting, lo que significa que el código Go se utiliza para atender miles de millones de solicitudes por día. "Nuestra base de clientes y nuestro tráfico se han duplicado varias veces desde que migramos a Go sin necesidad de realizar optimizaciones precisas", compartió Bleigh. Con Go, el equipo ha visto mejoras de rendimiento tanto en el software como en el equipo, con excelentes ganancias de productividad. "En términos generales", mencionó Rossney, "...no hay un momento en el equipo en el que nos sintamos frustrados con Go, simplemente se despeja el camino y te permite trabajar".</p>
+<p>Además del equipo de Firebase Hosting, los equipos de ingeniería de Google han adoptado Go en su proceso de desarrollo. Obtén más información sobre cómo los equipos de <a href="/solutions/google/coredata/">Core Data Solutions</a> y <a href="/solutions/google/chrome/">Chrome</a>
+utilizan Go para compilar rápidamente software, confiable y eficiente a escala.</p>
 
         </div>
         <div class="CaseStudy-contentAside">
           <div class="CaseStudy-aboutBlock">
-            <img src="/images/logos/chrome.svg" class="CaseStudy-aboutBlockImg DarkMode-img" alt="Chrome">
-            <img src="/images/logos/chrome.svg" class="CaseStudy-aboutBlockImg LightMode-img" alt="Chrome">
+            <img src="/images/logos/firebase.svg" class="CaseStudy-aboutBlockImg DarkMode-img" alt="Firebase">
+            <img src="/images/logos/firebase.svg" class="CaseStudy-aboutBlockImg LightMode-img" alt="Firebase">
             <h3 class="CaseStudy-aboutBlockTitle">
-              Acerca de Chrome
+              Acerca de Firebase
             </h3>
             
-              <p></p><p>Google Chrome es un navegador web más simple, seguro y rápido que nunca, con la inteligencia de Google incorporada.</p>
-<p>En este estudio de caso, el equipo de Chrome Optimization Guide compartió cómo experimentaron con Go, cómo mejoraron rápidamente y sus planes para usar Go en el futuro.</p>
+              <p></p><p>Firebase es la plataforma móvil de Google que te ayuda a desarrollar rápidamente aplicaciones de alta calidad y hacer crecer tu negocio.</p>
+<p>El equipo de Firebase Hosting compartió su viaje con Go, incluida su migración de backend desde Node.js, la facilidad para incorporar nuevos desarrolladores de Go y cómo Go los ha ayudado a escalar.</p>
 <p></p>
             
           </div>

@@ -16,9 +16,9 @@
   
   
 <script src="/js/site.js"></script>
-<meta name="og:url" content="https://go.dev/solutions/google/chrome">
-<meta name="og:title" content="El servicio de optimización de contenido de Chrome se ejecuta en Go: el lenguaje de programación Go en Español">
-<title>El servicio de optimización de contenido de Chrome se ejecuta en Go: el lenguaje de programación Go en Español</title>
+<meta name="og:url" content="https://go.dev/solutions/google/sitereliability">
+<meta name="og:title" content="Activación de la producción de Google: cómo el equipo de ingeniería de confiabilidad del sitio de Google utiliza Go - El lenguaje de programación Go en Español">
+<title>Activación de la producción de Google: cómo el equipo de ingeniería de confiabilidad del sitio de Google utiliza Go - El lenguaje de programación Go en Español</title>
 
 <meta name="og:image" content="https://go.dev/doc/gopher/gopher5logo.jpg">
 <meta name="twitter:image" content="https://go.dev/doc/gopher/gopherbelly300.jpg">
@@ -407,18 +407,20 @@
   </a>
 </li>
 <li class="BreadcrumbNav-li active">
-  <a class="BreadcrumbNav-link" href="/solutions/google/chrome">
-  El servicio de optimización de contenido de Chrome se ejecuta en Go
+  <a class="BreadcrumbNav-link" href="/solutions/google/sitereliability">
+  Activación de la producción de Google: cómo utiliza Go el equipo de ingeniería de confiabilidad del sitio de Google
   </a>
 </li>
 </ol>
-          <h1>El servicio de optimización de contenido de Chrome se ejecuta en Go</h1>
+          <h1>Activación de la producción de Google: cómo utiliza Go el equipo de ingeniería de confiabilidad del sitio de Google</h1>
+          
+            <div class="Article-author">Pierre Palatin, Ingeniero de confiabilidad del sitio</div>
           
           
         </div>
           
             <div class="WhoUsesSubPage-heroImg">
-              <img src="/images/go_chrome_case_study.png" alt="Chrome">
+              <img src="/images/go_sitereliability_case_study.png" alt="Google Site Reliability Engineering (SRE)">
             </div>
           
         </div>
@@ -429,34 +431,48 @@
     
       <div class="CaseStudy-content">
         <div class="CaseStudy-contentBody">
-          <p>Cuando te viene a la mente el producto Chrome, probablemente pienses únicamente en el navegador instalado por el usuario. Pero detrás de escena, Chrome tiene una extensa flota de backends. Entre ellos se encuentra el servicio Chrome Optimization Guide. Este servicio forma una base importante para la estrategia de experiencia del usuario de Chrome, opera en la ruta crítica para los usuarios y se implementa en Go.</p>
-<p>El servicio Chrome Optimization Guide está diseñado para llevar el poder de Google a Chrome al proporcionar sugerencias al navegador instalado sobre qué optimizaciones se pueden realizar al cargar una página, así como cuándo se pueden aplicar de manera más efectiva. Comprende una conjunción de servidores en tiempo real y análisis de registros por lotes.</p>
-<p>Todos los usuarios del modo Lite de Chrome reciben datos a través del servicio a través de los siguientes mecanismos: un envío de blobs de datos que proporciona sugerencias para sitios conocidos en su geografía, un registro en los servidores de Google para recuperar sugerencias para hosts que el usuario específico visita con frecuencia, y bajo demanda para cargas de páginas para las cuales aún no hay una pista en el dispositivo. Si el servicio Chrome Optimization Guide desapareciera repentinamente, los usuarios podrían notar un cambio dramático en la velocidad de carga de sus páginas y la cantidad de datos consumidos mientras navegan por la web.</p>
+          <p>Google ejecuta una pequeña cantidad de servicios muy grandes. Esos servicios están impulsados por una infraestructura global que cubre todo lo que un desarrollador necesita: sistemas de almacenamiento, balanceadores de carga, redes, registros, monitoreo y mucho más. Sin embargo, no es un sistema estático, no puede serlo. La arquitectura evoluciona, se crean nuevos productos e ideas, se deben implementar nuevas versiones, implementar configuraciones, actualizar el esquema de la base de datos y más. Terminamos desplegando cambios en nuestros sistemas docenas de veces por segundo.</p>
+<p>Debido a esta escala y necesidad crítica de confiabilidad, Google fue pionero en Site Reliability Engineering (SRE), una función que muchas otras empresas han adoptado desde entonces. “SRE es lo que se obtiene cuando se tratan las operaciones como si fuera un problema de software. Nuestra misión es proteger, proporcionar y mejorar el software y los sistemas detrás de todas las utilidades de Google con una mirada siempre atenta a su disponibilidad, latencia, rendimiento y capacidad”.— <a href="https://sre.google/" rel="noreferrer" target="_blank">Ingeniería de confiabilidad del sitio (SRE)</a>.</p>
 <div class="BackgroundQuote">
     <p class="BackgroundQuote-body">
-      “Dado que Go fue un éxito para nosotros, planeamos continuar usándolo cuando corresponda”
+      "Go prometió un punto óptimo entre rendimiento y legibilidad que ninguno de los otros lenguajes [Python y C++] pudo ofrecer".
     </p>
-    <div class="BackgroundQuote-author">
-      <span>— Sophie Chang</span>
-      ,&nbsp;
-      <span class="BackgroundQuote-title">Ingeniero de software</span>
-    </div>
 </div>
-<p>Cuando el equipo de ingeniería de Chrome comenzó a crear el servicio, solo unos pocos miembros se sentían cómodos con Go. La mayor parte del equipo estaba más familiarizado con C++, pero encontraron que el complejo texto repetitivo necesario para poner en funcionamiento un servidor C++ era demasiado. El equipo compartió que "[ellos] estaban bastante motivados para aprender Go debido a su simplicidad, rápido desarrollo y ecosistema" y que “[su] sentido de la aventura fue recompensado”. Millones de usuarios confían en este servicio para mejorar su experiencia con Chrome y elegir Go no fue una decisión fácil. Después de su experiencia hasta ahora, el equipo también compartió que "dado que Go fue un éxito para nosotros, planeamos continuar usándolo cuando corresponda".</p>
-<p>Además del equipo de Chrome Optimization Guide, los equipos de ingeniería de Google han adoptado Go en su proceso de desarrollo. Obtén más información sobre cómo los equipos de <a href="/solutions/google/coredata/">CoreData Solutions</a> y <a href="/solutions/google/firebase/">FirebaseHosting</a> utilizan Go para compilar rápidamente software fiable y eficiente a escala.</p>
-<p><em>Nota editorial: El equipo de Go quisiera agradecer a Sophie Chang por sus contribuciones a esta historia.</em></p>
+<p>En 2013-2014, el equipo SRE de Google se dio cuenta de que nuestro enfoque de gestión de producción ya no era suficiente en muchos sentidos. Habíamos avanzado mucho más allá de los shell scripts, pero nuestra escala tenía tantas piezas móviles y complejidades que era necesario un nuevo enfoque. Determinamos que necesitábamos avanzar hacia un modelo declarativo de nuestra producción, llamado "Prodspec", impulsando un plano de control dedicado, llamado "Annealing".</p>
+<p>Cuando comenzamos esos proyectos, Go se estaba convirtiendo en una opción viable para servicios críticos en Google. La mayoría de los ingenieros estaban más familiarizados con Python y C++, cualquiera de los cuales habría sido una opción válida. Sin embargo, Go capturó nuestro interés. El atractivo de la novedad fue ciertamente un factor, por supuesto. Pero, lo que es más importante, Go prometía un punto óptimo entre rendimiento y legibilidad que ninguno de los otros lenguajes podía ofrecer. Comenzamos un pequeño experimento con Go para algunas partes iniciales de Annealing y Prodspec. A medida que avanzaban los proyectos, esas partes iniciales escritas en Go se convirtieron en el núcleo. Estábamos contentos con Go: su simplicidad nos convenció, el rendimiento estaba ahí y las primitivas de concurrencia habrían sido difíciles de reemplazar.</p>
+<div class="BackgroundQuote">
+    <p class="BackgroundQuote-body">
+      "Ahora la mayor parte de la producción de Google es administrada y mantenida por nuestros sistemas escritos en Go".
+    </p>
+</div>
+<p>En ningún momento hubo un mandato o requisito para usar Go, pero no teníamos ningún deseo de volver a Python o C++. Go creció orgánicamente en Annealing y Prodspec. Fue la elección correcta y, por lo tanto, ahora es nuestro lenguaje preferido. Ahora la mayor parte de la producción de Google se administra y mantiene mediante nuestros sistemas escritos en Go.</p>
+<p>Es difícil exagerar el poder de tener un lenguaje simple en esos proyectos. Ha habido casos en los que realmente faltaba alguna característica, como la capacidad de imponer en el código que alguna estructura compleja no debe ser mutada. Pero en cada uno de esos casos, sin duda ha habido decenas o cientos de casos en los que la simplicidad ayudó.</p>
+<div class="BackgroundQuote">
+    <p class="BackgroundQuote-body">
+      "La simplicidad de Go significa que el código es fácil de seguir, ya sea para detectar errores durante la revisión o al intentar determinar exactamente qué sucedió durante una interrupción del servicio".
+    </p>
+</div>
+<p>Por ejemplo, Annealing afecta a una amplia variedad de equipos y servicios, lo que significa que dependimos en gran medida de las contribuciones de toda la empresa. La simplicidad de Go hizo posible que personas ajenas a nuestro equipo vieran por qué una parte u otra no les funcionaba y, a menudo, proporcionaron soluciones o funciones ellos mismos. Esto nos permitió crecer rápidamente.</p>
+<p>Prodspec y Annealing están a cargo de algunos componentes bastante críticos. La simplicidad de Go significa que el código es fácil de seguir, ya sea para detectar errores durante la revisión o al intentar determinar exactamente qué sucedió durante una interrupción del servicio.</p>
+<p>El rendimiento de Go y el soporte de concurrencia también han sido clave para nuestro trabajo. Como nuestro modelo de producción es declarativo, tendemos a manipular una gran cantidad de datos estructurados, que describen qué es la producción y qué debería ser. Disponemos de grandes servicios para que los datos puedan crecer, lo que a menudo hace que el procesamiento puramente secuencial no sea lo suficientemente eficiente.</p>
+<p>Estamos manipulando estos datos de muchas maneras y en muchos lugares. No se trata de que una persona inteligente cree una versión paralela de nuestro algoritmo. Es una cuestión de paralelismo casual, encontrar el siguiente cuello de botella y paralelizar esa sección de código. Y Go permite exactamente eso.</p>
+<p>Como resultado de nuestro éxito con Go, ahora usamos Go para cada nuevo desarrollo de Prodspec y Annealing.</p>
+<p>Además del equipo de ingeniería de confiabilidad del sitio, los equipos de ingeniería de Google han adoptado Go en su proceso de desarrollo. Obtén más información sobre cómo 
+<a href="/solutions/google/coredata/">Core Data Solutions</a>, 
+<a href="/solutions/google/firebase/">Firebase Hosting</a> y 
+<a href="/solutions/google/chrome/">Chrome</a> utilizan Go para crear software rápido, confiable y eficiente a escala.</p>
 
         </div>
         <div class="CaseStudy-contentAside">
           <div class="CaseStudy-aboutBlock">
-            <img src="/images/logos/chrome.svg" class="CaseStudy-aboutBlockImg DarkMode-img" alt="Chrome">
-            <img src="/images/logos/chrome.svg" class="CaseStudy-aboutBlockImg LightMode-img" alt="Chrome">
+            <img src="/images/logos/sitereliability.svg" class="CaseStudy-aboutBlockImg DarkMode-img" alt="Google Site Reliability Engineering (SRE)">
+            <img src="/images/logos/sitereliability.svg" class="CaseStudy-aboutBlockImg LightMode-img" alt="Google Site Reliability Engineering (SRE)">
             <h3 class="CaseStudy-aboutBlockTitle">
-              Acerca de Chrome
+              Acerca de Google Site Reliability Engineering (SRE)
             </h3>
             
-              <p></p><p>Google Chrome es un navegador web más simple, seguro y rápido que nunca, con la inteligencia de Google incorporada.</p>
-<p>En este estudio de caso, el equipo de Chrome Optimization Guide compartió cómo experimentaron con Go, cómo mejoraron rápidamente y sus planes para usar Go en el futuro.</p>
+              <p></p><p>El equipo de ingeniería de confiabilidad del sitio de Google tiene la misión de proteger, proporcionar y mejorar el software y los sistemas detrás de todas las utilidades de Google: Búsqueda de Google, Ads, Gmail, Android, YouTube y App Engine, por nombrar sólo algunos, con un ojo siempre atento a su disponibilidad, latencia, rendimiento y capacidad.</p>
+<p>Compartieron su experiencia en la creación de sistemas centrales de gestión de producción con Go, a partir de su experiencia con Python y C++.</p>
 <p></p>
             
           </div>

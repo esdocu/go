@@ -16,9 +16,9 @@
   
   
 <script src="/js/site.js"></script>
-<meta name="og:url" content="https://go.dev/solutions/google/chrome">
-<meta name="og:title" content="El servicio de optimización de contenido de Chrome se ejecuta en Go: el lenguaje de programación Go en Español">
-<title>El servicio de optimización de contenido de Chrome se ejecuta en Go: el lenguaje de programación Go en Español</title>
+<meta name="og:url" content="https://go.dev/solutions/google/coredata">
+<meta name="og:title" content="Cómo el equipo de Core Data Solutions de Google utiliza Go - El lenguaje de programación Go en Español">
+<title>Cómo el equipo de Core Data Solutions de Google utiliza Go - El lenguaje de programación Go en Español</title>
 
 <meta name="og:image" content="https://go.dev/doc/gopher/gopher5logo.jpg">
 <meta name="twitter:image" content="https://go.dev/doc/gopher/gopherbelly300.jpg">
@@ -407,18 +407,20 @@
   </a>
 </li>
 <li class="BreadcrumbNav-li active">
-  <a class="BreadcrumbNav-link" href="/solutions/google/chrome">
-  El servicio de optimización de contenido de Chrome se ejecuta en Go
+  <a class="BreadcrumbNav-link" href="/solutions/google/coredata">
+  Cómo utiliza Go el equipo de Core Data Solutions de Google
   </a>
 </li>
 </ol>
-          <h1>El servicio de optimización de contenido de Chrome se ejecuta en Go</h1>
+          <h1>Cómo utiliza Go el equipo de Core Data Solutions de Google</h1>
+          
+            <div class="Article-author">Prasanna Meda, Ingeniera de Software, Core Data Solutions</div>
           
           
         </div>
           
             <div class="WhoUsesSubPage-heroImg">
-              <img src="/images/go_chrome_case_study.png" alt="Chrome">
+              <img src="/images/go_core_data_case_study.png" alt="Core Data">
             </div>
           
         </div>
@@ -429,34 +431,46 @@
     
       <div class="CaseStudy-content">
         <div class="CaseStudy-contentBody">
-          <p>Cuando te viene a la mente el producto Chrome, probablemente pienses únicamente en el navegador instalado por el usuario. Pero detrás de escena, Chrome tiene una extensa flota de backends. Entre ellos se encuentra el servicio Chrome Optimization Guide. Este servicio forma una base importante para la estrategia de experiencia del usuario de Chrome, opera en la ruta crítica para los usuarios y se implementa en Go.</p>
-<p>El servicio Chrome Optimization Guide está diseñado para llevar el poder de Google a Chrome al proporcionar sugerencias al navegador instalado sobre qué optimizaciones se pueden realizar al cargar una página, así como cuándo se pueden aplicar de manera más efectiva. Comprende una conjunción de servidores en tiempo real y análisis de registros por lotes.</p>
-<p>Todos los usuarios del modo Lite de Chrome reciben datos a través del servicio a través de los siguientes mecanismos: un envío de blobs de datos que proporciona sugerencias para sitios conocidos en su geografía, un registro en los servidores de Google para recuperar sugerencias para hosts que el usuario específico visita con frecuencia, y bajo demanda para cargas de páginas para las cuales aún no hay una pista en el dispositivo. Si el servicio Chrome Optimization Guide desapareciera repentinamente, los usuarios podrían notar un cambio dramático en la velocidad de carga de sus páginas y la cantidad de datos consumidos mientras navegan por la web.</p>
+          <p>La misión de Google es "organizar la información del mundo y hacerla universalmente accesible y útil". Uno de los equipos responsables de organizar esa información es el equipo de Core Data Solutions de Google. El equipo, entre otras cosas, mantiene servicios para indexar páginas web en todo el mundo. Estos servicios de indexación web ayudan a respaldar productos como la Búsqueda de Google al mantener los resultados de búsqueda actualizados y completos, y están escritos en Go.</p>
+<p>En 2015, para mantenerse al día con la escala de Google, nuestro equipo necesitaba reescribir nuestra pila de indexación desde un único binario monolítico escrito en C++ a múltiples componentes en una arquitectura de microservicios. Decidimos reescribir muchos servicios de indexación en Go, que ahora utilizamos para impulsar la mayor parte de nuestra arquitectura.</p>
 <div class="BackgroundQuote">
     <p class="BackgroundQuote-body">
-      “Dado que Go fue un éxito para nosotros, planeamos continuar usándolo cuando corresponda”
+      "La concurrencia incorporada de Go es una opción natural porque anima a los ingenieros del equipo a utilizar algoritmos paralelos y de concurrencia".
     </p>
     <div class="BackgroundQuote-author">
-      <span>— Sophie Chang</span>
+      <span>— Minjae Hwang</span>
       ,&nbsp;
       <span class="BackgroundQuote-title">Ingeniero de software</span>
     </div>
 </div>
-<p>Cuando el equipo de ingeniería de Chrome comenzó a crear el servicio, solo unos pocos miembros se sentían cómodos con Go. La mayor parte del equipo estaba más familiarizado con C++, pero encontraron que el complejo texto repetitivo necesario para poner en funcionamiento un servidor C++ era demasiado. El equipo compartió que "[ellos] estaban bastante motivados para aprender Go debido a su simplicidad, rápido desarrollo y ecosistema" y que “[su] sentido de la aventura fue recompensado”. Millones de usuarios confían en este servicio para mejorar su experiencia con Chrome y elegir Go no fue una decisión fácil. Después de su experiencia hasta ahora, el equipo también compartió que "dado que Go fue un éxito para nosotros, planeamos continuar usándolo cuando corresponda".</p>
-<p>Además del equipo de Chrome Optimization Guide, los equipos de ingeniería de Google han adoptado Go en su proceso de desarrollo. Obtén más información sobre cómo los equipos de <a href="/solutions/google/coredata/">CoreData Solutions</a> y <a href="/solutions/google/firebase/">FirebaseHosting</a> utilizan Go para compilar rápidamente software fiable y eficiente a escala.</p>
-<p><em>Nota editorial: El equipo de Go quisiera agradecer a Sophie Chang por sus contribuciones a esta historia.</em></p>
+<p>Al elegir un lenguaje, nuestro equipo descubrió que varias de las características de Go lo hacían particularmente adecuado. Por ejemplo, la concurrencia incorporada de Go es una opción natural porque anima a los ingenieros del equipo a utilizar algoritmos paralelos y de concurrencia. Los ingenieros también han descubierto que “el código Go es más natural”, lo que les permite dedicar su tiempo a centrarse en la lógica y el análisis empresarial en lugar de administrar la memoria y optimizar el rendimiento.</p>
+<p>Escribir código es mucho más sencillo cuando se escribe en Go, ya que ayuda a disminuir la carga cognitiva durante el proceso de desarrollo. Por ejemplo, cuando se trabaja con C++, los IDE sofisticados pueden "mostrar que el código fuente no tiene ningún error de compilación cuando en realidad hay uno", mientras que "en Go, [el código] siempre se compilará cuando [el IDE] diga que el código no tiene ningún error de compilación". ”, dijo MinJae Hwang, ingeniero de software del equipo de Core Data Solutions. Reducir los pequeños puntos de fricción a lo largo del proceso de desarrollo, como acortar el ciclo de corrección de errores de compilación, ayudó a nuestro equipo a realizar entregas más rápidas durante la reescritura original y ha ayudado a mantener bajos nuestros costos de mantenimiento.</p>
+<p>“Cuando estoy en C++ y quiero usar más paquetes, tengo que escribir piezas como encabezados. Cuando escribo en Go, <strong>las herramientas integradas me permiten usar paquetes más fácilmente. Mi velocidad de desarrollo es mucho más rápida</strong>”, también compartió Hwang.</p>
+<p>Con una sintaxis de lenguaje simple y soporte de herramientas Go, a varios miembros de nuestro equipo les resulta mucho más fácil escribir en código Go. También descubrimos que Go hace un muy buen trabajo en la verificación de tipos estáticos y que ciertos fundamentos de Go, como el comando godoc, han ayudado al equipo a construir una cultura más disciplinada en torno a la redacción de documentación.</p>
+<div class="BackgroundQuote">
+    <p class="BackgroundQuote-body">
+      “…la indexación web de Google fue rediseñada en un año. Lo más impresionante es que la mayoría de los desarrolladores del equipo reescribían en Go y al mismo tiempo lo aprendían”.
+    </p>
+    <div class="BackgroundQuote-author">
+      <span>— Prasanna Meda</span>
+      ,&nbsp;
+      <span class="BackgroundQuote-title">Ingeniero de software</span>
+    </div>
+</div>
+<p>Trabajar en un producto tan utilizado en todo el mundo no es una tarea fácil y la decisión de nuestro equipo de usar Go no fue simple, pero hacerlo nos ayudó a avanzar más rápido. Como resultado, la indexación web de Google fue rediseñada en un año. Lo más impresionante es que la mayoría de los desarrolladores del equipo reescribían en Go y al mismo tiempo aprendían.</p>
+<p>Además del equipo de Core Data Solutions, los equipos de ingeniería de Google han adoptado Go en su proceso de desarrollo. Obtén más información sobre cómo los equipos de <a href="/solutions/google/chrome/">Chrome</a> y <a href="/solutions/google/firebase/">Firebase Hosting</a> utilizan Go para compilar rápidamente software confiable y eficiente a escala.</p>
 
         </div>
         <div class="CaseStudy-contentAside">
           <div class="CaseStudy-aboutBlock">
-            <img src="/images/logos/chrome.svg" class="CaseStudy-aboutBlockImg DarkMode-img" alt="Chrome">
-            <img src="/images/logos/chrome.svg" class="CaseStudy-aboutBlockImg LightMode-img" alt="Chrome">
+            <img src="/images/logos/google.svg" class="CaseStudy-aboutBlockImg DarkMode-img" alt="Core Data">
+            <img src="/images/logos/google.svg" class="CaseStudy-aboutBlockImg LightMode-img" alt="Core Data">
             <h3 class="CaseStudy-aboutBlockTitle">
-              Acerca de Chrome
+              Acerca de Core Data
             </h3>
             
-              <p></p><p>Google Chrome es un navegador web más simple, seguro y rápido que nunca, con la inteligencia de Google incorporada.</p>
-<p>En este estudio de caso, el equipo de Chrome Optimization Guide compartió cómo experimentaron con Go, cómo mejoraron rápidamente y sus planes para usar Go en el futuro.</p>
+              <p></p><p>Google es una empresa de tecnología cuya misión es organizar la información del mundo y hacerla universalmente accesible y útil.</p>
+<p>En este estudio de caso, el equipo de Core Data Solutions de Google comparte su viaje con Go, incluida su decisión de reescribir los servicios de indexación web en Go, aprovechando la concurrencia integrada de Go y observando cómo Go ayuda a mejorar el proceso de desarrollo.</p>
 <p></p>
             
           </div>
