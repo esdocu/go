@@ -1,0 +1,2859 @@
+<!DOCTYPE html><html lang="es" data-theme="auto"><head>
+
+<link rel="preconnect" href="https://www.googletagmanager.com">
+
+  
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#00add8">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Material+Icons">
+<link rel="stylesheet" href="/css/styles.css">
+<link rel="icon" href="/images/favicon-gopher.png" sizes="any">
+<link rel="apple-touch-icon" href="/images/favicon-gopher-plain.png">
+<link rel="icon" href="/images/favicon-gopher.svg" type="image/svg+xml">
+
+  
+  
+  
+<script src="/js/site.js"></script>
+<meta name="og:url" content="https://go.dev/doc/effective_go">
+<meta name="og:title" content="Effective Go - El lenguaje de programación Go en Español">
+<title>Effective Go - El lenguaje de programación Go en Español</title>
+
+<meta name="og:image" content="https://go.dev/doc/gopher/gopher5logo.jpg">
+<meta name="twitter:image" content="https://go.dev/doc/gopher/gopherbelly300.jpg">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@golang">
+<script async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5376430835440290" crossorigin="anonymous"></script></head>
+<body class="Site">
+  
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W8MVQXG"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  
+
+
+<header class="Site-header js-siteHeader">
+  <div class="Header Header--dark">
+    <nav class="Header-nav">
+      <a href="/">
+        <img class="js-headerLogo Header-logo" src="/images/go-logo-white.svg" alt="Go">
+      </a>
+      <div class="skip-navigation-wrapper">
+        <a class="skip-to-content-link" aria-label="Saltar al contenido principal" href="#main-content"> Saltar al contenido principal </a>
+      </div>
+      <div class="Header-rightContent">
+        <ul class="Header-menu">
+          <li class="Header-menuItem ">
+            <a href="#" class="js-desktop-menu-hover" aria-label="Por qué Go" aria-describedby="dropdown-description">
+              Por qué Go <i class="material-icons" aria-hidden="true">arrow_drop_down</i>
+            </a>
+            <div class="screen-reader-only" id="dropdown-description" hidden=""> 
+              Presiona Enter para activar/desactivar el menú desplegable
+            </div>
+              <ul class="Header-submenu js-desktop-submenu-hover" aria-label="submenú">
+                  <li class="Header-submenuItem">
+                    <div>
+                        <a href="/solutions/case-studies">
+                          Estudio de casos
+                          
+                        </a>
+                    </div>
+                    <p>Problemas comunes que las empresas resuelven con Go</p>
+                  </li>
+                  <li class="Header-submenuItem">
+                    <div>
+                        <a href="/solutions/use-cases">
+                          Casos de uso
+                          
+                        </a>
+                    </div>
+                    <p>Historias sobre cómo y por qué las empresas usan Go</p>
+                  </li>
+                  <li class="Header-submenuItem">
+                    <div>
+                        <a href="/security/">
+                          Seguridad
+                          
+                        </a>
+                    </div>
+                    <p>Cómo Go puede ayudarte a mantenerte seguro de forma predeterminada</p>
+                  </li>
+              </ul>
+          </li>
+          <li class="Header-menuItem ">
+            <a href="/learn/" aria-label="Aprende" aria-describedby="dropdown-description">
+              Aprende 
+            </a>
+            <div class="screen-reader-only" id="dropdown-description" hidden=""> 
+              Presiona Enter para activar/desactivar el menú desplegable
+            </div>
+          </li>
+          <li class="Header-menuItem  Header-menuItem--active">
+            <a href="#" class="js-desktop-menu-hover" aria-label="Docs" aria-describedby="dropdown-description">
+              Docs <i class="material-icons" aria-hidden="true">arrow_drop_down</i>
+            </a>
+            <div class="screen-reader-only" id="dropdown-description" hidden=""> 
+              Presiona Enter para activar/desactivar el menú desplegable
+            </div>
+              <ul class="Header-submenu js-desktop-submenu-hover" aria-label="submenú">
+                  <li class="Header-submenuItem">
+                    <div>
+                        <a href="/doc/effective_go">
+                          Go efectivo
+                          
+                        </a>
+                    </div>
+                    <p>Consejos para escribir código Go claro, eficaz e idiomático</p>
+                  </li>
+                  <li class="Header-submenuItem">
+                    <div>
+                        <a href="https://go.dev/doc" rel="nofollow" target="_blank" title="Página todavía no traducida">
+                          Ir al Manual de usuario
+                          
+                         ⬀</a>
+                    </div>
+                    <p>Una introducción completa a la creación de software con Go</p>
+                  </li>
+                  <li class="Header-submenuItem">
+                    <div>
+                        <a href="https://pkg.go.dev/std">
+                          Biblioteca estándar
+                          
+                        </a>
+                    </div>
+                    <p>Documentación de referencia para la biblioteca estándar de Go</p>
+                  </li>
+                  <li class="Header-submenuItem">
+                    <div>
+                        <a href="https://go.dev/doc/devel/release" rel="nofollow" target="_blank" title="Página todavía no traducida">
+                          Notas de la versión
+                          
+                         ⬀</a>
+                    </div>
+                    <p>Conoce las novedades de cada versión de Go</p>
+                  </li>
+              </ul>
+          </li>
+          <li class="Header-menuItem ">
+            <a href="https://pkg.go.dev" aria-label="Paquetes" aria-describedby="dropdown-description">
+              Paquetes 
+            </a>
+            <div class="screen-reader-only" id="dropdown-description" hidden=""> 
+              Presiona Enter para activar/desactivar el menú desplegable
+            </div>
+          </li>
+          <li class="Header-menuItem ">
+            <a href="#" class="js-desktop-menu-hover" aria-label="Community" aria-describedby="dropdown-description">
+              Comunidad <i class="material-icons" aria-hidden="true">arrow_drop_down</i>
+            </a>
+            <div class="screen-reader-only" id="dropdown-description" hidden=""> 
+              Presiona Enter para activar/desactivar el menú desplegable
+            </div>
+              <ul class="Header-submenu js-desktop-submenu-hover" aria-label="submenú">
+                  <li class="Header-submenuItem">
+                    <div>
+                        <a href="https://go.dev/talks" rel="nofollow" target="_blank" title="Página todavía no traducida">
+                          Charlas Grabadas
+                          
+                         ⬀</a>
+                    </div>
+                    <p>Videos de eventos anteriores</p>
+                  </li>
+                  <li class="Header-submenuItem">
+                    <div>
+                        <a href="https://www.meetup.com/pro/go">
+                          Meetups
+                           <i class="material-icons">open_in_new</i>
+                        </a>
+                    </div>
+                    <p>Conoce a otros desarrolladores locales de Go</p>
+                  </li>
+                  <li class="Header-submenuItem">
+                    <div>
+                        <a href="https://github.com/golang/go/wiki/Conferences">
+                          Conferencias
+                           <i class="material-icons">open_in_new</i>
+                        </a>
+                    </div>
+                    <p>Aprende y establece contactos con desarrolladores de Go de todo el mundo</p>
+                  </li>
+                  <li class="Header-submenuItem">
+                    <div>
+                        <a href="https://go.dev/blog" rel="nofollow" target="_blank" title="Página todavía no traducida">
+                          Ir al blog
+                          
+                         ⬀</a>
+                    </div>
+                    <p>El blog oficial del proyecto Go.</p>
+                  </li>
+                  <li class="Header-submenuItem">
+                    <div>
+                        <a href="/help">
+                          Ir proyecto
+                          
+                        </a>
+                    </div>
+                    <p>Obtén ayuda y mantente informado acerca de Go</p>
+                  </li>
+                  <li class="Header-submenuItem">
+                    <div>
+                        Conéctate
+                    </div>
+                    <p></p>
+                      <div class="Header-socialIcons">
+                        
+                        <a class="Header-socialIcon" aria-label="Get connected with google-groups (Opens in new window)" href="https://groups.google.com/g/golang-nuts"><img src="/images/logos/social/google-groups.svg"></a>
+                        <a class="Header-socialIcon" aria-label="Get connected with github (Opens in new window)" href="https://github.com/golang"><img src="/images/logos/social/github.svg"></a>
+                        <a class="Header-socialIcon" aria-label="Get connected with twitter (Opens in new window)" href="https://twitter.com/golang"><img src="/images/logos/social/twitter.svg"></a>
+                        <a class="Header-socialIcon" aria-label="Get connected with reddit (Opens in new window)" href="https://www.reddit.com/r/golang/"><img src="/images/logos/social/reddit.svg"></a>
+                        <a class="Header-socialIcon" aria-label="Get connected with slack (Opens in new window)" href="https://invite.slack.golangbridge.org/"><img src="/images/logos/social/slack.svg"></a>
+                        <a class="Header-socialIcon" aria-label="Get connected with stack-overflow (Opens in new window)" href="https://stackoverflow.com/tags/go"><img src="/images/logos/social/stack-overflow.svg"></a>
+                      </div>
+                  </li>
+              </ul>
+          </li>
+        </ul>
+        <button class="Header-navOpen js-headerMenuButton Header-navOpen--white" aria-label="Abrir navegación.">
+        </button>
+      </div>
+    </nav>
+    
+  </div>
+</header>
+<aside class="NavigationDrawer js-header">
+  <nav class="NavigationDrawer-nav">
+    <div class="NavigationDrawer-header">
+      <a href="/">
+        <img class="NavigationDrawer-logo" src="/images/go-logo-blue.svg" alt="Go.">
+      </a>
+    </div>
+    <ul class="NavigationDrawer-list">
+        
+          <li class="NavigationDrawer-listItem js-mobile-subnav-trigger  NavigationDrawer-hasSubnav">
+            <a href="#"><span>Por qué Go</span> <i class="material-icons">navigate_next</i></a>
+
+            <div class="NavigationDrawer NavigationDrawer-submenuItem">
+              <nav class="NavigationDrawer-nav">
+                <div class="NavigationDrawer-header">
+                  <a href="#"><i class="material-icons">navigate_before</i>Por qué Go</a>
+                </div>
+                <ul class="NavigationDrawer-list">
+                    <li class="NavigationDrawer-listItem">
+                        <a href="/solutions/case-studies">
+                          Estudio de casos
+                          
+                        </a>
+                      
+                    </li>
+                    <li class="NavigationDrawer-listItem">
+                        <a href="/solutions/use-cases">
+                          Casos de uso
+                          
+                        </a>
+                      
+                    </li>
+                    <li class="NavigationDrawer-listItem">
+                        <a href="/security/">
+                          Seguridad
+                          
+                        </a>
+                      
+                    </li>
+                </ul>
+              </nav></div>
+            
+          </li>
+
+        
+        
+          <li class="NavigationDrawer-listItem ">
+            <a href="/learn/">Aprende</a>
+          </li>
+        
+        
+          <li class="NavigationDrawer-listItem js-mobile-subnav-trigger  NavigationDrawer-listItem--active NavigationDrawer-hasSubnav">
+            <a href="#"><span>Docs</span> <i class="material-icons">navigate_next</i></a>
+
+            <div class="NavigationDrawer NavigationDrawer-submenuItem">
+              <nav class="NavigationDrawer-nav">
+                <div class="NavigationDrawer-header">
+                  <a href="#"><i class="material-icons">navigate_before</i>Docs</a>
+                </div>
+                <ul class="NavigationDrawer-list">
+                    <li class="NavigationDrawer-listItem">
+                        <a href="/doc/effective_go">
+                          Go efectivo
+                          
+                        </a>
+                      
+                    </li>
+                    <li class="NavigationDrawer-listItem">
+                        <a href="https://go.dev/doc" rel="nofollow" target="_blank" title="Página todavía no traducida">
+                          Ir al Manual de usuario
+                          
+                         ⬀</a>
+                      
+                    </li>
+                    <li class="NavigationDrawer-listItem">
+                        <a href="https://pkg.go.dev/std">
+                          Biblioteca estándar
+                          
+                        </a>
+                      
+                    </li>
+                    <li class="NavigationDrawer-listItem">
+                        <a href="https://go.dev/doc/devel/release" rel="nofollow" target="_blank" title="Página todavía no traducida">
+                          Notas de la versión
+                          
+                         ⬀</a>
+                      
+                    </li>
+                </ul>
+              </nav></div>
+            
+          </li>
+
+        
+        
+          <li class="NavigationDrawer-listItem ">
+            <a href="https://pkg.go.dev">Paquetes</a>
+          </li>
+        
+        
+          <li class="NavigationDrawer-listItem js-mobile-subnav-trigger  NavigationDrawer-hasSubnav">
+            <a href="#"><span>Comunidad</span> <i class="material-icons">navigate_next</i></a>
+
+            <div class="NavigationDrawer NavigationDrawer-submenuItem">
+              <nav class="NavigationDrawer-nav">
+                <div class="NavigationDrawer-header">
+                  <a href="#"><i class="material-icons">navigate_before</i>Comunidad</a>
+                </div>
+                <ul class="NavigationDrawer-list">
+                    <li class="NavigationDrawer-listItem">
+                        <a href="https://go.dev/talks" rel="nofollow" target="_blank" title="Página todavía no traducida">
+                          Charlas Grabadas
+                          
+                         ⬀</a>
+                      
+                    </li>
+                    <li class="NavigationDrawer-listItem">
+                        <a href="https://www.meetup.com/pro/go">
+                          Meetups
+                           <i class="material-icons">open_in_new</i>
+                        </a>
+                      
+                    </li>
+                    <li class="NavigationDrawer-listItem">
+                        <a href="https://github.com/golang/go/wiki/Conferences">
+                          Conferencias
+                           <i class="material-icons">open_in_new</i>
+                        </a>
+                      
+                    </li>
+                    <li class="NavigationDrawer-listItem">
+                        <a href="https://go.dev/blog" rel="nofollow" target="_blank" title="Página todavía no traducida">
+                          Ir al blog
+                          
+                         ⬀</a>
+                      
+                    </li>
+                    <li class="NavigationDrawer-listItem">
+                        <a href="/help">
+                          Ir proyecto
+                          
+                        </a>
+                      
+                    </li>
+                    <li class="NavigationDrawer-listItem">
+                        <div>Conéctate</div>
+                        <div class="Header-socialIcons">
+                          
+                            <a class="Header-socialIcon" href="https://groups.google.com/g/golang-nuts"><img src="/images/logos/social/google-groups.svg"></a>
+                            <a class="Header-socialIcon" href="https://github.com/golang"><img src="/images/logos/social/github.svg"></a>
+                            <a class="Header-socialIcon" href="https://twitter.com/golang"><img src="/images/logos/social/twitter.svg"></a>
+                            <a class="Header-socialIcon" href="https://www.reddit.com/r/golang/"><img src="/images/logos/social/reddit.svg"></a>
+                            <a class="Header-socialIcon" href="https://invite.slack.golangbridge.org/"><img src="/images/logos/social/slack.svg"></a>
+                            <a class="Header-socialIcon" href="https://stackoverflow.com/tags/go"><img src="/images/logos/social/stack-overflow.svg"></a>
+                        </div>
+                    </li>
+                </ul>
+              </nav></div>
+            
+          </li>
+
+        
+    </ul>
+  </nav>
+</aside>
+<div class="NavigationDrawer-scrim js-scrim" role="presentation"></div>
+<main class="SiteContent SiteContent--default" id="main-content">
+  
+
+
+<article class="Doc Article">
+
+
+
+  
+<ol class="SiteBreadcrumb">
+  
+<li class="BreadcrumbNav-li ">
+  <a class="BreadcrumbNav-link" href="https://go.dev/doc" rel="nofollow" target="_blank" title="Página todavía no traducida">
+  Documentación
+   ⬀</a>
+</li>
+<li class="BreadcrumbNav-li active">
+  <a class="BreadcrumbNav-link" href="/doc/effective_go">
+  Go efectivo
+  </a>
+</li>
+</ol>
+
+
+
+<h1>Go efectivo</h1>
+
+
+
+
+
+
+<div id="nav" class="TOC"></div>
+
+
+
+
+
+
+
+
+
+<h2 id="introduction">Introducción</h2>
+
+<p>
+Go es un nuevo lenguaje. Aunque toma prestadas ideas de lenguajes existentes, tiene propiedades inusuales que hacen que los eficaces programas en Go tengan un carácter diferente de los programas escritos en sus parientes. Es poco probable que una traducción directa de un programa en C++ o Java a Go produzca un resultado satisfactorio—los programas Java están escritos en Java, no en Go. Por otro lado, pensar en el problema desde la perspectiva de Go podría producir un programa exitoso pero bastante diferente. En otras palabras, para escribir Go bien, es importante comprender sus propiedades y modismos. También es importante conocer las convenciones establecidas para programar en Go, como nombres, formatos, construcción de programas, etc., para que los programas que escribas sean fáciles de entender para otros programadores de Go.
+</p>
+
+<p>
+Este documento brinda consejos para escribir código Go claro e idiomático. Complementa la <a href="https://go.dev/ref/spec" rel="nofollow" target="_blank" title="Página todavía no traducida">Especificación del lenguaje ⬀</a>, el <a href="https://go.dev/tour" rel="nofollow" target="_blank" title="Página todavía no traducida">Tour por Go ⬀</a> y <a href="https://go.dev/doc/code.html" rel="nofollow" target="_blank" title="Página todavía no traducida">Cómo escribir código Go ⬀</a>, todo lo cual debes leer primero.
+</p>
+
+<p>
+Nota agregada en enero de 2022: este documento fue escrito para el lanzamiento de Go en 2009 y no se ha actualizado significativamente desde entonces. Aunque es una buena guía para comprender cómo usar el lenguaje en sí, gracias a la estabilidad del lenguaje, dice poco sobre las bibliotecas y nada sobre cambios significativos en el ecosistema Go desde que fue escrito, como el sistema de compilación, los tests, los módulos y el polimorfismo. No hay planes para actualizarlo, por lo tanto han sucedido muchas cosas y un conjunto cada vez mayor de documentación, blogs y libros hacen un excelente trabajo al describir el uso moderno de Go. Go efectivo sigue siendo útil, pero el lector debe entender que está lejos de ser una guía completa. Ver <a href="https://github.com/golang/go/issues/28782">issue28782</a> para más contexto.
+</p>
+
+<h3 id="examples">Ejemplos</h3>
+
+<p>
+Las <a href="https://go.dev/src" rel="nofollow" target="_blank" title="Página todavía no traducida">fuentes del paquete Go ⬀</a> están destinadas a servir no solo como biblioteca central sino también como ejemplos de cómo usar el lenguaje. Muchos de los paquetes contienen ejemplos ejecutables independientes y funcionales que puedes ejecutar directamente desde el sitio web <a href="https://golang.org">golang.org</a>, como <a href="https://go.dev/pkg/strings" rel="nofollow" target="_blank" title="Página todavía no traducida">este ⬀</a> (si es necesario, haz clic en la palabra "Ejemplo" para abrirlo). Si tienes alguna pregunta sobre cómo abordar un problema o cómo se podría implementar algo, la documentación, el código y los ejemplos de la biblioteca pueden proporcionar respuestas, ideas y antecedentes.
+</p>
+
+
+<h2 id="formatting">Formatear</h2>
+
+<p>
+Los problemas de formato son los más polémicos pero los menos trascendentes. Las personas pueden adaptarse a diferentes estilos de formato, pero es mejor si no es necesario, y se dedica menos tiempo al tema si todos se adhieren al mismo estilo. El problema es cómo abordar esta utopía sin una larga guía de estilo prescriptiva.
+</p>
+
+<p>Con Go adoptamos un enfoque inusual y dejamos que la máquina se encargue de la mayoría de los problemas de formato. El programa <code>gofmt</code> (también disponible como <code>go fmt</code>), que opera a nivel de paquete en lugar de a nivel de archivo fuente) lee un programa Go y emite el código fuente en un estilo estándar de sangría y alineación vertical, reteniendo y, si es necesario, reformateando los comentarios. Si deseas saber cómo manejar alguna situación de diseño nueva, ejecuta <code>gofmt</code>; Si la respuesta no te parece correcta, reorganiza tu programa (o presenta un error sobre <code>gofmt</code>).</p>
+
+<p>
+Como ejemplo, no hay necesidad de perder tiempo alineando los comentarios en los campos de una estructura.
+<code>Gofmt</code> lo hará por ti. Dada la declaración
+</p>
+
+<pre>type T struct {
+    name string // name of the object
+    value int // its value
+}
+</pre>
+
+<p>
+<code>gofmt</code> alineará las columnas:
+</p>
+
+<pre>type T struct {
+    name    string // name of the object
+    value   int    // its value
+}
+</pre>
+
+<p>
+Todo el código Go en los paquetes estándar ha sido formateado con <code>gofmt</code>.
+</p>
+
+
+<p>
+Quedan algunos detalles de formato. Muy corto:
+</p>
+
+<dl>
+    <dt>Sangría</dt>
+    <dd>Usamos tabulaciones para la sangría y <code>gofmt</code> las emite de forma predeterminada. Utiliza espacios sólo si es necesario.
+    </dd>
+    <dt>Longitud de línea</dt>
+    <dd>
+    Go no tiene límite de longitud de línea. No te preocupes por desbordar una tarjeta perforada. Si una línea parece demasiado larga, envuélvala y sangra con una tabulación adicional.
+    </dd>
+    <dt>Paréntesis</dt>
+    <dd>
+    Go necesita menos paréntesis que C y Java: estructuras de control (<code>if</code>, <code>for</code>, <code>switch</code>) no tienen paréntesis en su sintaxis. Además, la jerarquía de precedencia de operadores es más corta y clara, por lo que <pre>x&lt;&lt;8 + y&lt;&lt;16
+</pre>
+    significa lo que implica el espaciado, a diferencia de otros lenguajes.
+    </dd>
+</dl>
+
+<h2 id="commentary">Comentario</h2>
+
+<p>
+Go proporciona comentarios de bloque <code>/* */</code> estilo C y comentarios de línea <code>//</code> estilo C++. Los comentarios de línea son la norma; los comentarios de bloque aparecen principalmente como comentarios de paquetes, pero son útiles dentro de una expresión o para deshabilitar grandes extensiones de código.
+</p>
+
+<p>
+Se considera que los comentarios que aparecen antes de las declaraciones de nivel superior, sin nuevas líneas intermedias, documentan la declaración en sí. Estos "comentarios de documentación" son la documentación principal para un paquete o comando de Go determinado. Para obtener más información sobre los comentarios de documentación, consulta “<a href="https://go.dev/doc/comment" rel="nofollow" target="_blank" title="Página todavía no traducida">Comentarios de Go Doc ⬀</a>”.
+</p>
+
+<h2 id="names">Nombres</h2>
+
+<p>
+Los nombres son tan importantes en Go como en cualquier otro lenguaje. Incluso tienen un efecto semántico: la visibilidad de un nombre fuera de un paquete está determinada por si su primer carácter está en mayúscula. Por lo tanto, vale la pena dedicar un tiempo a hablar sobre convenciones de nomenclatura en programas Go.
+</p>
+
+
+<h3 id="package-names">Nombres de paquetes</h3>
+
+<p>
+Cuando se importa un paquete, el nombre del paquete se convierte en un acceso al contenido. Después
+</p>
+
+<pre>import "bytes"
+</pre>
+
+<p>
+el paquete de importación puede hablar de <code>bytes.Buffer</code>. Es útil si todos los que usan el paquete pueden usar el mismo nombre para referirse a su contenido, lo que implica que el nombre del paquete debe ser bueno: breve, conciso y evocador. Por convención, los paquetes reciben nombres de una sola palabra en minúsculas; no debería haber necesidad de guiones bajos o mayúsculas mixtas. Err por el lado de la brevedad, ya que todos los que usen su paquete escribirán ese nombre. Y no te preocupes por las colisiones <i>a priori</i>. El nombre del paquete es solo el nombre predeterminado para las importaciones; no necesita ser único en todo el código fuente y, en el raro caso de una colisión, el paquete importador puede elegir un nombre diferente para usar localmente. En cualquier caso, la confusión es rara porque el nombre del archivo en la importación determina exactamente qué paquete se está utilizando.
+</p>
+
+<p>
+Otra convención es que el nombre del paquete es el nombre base de su directorio fuente; el paquete en <code>src/encoding/base64</code>
+se importa como <code>"encoding/base64"</code> pero tiene el nombre <code>base64</code>, no <code>encoding_base64</code> ni <code>encodingBase64</code>.
+</p>
+
+<p>
+El importador de un paquete usará el nombre para referirse a su contenido, por lo que los nombres exportados en el paquete pueden usar ese hecho para evitar repeticiones. (No uses la notación <code>import .</code>, que puede simplificar los tests que deben ejecutarse fuera del paquete que están testeando, pero que de lo contrario deben evitarse.) Por ejemplo, el tipo buffered reader en el paquete <code>bufio</code> se llama <code>Reader</code>, no <code>BufReader</code>, porque los usuarios lo ven como <code>bufio.Reader</code>, que es un nombre claro y conciso. Además, porque las entidades importadas siempre se abordan con su nombre del paquete, <code>bufio.Reader</code> no entra en conflicto con <code>io.Reader</code>. De manera similar, la función para crear nuevas instancias de <code>ring.Ring</code>, que es la definición de un <em>constructor</em> en Go—normalmente se llamaría <code>NewRing</code>, pero dado que
+<code>Ring</code> es el único tipo exportado por el paquete y dado que el paquete se llama <code>ring</code>, se llama simplemente <code>New</code>, que los clientes del paquete ven como <code>ring.New</code>. Utiliza la estructura del paquete para ayudarte a elegir buenos nombres.
+</p>
+
+<p>
+Otro ejemplo breve es <code>once.Do</code>;
+<code>once.Do(setup)</code> se lee bien y no se mejoraría escribiendo <code>once.DoOrWaitUntilDone(setup)</code>. Los nombres largos no hacen que las cosas sean más legibles automáticamente. Un comentario de documentación útil a menudo puede ser más valioso que un nombre extra largo.
+</p>
+
+<h3 id="Getters">Getters</h3>
+
+<p>
+Go no proporciona soporte automático para getters y setters. No hay nada de malo en proporcionar getters y setters tú mismo, y a menudo es apropiado hacerlo, pero no es ni idiomático ni necesario poner <code>Get</code> en el nombre del getter. Si tienes un campo llamado <code>owner</code> (minúscula, no exportado), el método getter debe llamarse <code>Owner</code> (mayúscula, exportado), no <code>GetOwner</code>. El uso de nombres en mayúsculas para la exportación proporciona el gancho para discriminar el campo del método. Una función setter, si es necesaria, probablemente se llamará <code>SetOwner</code>. Ambos nombres se leen bien en la práctica:
+</p>
+<pre>owner := obj.Owner()
+if owner != user {
+    obj.SetOwner(user)
+}
+</pre>
+
+<h3 id="interface-names">Nombres de interface</h3>
+
+<p>
+Por convención, las interfaces de un método se nombran con el nombre del método más un sufijo -er o una modificación similar para construir un nombre de agente: <code>Reader</code>,
+<code>Writer</code>, <code>Formatter</code>,
+<code>CloseNotifier</code> etc.
+</p>
+
+<p>
+Existen varios nombres de este tipo y es productivo respetarlos y los nombres de funciones que capturan.
+<code>Read</code>, <code>Write</code>, <code>Close</code>, <code>Flush</code>,
+<code>String</code> y así sucesivamente tienen firmas y significados canónicos. Para evitar confusiones, no le des a tu método uno de esos nombres a menos que tenga la misma firma y significado. Por el contrario, si tu tipo implementa un método con el mismo significado que un método en un tipo conocido, asígnale el mismo nombre y firma; llama a tu método convertidor a cadenas <code>String</code>, no <code>ToString</code>.
+</p>
+
+<h3 id="mixed-caps">MixedCaps</h3>
+
+<p>
+Finalmente, la convención en Go es usar <code>MixedCaps</code> o <code>mixedCaps</code> en lugar de guiones bajos para escribir nombres de varias palabras.
+</p>
+
+<h2 id="semicolons">Punto y coma</h2>
+
+<p>
+Al igual que C, la gramática formal de Go usa punto y coma para terminar declaraciones, pero a diferencia de C, esos puntos y coma no aparecen en la fuente. En cambio, el lexer usa una regla simple para insertar punto y coma automáticamente mientras escanea, por lo que el texto de entrada está prácticamente libre de ellos.
+</p>
+
+<p>
+La regla es esta. Si el último token antes de una nueva línea es un identificador (que incluye palabras como <code>int</code> y <code>float64</code>), un literal básico como un número o una cadena constante, o uno de los tokens
+</p>
+<pre>break continue fallthrough return ++ -- ) }
+</pre>
+<p>
+el lexer siempre inserta un punto y coma después del token. Esto podría resumirse como, "si la nueva línea viene después de un token que podría finalizar una declaración, inserta un punto y coma".
+</p>
+
+<p>
+Un punto y coma también se puede omitir inmediatamente antes de una llave de cierre, por lo que una declaración como
+</p>
+<pre>    go func() { for { dst &lt;- &lt;-src } }()
+</pre>
+<p>
+no necesita punto y coma. Los programas en Go tienen punto y coma solo en lugares como las cláusulas de bucle
+<code>for</code>, para separar los elementos inicializador, condición y continuación. También son necesarios para separar varias declaraciones en una línea, en caso de que escribas el código de esa manera.
+</p>
+
+<p>
+Una consecuencia de las reglas de inserción de punto y coma es que no puedes poner la llave de apertura de una estructura de control (<code>if</code>, <code>for</code>, <code>switch</code>, o <code>select</code>) en la siguiente línea. Si lo haces, se insertará un punto y coma antes de la llave, lo que podría provocar efectos no deseados. Escríbelos así
+</p>
+
+<pre>if i &lt; f() {
+    g()
+}
+</pre>
+<p>
+así no
+</p>
+<pre>if i &lt; f()  // wrong!
+{           // wrong!
+    g()
+}
+</pre>
+
+
+<h2 id="control-structures">Estructuras de control</h2>
+
+<p>
+Las estructuras de control de Go están relacionadas con las de C pero difieren en aspectos importantes. No hay un bucle <code>do</code> o <code>while</code>, solamente un <code>for</code> ligeramente generalizado; <code>switch</code> es más flexible; <code>if</code> y <code>switch</code> aceptan una declaración de inicialización opcional como la de <code>for</code>; las declaraciones <code>break</code> y <code>continue</code> toman una etiqueta opcional para identificar qué interrumpir o continuar; y hay nuevas estructuras de control que incluyen un type switch y un multiplexor de comunicaciones multidireccional, <code>select</code>. La sintaxis también es ligeramente diferente: no hay paréntesis y los cuerpos siempre deben estar delimitados por llaves.
+</p>
+
+<h3 id="if">If</h3>
+
+<p>
+En Go, un <code>if</code> simple se ve así:
+</p>
+<pre>if x &gt; 0 {
+    return y
+}
+</pre>
+
+<p>
+Las llaves obligatorias alientan a escribir declaraciones <code>if</code> simples en varias líneas. Es un buen estilo hacerlo de todos modos, especialmente cuando el cuerpo contiene una declaración de control como <code>return</code> o <code>break</code>.
+</p>
+
+<p>
+Dado que <code>if</code> y <code>switch</code> aceptan una declaración de inicialización, es común ver una usada para configurar una variable local.
+</p>
+
+<pre>if err := file.Chmod(0664); err != nil {
+    log.Print(err)
+    return err
+}
+</pre>
+
+<p id="else">
+En las bibliotecas de Go, encontrarás que cuando una declaración <code>if</code> no fluye hacia la siguiente declaración, es decir, el cuerpo termina en <code>break</code>, <code>continue</code>, <code>goto</code> o <code>return</code>—el innecesario <code>else</code> se omite.
+</p>
+
+<pre>f, err := os.Open(name)
+if err != nil {
+    return err
+}
+codeUsing(f)
+</pre>
+
+<p>
+Este es un ejemplo de una situación común en la que el código debe protegerse contra una secuencia de condiciones de error. El código se lee bien si el flujo de control exitoso recorre la página, eliminando los casos de error a medida que surgen. Dado que los casos de error tienden a terminar en declaraciones <code>return</code>, el código resultante no necesita declaraciones <code>else</code>.
+</p>
+
+<pre>f, err := os.Open(name)
+if err != nil {
+    return err
+}
+d, err := f.Stat()
+if err != nil {
+    f.Close()
+    return err
+}
+codeUsing(f, d)
+</pre>
+
+
+<h3 id="redeclaration">Redeclaración y reasignación</h3>
+
+<p>
+Un comentario aparte: el último ejemplo de la sección anterior demuestra un detalle de cómo funciona la declaración corta <code>:=</code>. La declaración que llama a <code>os.Open</code> lee,
+</p>
+
+<pre>f, err := os.Open(name)
+</pre>
+
+<p>
+Esta declaración declara dos variables, <code>f</code> y <code>err</code>. Unas líneas más tarde, la llamada a <code>f.Stat</code> lee,
+</p>
+
+<pre>d, err := f.Stat()
+</pre>
+
+<p>
+que parece declarar <code>d</code> y <code>err</code>. Sin embargo, observa que aparece <code>err</code> en ambas declaraciones. Esta duplicación es legal: <code>err</code> es declarado por la primera declaración, pero sólo <em>reasignado</em> en la segunda. Esto significa que la llamada a <code>f.Stat</code> utiliza la variable <code>err</code> existente declarada anteriormente y simplemente le asigna un nuevo valor.
+</p>
+
+<p>
+En una declaración <code>:=</code> puede aparecer una variable <code>v</code> incluso si ya ha sido declarada, siempre que:
+</p>
+
+<ul>
+<li>esta declaración está en el mismo alcance que la declaración existente de <code>v</code> (si <code>v</code> ya está declarado en un alcance externo, la declaración creará una nueva variable §),</li>
+<li>el valor correspondiente en la inicialización se puede asignar a <code>v</code>, y</li>
+<li>hay al menos otra variable creada por la declaración.</li>
+</ul>
+
+<p>
+Esta propiedad inusual es puro pragmatismo, lo que facilita el uso de un único valor <code>err</code>, por ejemplo, en una cadena <code>if-else</code>. Verás que se usa con frecuencia.
+</p>
+
+<p>
+§ Vale la pena señalar aquí que en Go el alcance de los parámetros de la función y los valores de retorno es el mismo que el del cuerpo de la función, aunque aparecen léxicamente fuera de las llaves que encierran el cuerpo.
+</p>
+
+<h3 id="for">For</h3>
+
+<p>
+El bucle Go <code>for</code> es similar, pero no igual, al de C. Unifica <code>for</code> y <code>while</code> y no hay <code>do-while</code>. Hay tres formas, solo uno de los cuales tiene punto y coma.
+</p>
+<pre>// Like a C for
+for init; condition; post { }
+
+// Like a C while
+for condition { }
+
+// Like a C for(;;)
+for { }
+</pre>
+
+<p>
+Las declaraciones cortas facilitan la declaración de la variable de índice directamente en el bucle.
+</p>
+<pre>sum := 0
+for i := 0; i &lt; 10; i++ {
+    sum += i
+}
+</pre>
+
+<p>
+Si estás haciendo un bucle sobre una array, slice, string o map, o leyendo desde un channel, una cláusula <code>range</code> puede administrar el bucle.
+</p>
+<pre>for key, value := range oldMap {
+    newMap[key] = value
+}
+</pre>
+
+<p>
+Si solo necesitas el primer elemento del rango (la clave o índice), deshazte del segundo:
+</p>
+<pre>for key := range m {
+    if key.expired() {
+        delete(m, key)
+    }
+}
+</pre>
+
+<p>
+Si solo necesitas el segundo elemento del rango (el valor), usa el <em>identificador en blanco</em>, un guión bajo, para descartar el primero:
+</p>
+<pre>sum := 0
+for _, value := range array {
+    sum += value
+}
+</pre>
+
+<p>
+El identificador en blanco tiene muchos usos, como se describe en <a href="#blank">una sección posterior</a>.
+</p>
+
+<p>
+Para cadenas, el <code>range</code> hace más trabajo por ti, desglosando puntos de código Unicode individuales analizando el UTF-8. Las codificaciones erróneas consumen un byte y producen la runa U+FFFD de reemplazo. (El nombre (con el tipo incorporado asociado) <code>rune</code> es la terminología de Go para un único punto de código Unicode. Consulta <a href="https://go.dev/ref/spec" rel="nofollow" target="_blank" title="Página todavía no traducida">la especificación del lenguaje ⬀</a> para más detalles). El bucle
+</p>
+<pre>for pos, char := range "日本\x80語" { // \x80 is an illegal UTF-8 encoding
+    fmt.Printf("character %#U starts at byte position %d\n", char, pos)
+}
+</pre>
+<p>
+imprime
+</p>
+<pre>character U+65E5 '日' starts at byte position 0
+character U+672C '本' starts at byte position 3
+character U+FFFD '�' starts at byte position 6
+character U+8A9E '語' starts at byte position 7
+</pre>
+
+<p>
+Finalmente, Go no tiene operador de coma y <code>++</code> y <code>--</code> son declaraciones, no expresiones. Por lo tanto, si quieres ejecutar múltiples variables en un <code>for</code> debes utilizar una asignación paralela (aunque eso excluye <code>++</code> y <code>--</code>).
+</p>
+<pre>// Reverse a
+for i, j := 0, len(a)-1; i &lt; j; i, j = i+1, j-1 {
+    a[i], a[j] = a[j], a[i]
+}
+</pre>
+
+<h3 id="switch">Switch</h3>
+
+<p>
+El <code>switch</code> de Go es más general que el de C. Las expresiones no necesitan ser constantes ni siquiera enteras, los casos se evalúan de arriba a abajo hasta que se encuentra una coincidencia, y si <code>switch</code> no tiene expresión se considera <code>true</code>. Por lo tanto, es posible (e idiomático) escribir una cadena <code>if</code>-<code>else</code>-<code>if</code>-<code>else</code> como un <code>switch</code>.
+</p>
+
+<pre>func unhex(c byte) byte {
+    switch {
+    case '0' &lt;= c &amp;&amp; c &lt;= '9':
+        return c - '0'
+    case 'a' &lt;= c &amp;&amp; c &lt;= 'f':
+        return c - 'a' + 10
+    case 'A' &lt;= c &amp;&amp; c &lt;= 'F':
+        return c - 'A' + 10
+    }
+    return 0
+}
+</pre>
+
+<p>
+No existe un fall through (caso por defecto) automático, pero los casos se pueden presentar en listas separadas por comas.
+</p>
+<pre>func shouldEscape(c byte) bool {
+    switch c {
+    case ' ', '?', '&amp;', '=', '#', '+', '%':
+        return true
+    }
+    return false
+}
+</pre>
+
+<p>
+Aunque no son tan comunes en Go como otros lenguajes similares a C, las sentencias <code>break</code> se pueden usar para terminar un <code>switch</code> temprano. Sin embargo, a veces es necesario salir de un bucle circundante, no el switch, y en Go eso se puede lograr colocando una etiqueta en el bucle y "rompiendo" esa etiqueta. Este ejemplo muestra ambos usos.
+</p>
+
+<pre>Loop:
+    for n := 0; n &lt; len(src); n += size {
+        switch {
+        case src[n] &lt; sizeOne:
+            if validateOnly {
+                break
+            }
+            size = 1
+            update(src[n])
+
+        case src[n] &lt; sizeTwo:
+            if n+1 &gt;= len(src) {
+                err = errShortInput
+                break Loop
+            }
+            if validateOnly {
+                break
+            }
+            size = 2
+            update(src[n] + src[n+1]&lt;&lt;shift)
+        }
+    }
+</pre>
+
+<p>
+Por supuesto, la instrucción <code>continue</code> también acepta una etiqueta opcional, pero se aplica solo a los bucles.
+</p>
+
+<p>
+Para cerrar esta sección, aquí tienes una rutina de comparación para porciones de bytes que utiliza dos sentencias <code>switch</code> :
+</p>
+<pre>// Compare returns an integer comparing the two byte slices,
+// lexicographically.
+// The result will be 0 if a == b, -1 if a &lt; b, and +1 if a &gt; b
+func Compare(a, b []byte) int {
+    for i := 0; i &lt; len(a) &amp;&amp; i &lt; len(b); i++ {
+        switch {
+        case a[i] &gt; b[i]:
+            return 1
+        case a[i] &lt; b[i]:
+            return -1
+        }
+    }
+    switch {
+    case len(a) &gt; len(b):
+        return 1
+    case len(a) &lt; len(b):
+        return -1
+    }
+    return 0
+}
+</pre>
+
+<h3 id="type_switch">Switch de tipo</h3>
+
+<p>
+También se puede usar un switch para descubrir el tipo dinámico de una variable de interfaz. Un <em>switch de tipo</em> utiliza la sintaxis de una afirmación de tipo con la palabra clave <code>type</code> entre paréntesis. Si el switch declara una variable en la expresión, la variable tendrá el tipo correspondiente en cada cláusula. También es idiomático reutilizar el nombre en tales casos, declarando de hecho una nueva variable con el mismo nombre pero de un tipo diferente en cada caso.
+</p>
+<pre>var t interface{}
+t = functionOfSomeType()
+switch t := t.(type) {
+default:
+    fmt.Printf("unexpected type %T\n", t)     // %T prints whatever type t has
+case bool:
+    fmt.Printf("boolean %t\n", t)             // t has type bool
+case int:
+    fmt.Printf("integer %d\n", t)             // t has type int
+case *bool:
+    fmt.Printf("pointer to boolean %t\n", *t) // t has type *bool
+case *int:
+    fmt.Printf("pointer to integer %d\n", *t) // t has type *int
+}
+</pre>
+
+<h2 id="functions">Funciones</h2>
+
+<h3 id="multiple-returns">Múltiples valores de retorno</h3>
+
+<p>
+Una de las características inusuales de Go es que las funciones y los métodos pueden devolver múltiples valores. Esta forma se puede utilizar para mejorar un par de modismos torpes en programas C: retornos de error dentro de las restricciones del valor de retorno como <code>-1</code> para <code>EOF</code> y modificación de un argumento pasado por dirección.
+</p>
+
+<p>En C, un error de escritura se indica mediante un recuento negativo con el código de error escondido en una ubicación volátil. En Go, <code>Write</code> puede devolver un recuento <i>y</i> un error: "Sí, escribiste algunos bytes pero no todos porque llenaste el dispositivo". La firma del método <code>Write</code> en archivos del paquete <code>os</code> es:</p>
+
+<pre>func (file *File) Write(b []byte) (n int, err error)
+</pre>
+
+<p>
+y como dice la documentación, devuelve el número de bytes escritos y un <code>error</code> no nulo cuando <code>n</code>
+<code>!=</code> <code>len(b)</code>. Este es un estilo común; consulta la sección sobre manejo de errores para obtener más ejemplos.
+</p>
+
+<p>
+Un enfoque similar evita la necesidad de pasar un puntero a un valor de retorno para simular un parámetro de referencia. Aquí hay una función sencilla para tomar un número de una posición en un slice de bytes, devolver el número y la siguiente posición.
+</p>
+
+<pre>func nextInt(b []byte, i int) (int, int) {
+    for ; i &lt; len(b) &amp;&amp; !isDigit(b[i]); i++ {
+    }
+    x := 0
+    for ; i &lt; len(b) &amp;&amp; isDigit(b[i]); i++ {
+        x = x*10 + int(b[i]) - '0'
+    }
+    return x, i
+}
+</pre>
+
+<p>
+Puedes usarlo para escanear los números en un segmento de entrada <code>b</code> como este:
+</p>
+
+<pre>    for i := 0; i &lt; len(b); {
+        x, i = nextInt(b, i)
+        fmt.Println(x)
+    }
+</pre>
+
+<h3 id="named-results">Parámetros de resultados con nombre</h3>
+
+<p>
+Los "parámetros" de retorno o resultado de una función Go pueden recibir nombres y usarse como variables regulares, al igual que los parámetros entrantes. Cuando se nombran, se inicializan a los valores cero para su tipo cuándo comienza la función; si la función ejecuta una instrucción <code>return</code> sin argumentos, los valores actuales de los parámetros del resultado se utilizan como valores devueltos.
+</p>
+
+<p>
+Los nombres no son obligatorios pero pueden hacer que el código sea más corto y claro: son documentación. Si nombramos los resultados de <code>nextInt</code>, resulta obvio que devolvió <code>int</code>
+es cuál.
+</p>
+
+<pre>func nextInt(b []byte, pos int) (value, nextPos int) {
+</pre>
+
+<p>
+Debido a que los resultados con nombre se inicializan y se vinculan a un retorno sin adornos, pueden simplificar y aclarar. Aquí hay una versión de <code>io.ReadFull</code> que los usa bien:
+</p>
+
+<pre>func ReadFull(r Reader, buf []byte) (n int, err error) {
+    for len(buf) &gt; 0 &amp;&amp; err == nil {
+        var nr int
+        nr, err = r.Read(buf)
+        n += nr
+        buf = buf[nr:]
+    }
+    return
+}
+</pre>
+
+<h3 id="defer">Defer</h3>
+
+<p>
+La instrucción de Go <code>defer</code> programa una llamada de función (la función <i>diferida</i>) para que se ejecute inmediatamente antes de que la función que ejecuta el <code>defer</code> finalice devolviendo un retorno. Es una manera inusual pero efectiva de lidiar con situaciones tales como recursos que deben liberarse independientemente del camino a retornar que tome una función. Los ejemplos canónicos son desbloquear un mutex o cerrar un archivo.
+</p>
+
+<pre>// Contents returns the file's contents as a string.
+func Contents(filename string) (string, error) {
+    f, err := os.Open(filename)
+    if err != nil {
+        return "", err
+    }
+    defer f.Close()  // f.Close will run when we're finished.
+
+    var result []byte
+    buf := make([]byte, 100)
+    for {
+        n, err := f.Read(buf[0:])
+        result = append(result, buf[0:n]...) // append is discussed later.
+        if err != nil {
+            if err == io.EOF {
+                break
+            }
+            return "", err  // f will be closed if we return here.
+        }
+    }
+    return string(result), nil // f will be closed if we return here.
+}
+</pre>
+
+<p>
+Aplazar una llamada a una función como <code>Close</code> tiene dos ventajas. Primero, garantiza que nunca olvidarás cerrar el archivo, un error que es fácil de cometer si luego editas la función para agregar una nueva ruta de retorno. En segundo lugar, significa que el cierre se sitúa cerca de la apertura, lo cual es mucho más claro que colocarlo al final de la función.
+</p>
+
+<p>
+Los argumentos de la función diferida (que incluyen el receptor si la función es un método) se evalúan cuando se ejecuta <i>defer</i>, no cuando se ejecuta <i>call</i>. Además de evitar preocupaciones acerca de que las variables cambien los valores a medida que se ejecuta la función, esto significa que un único sitio de llamada diferida puede diferir múltiples ejecuciones de funciones. He aquí un ejemplo tonto.
+</p>
+
+<pre>for i := 0; i &lt; 5; i++ {
+    defer fmt.Printf("%d ", i)
+}
+</pre>
+
+<p>
+Las funciones diferidas se ejecutan en orden LIFO, por lo que este código hará que se imprima <code>4 3 2 1 0</code> cuando la función retorne. Un ejemplo más plausible es una forma sencilla de rastrear la ejecución de funciones a través del programa. Podríamos escribir un par de rutinas de rastreo simples como esta:
+</p>
+
+<pre>func trace(s string)   { fmt.Println("entering:", s) }
+func untrace(s string) { fmt.Println("leaving:", s) }
+
+// Use them like this:
+func a() {
+    trace("a")
+    defer untrace("a")
+    // do something....
+}
+</pre>
+
+<p>
+Podemos hacerlo mejor aprovechando el hecho de que los argumentos de las funciones diferidas se evalúan cuando se ejecuta <code>defer</code>. La rutina de seguimiento puede configurar el argumento de la rutina de desrastreo. Este ejemplo:
+</p>
+
+<pre>func trace(s string) string {
+    fmt.Println("entering:", s)
+    return s
+}
+
+func un(s string) {
+    fmt.Println("leaving:", s)
+}
+
+func a() {
+    defer un(trace("a"))
+    fmt.Println("in a")
+}
+
+func b() {
+    defer un(trace("b"))
+    fmt.Println("in b")
+    a()
+}
+
+func main() {
+    b()
+}
+</pre>
+
+<p>
+imprime
+</p>
+
+<pre>entering: b
+in b
+entering: a
+in a
+leaving: a
+leaving: b
+</pre>
+
+<p>
+Para programadores acostumbrados a la gestión de recursos a nivel de bloques de otros lenguajes, <code>defer</code> puede parecer peculiar, pero sus aplicaciones más interesantes y potentes provienen precisamente de que no es basado en bloque sino basado en funciones. En el apartado de <code>panic</code> y <code>recover</code> veremos otro ejemplo de sus posibilidades.
+</p>
+
+<h2 id="data">Datos</h2>
+
+<h3 id="allocation_new">Asignación con <code>new</code></h3>
+
+<p>
+Go tiene dos primitivas de asignación, las funciones integradas <code>new</code> y <code>make</code>. Hacen cosas diferentes y se aplican a diferentes tipos, lo que puede resultar confuso, pero las reglas son simples. Hablemos primero de <code>new</code>. Es una función incorporada que asigna memoria, pero a diferencia de sus homónimos en otros lenguajes, no <em>inicializa</em> la memoria, solo la <em>pone a cero</em>. Es decir, <code>new(T)</code> asigna almacenamiento puesto a cero para un nuevo elemento de tipo <code>T</code> y devuelve su dirección, un valor de tipo <code>*T</code>. En la terminología de Go, devuelve un puntero a un valor cero recién asignado de tipo <code>T</code>.
+</p>
+
+<p>
+Dado que la memoria devuelta por <code>new</code> está puesta a cero, es útil disponer al diseñar tus estructuras de datos que el valor cero de cada tipo pueda usarse sin inicialización adicional. Esto significa que un usuario de la estructura de datos puede crear una con <code>new</code> y ponerse manos a la obra. Por ejemplo, la documentación para <code>bytes.Buffer</code> establece que "el valor cero para <code>Buffer</code> es un buffer vacío listo para usar". De manera similar, <code>sync.Mutex</code> no tiene un constructor explícito ni un método <code>Init</code>. En cambio, el valor cero para un <code>sync.Mutex</code>
+se define como un mutex desbloqueado.
+</p>
+
+<p>
+La útil propiedad de valor cero funciona de forma transitiva. Considera este tipo de declaración.
+</p>
+
+<pre>type SyncedBuffer struct {
+    lock    sync.Mutex
+    buffer  bytes.Buffer
+}
+</pre>
+
+<p>
+Los valores de tipo <code>SyncedBuffer</code> también están listos para usarse inmediatamente después de la asignación o simplemente de la declaración. En el siguiente fragmento, tanto <code>p</code> como <code>v</code> funcionarán correctamente sin más arreglos.
+</p>
+
+<pre>p := new(SyncedBuffer)  // type *SyncedBuffer
+var v SyncedBuffer      // type  SyncedBuffer
+</pre>
+
+<h3 id="composite_literals">Constructores y literales compuestos</h3>
+
+<p>
+A veces el valor cero no es lo suficientemente bueno y es necesario un constructor de inicialización, como en este ejemplo derivado del paquete <code>os</code>.
+</p>
+
+<pre>func NewFile(fd int, name string) *File {
+    if fd &lt; 0 {
+        return nil
+    }
+    f := new(File)
+    f.fd = fd
+    f.name = name
+    f.dirinfo = nil
+    f.nepipe = 0
+    return f
+}
+</pre>
+
+<p>
+Hay muchos textos repetitivos ahí. Podemos simplificarlo usando un <i>literal compuesto</i>, que es una expresión que crea una nueva instancia cada vez que se evalúa.
+</p>
+
+<pre>func NewFile(fd int, name string) *File {
+    if fd &lt; 0 {
+        return nil
+    }
+    f := File{fd, name, nil, 0}
+    return &amp;f
+}
+</pre>
+
+<p>
+Ten en cuenta que, a diferencia de C, está perfectamente bien devolver la dirección de una variable local; el almacenamiento asociado con la variable sobrevive después de que la función retorna. De hecho, al tomar la dirección de un literal compuesto se asigna una nueva instancia cada vez que se evalúa, por lo que podemos combinar estas dos últimas líneas.
+</p>
+
+<pre>    return &amp;File{fd, name, nil, 0}
+</pre>
+
+<p>
+Los campos de un literal compuesto están dispuestos en orden y todos deben estar presentes. Sin embargo, al etiquetar los elementos explícitamente como pares <i>field</i><code>:</code><i>value</i>, los inicializadores pueden aparecer en cualquier orden, dejando los que faltan con sus respectivos valores cero. Así podríamos decir
+</p>
+
+<pre>    return &amp;File{fd: fd, name: name}
+</pre>
+
+<p>
+Como caso límite, si un literal compuesto no contiene ningún campo, crea un valor cero para el tipo. Las expresiones <code>new(File)</code> y <code>&amp;File{}</code> son equivalentes.
+</p>
+
+<p>
+También se pueden crear literales compuestos para arrays, slices y maps, siendo las etiquetas de los campos índices o claves de mapa, según corresponda. En estos ejemplos, las inicializaciones funcionan independientemente de los valores de <code>Enone</code>, <code>Eio</code> y <code>Einval</code>, siempre que sean distintos.
+</p>
+
+<pre>a := [...]string   {Enone: "no error", Eio: "Eio", Einval: "invalid argument"}
+s := []string      {Enone: "no error", Eio: "Eio", Einval: "invalid argument"}
+m := map[int]string{Enone: "no error", Eio: "Eio", Einval: "invalid argument"}
+</pre>
+
+<h3 id="allocation_make">Asignación con <code>make</code></h3>
+
+<p>
+Volviendo a la asignación. La función incorporada <code>make(T, </code><i>args</i><code>)</code> tiene un propósito diferente de <code>new(T)</code>. Crea slices, maps y channels únicamente, y devuelve un valor de tipo <em>inicializado</em> (no <em>puesto a cero</em>) <code>T</code> (no <code>*T</code>). El motivo de la distinción es que estos tres tipos representan, encubiertamente, referencias a estructuras de datos que deben inicializarse antes de su uso. Un slice por ejemplo, es un descriptor de tres elementos que contiene un puntero a los datos (dentro de un array), la longitud y la capacidad, y hasta que esos elementos se inicialicen, el slice es <code>nil</code>. Para slices, maps y channels, <code>make</code> inicializa la estructura de datos interna y prepara el valor para su uso. Por ejemplo,
+</p>
+
+<pre>make([]int, 10, 100)
+</pre>
+
+<p>
+asigna un array de 100 entradas y luego crea una estructura slice con una longitud de 10 y una capacidad de 100 apuntando a los primeros 10 elementos del array. (Al crear un slice, la capacidad puede omitirse; consulta la sección sobre slices para obtener más información). Por el contrario, <code>new([]int)</code> devuelve un puntero a una estructura de slices puesta a cero recién asignada, es decir, un puntero a un valor de slice <code>nil</code>.
+</p>
+
+<p>
+Estos ejemplos ilustran la diferencia entre <code>new</code> y <code>make</code>.
+</p>
+
+<pre>var p *[]int = new([]int)       // allocates slice structure; *p == nil; rarely useful
+var v  []int = make([]int, 100) // the slice v now refers to a new array of 100 ints
+
+// Unnecessarily complex:
+var p *[]int = new([]int)
+*p = make([]int, 100, 100)
+
+// Idiomatic:
+v := make([]int, 100)
+</pre>
+
+<p>
+Recuerda que <code>make</code> se aplica solo a maps, slices y channels y no devuelve un puntero. Para obtener un puntero explícito, asigna con <code>new</code> o toma la dirección de una variable explícitamente.
+</p>
+
+<h3 id="arrays">Arrays</h3>
+
+<p>
+Los arrays son útiles al planificar el diseño detallado de la memoria y, a veces, pueden ayudar a evitar la asignación, pero principalmente son un bloque de construcción para los slices, el tema de la siguiente sección. Para sentar las bases de ese tema, aquí hay algunas palabras sobre arrays.
+</p>
+
+<p>
+Existen grandes diferencias entre la forma en que funcionan los arrays en Go y C. En Go,
+</p>
+<ul>
+<li>
+Los arrays son valores. Asignar un array a otro copia todos los elementos.
+</li>
+<li>
+En particular, si pasas un array a una función, recibirá una <i>copia</i> del array, no un puntero a el.
+</li><li>
+El tamaño de un array es parte de su tipo. Los tipos <code>[10]int</code> y <code>[20]int</code> son distintos.
+</li>
+</ul>
+
+<p>
+La propiedad de valor puede ser útil pero también costosa; Si deseas un comportamiento y eficiencia similares a los de C, puedes pasar un puntero al array.
+</p>
+
+<pre>func Sum(a *[3]float64) (sum float64) {
+    for _, v := range *a {
+        sum += v
+    }
+    return
+}
+
+array := [...]float64{7.0, 8.5, 9.1}
+x := Sum(&amp;array)  // Note the explicit address-of operator
+</pre>
+
+<p>
+Pero incluso este estilo no es idiomático. En su lugar, usa slices.
+</p>
+
+<h3 id="slices">Slices</h3>
+
+<p>
+Los slices envuelven arrays para brindar una interfaz más general, potente y conveniente a las secuencias de datos. Excepto por elementos con dimensiones explícitas, como arrays de transformación, la mayor parte de la programación de arrays en Go se realiza con slices en lugar de arrays simples.
+</p>
+<p>
+Los slices contienen referencias a una array subyacente, y si asignas un slice a otro, ambos se refieren al mismo array. Si una función toma un argumento de slice, realiza cambios en los elementos del slice será visible el llamador de la función, de forma análoga a pasar un puntero al array subyacente. Por lo tanto, una función <code>Read</code> puede aceptar un argumento de slice en lugar de un puntero y un recuento; la longitud dentro del slice establece un límite superior de la cantidad de datos que se leerán. Aquí está la firma del método <code>Read</code> del tipo <code>File</code> en el paquete <code>os</code>:
+</p>
+<pre>func (f *File) Read(buf []byte) (n int, err error)
+</pre>
+<p>
+El método devuelve el número de bytes leídos y un valor de error, si corresponde. Para leer en los primeros 32 bytes de un buffer más grande <code>buf</code>, <i>slice</i> (aquí usado como verbo) el búfer.
+</p>
+<pre>    n, err := f.Read(buf[0:32])
+</pre>
+<p>
+Este tipo de slice es común y eficiente. De hecho, dejando de lado la eficiencia por el momento, el siguiente fragmento también leería los primeros 32 bytes del búfer.
+</p>
+<pre>    var n int
+    var err error
+    for i := 0; i &lt; 32; i++ {
+        nbytes, e := f.Read(buf[i:i+1])  // Read one byte.
+        n += nbytes
+        if nbytes == 0 || e != nil {
+            err = e
+            break
+        }
+    }
+</pre>
+<p>
+La longitud de un slice puede cambiarse siempre y cuando todavía se ajuste a los límites del array subyacente; simplemente asígnalo a una porción de sí mismo. La <i>capacidad</i> de un slice, accesible mediante la función incorporada <code>cap</code>, informa la longitud máxima que puede asumir el slice. Aquí hay una función para agregar datos a un slice. Si los datos exceden la capacidad, se reasigna el slice. Se devuelve el slice resultante. La función utiliza el hecho de que
+<code>len</code> y <code>cap</code> son legales cuando se aplican al slice <code>nil</code> y devuelven 0.
+</p>
+<pre>func Append(slice, data []byte) []byte {
+    l := len(slice)
+    if l + len(data) &gt; cap(slice) {  // reallocate
+        // Allocate double what's needed, for future growth.
+        newSlice := make([]byte, (l+len(data))*2)
+        // The copy function is predeclared and works for any slice type.
+        copy(newSlice, slice)
+        slice = newSlice
+    }
+    slice = slice[0:l+len(data)]
+    copy(slice[l:], data)
+    return slice
+}
+</pre>
+<p>
+Debemos devolver el slice después porque, aunque <code>Append</code> puede modificar los elementos de <code>slice</code>, el slice en sí (la estructura de datos que contiene el puntero, la longitud y la capacidad) se pasa por valor.
+</p>
+
+<p>
+La idea de añadir a un slice es tan útil que se captura mediante la función incorporada <code>append</code>. Sin embargo, para comprender el diseño de esa función necesitamos un poco más de información, por lo que volveremos a ello más adelante.
+</p>
+
+<h3 id="two_dimensional_slices">Slices bidimensionales</h3>
+
+<p>
+Los arrays y slices de Go son unidimensionales. Para crear el equivalente de un array o slice 2D, es necesario definir un array de arrays o un slice de slices, como este:
+</p>
+
+<pre>type Transform [3][3]float64  // A 3x3 array, really an array of arrays.
+type LinesOfText [][]byte     // A slice of byte slices.
+</pre>
+
+<p>
+Debido a que los slices tienen una longitud variable, es posible que cada slice interno tenga una longitud diferente. Esa puede ser una situación común, como en nuestro ejemplo <code>LinesOfText</code>: cada línea tiene una longitud independiente.
+</p>
+
+<pre>text := LinesOfText{
+    []byte("Now is the time"),
+    []byte("for all good gophers"),
+    []byte("to bring some fun to the party."),
+}
+</pre>
+
+<p>
+A veces es necesario asignar un slice 2D, una situación que puede surgir al procesar líneas de escaneo de píxeles, por ejemplo. Hay dos formas de lograr esto. Una es asignar cada slice de forma independiente; la otra es asignar un único array y apuntar los slices individuales a el. Cuál usar depende de tu aplicación. Si los slices pueden crecer o reducirse, deben asignarse de forma independiente para evitar sobrescribir la siguiente línea; si no, puede ser más eficiente construir el objeto con una sola asignación. Como referencia, aquí hay bocetos de los dos métodos. Primero, una línea a la vez:
+</p>
+
+<pre>// Allocate the top-level slice.
+picture := make([][]uint8, YSize) // One row per unit of y.
+// Loop over the rows, allocating the slice for each row.
+for i := range picture {
+    picture[i] = make([]uint8, XSize)
+}
+</pre>
+
+<p>
+Y ahora como una asignación, dividida en líneas:
+</p>
+
+<pre>// Allocate the top-level slice, the same as before.
+picture := make([][]uint8, YSize) // One row per unit of y.
+// Allocate one large slice to hold all the pixels.
+pixels := make([]uint8, XSize*YSize) // Has type []uint8 even though picture is [][]uint8.
+// Loop over the rows, slicing each row from the front of the remaining pixels slice.
+for i := range picture {
+    picture[i], pixels = pixels[:XSize], pixels[XSize:]
+}
+</pre>
+
+<h3 id="maps">Maps</h3>
+
+<p>Los maps son una estructura de datos incorporada conveniente y poderosa que asocia valores de un tipo (la <em>clave</em>) con valores de otro tipo (el  <em>elemento</em> o <em>valor</em>). La clave puede ser de cualquier tipo para el cual esté definido el operador de igualdad, como números enteros, números de coma flotante y complejos, cadenas, punteros, interfaces (siempre que el tipo dinámico admita igualdad), estructuras y arrays. Los slices no se pueden utilizar como claves de map, porque la igualdad no está definida en ellos. Al igual que los slices, los maps contienen referencias a una estructura de datos subyacente. Si pasas un map a una función que cambia el contenido del map, los cambios serán visibles para el llamador.</p>
+<p>
+Los maps se pueden construir usando la sintaxis literal compuesta habitual con pares clave-valor separados por dos puntos, por lo que es fácil construirlos durante la inicialización.
+</p>
+<pre>var timeZone = map[string]int{
+    "UTC":  0*60*60,
+    "EST": -5*60*60,
+    "CST": -6*60*60,
+    "MST": -7*60*60,
+    "PST": -8*60*60,
+}
+</pre>
+<p>
+Asignar y recuperar valores de maps se ve sintácticamente como hacer lo mismo con arrays y slices, excepto que no es necesario que el índice sea un número entero.
+</p>
+<pre>offset := timeZone["EST"]
+</pre>
+<p>
+Un intento de obtener un valor de map con una clave que no está presente en el map devolverá el valor cero para el tipo de entradas en el map. Por ejemplo, si el map contiene números enteros, al buscar una clave inexistente se devolverá <code>0</code>. Un set se puede implementar como un map con el tipo de valor <code>bool</code>. Establece la entrada del map a <code>true</code> para poner el valor en el set y luego probarlo mediante una simple indexación.
+</p>
+<pre>attended := map[string]bool{
+    "Ann": true,
+    "Joe": true,
+    ...
+}
+
+if attended[person] { // will be false if person is not in the map
+    fmt.Println(person, "was at the meeting")
+}
+</pre>
+<p>
+A veces necesitas distinguir una entrada faltante de un valor cero. ¿Hay una entrada para <code>"UTC"</code>
+o es 0 porque no está en el map? Puedes discriminar con una forma de asignación múltiple.
+</p>
+<pre>var seconds int
+var ok bool
+seconds, ok = timeZone[tz]
+</pre>
+<p>
+Por razones obvias, esto se llama el modismo "coma ok". En este ejemplo, si <code>tz</code> está presente, <code>seconds</code>
+se configurará apropiadamente y <code>ok</code> será verdadero; de lo contrario, <code>seconds</code> se establecerá en cero y <code>ok</code> será falso. Aquí hay una función que lo combina con un bonito informe de errores:
+</p>
+<pre>func offset(tz string) int {
+    if seconds, ok := timeZone[tz]; ok {
+        return seconds
+    }
+    log.Println("unknown time zone:", tz)
+    return 0
+}
+</pre>
+<p>
+Para probar la presencia en el map sin preocuparte por el valor real, puedes usar el <a href="#blank">identificador en blanco</a> (<code>_</code>) en lugar de la variable habitual para el valor.
+</p>
+<pre>_, present := timeZone[tz]
+</pre>
+<p>
+Para eliminar una entrada del map, usa la función incorporada <code>delete</code>, cuyos argumentos son el map y la clave que se eliminará. Es seguro hacer esto, incluso si la llave ya no está en el map.
+</p>
+<pre>delete(timeZone, "PDT")  // Now on Standard Time
+</pre>
+
+<h3 id="printing">Impresión</h3>
+
+<p>
+La impresión formateada en Go usa un estilo similar a la familia <code>printf</code> de C, pero es más rica y más general. Las funciones se encuentran en el paquete <code>fmt</code> y tienen nombres en mayúscula: <code>fmt.Printf</code>, <code>fmt.Fprintf</code>, <code>fmt.Sprintf</code> y así sucesivamente. Las funciones de cadena (<code>Sprintf</code>, etc.) devuelven una cadena en lugar de completar un búfer proporcionado.
+</p>
+<p>
+No necesitas proporcionar una cadena de formato. Para cada una de <code>Printf</code>, <code>Fprintf</code> y <code>Sprintf</code> hay otro par de funciones, por ejemplo <code>Print</code> y <code>Println</code>. Estas funciones no toman una cadena de formato sino que generan un formato predeterminado para cada argumento. Las versiones <code>Println</code> también insertan un espacio en blanco entre los argumentos y agregan una nueva línea a la salida, mientras que las versiones <code>Print</code> agregan espacios en blanco solo si el operando en ninguno de los lados es una cadena. En este ejemplo, cada línea produce el mismo resultado.
+</p>
+<pre>fmt.Printf("Hello %d\n", 23)
+fmt.Fprint(os.Stdout, "Hello ", 23, "\n")
+fmt.Println("Hello", 23)
+fmt.Println(fmt.Sprint("Hello ", 23))
+</pre>
+<p>
+Las funciones de impresión formateadas <code>fmt.Fprint</code> y amigos toman como primer argumento cualquier objeto que implemente la interfaz <code>io.Writer</code>; las variables <code>os.Stdout</code> y <code>os.Stderr</code> son ejemplos familiares.
+</p>
+<p>
+Aquí las cosas comienzan a diferir de C. Primero, los formatos numéricos como <code>%d</code> no aceptan indicadores de signo o tamaño; en cambio, las rutinas de impresión utilizan el tipo de argumento para decidir estas propiedades.
+</p>
+<pre>var x uint64 = 1&lt;&lt;64 - 1
+fmt.Printf("%d %x; %d %x\n", x, x, int64(x), int64(x))
+</pre>
+<p>
+imprime
+</p>
+<pre>18446744073709551615 ffffffffffffffff; -1 -1
+</pre>
+<p>
+Si sólo quieres la conversión predeterminada, como decimal para números enteros, puedes usar el formato general <code>%v</code> (para “valor”); el resultado es exactamente lo que producirían <code>Print</code> y <code>Println</code>. Además, ese formato puede imprimir <em>cualquier</em> valor, incluso arrays, slices, estructuras y maps. Aquí hay una declaración impresa para el map de zona horaria definido en la sección anterior.
+</p>
+<pre>fmt.Printf("%v\n", timeZone)  // or just fmt.Println(timeZone)
+</pre>
+<p>
+lo que da como resultado:
+</p>
+<pre>map[CST:-21600 EST:-18000 MST:-25200 PST:-28800 UTC:0]
+</pre>
+<p>
+Para maps, <code>Printf</code> y sus amigos ordenan la salida lexicográficamente por clave.
+</p>
+<p>
+Al imprimir una estructura, el formato modificado <code>%+v</code> anota los campos de la estructura con sus nombres, y para cualquier valor el formato alternativo <code>%#v</code> imprime el valor en la sintaxis completa de Go.
+</p>
+<pre>type T struct {
+    a int
+    b float64
+    c string
+}
+t := &amp;T{ 7, -2.35, "abc\tdef" }
+fmt.Printf("%v\n", t)
+fmt.Printf("%+v\n", t)
+fmt.Printf("%#v\n", t)
+fmt.Printf("%#v\n", timeZone)
+</pre>
+<p>
+imprime
+</p>
+<pre>&amp;{7 -2.35 abc   def}
+&amp;{a:7 b:-2.35 c:abc     def}
+&amp;main.T{a:7, b:-2.35, c:"abc\tdef"}
+map[string]int{"CST":-21600, "EST":-18000, "MST":-25200, "PST":-28800, "UTC":0}
+</pre>
+<p>
+(Ten en cuenta los símbolos). Ese formato de cadena entre comillas también está disponible a través de <code>%q</code> cuando se aplica a un valor de tipo <code>string</code> o <code>[]byte</code>. El formato alternativo <code>%#q</code> utilizará comillas inversas si es posible. (El formato <code>%q</code> también se aplica a números enteros y runas, produciendo una constante rúnica entre comillas simples.) Además, <code>%x</code> funciona en cadenas, arrays de bytes y porciones de bytes, así como en números enteros, generando una cadena hexadecimal larga y con un espacio en el formato (<code>%&nbsp;x</code>) coloca espacios entre los bytes.
+</p>
+<p>
+Otro formato útil es <code>%T</code>, que imprime el <em>tipo</em> de un valor.
+</p>
+<pre>fmt.Printf("%T\n", timeZone)
+</pre>
+<p>
+imprime
+</p>
+<pre>map[string]int
+</pre>
+<p>
+Si quieres controlar el formato predeterminado para un tipo personalizado, todo lo que necesitas es definir un método con la firma <code>String() string</code> en el tipo. Para nuestro tipo simple <code>T</code>, podría verse así.
+</p>
+<pre>func (t *T) String() string {
+    return fmt.Sprintf("%d/%g/%q", t.a, t.b, t.c)
+}
+fmt.Printf("%v\n", t)
+</pre>
+<p>
+imprimir en el formato
+</p>
+<pre>7/-2.35/"abc\tdef"
+</pre>
+<p>
+(Si necesitas imprimir <em>valores</em> de tipo <code>T</code> así como punteros a <code>T</code>, el receptor de <code>String</code> debe ser de tipo valor; en este ejemplo se utilizó un puntero porque es más eficiente e idiomático para tipos de estructuras. Consulta la sección siguiente sobre <a href="#pointers_vs_values">punteros frente a receptores de valores.</a> para obtener más información.)
+</p>
+
+<p>
+Nuestro método <code>String</code> puede llamar a <code>Sprintf</code> porque las rutinas de impresión son completamente reentrantes y se pueden empaquetar de esta manera. Hay una, sin embargo, un importante detalle a comprender sobre este enfoque: no construyas un método <code>String</code> llamando a
+<code>Sprintf</code> de una manera que se repetirá en tu método <code>String</code> indefinidamente. Esto puede suceder si la llamada a <code>Sprintf</code>
+intenta imprimir el receptor directamente como una cadena, lo que a su vez invocará el método nuevamente. Es un error común y fácil de cometer, como muestra este ejemplo.
+</p>
+
+<pre>type MyString string
+
+func (m MyString) String() string {
+    return fmt.Sprintf("MyString=%s", m) // Error: will recur forever.
+}
+</pre>
+
+<p>
+También es fácil de arreglar: convierte el argumento al tipo de cadena básico, que no tiene el método.
+</p>
+
+<pre>type MyString string
+func (m MyString) String() string {
+    return fmt.Sprintf("MyString=%s", string(m)) // OK: note conversion.
+}
+</pre>
+
+<p>
+En la <a href="#initialization">sección de inicialización</a> veremos otra técnica que evita esta recursividad.
+</p>
+
+<p>
+Otra técnica de impresión es pasar los argumentos de una rutina de impresión directamente a otra rutina similar. La firma de <code>Printf</code> usa el tipo <code>...interface{}</code> para que su argumento final especifique que un número arbitrario de parámetros (de tipo arbitrario) puede aparecer después del formato.
+</p>
+<pre>func Printf(format string, v ...interface{}) (n int, err error) {
+</pre>
+<p>
+Dentro de la función <code>Printf</code>, <code>v</code> actúa como una variable de tipo <code>[]interface{}</code> pero si se pasa a otra función variada, actúa como una lista normal de argumentos. Aquí está la implementación de la función <code>log.Println</code> que usamos anteriormente. Pasa sus argumentos directamente a <code>fmt.Sprintln</code> para el formato real.
+</p>
+<pre>// Println prints to the standard logger in the manner of fmt.Println.
+func Println(v ...interface{}) {
+    std.Output(2, fmt.Sprintln(v...))  // Output takes parameters (int, string)
+}
+</pre>
+<p>
+Escribimos <code>...</code> después de <code>v</code> en la llamada anidada a <code>Sprintln</code> para decirle al compilador que trate <code>v</code> como una lista de argumentos; de lo contrario, simplemente pasaría <code>v</code> como argumento de un solo slice.
+</p>
+<p>
+La impresión implica aún más de lo que hemos cubierto aquí. Consulta la documentación <code>godoc</code> para el paquete <code>fmt</code> para obtener más detalles.
+</p>
+<p>
+Por cierto, un parámetro <code>...</code> puede ser de un tipo específico, por ejemplo <code>...int</code> para una función min que elige el menor de una lista de números enteros:
+</p>
+<pre>func Min(a ...int) int {
+    min := int(^uint(0) &gt;&gt; 1)  // largest int
+    for _, i := range a {
+        if i &lt; min {
+            min = i
+        }
+    }
+    return min
+}
+</pre>
+
+<h3 id="append">Append</h3>
+<p>
+Ahora tenemos la pieza que faltaba y que necesitábamos para explicar el diseño de la función incorporada <code>append</code>. La firma de <code>append</code>
+es diferente de nuestra función personalizada <code>Append</code> anterior. Esquemáticamente, es así:
+</p>
+<pre>func append(slice []<i>T</i>, elements ...<i>T</i>) []<i>T</i>
+</pre>
+<p>
+donde <i>T</i> es un marcador de posición para cualquier tipo determinado. En realidad, no se puede escribir una función en Go donde el tipo <code>T</code> lo determina el llamador. Es por eso que <code>append</code> está integrado: necesita soporte del compilador.
+</p>
+<p>
+Lo que hace <code>append</code> es agregar los elementos al final del slice y devolver el resultado. Es necesario devolver el resultado porque, al igual que con nuestro <code>Append</code> escrito a mano, el array subyacente puede cambiar. Este sencillo ejemplo
+</p>
+<pre>x := []int{1,2,3}
+x = append(x, 4, 5, 6)
+fmt.Println(x)
+</pre>
+<p>
+imprime <code>[1 2 3 4 5 6]</code>. Así que <code>append</code> funciona un poco como <code>Printf</code>, recopilando un número arbitrario de argumentos.
+</p>
+<p>
+Pero ¿qué pasaría si quisiéramos hacer lo que hace nuestro <code>Append</code> y agregar un slice a otro? Fácil: usa <code>...</code> en el sitio de llamada, tal como lo hicimos en la llamada a <code>Output</code> anterior. Este fragmento produce un resultado idéntico al anterior.
+</p>
+<pre>x := []int{1,2,3}
+y := []int{4,5,6}
+x = append(x, y...)
+fmt.Println(x)
+</pre>
+<p>
+Sin ese <code>...</code>, no se compilaría porque los tipos estarían equivocados; <code>y</code> no es del tipo <code>int</code>.
+</p>
+
+<h2 id="initialization">Inicialización</h2>
+
+<p>
+Aunque superficialmente no parece muy diferente de la inicialización en C o C++, la inicialización en Go es más poderosa. Se pueden construir estructuras complejas durante la inicialización y los problemas de orden entre los objetos inicializados, incluso entre diferentes paquetes, se manejan correctamente.
+</p>
+
+<h3 id="constants">Constantes</h3>
+
+<p>
+Las constantes en Go son solo eso: constantes. Se crean en tiempo de compilación, incluso cuando se definen como locales en funciones, y solo pueden ser números, caracteres (runas), cadenas o valores booleanos. Debido a la restricción del tiempo de compilación, las expresiones que los definen deben ser expresiones constantes, evaluables por el compilador. Por ejemplo, <code>1&lt;&lt;3</code> es una expresión constante, mientras que <code>math.Sin(math.Pi/4)</code> no lo es porque la función llama a <code>math.Sin</code> debe ocurrir en tiempo de ejecución.
+</p>
+
+<p>
+En Go, las constantes enumeradas se crean usando el enumerador <code>iota</code>. Dado que <code>iota</code> puede ser parte de una expresión y las expresiones pueden repetirse implícitamente, es fácil crear complejos conjuntos de valores.
+</p>
+<div class="code">
+
+<pre>type ByteSize float64
+
+const (
+    _           = iota <span class="comment">// ignore first value by assigning to blank identifier</span>
+    KB ByteSize = 1 &lt;&lt; (10 * iota)
+    MB
+    GB
+    TB
+    PB
+    EB
+    ZB
+    YB
+)
+</pre>
+</div>
+
+
+<p>
+La capacidad de adjuntar un método como <code>String</code> a cualquier tipo definido por el usuario hace posible que valores arbitrarios se formatee automáticamente para imprimir. Aunque ya verás se aplica con mayor frecuencia a estructuras, esta técnica también es útil para tipos escalares como tipos de punto flotante como <code>ByteSize</code>.
+</p>
+<div class="code">
+
+<pre>func (b ByteSize) String() string {
+    switch {
+    case b &gt;= YB:
+        return fmt.Sprintf("%.2fYB", b/YB)
+    case b &gt;= ZB:
+        return fmt.Sprintf("%.2fZB", b/ZB)
+    case b &gt;= EB:
+        return fmt.Sprintf("%.2fEB", b/EB)
+    case b &gt;= PB:
+        return fmt.Sprintf("%.2fPB", b/PB)
+    case b &gt;= TB:
+        return fmt.Sprintf("%.2fTB", b/TB)
+    case b &gt;= GB:
+        return fmt.Sprintf("%.2fGB", b/GB)
+    case b &gt;= MB:
+        return fmt.Sprintf("%.2fMB", b/MB)
+    case b &gt;= KB:
+        return fmt.Sprintf("%.2fKB", b/KB)
+    }
+    return fmt.Sprintf("%.2fB", b)
+}
+</pre>
+</div>
+
+
+<p>
+La expresión <code>YB</code> se imprime como <code>1.00YB</code>, mientras que <code>ByteSize(1e13)</code> se imprime como <code>9.09TB</code>.
+</p>
+
+<p>
+El uso aquí de <code>Sprintf</code> para implementar el método <code>ByteSize</code> de <code>String</code> es seguro (evita la recurrencia indefinidamente) no debido a una conversión sino porque llama a <code>Sprintf</code> con <code>%f</code>, que no es un formato de cadena: <code>Sprintf</code> solo llamará al <code>String</code> cuando quiere una cadena, y <code>%f</code> cuando quiere un valor de punto flotante.
+</p>
+
+<h3 id="variables">Variables</h3>
+
+<p>
+Las variables se pueden inicializar como constantes, pero el inicializador puede ser una expresión general calculada en tiempo de ejecución.
+</p>
+<pre>var (
+    home   = os.Getenv("HOME")
+    user   = os.Getenv("USER")
+    gopath = os.Getenv("GOPATH")
+)
+</pre>
+
+<h3 id="init">La función init</h3>
+
+<p>
+Finalmente, cada archivo fuente puede definir su propia función <code>init</code> para configurar cualquier estado que sea necesario. (En realidad, cada archivo puede tener múltiples funciones <code>init</code>). Y significa finalmente: <code>init</code> se llama después de que todas las declaraciones de variables en el paquete hayan evaluado sus inicializadores, y estos se evalúan sólo después de que se hayan inicializado todos los paquetes importados.
+</p>
+<p>
+Además de las inicializaciones que no se pueden expresar como declaraciones, un uso común de las funciones <code>init</code> es verificar o reparar la corrección del estado del programa antes de que comience la ejecución real.
+</p>
+
+<pre>func init() {
+    if user == "" {
+        log.Fatal("$USER not set")
+    }
+    if home == "" {
+        home = "/home/" + user
+    }
+    if gopath == "" {
+        gopath = home + "/go"
+    }
+    // gopath may be overridden by --gopath flag on command line.
+    flag.StringVar(&amp;gopath, "gopath", gopath, "override default GOPATH")
+}
+</pre>
+
+<h2 id="methods">Métodos</h2>
+
+<h3 id="pointers_vs_values">Punteros vs. Valores</h3>
+<p>
+Como vimos con <code>ByteSize</code>, los métodos se pueden definir para cualquier tipo con nombre (excepto un puntero o una interfaz); el receptor no tiene que ser una estructura.
+</p>
+<p>
+En la discusión anterior sobre los slices, escribimos una función <code>Append</code>. En su lugar, podemos definirlo como un método en slices. Para hacer esto, primero declaramos un tipo con nombre al que podemos vincular el método y luego hacemos que el receptor del método sea un valor de ese tipo.
+</p>
+<pre>type ByteSlice []byte
+
+func (slice ByteSlice) Append(data []byte) []byte {
+    // Body exactly the same as the Append function defined above.
+}
+</pre>
+<p>
+Esto aún requiere que el método devuelva el slice actualizado. Podemos eliminar esa torpeza redefiniendo el método para tomar un <i>puntero</i> a un <code>ByteSlice</code> como su receptor, de modo que el método pueda sobrescribir el slice de el llamador.
+</p>
+<pre>func (p *ByteSlice) Append(data []byte) {
+    slice := *p
+    // Body as above, without the return.
+    *p = slice
+}
+</pre>
+<p>
+De hecho, podemos hacerlo aún mejor. Si modificamos nuestra función para que parezca un método estándar <code>Write</code>, como este,
+</p>
+<pre>func (p *ByteSlice) Write(data []byte) (n int, err error) {
+    slice := *p
+    // Again as above.
+    *p = slice
+    return len(data), nil
+}
+</pre>
+<p>
+entonces el tipo <code>*ByteSlice</code> satisface la interfaz estándar <code>io.Writer</code>, lo cual es útil. Por ejemplo, podemos imprimir en uno.
+</p>
+<pre>    var b ByteSlice
+    fmt.Fprintf(&amp;b, "This hour has %d days\n", 7)
+</pre>
+<p>
+Pasamos la dirección de un <code>ByteSlice</code> porque solo <code>*ByteSlice</code> satisface <code>io.Writer</code>. La regla sobre punteros versus valores para receptores es que los métodos de valor se pueden invocar en punteros y valores, pero los métodos de puntero solo se pueden invocar en punteros.
+</p>
+
+<p>
+Esta regla surge porque los métodos de puntero pueden modificar el receptor; invocarlos en un valor haría que el método recibiera una copia del valor, por lo que cualquier modificación se descartaría. Por lo tanto, el lenguaje no permite este error. Sin embargo, existe una útil excepción. Cuando el valor es direccionable, el lenguaje se encarga del caso común de invocar un método de puntero en un valor insertando el operador de dirección automáticamente. En nuestro ejemplo, la variable <code>b</code> es direccionable, por lo que podemos llamar a su método <code>Write</code> con solo <code>b.Write</code>. El compilador lo reescribirá en <code>(&amp;b).Write</code> por nosotros.
+</p>
+
+<p>
+Por cierto, la idea de usar <code>Write</code> en una porción de bytes es fundamental para la implementación de <code>bytes.Buffer</code>.
+</p>
+
+<h2 id="interfaces_and_types">Interfaces y otros tipos</h2>
+
+<h3 id="interfaces">Interfaces</h3>
+<p> Las interfaces en Go proporcionan una forma de especificar el comportamiento de un objeto: si algo puede hacer <em>esto</em>, entonces se puede usar <em>aquí</em>. Ya hemos visto un par de ejemplos sencillos; los printers personalizados se pueden implementar mediante un método <code>String</code>, mientras que <code>Fprintf</code> puede generar resultados para cualquier cosa con un método <code>Write</code>. Las interfaces con solo uno o dos métodos son comunes en el código Go y generalmente reciben un nombre derivado del método, como <code>io.Writer</code> para algo que implementa <code>Write</code>.</p>
+<p>Un tipo puede implementar múltiples interfaces. Por ejemplo, una colección se puede ordenar mediante las rutinas del paquete <code>sort</code> si implementa <code>sort.Interface</code>, que contiene <code>Len()</code>, <code>Less(i, j int) bool</code> y <code>Swap(i, j int)</code>, y también podría tener un formateador personalizado. En este ejemplo artificial, <code>Sequence</code> satisface ambos.</p>
+<div class="code">
+
+<pre>type Sequence []int
+
+<span class="comment">// Methods required by sort.Interface.</span>
+func (s Sequence) Len() int {
+    return len(s)
+}
+func (s Sequence) Less(i, j int) bool {
+    return s[i] &lt; s[j]
+}
+func (s Sequence) Swap(i, j int) {
+    s[i], s[j] = s[j], s[i]
+}
+
+<span class="comment">// Copy returns a copy of the Sequence.</span>
+func (s Sequence) Copy() Sequence {
+    copy := make(Sequence, 0, len(s))
+    return append(copy, s...)
+}
+
+<span class="comment">// Method for printing - sorts the elements before printing.</span>
+func (s Sequence) String() string {
+    s = s.Copy() <span class="comment">// Make a copy; don't overwrite argument.</span>
+    sort.Sort(s)
+    str := "["
+    for i, elem := range s { <span class="comment">// Loop is O(N²); will fix that in next example.</span>
+        if i &gt; 0 {
+            str += " "
+        }
+        str += fmt.Sprint(elem)
+    }
+    return str + "]"
+}
+</pre>
+</div>
+
+
+
+<h3 id="conversions">Conversiones</h3>
+
+<p>El método <code>String</code> de <code>Sequence</code> está recreando el trabajo que <code>Sprint</code> ya hace para los slices. (También tiene complejidad O(N²), lo cual es pobre). Podemos compartir el esfuerzo (y también acelerarlo) si convertimos la <code>Sequence</code> a un simple <code>[]int</code> antes de llamar a <code>Sprint</code>.</p>
+<pre>func (s Sequence) String() string {
+    s = s.Copy()
+    sort.Sort(s)
+    return fmt.Sprint([]int(s))
+}
+</pre>
+<p>Este método es otro ejemplo de la técnica de conversión para llamar a <code>Sprintf</code> de forma segura desde un método <code>String</code>. Debido a que los dos tipos (<code>Sequence</code> y <code>[]int</code>) son iguales si ignoramos el nombre del tipo, es legal realizar conversiones entre ellos. La conversión no crea un valor nuevo, solo actúa temporalmente como si el valor existente tuviera un tipo nuevo. (Existen otras conversiones legales, como de entero a punto flotante, que crean un nuevo valor).</p>
+<p>Es un modismo en los programas Go para convertir el tipo de una expresión para acceder a un conjunto diferente de métodos. Como ejemplo, podríamos usar el tipo existente <code>sort.IntSlice</code> para reducir el ejemplo completo a esto:</p>
+<pre>type Sequence []int
+
+// Method for printing - sorts the elements before printing
+func (s Sequence) String() string {
+    s = s.Copy()
+    sort.IntSlice(s).Sort()
+    return fmt.Sprint([]int(s))
+}
+</pre>
+<p>Ahora, en lugar de que <code>Sequence</code> implemente múltiples interfaces (ordenamiento e impresión), estamos usando la capacidad de un elemento de datos para convertirse en múltiples tipos. (<code>Sequence</code>, <code>sort.IntSlice</code> y <code>[]int</code>), cada uno de los cuales hace una parte del trabajo. Esto es más inusual en la práctica, pero puede ser efectivo.</p>
+
+<h3 id="interface_conversions">Conversiones de interfaz y assertions de tipo</h3>
+
+<p>
+<a href="#type_switch">Switches de tipo</a> son una forma de conversión: toman una interfaz y, para cada caso en el switch, en cierto sentido convierten al tipo de ese caso. Aquí hay una versión simplificada de cómo el código en <code>fmt.Printf</code> convierte un valor en un string usando un interruptor de tipo. Si ya es una cadena, queremos el valor de cadena real mantenido por la interfaz, mientras que si tiene un método <code>String</code> queremos el resultado de llamar al método.</p>
+
+<pre>type Stringer interface {
+    String() string
+}
+
+var value interface{} // Value provided by caller.
+switch str := value.(type) {
+case string:
+    return str
+case Stringer:
+    return str.String()
+}
+</pre>
+
+<p>
+El primer caso encuentra un valor concreto; el segundo convierte la interfaz en otra interfaz. Está perfectamente bien mezclar tipos de esta manera.
+</p>
+
+<p>¿Qué pasa si solo hay un tipo que nos interesa? ¿Si sabemos que el valor contiene un <code>string</code> y solo queremos extraerlo? Un cambio de tipo de un caso sería suficiente, pero también lo sería una <em>aserción de tipo</em>. Una aserción de tipo toma un valor de interfaz y extrae de él un valor del tipo explícito especificado. La sintaxis se basa en la cláusula que abre un cambio de tipo, pero con un tipo explícito en lugar de la palabra clave <code>type</code>:</p>
+
+<pre>value.(typeName)
+</pre>
+
+<p>y el resultado es un nuevo valor con el tipo estático <code>typeName</code>. Ese tipo debe ser el tipo concreto que contiene la interfaz o un segundo tipo de interfaz al que se puede convertir el valor. Para extraer la cadena que sabemos que está en el valor, podríamos escribir:</p>
+
+<pre>str := value.(string)
+</pre>
+
+<p>
+Pero si resulta que el valor no contiene una cadena, el programa fallará con un error de tiempo de ejecución. Para protegerse contra eso, usa el modismo "coma, ok" para probar, de manera segura, si el valor es una cadena:
+</p>
+
+<pre>str, ok := value.(string)
+if ok {
+    fmt.Printf("string value is: %q\n", str)
+} else {
+    fmt.Printf("value is not a string\n")
+}
+</pre>
+
+<p>Si la aserción de tipo falla, <code>str</code> seguirá existiendo y será de tipo cadena, pero tendrá el valor cero, una cadena vacía.</p>
+
+<p>Como ilustración de la capacidad, aquí tienes una declaración <code>if</code>-<code>else</code> que es equivalente al cambio de tipo que abrió esta sección.</p>
+
+<pre>if str, ok := value.(string); ok {
+    return str
+} else if str, ok := value.(Stringer); ok {
+    return str.String()
+}
+</pre>
+
+<h3 id="generality">Generalidad</h3>
+<p>
+Si un tipo existe solo para implementar una interfaz y nunca habrá exportado métodos más allá de esa interfaz, no hay necesidad de exportar el tipo en sí. Exportar solo la interfaz deja claro que el valor no tiene un comportamiento interesante más allá de lo que se describe en la interfaz. También evita la necesidad de repetir la documentación en cada instancia de un método común.
+</p>
+<p>En tales casos, el constructor debería devolver un valor de interfaz en lugar del tipo de implementación. Como ejemplo, en las bibliotecas hash, tanto <code>crc32.NewIEEE</code> como <code>adler32.New</code> devuelven el tipo de interfaz <code>hash.Hash32</code>. Sustituir el algoritmo CRC-32 por Adler-32 en un programa Go solo requiere cambiar la llamada al constructor; el resto del código no se ve afectado por el cambio de algoritmo.</p>
+<p>Un enfoque similar permite que los algoritmos de cifrado de transmisión en los diversos paquetes <code>crypto</code> se separen de los cifrados de bloque que encadenan. La interfaz <code>Block</code> en el paquete <code>crypto/cipher</code> especifica el comportamiento de un cifrado de bloque, que proporciona cifrado de un único bloque de datos. Luego, por analogía con el paquete <code>bufio</code>, los paquetes de cifrado que implementan esta interfaz se pueden usar para construir cifrados de transmisión, representados por la interfaz <code>Stream</code>, sin conocer los detalles del cifrado del bloque.</p>
+<p>Las interfaces <code>crypto/cipher</code> se ven así:</p>
+<pre>type Block interface {
+    BlockSize() int
+    Encrypt(dst, src []byte)
+    Decrypt(dst, src []byte)
+}
+
+type Stream interface {
+    XORKeyStream(dst, src []byte)
+}
+</pre>
+
+<p>
+Aquí está la definición de flujo en modo contador (CTR), que convierte un cifrado de bloque en un cifrado de flujo; observa que los detalles del cifrado de bloque están abstraídos:
+</p>
+
+<pre>// NewCTR returns a Stream that encrypts/decrypts using the given Block in
+// counter mode. The length of iv must be the same as the Block's block size.
+func NewCTR(block Block, iv []byte) Stream
+</pre>
+<p>
+<code>NewCTR</code> se aplica no solo a un algoritmo de cifrado y fuente de datos específicos, sino a cualquier implementación de la interfaz <code>Block</code> y cualquier <code>Stream</code>. Debido a que devuelven valores de interfaz, reemplazar el cifrado CTR con otros modos de cifrado es un cambio localizado. Las llamadas al constructor deben editarse, pero debido a que el código circundante debe tratar el resultado solo como un <code>Stream</code>, no notarás la diferencia.</p>
+
+<h3 id="interface_methods">Interfaces y métodos</h3>
+<p>Dado que casi cualquier cosa puede tener métodos adjuntos, casi cualquier cosa puede satisfacer una interfaz. Un ejemplo ilustrativo se encuentra en el paquete <code>http</code>, que define la interfaz <code>Handler</code>. Cualquier objeto que implemente <code>Handler</code> puede atender solicitudes HTTP.</p>
+<pre>type Handler interface {
+    ServeHTTP(ResponseWriter, *Request)
+}
+</pre>
+<p>
+<code>ResponseWriter</code> es en sí mismo una interfaz que proporciona acceso a los métodos necesarios para devolver la respuesta al cliente. Esos métodos incluyen el método estándar <code>Write</code>, por lo que se puede usar un <code>http.ResponseWriter</code> siempre que se pueda usar un <code>io.Writer</code>. <code>Request</code> es una estructura que contiene una representación analizada de la solicitud del cliente.</p>
+<p>
+Por brevedad, ignoremos los POST y supongamos que las solicitudes HTTP son siempre GET; esa simplificación no afecta la forma en que se configuran los manejadores. Aquí hay una implementación trivial de un controlador (handler) para contar la cantidad de veces que se visita la página.
+</p>
+<pre>// Simple counter server.
+type Counter struct {
+    n int
+}
+
+func (ctr *Counter) ServeHTTP(w http.ResponseWriter, req *http.Request) {
+    ctr.n++
+    fmt.Fprintf(w, "counter = %d\n", ctr.n)
+}
+</pre>
+<p>(Siguiendo con nuestro tema, observa cómo <code>Fprintf</code> puede imprimir en un <code>http.ResponseWriter</code>.) En un servidor real, acceder a <code>ctr.n</code> necesitaría protección contra el acceso concurrente. Consulta los paquetes <code>sync</code> y <code>atomic</code> para obtener sugerencias.</p>
+<p>
+Como referencia, aquí se explica cómo conectar dicho servidor a un nodo en el árbol de URL.
+</p>
+<pre>import "net/http"
+...
+ctr := new(Counter)
+http.Handle("/counter", ctr)
+</pre>
+<p>Pero ¿por qué hacer de <code>Counter</code> una estructura? Un número entero es todo lo que se necesita. (El receptor debe ser un puntero para que el incremento sea visible para el llamador).</p>
+<pre>// Simpler counter server.
+type Counter int
+
+func (ctr *Counter) ServeHTTP(w http.ResponseWriter, req *http.Request) {
+    *ctr++
+    fmt.Fprintf(w, "counter = %d\n", *ctr)
+}
+</pre>
+<p>
+¿Qué pasa si tu programa tiene algún estado interno que necesita ser notificado de que se ha visitado una página? Vincular un channel a la página web.
+</p>
+<pre>// A channel that sends a notification on each visit.
+// (Probably want the channel to be buffered.)
+type Chan chan *http.Request
+
+func (ch Chan) ServeHTTP(w http.ResponseWriter, req *http.Request) {
+    ch &lt;- req
+    fmt.Fprint(w, "notification sent")
+}
+</pre>
+<p>Finalmente, digamos que queremos presentar en <code>/args</code> los argumentos utilizados al invocar el binario del servidor. Es fácil escribir una función para imprimir los argumentos.</p>
+<pre>func ArgServer() {
+    fmt.Println(os.Args)
+}
+</pre>
+<p>¿Cómo convertimos eso en un servidor HTTP? Podríamos hacer de <code>ArgServer</code> un método de algún tipo cuyo valor ignoremos, pero hay una forma más sencilla. Como podemos definir un método para cualquier tipo excepto punteros e interfaces, podemos escribir un método para una función. El paquete <code>http</code> contiene este código:</p>
+<pre>// The HandlerFunc type is an adapter to allow the use of
+// ordinary functions as HTTP handlers.  If f is a function
+// with the appropriate signature, HandlerFunc(f) is a
+// Handler object that calls f.
+type HandlerFunc func(ResponseWriter, *Request)
+
+// ServeHTTP calls f(w, req).
+func (f HandlerFunc) ServeHTTP(w ResponseWriter, req *Request) {
+    f(w, req)
+}
+</pre>
+<p>
+<code>HandlerFunc</code> es un tipo con un método, <code>ServeHTTP</code>, por lo que los valores de ese tipo pueden atender solicitudes HTTP. Observa la implementación del método: el receptor es una función, <code>f</code>, y el método llama a <code>f</code>. Esto puede parecer extraño, pero no es tan diferente de, digamos, que el receptor sea un channel y el método de envío en el channel.</p>
+<p>Para convertir <code>ArgServer</code> en un servidor HTTP, primero lo modificamos para que tenga la firma correcta.</p>
+<pre>// Argument server.
+func ArgServer(w http.ResponseWriter, req *http.Request) {
+    fmt.Fprintln(w, os.Args)
+}
+</pre>
+<p>
+<code>ArgServer</code> ahora tiene la misma firma que <code>HandlerFunc</code>, por lo que se puede convertir a ese tipo para acceder a sus métodos, tal como convertimos <code>Sequence</code> a <code>IntSlice</code> para acceder a <code>IntSlice.Sort</code>. El código para configurarlo es conciso:</p>
+<pre>http.Handle("/args", http.HandlerFunc(ArgServer))
+</pre>
+<p>Cuando alguien visita la página <code>/args</code>, el controlador instalado en esa página tiene el valor <code>ArgServer</code> y tipo <code>HandlerFunc</code>. El servidor HTTP invocará el método <code>ServeHTTP</code> de ese tipo, con <code>ArgServer</code> como receptor, que a su vez llamará a <code>ArgServer</code> (mediante la invocación <code>f(w, req)</code> dentro de <code>HandlerFunc.ServeHTTP</code>). A continuación se mostrarán los argumentos.</p>
+<p>
+En esta sección hemos creado un servidor HTTP a partir de una estructura, un número entero, un channel y una función, todo porque las interfaces son solo conjuntos de métodos, que se pueden definir para (casi) cualquier tipo.
+</p>
+
+<h2 id="blank">El identificador en blanco</h2>
+
+<p>Hemos mencionado el identificador en blanco un par de veces, en el contexto de <a href="#for"><code>for</code> <code>range</code> (bucles)</a> y <a href="#maps">maps</a>. El identificador en blanco se puede asignar o declarar con cualquier valor de cualquier tipo y el valor se descarta sin causar daño. Es un poco como escribir en el archivo <code>/dev/null</code> de Unix: representa un valor de sólo escritura que se utilizará como marcador de posición donde se necesita una variable pero el valor real es irrelevante. Tiene usos más allá de los que ya hemos visto.</p>
+
+<h3 id="blank_assign">El identificador en blanco en asignación múltiple</h3>
+
+<p>El uso de un identificador en blanco en un bucle <code>for</code> <code>range</code> es un caso especial de una situación general: asignación múltiple.</p>
+
+<p>
+Si una tarea requiere múltiples valores en el lado izquierdo, pero uno de los valores no será utilizado por el programa, un identificador en blanco en el lado izquierdo de la tarea evita la necesidad de crea una variable ficticia y deja claro que el valor debe descartarse. Por ejemplo, cuando llame a una función que devuelve un valor y un error, pero sólo el error es importante, utilice el identificador en blanco para descartar el valor irrelevante.
+</p>
+
+<pre>if _, err := os.Stat(path); os.IsNotExist(err) {
+    fmt.Printf("%s does not exist\n", path)
+}
+</pre>
+
+<p>
+Ocasionalmente verás un código que descarta el valor del error para ignorar el error; Esta es una práctica terrible. Siempre verifique las devoluciones de errores; se proporcionan por una razón.
+</p>
+
+<pre>// Bad! This code will crash if path does not exist.
+fi, _ := os.Stat(path)
+if fi.IsDir() {
+    fmt.Printf("%s is a directory\n", path)
+}
+</pre>
+
+<h3 id="blank_unused">Importaciones y variables no utilizadas</h3>
+
+<p>
+Es un error importar un paquete o declarar una variable sin usarla. Las importaciones no utilizadas sobrecargan el programa y ralentizan la compilación, mientras que una variable que se inicializa pero no se utiliza es al menos un cálculo desperdiciado y tal vez indicativo de un error mayor. Sin embargo, cuando un programa está en desarrollo activo, a menudo surgen importaciones y variables no utilizadas y puede resultar molesto eliminarlas sólo para que continúe la compilación, sólo para volver a necesitarlas más adelante. El identificador en blanco proporciona una solución alternativa.
+</p>
+<p>Este programa a medio escribir tiene dos importaciones no utilizadas (<code>fmt</code> y <code>io</code>) y una variable no utilizada (<code>fd</code>), por lo que no se compilará, pero sería bueno ver si el código hasta ahora es correcto.</p>
+<div class="code">
+
+<pre>package main
+
+import (
+    "fmt"
+    "io"
+    "log"
+    "os"
+)
+
+func main() {
+    fd, err := os.Open("test.go")
+    if err != nil {
+        log.Fatal(err)
+    }
+    <span class="comment">// TODO: use fd.</span>
+}
+</pre>
+</div>
+
+
+<p>Para silenciar las quejas sobre las importaciones no utilizadas, utiliza un identificador en blanco para hacer referencia a un símbolo del paquete importado. De manera similar, asignar la variable no utilizada <code>fd</code> al identificador en blanco silenciará el error de la variable no utilizada. Esta versión del programa se compila.</p>
+<div class="code">
+
+<pre>package main
+
+import (
+    "fmt"
+    "io"
+    "log"
+    "os"
+)
+
+var _ = fmt.Printf <span class="comment">// For debugging; delete when done.</span>
+var _ io.Reader    <span class="comment">// For debugging; delete when done.</span>
+
+func main() {
+    fd, err := os.Open("test.go")
+    if err != nil {
+        log.Fatal(err)
+    }
+    <span class="comment">// TODO: use fd.</span>
+    _ = fd
+}
+</pre>
+</div>
+
+
+
+<p>
+Por convención, las declaraciones globales para silenciar los errores de importación deben aparecer justo después de las importaciones y comentarse, tanto para que sean fáciles de encontrar como como recordatorio para limpiar las cosas más tarde.
+</p>
+
+<h3 id="blank_import">Importar para efectos secundarios</h3>
+
+<p>Una importación no utilizada como <code>fmt</code> o <code>io</code> en el ejemplo anterior eventualmente debería usarse o eliminarse: las asignaciones en blanco identifican el código como un trabajo en progreso. Pero a veces es útil importar un paquete sólo por sus efectos secundarios, sin ningún uso explícito. Por ejemplo, durante su función <code>init</code>, el paquete <code><a href="https://go.dev/pkg/net/http/pprof" rel="nofollow" target="_blank" title="Página todavía no traducida">net/http/pprof ⬀</a></code> registra handlers HTTP que proporcionan información de depuración. Tiene una API exportada, pero la mayoría de los clientes solo necesitan registrarse como administrador y acceder a los datos a través de una página web. Para importar el paquete solo por sus efectos secundarios, cambia el nombre del paquete al identificador en blanco:</p>
+<pre>import _ "net/http/pprof"
+</pre>
+<p>
+Esta forma de importación deja claro que el paquete se está importando por sus efectos secundarios, porque no hay otro uso posible del paquete: en este archivo, no tiene nombre. (Si así fuera y no usáramos ese nombre, el compilador rechazaría el programa).
+</p>
+
+<h3 id="blank_implements">Comprobaciones de interfaz</h3>
+
+<p>Como vimos en la discusión anterior sobre <a href="#interfaces_and_types">interfaces</a>, un tipo no necesita declarar explícitamente que implementa una interfaz. En cambio, un tipo implementa la interfaz simplemente implementando los métodos de la interfaz. En la práctica, la mayoría de las conversiones de interfaz son estáticas y, por lo tanto, se verifican en el momento de la compilación. Por ejemplo, pasar un <code>*os.File</code> a una función que espera un <code>io.Reader</code> no se compilará a menos que <code>*os.File</code> implemente el <code>io.Reader</code>.</p>
+
+<p>Sin embargo, algunas comprobaciones de la interfaz se realizan en tiempo de ejecución. Un ejemplo está en el paquete <code><a href="https://go.dev/pkg/encoding/json" rel="nofollow" target="_blank" title="Página todavía no traducida">encoding/json ⬀</a></code>, que define una interfaz <code><a href="https://go.dev/pkg/encoding/json" rel="nofollow" target="_blank" title="Página todavía no traducida">Marshaler ⬀</a></code>. Cuando el codificador JSON recibe un valor que implementa esa interfaz, el codificador invoca el método de cálculo del valor para convertirlo a JSON en lugar de realizar la conversión estándar. El codificador comprueba esta propiedad en tiempo de ejecución con una <a href="#interface_conversions">aserción de tipo</a> como:</p>
+
+<pre>m, ok := val.(json.Marshaler)
+</pre>
+
+<p>
+Si solo es necesario preguntar si un tipo implementa una interfaz, sin usar realmente la interfaz en sí, tal vez como parte de una verificación de errores, usa el identificador en blanco para ignorar el valor afirmado por el tipo:
+</p>
+
+<pre>if _, ok := val.(json.Marshaler); ok {
+    fmt.Printf("value %v of type %T implements json.Marshaler\n", val, val)
+}
+</pre>
+
+<p>Un lugar donde surge esta situación es cuando es necesario garantizar dentro del paquete que implementa el tipo que realmente satisface la interfaz. Si un tipo (por ejemplo, <code><a href="https://go.dev/pkg/encoding/json" rel="nofollow" target="_blank" title="Página todavía no traducida">json.RawMessage ⬀</a></code>) necesita una representación JSON personalizada, debe implementar <code>json.Marshaler</code>, pero no hay conversiones estáticas que hagan que el compilador verifique esto automáticamente. Si el tipo inadvertidamente no satisface la interfaz, el codificador JSON seguirá funcionando, pero no utilizará la implementación personalizada. Para garantizar que la implementación sea correcta, se puede utilizar en el paquete una declaración global utilizando el identificador en blanco:</p>
+<pre>var _ json.Marshaler = (*RawMessage)(nil)
+</pre>
+<p>En esta declaración, la asignación que implica una conversión de un <code>*RawMessage</code> a un <code>Marshaler</code> requiere que <code>*RawMessage</code> implemente <code>Marshaler</code> y esa propiedad se verificará en el momento de la compilación. Si la interfaz <code>json.Marshaler</code> cambia, este paquete ya no se compilará y se nos avisará que debe actualizarse.</p>
+
+<p>
+La aparición del identificador en blanco en esta construcción indica que la declaración existe solo para la verificación de tipos, no para crear una variable. Sin embargo, no hagas esto para cada tipo que satisfaga una interfaz. Por convención, dichas declaraciones solo se utilizan cuando no hay conversiones estáticas presentes en el código, lo cual es un evento poco común.
+</p>
+
+
+<h2 id="embedding">Embedding</h2>
+
+<p>Go no proporciona la noción típica de subclases basada en tipos, pero tiene la capacidad de “tomar prestadas” partes de una implementación mediante la <em>incrustación</em> de tipos dentro de una estructura o interfaz.</p>
+<p>La incrustación de interfaces es muy simple. Hemos mencionado las interfaces <code>io.Reader</code> y <code>io.Writer</code> antes; aquí están sus definiciones.</p>
+<pre>type Reader interface {
+    Read(p []byte) (n int, err error)
+}
+
+type Writer interface {
+    Write(p []byte) (n int, err error)
+}
+</pre>
+<p>El paquete <code>io</code> también exporta varias otras interfaces que especifican objetos que pueden implementar varios de estos métodos. Por ejemplo, existe <code>io.ReadWriter</code>, una interfaz que contiene tanto <code>Read</code> como <code>Write</code>. Podríamos especificar <code>io.ReadWriter</code> enumerando los dos métodos explícitamente, pero es más fácil y evocador incrustar las dos interfaces para formar una nueva, así:</p>
+<pre>// ReadWriter is the interface that combines the Reader and Writer interfaces.
+type ReadWriter interface {
+    Reader
+    Writer
+}
+</pre>
+<p>Esto dice exactamente lo que parece: Un <code>ReadWriter</code> puede hacer lo que un <code>Reader</code> hace <em>y</em> qué hace un <code>Writer</code>; es una unión de las interfaces integradas. Sólo se pueden incrustar interfaces dentro de interfaces.</p>
+<p>La misma idea básica se aplica a las estructuras, pero con implicaciones de mayor alcance. El paquete <code>bufio</code> tiene dos tipos de estructuras, <code>bufio.Reader</code> y <code>bufio.Writer</code>, cada una de las cuales, por supuesto, implementa las interfaces análogas del paquete <code>io</code>. Y <code>bufio</code> también implementa un lector/escritor almacenado en búfer, lo que hace combinando un lector y un escritor en una estructura mediante incrustación: enumera los tipos dentro de la estructura pero no les da nombres de campo.</p>
+<pre>// ReadWriter stores pointers to a Reader and a Writer.
+// It implements io.ReadWriter.
+type ReadWriter struct {
+    *Reader  // *bufio.Reader
+    *Writer  // *bufio.Writer
+}
+</pre>
+<p>Los elementos incrustados son punteros a estructuras y, por supuesto, deben inicializarse para que apunten a estructuras válidas antes de que puedan usarse. La estructura <code>ReadWriter</code> podría escribirse como</p>
+<pre>type ReadWriter struct {
+    reader *Reader
+    writer *Writer
+}
+</pre>
+<p>pero luego para promover los métodos de los campos y satisfacer las interfaces <code>io</code>, también necesitaríamos proporcionar métodos de reenvío, como este:</p>
+<pre>func (rw *ReadWriter) Read(p []byte) (n int, err error) {
+    return rw.reader.Read(p)
+}
+</pre>
+<p>Al incrustar las estructuras directamente, evitamos esta contabilidad. Los métodos de tipos incrustados vienen gratis, lo que significa que <code>bufio.ReadWriter</code> no solo tiene los métodos de <code>bufio.Reader</code> y <code>bufio.Writer</code>, también satisface las tres interfaces: <code>io.Reader</code>, <code>io.Writer</code> y <code>io.ReadWriter</code>.</p>
+<p>Hay una forma importante en la que la incrustación se diferencia de la subclasificación. Cuando incrustamos un tipo, los métodos de ese tipo se convierten en métodos del tipo externo, pero cuando se invocan, el receptor del método es el tipo interno, no el externo. En nuestro ejemplo, cuando se invoca el método <code>Read</code> de un <code>bufio.ReadWriter</code>, tiene exactamente el mismo efecto que el método de reenvío escrito anteriormente; el receptor es el campo <code>reader</code> del <code>ReadWriter</code>, no el <code>ReadWriter</code> en sí.</p>
+<p>
+La incrustación también puede ser una simple conveniencia. Este ejemplo muestra un campo incrustado junto a un campo normal con nombre.
+</p>
+<pre>type Job struct {
+    Command string
+    *log.Logger
+}
+</pre>
+<p>El tipo <code>Job</code> ahora tiene el <code>Print</code>, <code>Printf</code>, <code>Println</code> y otros métodos de <code>*log.Logger</code>. Por supuesto, podríamos haberle dado al <code>Logger</code> un nombre de campo, pero no es necesario hacerlo. Y ahora, una vez inicializado, podemos iniciar sesión en el <code>Job</code>:</p>
+<pre>job.Println("starting now...")
+</pre>
+<p>El <code>Logger</code> es un campo normal de la estructura <code>Job</code>, por lo que podemos inicializarlo de la forma habitual dentro del constructor para <code>Job</code>, así,</p>
+<pre>func NewJob(command string, logger *log.Logger) *Job {
+    return &amp;Job{command, logger}
+}
+</pre>
+<p>
+o con un literal compuesto,
+</p>
+<pre>job := &amp;Job{command, log.New(os.Stderr, "Job: ", log.Ldate)}
+</pre>
+<p>Si necesitamos hacer referencia a un campo incrustado directamente, el nombre de tipo del campo, ignorando el calificador del paquete, sirve como nombre de campo, como lo hizo en el <code>Read</code> de nuestra estructura <code>ReadWriter</code>. Aquí, si necesitáramos acceder al <code>*log.Logger</code> de un <code>Job</code> variable <code>job</code>, escribiríamos <code>job.Logger</code>, lo cual sería útil si quisiéramos refinar los métodos de <code>Logger</code>.</p>
+<pre>func (job *Job) Printf(format string, args ...interface{}) {
+    job.Logger.Printf("%q: %s", job.Command, fmt.Sprintf(format, args...))
+}
+</pre>
+<p>La incrustación de tipos introduce el problema de los conflictos de nombres, pero las reglas para resolverlos son simples. Primero, un campo o método <code>X</code> oculta cualquier otro elemento <code>X</code> en una parte más profundamente anidada del tipo. Si <code>log.Logger</code> contuviera un campo o método llamado <code>Command</code>, el campo <code>Command</code> de <code>Job</code> lo dominaría.</p>
+<p>En segundo lugar, si el mismo nombre aparece en el mismo nivel de anidamiento, suele ser un error; Sería erróneo incrustar <code>log.Logger</code> si la estructura <code>Job</code> contuviera otro campo o método llamado <code>Logger</code>. Sin embargo, si el nombre duplicado nunca se menciona en el programa fuera de la definición de tipo, está bien. Esta calificación proporciona cierta protección contra cambios realizados en tipos incorporados desde el exterior; no hay problema si se agrega un campo que entra en conflicto con otro campo en otro subtipo si ninguno de los campos se usa nunca.</p>
+
+
+<h2 id="concurrency">Concurrencia</h2>
+
+<h3 id="sharing">Comparte comunicando</h3>
+
+<p>
+La programación concurrente es un tema amplio y aquí solo hay espacio para algunos aspectos destacados específicos de Go.
+</p>
+<p>
+La programación concurrente en muchos entornos se ve dificultada por las sutilezas necesarias para implementar el acceso correcto a las variables compartidas. Go fomenta un enfoque diferente en el que los valores compartidos se transmiten a través de channels y, de hecho, nunca se comparten activamente mediante hilos de ejecución separados. Sólo una gorutina tiene acceso al valor en un momento dado. Las carreras de datos no pueden ocurrir, por diseño. Para fomentar esta forma de pensar lo hemos reducido a un eslogan:
+</p>
+<blockquote>
+No te comuniques compartiendo memoria; en su lugar, comparte la memoria comunicándote.
+</blockquote>
+<p>
+Este enfoque puede llevarse demasiado lejos. La mejor manera de realizar los recuentos de referencias es colocando un mutex alrededor de una variable entera, por ejemplo. Pero como enfoque de alto nivel, el uso de channels para controlar el acceso facilita la escritura de programas claros y correctos.
+</p>
+<p>
+Una forma de pensar en este modelo es considerar un programa típico de un solo subproceso que se ejecuta en una CPU. No necesita primitivas de sincronización. Ahora ejecuta otra instancia similar; tampoco necesita sincronización. Ahora deja que esos dos se comuniquen; Si la comunicación es el sincronizador, todavía no hay necesidad de otra sincronización. Los pipelines de Unix, por ejemplo, encajan perfectamente en este modelo. Aunque el enfoque de Go hacia la concurrencia se origina en los procesos de comunicación secuencial (CSP) de Hoare, también puede verse como una generalización de tipos seguros de las canalizaciones de Unix.
+</p>
+
+<h3 id="goroutines">Goroutines</h3>
+
+<p>Se llaman <em>gorrutinas</em> porque los términos existentes (hilos, corrutinas, procesos, etc.) transmiten connotaciones inexactas. Una gorutina tiene un modelo simple: es una función que se ejecuta simultáneamente con otras gorutinas en el mismo espacio de direcciones. Es liviano y cuesta poco más que la asignación de espacio en la pila. Y las pilas empiezan siendo pequeñas, por lo que son económicas y crecen asignando (y liberando) almacenamiento en montón según sea necesario.</p>
+<p>
+Las gorutinas se multiplexan en múltiples subprocesos del sistema operativo, por lo que si uno se bloquea, por ejemplo, mientras espera E/S, otros continúan ejecutándose. Su diseño oculta muchas de las complejidades de la creación y gestión de subprocesos.
+</p>
+<p>Prefija una llamada de función o método con la palabra clave <code>go</code> para ejecutar la llamada en una nueva rutina. Cuando se completa la llamada, la rutina sale silenciosamente. (El efecto es similar a la notación <code>&amp;</code> del shell Unix para ejecutar un comando en segundo plano).</p>
+<pre>go list.Sort()  // run list.Sort concurrently; don't wait for it.
+</pre>
+<p>
+Una función literal puede ser útil en una invocación de rutina.
+</p>
+<pre>func Announce(message string, delay time.Duration) {
+    go func() {
+        time.Sleep(delay)
+        fmt.Println(message)
+    }()  // Note the parentheses - must call the function.
+}
+</pre>
+<p>
+En Go, los literales de funciones son clousures: la implementación garantiza que las variables a las que hace referencia la función sobrevivan mientras estén activas.
+</p>
+<p>
+Estos ejemplos no son demasiado prácticos porque las funciones no tienen forma de señalar su finalización. Para eso necesitamos channels.
+</p>
+
+<h3 id="channels">Channels</h3>
+
+<p>Al igual que los maps, los channels se asignan con <code>make</code> y el valor resultante actúa como referencia a una estructura de datos subyacente. Si se proporciona un parámetro entero opcional, establece el tamaño del búfer para el channel. El valor predeterminado es cero, para un channel sin búfer o síncrono.</p>
+<pre>ci := make(chan int)            // unbuffered channel of integers
+cj := make(chan int, 0)         // unbuffered channel of integers
+cs := make(chan *os.File, 100)  // buffered channel of pointers to Files
+</pre>
+<p>
+Los channels sin búfer combinan comunicación (el intercambio de un valor) con sincronización, lo que garantiza que dos cálculos (gorrutinas) estén en un estado conocido.
+</p>
+<p>
+Hay muchos modismos agradables que usan channels. Aquí hay uno para comenzar. En la sección anterior iniciamos una clasificación en segundo plano. Un channel puede permitir que la rutina de lanzamiento espere a que se complete el ordenamiento.
+</p>
+<pre>c := make(chan int)  // Allocate a channel.
+// Start the sort in a goroutine; when it completes, signal on the channel.
+go func() {
+    list.Sort()
+    c &lt;- 1  // Send a signal; value does not matter.
+}()
+doSomethingForAWhile()
+&lt;-c   // Wait for sort to finish; discard sent value.
+</pre>
+<p>
+Los receptores siempre bloquean hasta que haya datos para recibir. Si el channel no tiene buffer, el remitente se bloquea hasta que el receptor haya recibido el valor. Si el channel tiene un búfer, el remitente bloquea solo hasta que el valor se haya copiado al búfer; si el buffer está lleno, esto significa esperar hasta que algún receptor haya recuperado un valor.
+</p>
+<p>Un channel almacenado en buffer puede usarse como un semáforo, por ejemplo, para limitar el rendimiento. En este ejemplo, las solicitudes entrantes se pasan a <code>handle</code>, que envía un valor al channel, procesa la solicitud y luego recibe un valor del channel para preparar el "semáforo" para el siguiente consumidor. La capacidad del buffer del channel limita el número de llamadas simultáneas al <code>process</code>.</p>
+<pre>var sem = make(chan int, MaxOutstanding)
+
+func handle(r *Request) {
+    sem &lt;- 1    // Wait for active queue to drain.
+    process(r)  // May take a long time.
+    &lt;-sem       // Done; enable next request to run.
+}
+
+func Serve(queue chan *Request) {
+    for {
+        req := &lt;-queue
+        go handle(req)  // Don't wait for handle to finish.
+    }
+}
+</pre>
+
+<p>Una vez que los handlers <code>MaxOutstanding</code> estén ejecutando <code>process</code>, más bloquearán el intento de enviar al búfer del channel lleno, hasta que uno de los handlers existentes finalice y reciba del búfer.</p>
+
+<p>Sin embargo, este diseño tiene un problema: <code>Serve</code> crea una nueva rutina para cada solicitud entrante, aunque solo <code>MaxOutstanding</code> de ellas puede ejecutarse en cualquier momento. Como resultado, el programa puede consumir recursos ilimitados si las solicitudes llegan demasiado rápido. Podemos abordar esa deficiencia cambiando <code>Serve</code> para controlar la creación de las gorutinas. Aquí tienes una solución obvia, pero ten cuidado, tiene un error que solucionaremos más adelante:</p>
+
+<pre>func Serve(queue chan *Request) {
+    for req := range queue {
+        sem &lt;- 1
+        go func() {
+            process(req) // Buggy; see explanation below.
+            &lt;-sem
+        }()
+    }
+}</pre>
+
+<p>El error es que en un bucle Go <code>for</code>, la variable del bucle se reutiliza para cada iteración, por lo que la variable <code>req</code> es compartido en todas las gorutinas. Eso no es lo que queremos. Necesitamos asegurarnos de que <code>req</code> sea único para cada rutina. Aquí hay una forma de hacerlo, pasando el valor de <code>req</code> como argumento para el cierre en la rutina:</p>
+
+<pre>func Serve(queue chan *Request) {
+    for req := range queue {
+        sem &lt;- 1
+        go func(req *Request) {
+            process(req)
+            &lt;-sem
+        }(req)
+    }
+}</pre>
+
+<p>
+Compara esta versión con la anterior para ver la diferencia en cómo se declara y ejecuta el cierre. Otra solución es simplemente crear una nueva variable con el mismo nombre, como en este ejemplo:
+</p>
+
+<pre>func Serve(queue chan *Request) {
+    for req := range queue {
+        req := req // Create new instance of req for the goroutine.
+        sem &lt;- 1
+        go func() {
+            process(req)
+            &lt;-sem
+        }()
+    }
+}</pre>
+
+<p>
+Puede parecer extraño escribir
+</p>
+
+<pre>req := req
+</pre>
+
+<p>
+pero es legal e idiomático en Go hacer esto. Obtiene una versión nueva de la variable con el mismo nombre, que deliberadamente oculta la variable de bucle localmente pero es única para cada rutina.
+</p>
+
+<p>Volviendo al problema general de escribir el servidor, otro enfoque que administra bien los recursos es iniciar un número fijo de rutinas <code>handle</code> , todas leyendo desde el channel de solicitud. El número de gorutinas limita el número de llamadas simultáneas al <code>process</code>. Esta función <code>Serve</code> también acepta un channel en el que se le indicará que salga; después de iniciar las gorutinas, bloquea la recepción de ese channel.</p>
+
+<pre>func handle(queue chan *Request) {
+    for r := range queue {
+        process(r)
+    }
+}
+
+func Serve(clientRequests chan *Request, quit chan bool) {
+    // Start handlers
+    for i := 0; i &lt; MaxOutstanding; i++ {
+        go handle(clientRequests)
+    }
+    &lt;-quit  // Wait to be told to exit.
+}
+</pre>
+
+<h3 id="chan_of_chan">Channels de channels</h3>
+<p>
+Una de las propiedades más importantes de Go es que un channel es un valor de primera clase que puede asignarse y transmitirse como cualquier otro. Un uso común de esta propiedad es implementar una demultiplexación paralela segura.
+</p>
+<p>En el ejemplo de la sección anterior, <code>handle</code> era un controlador ideal para una solicitud, pero no definimos el tipo que manejaba. Si ese tipo incluye un channel para responder, cada cliente puede proporcionar su propia ruta para la respuesta. A continuación se muestra una definición esquemática del tipo <code>Request</code>.</p>
+<pre>type Request struct {
+    args        []int
+    f           func([]int) int
+    resultChan  chan int
+}
+</pre>
+<p>
+El cliente proporciona una función y sus argumentos, así como un channel dentro del objeto de solicitud para recibir la respuesta.
+</p>
+<pre>func sum(a []int) (s int) {
+    for _, v := range a {
+        s += v
+    }
+    return
+}
+
+request := &amp;Request{[]int{3, 4, 5}, sum, make(chan int)}
+// Send request
+clientRequests &lt;- request
+// Wait for response.
+fmt.Printf("answer: %d\n", &lt;-request.resultChan)
+</pre>
+<p>
+En el lado del servidor, la función del controlador es lo único que cambia.
+</p>
+<pre>func handle(queue chan *Request) {
+    for req := range queue {
+        req.resultChan &lt;- req.f(req.args)
+    }
+}
+</pre>
+<p>
+Claramente hay mucho más por hacer para que sea realista, pero este código es un framework para un sistema RPC sin bloqueo, paralelo y de velocidad limitada, y no hay un mutex a la vista.
+</p>
+
+<h3 id="parallel">Paralelización</h3>
+<p>
+Otra aplicación de estas ideas es paralelizar un cálculo en múltiples núcleos de CPU. Si el cálculo se puede dividir en partes separadas que se pueden ejecutar de forma independiente, se puede paralelizar, con un channel para señalar cuándo se completa cada parte.
+</p>
+<p>
+Digamos que tenemos que realizar una operación costosa en un vector de elementos y que el valor de la operación en cada elemento es independiente, como en este ejemplo idealizado.
+</p>
+<pre>type Vector []float64
+
+// Apply the operation to v[i], v[i+1] ... up to v[n-1].
+func (v Vector) DoSome(i, n int, u Vector, c chan int) {
+    for ; i &lt; n; i++ {
+        v[i] += u.Op(v[i])
+    }
+    c &lt;- 1    // signal that this piece is done
+}
+</pre>
+<p>
+Lanzamos las piezas de forma independiente en un bucle, una por CPU. Pueden completar en cualquier orden pero no importa; simplemente contamos las señales de finalización drenando el channel después de lanzar todas las gorutinas.
+</p>
+<pre>const numCPU = 4 // number of CPU cores
+
+func (v Vector) DoAll(u Vector) {
+    c := make(chan int, numCPU)  // Buffering optional but sensible.
+    for i := 0; i &lt; numCPU; i++ {
+        go v.DoSome(i*len(v)/numCPU, (i+1)*len(v)/numCPU, u, c)
+    }
+    // Drain the channel.
+    for i := 0; i &lt; numCPU; i++ {
+        &lt;-c    // wait for one task to complete
+    }
+    // All done.
+}
+</pre>
+<p>En lugar de crear un valor constante para numCPU, podemos preguntarle al motor de ejecución qué valor es apropiado. La función <code><a href="https://go.dev/pkg/runtime" rel="nofollow" target="_blank" title="Página todavía no traducida">runtime.NumCPU ⬀</a></code> devuelve el número de núcleos de CPU de hardware en la máquina, por lo que podríamos escribir</p>
+<pre>var numCPU = runtime.NumCPU()
+</pre>
+<p>También hay una función <code><a href="https://go.dev/pkg/runtime" rel="nofollow" target="_blank" title="Página todavía no traducida">runtime.GOMAXPROCS ⬀</a></code>, que informa (o establece ) el número de núcleos especificado por el usuario que un programa Go puede ejecutar simultáneamente. Su valor predeterminado es <code>runtime.NumCPU</code> pero se puede sobrescribir configurando la variable de entorno de Shell con un nombre similar o llamando a la función con un número positivo. Llamarlo con cero solo consulta el valor. Por lo tanto, si queremos honrar la solicitud de recursos del usuario, debemos escribir</p>
+<pre>var numCPU = runtime.GOMAXPROCS(0)
+</pre>
+<p>Asegúrate de no confundir las ideas de concurrencia (estructurar un programa como componentes que se ejecutan independientemente) y paralelismo (ejecutar cálculos en paralelo para lograr eficiencia en múltiples CPU). Aunque las características de concurrencia de Go pueden hacer que algunos problemas sean fáciles de estructurar como cálculos paralelos, Go es un lenguaje concurrente, no paralelo, y no todos los problemas de paralelización se ajustan al modelo de Go. Para una discusión sobre la distinción, consulte la charla citada en <a href="https://blog.golang.org/2013/01/concurrency-is-not-parallelism.html">esta publicación de blog</a>.</p><h3 id="leaky_buffer">Un buffer con fugas</h3>
+
+<p>Las herramientas de programación concurrente pueden incluso hacer que las ideas no concurrentes sean más fáciles de expresar. A continuación se muestra un ejemplo extraído de un paquete RPC. La rutina del cliente realiza un bucle que recibe datos de alguna fuente, tal vez una red. Para evitar asignar y liberar buffers, mantiene una lista libre y utiliza un channel almacenado en buffer para representarla. Si el channel está vacío, se asigna un nuevo búfer. Una vez que el búfer de mensajes está listo, se envía al servidor en <code>serverChan</code>.</p>
+<pre>var freeList = make(chan *Buffer, 100)
+var serverChan = make(chan *Buffer)
+
+func client() {
+    for {
+        var b *Buffer
+        // Grab a buffer if available; allocate if not.
+        select {
+        case b = &lt;-freeList:
+            // Got one; nothing more to do.
+        default:
+            // None free, so allocate a new one.
+            b = new(Buffer)
+        }
+        load(b)              // Read next message from the net.
+        serverChan &lt;- b      // Send to server.
+    }
+}
+</pre>
+<p>
+El bucle del servidor recibe cada mensaje del cliente, lo procesa y devuelve el búfer a la lista libre.
+</p>
+<pre>func server() {
+    for {
+        b := &lt;-serverChan    // Wait for work.
+        process(b)
+        // Reuse buffer if there's room.
+        select {
+        case freeList &lt;- b:
+            // Buffer on free list; nothing more to do.
+        default:
+            // Free list full, just carry on.
+        }
+    }
+}
+</pre>
+<p>El cliente intenta recuperar un búfer de <code>freeList</code>; si no hay ninguno disponible, asigna uno nuevo. El envío del servidor a <code>freeList</code> coloca a <code>b</code> nuevamente en la lista libre a menos que la lista esté llena, en cuyo caso el buffer se deja caer al suelo para que el recolector de basura lo recupere. (Las cláusulas <code>default</code> en las sentencias <code>select</code> se ejecutan cuando ningún otro caso está listo, lo que significa que <code>selects</code> nunca se bloquea). Esta implementación crea una lista libre de depósitos con fugas en solo unas pocas líneas, basándose en el channel almacenado en búfer y el recolector de basura para la contabilidad.</p>
+
+<h2 id="errors">Errores</h2>
+
+<p>Las rutinas de biblioteca a menudo deben devolver algún tipo de indicación de error a quien llama. Como se mencionó anteriormente, la devolución de valores múltiples de Go facilita la devolución de una descripción detallada del error junto con el valor de devolución normal. Es un buen estilo utilizar esta función para proporcionar información detallada sobre errores. Por ejemplo, como veremos, <code>os.Open</code> no solo devuelve un puntero <code>nil</code> en caso de error, sino que también devuelve un valor de error que describe lo que salió mal.</p>
+
+<p>Por convención, los errores tienen el tipo <code>error</code>, una interfaz incorporada simple.</p>
+<pre>type error interface {
+    Error() string
+}
+</pre>
+<p>Un escritor de biblioteca es libre de implementar esta interfaz con un modelo más rico bajo las sábanas, lo que hace posible no sólo ver el error sino también proporcionar algo de contexto. Como se mencionó, junto con el valor de retorno habitual <code>*os.File</code>, <code>os.Open</code> también devuelve un valor de error. Si el archivo se abre correctamente, el error será <code>nil</code>, pero cuando haya un problema, contendrá un <code>os.PathError</code>:</p>
+<pre>// PathError records an error and the operation and
+// file path that caused it.
+type PathError struct {
+    Op string    // "open", "unlink", etc.
+    Path string  // The associated file.
+    Err error    // Returned by the system call.
+}
+
+func (e *PathError) Error() string {
+    return e.Op + " " + e.Path + ": " + e.Err.Error()
+}
+</pre>
+<p>
+<code>PathError</code> -&gt; <code>Error</code> genera una cadena como esta:</p>
+<pre>open /etc/passwx: no such file or directory
+</pre>
+<p>
+Un error de este tipo, que incluye el nombre del archivo problemático, la operación y el error del sistema operativo que desencadenó, es útil incluso si se imprime lejos de la llamada que lo causó; es mucho más informativo que el simple "no existe tal archivo o directorio".
+</p>
+
+<p>Cuando sea posible, las cadenas de error deben identificar su origen, por ejemplo, teniendo un prefijo que nombre la operación o paquete que generó el error. Por ejemplo, en el paquete <code>image</code>, la representación de cadena para un error de decodificación debido a un formato desconocido es "imagen: formato desconocido".</p>
+
+<p>Los llamadores que se preocupan por los detalles precisos del error pueden usar un cambio de tipo o una aserción de tipo para buscar errores específicos y extraer detalles. Para <code>PathErrors</code>, esto podría incluir examinar el campo interno <code>Err</code> en busca de errores recuperables.</p>
+
+<pre>for try := 0; try &lt; 2; try++ {
+    file, err = os.Create(filename)
+    if err == nil {
+        return
+    }
+    if e, ok := err.(*os.PathError); ok &amp;&amp; e.Err == syscall.ENOSPC {
+        deleteTempFiles()  // Recover some space.
+        continue
+    }
+    return
+}
+</pre>
+
+<p>La segunda declaración <code>if</code> aquí es otra <a href="#interface_conversions">afirmación de tipo</a>. Si falla, <code>ok</code> será falso y <code>e</code> será <code>nil</code>. Si tiene éxito, <code>ok</code> será verdadero, lo que significa que el error fue de tipo <code>*os.PathError</code>, y luego también lo será <code>e</code>, que puedes examinarlo para obtener más información sobre el error.</p>
+
+<h3 id="panic">Panic</h3>
+
+<p>La forma habitual de informar un error a un llamador es devolver un <code>error</code> como valor de retorno adicional. El método canónico <code>Read</code> es un ejemplo bien conocido; devuelve un recuento de bytes y un <code>error</code>. ¿Pero qué pasa si el error es irrecuperable? A veces el programa simplemente no puede continuar.</p>
+
+<p>Para este propósito, hay una función incorporada <code>panic</code> que de hecho crea un error de tiempo de ejecución que detendrá el programa (pero mira la siguiente sección). La función toma un único argumento de tipo arbitrario (a menudo una cadena) que se imprimirá cuando el programa finalice. También es una forma de indicar que ha sucedido algo imposible, como salir de un bucle infinito.</p>
+
+
+<pre>// A toy implementation of cube root using Newton's method.
+func CubeRoot(x float64) float64 {
+    z := x/3   // Arbitrary initial value
+    for i := 0; i &lt; 1e6; i++ {
+        prevz := z
+        z -= (z*z*z-x) / (3*z*z)
+        if veryClose(z, prevz) {
+            return z
+        }
+    }
+    // A million iterations has not converged; something is wrong.
+    panic(fmt.Sprintf("CubeRoot(%g) did not converge", x))
+}
+</pre>
+
+<p>Esto es sólo un ejemplo, pero las funciones reales de la biblioteca deberían evitar el <code>panic</code>. Si el problema se puede enmascarar o solucionar, siempre es mejor dejar que todo siga funcionando en lugar de cerrar todo el programa. Un posible contraejemplo es durante la inicialización: si la biblioteca realmente no puede configurarse por sí sola, podría ser razonable entrar en pánico, por así decirlo.</p>
+
+<pre>var user = os.Getenv("USER")
+
+func init() {
+    if user == "" {
+        panic("no value for $USER")
+    }
+}
+</pre>
+
+<h3 id="recover">Recover</h3>
+
+<p>Cuando se llama a <code>panic</code>, incluso implícitamente para errores de tiempo de ejecución, como indexar una porción fuera de límites o fallar en una aserción de tipo, detiene inmediatamente la ejecución de la función actual y comienza a desenrollar la pila de la rutina, ejecutando cualquier función diferida a lo largo del camino. Si ese desenrollado llega a la parte superior de la pila de la rutina, el programa muere. Sin embargo, es posible utilizar la función incorporada <code>recover</code> para recuperar el control de la rutina y reanudar la ejecución normal.</p>
+
+<p>Una llamada a <code>recover</code> detiene el desenredado y devuelve el argumento pasado a <code>panic</code>. Debido a que el único código que se ejecuta mientras se desenrolla está dentro de las funciones diferidas, <code>recover</code> solo es útil dentro de las funciones diferidas.</p>
+
+<p>Una aplicación de <code>recover</code> es cerrar una gorutina defectuosa dentro de un servidor sin matar las otras gorutinas en ejecución.</p>
+
+<pre>func server(workChan &lt;-chan *Work) {
+    for work := range workChan {
+        go safelyDo(work)
+    }
+}
+
+func safelyDo(work *Work) {
+    defer func() {
+        if err := recover(); err != nil {
+            log.Println("work failed:", err)
+        }
+    }()
+    do(work)
+}
+</pre>
+
+<p>En este ejemplo, si <code>do(work)</code> entra en pánico, el resultado se registrará y la rutina saldrá limpiamente sin molestar a los demás. No es necesario hacer nada más en el cierre diferido; llamar a <code>recover</code> maneja la condición por completo.</p>
+
+<p>Debido a que <code>recover</code> siempre devuelve <code>nil</code> a menos que se llame directamente desde una función diferida, el código diferido puede llamar a rutinas de biblioteca que usan <code>panic</code> y <code>recover</code> sin fallar. Como ejemplo, la función diferida en <code>safelyDo</code> podría llamar a una función de registro antes de llamar a <code>recover</code>, y ese código de registro se ejecutaría sin verse afectado por el estado de pánico.</p>
+
+<p>Con nuestro patrón de recuperación implementado, la función <code>do</code> (y cualquier cosa que llame) puede salir de cualquier situación mala limpiamente llamando a <code>panic</code>. Podemos utilizar esa idea para simplificar el manejo de errores en software complejo. Veamos una versión idealizada de un paquete <code>regexp</code>, que informa errores de análisis llamando a <code>panic</code> con un tipo de error local. Aquí está la definición de <code>Error</code>, un método <code>error</code> y la función <code>Compile</code>.</p>
+
+<pre>// Error is the type of a parse error; it satisfies the error interface.
+type Error string
+func (e Error) Error() string {
+    return string(e)
+}
+
+// error is a method of *Regexp that reports parsing errors by
+// panicking with an Error.
+func (regexp *Regexp) error(err string) {
+    panic(Error(err))
+}
+
+// Compile returns a parsed representation of the regular expression.
+func Compile(str string) (regexp *Regexp, err error) {
+    regexp = new(Regexp)
+    // doParse will panic if there is a parse error.
+    defer func() {
+        if e := recover(); e != nil {
+            regexp = nil    // Clear return value.
+            err = e.(Error) // Will re-panic if not a parse error.
+        }
+    }()
+    return regexp.doParse(str), nil
+}
+</pre>
+
+<p>Si <code>doParse</code> entra en pánico, el bloque de recuperación establecerá el valor de retorno en <code>nil</code>; las funciones diferidas pueden modificar los valores de retorno con nombre. Luego comprobará, en la asignación a <code>err</code>, que el problema fue un error de análisis afirmando que tiene el tipo local <code>Error</code>. Si no es así, la aserción de tipo fallará, provocando un error de tiempo de ejecución que continúa desenrollándose la pila como si nada la hubiera interrumpido. Esta verificación significa que si sucede algo inesperado, como un índice fuera de límites, el código fallará aunque estemos usando <code>panic</code> y <code>recover</code> para manejar los errores de análisis.</p>
+
+<p>Con el manejo de errores implementado, el método <code>error</code> (debido a que es un método vinculado a un tipo, está bien, incluso natural, que tenga el mismo name como el tipo de <code>error</code> incorporado) facilita informar errores de análisis sin preocuparse por desenrollar la pila de análisis a mano:</p>
+
+<pre>if pos == 0 {
+    re.error("'*' illegal at start of expression")
+}
+</pre>
+
+<p>Aunque este patrón es útil, solo debe usarse dentro de un paquete. <code>Parse</code> convierte sus llamadas internas de <code>panic</code> en valores de <code>error</code>; no expone <code>panics</code> a su cliente. Ésa es una buena regla a seguir.</p>
+
+<p>
+Por cierto, este modismo re-panic cambia el valor de pánico si ocurre un error real. Sin embargo, tanto los fallos originales como los nuevos se presentarán en el informe de fallos, por lo que la causa raíz del problema seguirá siendo visible. Por lo tanto, este simple método de volver a entrar en pánico suele ser suficiente (después de todo, es un bloqueo), pero si desea mostrar solo el valor original, puede escribir un poco más de código para filtrar problemas inesperados y volver a entrar en pánico con el error original. Esto se deja como ejercicio para el lector.
+</p>
+
+
+<h2 id="web_server">Un servidor web</h2>
+
+<p>Terminemos con un programa Go completo, un servidor web. Este es en realidad una especie de servidor web. Google proporciona un servicio en <code>chart.apis.google.com</code> que formatea automáticamente los datos en tablas y gráficos. Sin embargo, es difícil de usar de forma interactiva porque es necesario colocar los datos en la URL como una consulta. El programa aquí proporciona una interfaz más agradable para una forma de datos: dado un breve fragmento de texto, solicita al servidor de gráficos que genere un código QR, una array de cuadros que codifican el texto. Esa imagen puede capturarse con la cámara de su teléfono celular e interpretarse como, por ejemplo, una URL, lo que le ahorrará tener que escribir la URL en el pequeño teclado del teléfono.</p>
+<p>
+Aquí tienes el programa completo. Sigue una explicación.
+</p>
+<div class="code">
+
+<pre>package main
+
+import (
+    "flag"
+    "html/template"
+    "log"
+    "net/http"
+)
+
+var addr = flag.String("addr", ":1718", "http service address") <span class="comment">// Q=17, R=18</span>
+
+var templ = template.Must(template.New("qr").Parse(templateStr))
+
+func main() {
+    flag.Parse()
+    http.Handle("/", http.HandlerFunc(QR))
+    err := http.ListenAndServe(*addr, nil)
+    if err != nil {
+        log.Fatal("ListenAndServe:", err)
+    }
+}
+
+func QR(w http.ResponseWriter, req *http.Request) {
+    templ.Execute(w, req.FormValue("s"))
+}
+
+const templateStr = `
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;QR Link Generator&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+{{if .}}
+&lt;img src="http://chart.apis.google.com/chart?chs=300x300&amp;cht=qr&amp;choe=UTF-8&amp;chl={{.}}" /&gt;
+&lt;br&gt;
+{{.}}
+&lt;br&gt;
+&lt;br&gt;
+{{end}}
+&lt;form action="/" name=f method="GET"&gt;
+    &lt;input maxLength=1024 size=70 name=s value="" title="Text to QR Encode"&gt;
+    &lt;input type=submit value="Show QR" name=qr&gt;
+&lt;/form&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+`
+</pre>
+</div>
+
+
+<p>Las piezas hasta <code>main</code> deben ser fáciles de seguir. La bandera establece un puerto HTTP predeterminado para nuestro servidor. La variable de plantilla <code>templ</code> es donde ocurre la diversión. Crea una plantilla HTML que el servidor ejecutará para mostrar la página; Más sobre eso en un momento.</p>
+<p>La función <code>main</code> analiza las banderas y, usando el mecanismo del que hablamos anteriormente, vincula la función <code>QR</code> a la ruta raíz. para el servidor. Luego se llama a <code>http.ListenAndServe</code> para iniciar el servidor; se bloquea mientras el servidor se ejecuta.</p>
+<p>
+<code>QR</code> simplemente recibe la solicitud, que contiene datos del formulario, y ejecuta la plantilla sobre los datos en el valor del formulario llamado <code>s</code>.</p>
+<p>El paquete de plantillas <code>html/template</code> es poderoso; este programa solo toca sus capacidades. En esencia, reescribe un fragmento de texto HTML sobre la marcha sustituyendo elementos derivados de elementos de datos pasados a <code>templ.Execute</code>, en este caso el valor del formulario. Dentro del texto de la plantilla (<code>templateStr</code>), las partes delimitadas por doble llave denotan acciones de la plantilla. La parte de <code>{{if .}}</code> a <code>{{end}}</code> se ejecuta solo si el valor del elemento de datos actual, llamado <code>.</code> ( punto), no está vacío. Es decir, cuando la cadena está vacía, esta parte de la plantilla se suprime.</p>
+<p>Los dos fragmentos <code>{{.}}</code> dicen mostrar los datos presentados a la plantilla (la cadena de consulta) en la página web. El paquete de plantillas HTML proporciona automáticamente un escape apropiado para que sea seguro mostrar el texto.</p>
+<p>El resto de la cadena de la plantilla es solo el HTML que se muestra cuando se carga la página. Si esta es una explicación demasiado rápida, consulta la <a href="https://go.dev/pkg/html/template" rel="nofollow" target="_blank" title="Página todavía no traducida">documentación ⬀</a> del paquete de plantilla para obtener una explicación más detallada.</p>
+<p>
+Y ahí lo tienes: un servidor web útil en unas pocas líneas de código más texto HTML basado en datos. Go es lo suficientemente poderoso como para hacer que sucedan muchas cosas en unas pocas líneas.
+</p>
+
+
+
+
+
+</article>
+
+
+
+</main>
+<footer class="Site-footer">
+  <div class="Footer">
+    <div class="Container">
+      <div class="Footer-links">
+          <div class="Footer-linkColumn">
+            <a href="/solutions/" class="Footer-link Footer-link--primary" aria-describedby="footer-description">
+              Por qué Go
+            </a>
+              <a href="/solutions/use-cases" class="Footer-link" aria-describedby="footer-description">
+                Casos de uso
+              </a>
+              <a href="/solutions/case-studies" class="Footer-link" aria-describedby="footer-description">
+                Estudio de casos
+              </a>
+          </div>
+          <div class="Footer-linkColumn">
+            <a href="/learn/" class="Footer-link Footer-link--primary" aria-describedby="footer-description">
+              Comienza
+            </a>
+              <a href="https://go.dev/play" class="Footer-link" aria-describedby="footer-description" rel="nofollow" target="_blank" title="Página todavía no traducida">
+                Playground
+               ⬀</a>
+              <a href="https://go.dev/tour" class="Footer-link" aria-describedby="footer-description" rel="nofollow" target="_blank" title="Página todavía no traducida">
+                Tour
+               ⬀</a>
+              <a href="https://stackoverflow.com/questions/tagged/go?tab=Newest" class="Footer-link" aria-describedby="footer-description">
+                Stack Overflow
+              </a>
+              <a href="/help/" class="Footer-link" aria-describedby="footer-description">
+                Ayuda
+              </a>
+          </div>
+          <div class="Footer-linkColumn">
+            <a href="https://pkg.go.dev" class="Footer-link Footer-link--primary" aria-describedby="footer-description">
+              Paquetes
+            </a>
+              <a href="https://go.dev/pkg" class="Footer-link" aria-describedby="footer-description" rel="nofollow" target="_blank" title="Página todavía no traducida">
+                Biblioteca estándar
+               ⬀</a>
+              <a href="https://pkg.go.dev/about" class="Footer-link" aria-describedby="footer-description">
+                Acerca de los Paquetes Go
+              </a>
+          </div>
+          <div class="Footer-linkColumn">
+            <a href="https://go.dev/project" class="Footer-link Footer-link--primary" aria-describedby="footer-description" rel="nofollow" target="_blank" title="Página todavía no traducida">
+              Acerca de
+             ⬀</a>
+              <a href="https://go.dev/dl" class="Footer-link" aria-describedby="footer-description" rel="nofollow" target="_blank" title="Página todavía no traducida">
+                Descargar
+               ⬀</a>
+              <a href="https://go.dev/blog" class="Footer-link" aria-describedby="footer-description" rel="nofollow" target="_blank" title="Página todavía no traducida">
+                Blog
+               ⬀</a>
+              <a href="https://github.com/golang/go/issues" class="Footer-link" aria-describedby="footer-description">
+                Issue Tracker
+              </a>
+              <a href="https://go.dev/doc/devel/release" class="Footer-link" aria-describedby="footer-description" rel="nofollow" target="_blank" title="Página todavía no traducida">
+                Notas de la versión
+               ⬀</a>
+              <a href="https://go.dev/brand" class="Footer-link" aria-describedby="footer-description" rel="nofollow" target="_blank" title="Página todavía no traducida">
+                Pautas de marca
+               ⬀</a>
+              <a href="https://go.dev/conduct" class="Footer-link" aria-describedby="footer-description" rel="nofollow" target="_blank" title="Página todavía no traducida">
+                Código de Conducta
+               ⬀</a>
+          </div>
+          <div class="Footer-linkColumn">
+            <a href="https://www.twitter.com/golang" class="Footer-link Footer-link--primary" aria-describedby="footer-description">
+              Conéctate
+            </a>
+              <a href="https://www.twitter.com/golang" class="Footer-link" aria-describedby="footer-description">
+                Twitter
+              </a>
+              <a href="https://github.com/golang" class="Footer-link" aria-describedby="footer-description">
+                GitHub
+              </a>
+              <a href="https://invite.slack.golangbridge.org/" class="Footer-link" aria-describedby="footer-description">
+                Slack
+              </a>
+              <a href="https://reddit.com/r/golang" class="Footer-link" aria-describedby="footer-description">
+                r/golang
+              </a>
+              <a href="https://www.meetup.com/pro/go" class="Footer-link" aria-describedby="footer-description">
+                Meetup
+              </a>
+              <a href="https://golangweekly.com/" class="Footer-link" aria-describedby="footer-description">
+                Golang Weekly
+              </a>
+          </div>
+      </div>
+    </div>
+  </div>
+  <div class="screen-reader-only" id="footer-description" hidden="">
+          Se abre en una ventana nueva.
+  </div>
+  <div class="Footer">
+    <div class="Container Container--fullBleed">
+      <div class="Footer-bottom">
+        <img class="Footer-gopher" src="/images/gophers/pilot-bust.svg" alt="The Go Gopher">
+        <ul class="Footer-listRow">
+          <li class="Footer-listItem">
+            <a href="https://go.dev/copyright" aria-describedby="footer-description" rel="nofollow" target="_blank" title="Página todavía no traducida">Copyright ⬀</a>
+          </li>
+          <li class="Footer-listItem">
+            <a href="https://go.dev/tos" aria-describedby="footer-description" rel="nofollow" target="_blank" title="Página todavía no traducida">Términos de servicio ⬀</a>
+          </li>
+          <li class="Footer-listItem">
+            <a href="http://www.google.com/intl/en/policies/privacy/" aria-describedby="footer-description" target="_blank" rel="noopener">
+              Política de Privacidad
+            </a>
+            </li>
+          <li class="Footer-listItem">
+            <a href="https://go.dev/s/website-issue" aria-describedby="footer-description" target="_blank" rel="nofollow" title="Página todavía no traducida">
+              Informar un problema
+             ⬀</a>
+          </li>
+          <li class="Footer-listItem go-Footer-listItem">
+            <button class="go-Button go-Button--text go-Footer-toggleTheme js-toggleTheme" aria-label="Alternar tema">
+              <img data-value="auto" class="go-Icon go-Icon--inverted" height="24" width="24" src="/images/icons/brightness_6_gm_grey_24dp.svg" alt="System theme">
+              <img data-value="dark" class="go-Icon go-Icon--inverted" height="24" width="24" src="/images/icons/brightness_2_gm_grey_24dp.svg" alt="Dark theme">
+              <img data-value="light" class="go-Icon go-Icon--inverted" height="24" width="24" src="/images/icons/light_mode_gm_grey_24dp.svg" alt="Light theme">
+            </button>
+          </li>
+        </ul>
+        <a class="Footer-googleLogo" target="_blank" href="https://google.com" rel="noopener">
+          <img class="Footer-googleLogoImg" src="/images/google-white.png" alt="Google logo">
+        </a>
+      </div>
+    </div>
+  </div>
+  <script src="/js/jquery.js"></script>
+  <script src="/js/carousels.js"></script>
+  <script src="/js/searchBox.js"></script>
+  <script src="/js/misc.js"></script>
+  <script src="/js/hats.js"></script>
+  
+  <script src="/js/godocs.js"></script>
+  <script async="" src="/js/copypaste.js"></script>
+</footer>
+<section class="Cookie-notice js-cookieNotice">
+  <div>go.dev utiliza cookies de Google para ofrecer y mejorar la calidad de sus servicios y analizar el tráfico. <a target="_blank" href="https://policies.google.com/technologies/cookies">Más información.</a></div>
+  <div><button class="go-Button">Ok</button></div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body></html>

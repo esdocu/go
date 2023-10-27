@@ -16,9 +16,9 @@
   
   
 <script src="/js/site.js"></script>
-<meta name="og:url" content="https://go.dev/solutions/devops">
-<meta name="og:title" content="Operaciones de desarrollo e ingeniería de confiabilidad del sitio: el lenguaje de programación Go en Español">
-<title>Operaciones de desarrollo e ingeniería de confiabilidad del sitio: el lenguaje de programación Go en Español</title>
+<meta name="og:url" content="https://go.dev/security/vuln/">
+<meta name="og:title" content="Gestión de vulnerabilidades en Go - El lenguaje de programación Go en Español">
+<title>Gestión de vulnerabilidades en Go - El lenguaje de programación Go en Español</title>
 
 <meta name="og:image" content="https://go.dev/doc/gopher/gopher5logo.jpg">
 <meta name="twitter:image" content="https://go.dev/doc/gopher/gopherbelly300.jpg">
@@ -43,7 +43,7 @@
       </div>
       <div class="Header-rightContent">
         <ul class="Header-menu">
-          <li class="Header-menuItem  Header-menuItem--active">
+          <li class="Header-menuItem ">
             <a href="#" class="js-desktop-menu-hover" aria-label="Por qué Go" aria-describedby="dropdown-description">
               Por qué Go <i class="material-icons" aria-hidden="true">arrow_drop_down</i>
             </a>
@@ -218,17 +218,6 @@
       </div>
     </nav>
     
-    <div class="UseCaseSubNav js-useCaseSubnav">
-      <button class="UseCaseSubNav-menuHeader js-useCaseSubnavHeader">
-        Saltar a
-        <img class="UseCaseSubNav-menuIcon js-useCaseSubnavMenuIcon" alt="Open menu icon" src="/images/icons/chevron-down.svg">
-      </button>
-      <div class="UseCaseSubNav-menu js-useCaseSubnavMenu">
-        <div class="UseCaseSubNav-anchorLinks js-useCaseSubnavLinks">
-        </div>
-      </div>
-    </div>
-    
   </div>
 </header>
 <aside class="NavigationDrawer js-header">
@@ -240,7 +229,7 @@
     </div>
     <ul class="NavigationDrawer-list">
         
-          <li class="NavigationDrawer-listItem js-mobile-subnav-trigger  NavigationDrawer-listItem--active NavigationDrawer-hasSubnav">
+          <li class="NavigationDrawer-listItem js-mobile-subnav-trigger  NavigationDrawer-hasSubnav">
             <a href="#"><span>Por qué Go</span> <i class="material-icons">navigate_next</i></a>
 
             <div class="NavigationDrawer NavigationDrawer-submenuItem">
@@ -399,310 +388,72 @@
 <div class="NavigationDrawer-scrim js-scrim" role="presentation"></div>
 <main class="SiteContent SiteContent--default" id="main-content">
   
-<div>
-  <div class="WhoUsesSubPage-hero--useCase">
-    <div class="WhoUsesSubPage-heroInner--useCase">
-      <div class="WhoUsesSubPage-heroContent--useCase">
-        <div class="WhoUsesSubPage-heroText--useCase">
-          
-<ol class="SiteBreadcrumb">
-  
-<li class="BreadcrumbNav-li ">
-  <a class="BreadcrumbNav-link" href="/solutions/">
-  Por qué Go
-  </a>
-</li>
-<li class="BreadcrumbNav-li active">
-  <a class="BreadcrumbNav-link" href="/solutions/devops">
-  Ingeniería de confiabilidad de sitios y operaciones de desarrollo
-  </a>
-</li>
-</ol>
-          <h1>Ingeniería de confiabilidad de sitios y operaciones de desarrollo</h1>
-          
-          
-            <div class="Article-date">3 octubre 2019</div>
-          
-        </div>
-          
-        </div>
-      </div>
+  <article class="Article Article--security">
 
-  </div>
-  <article class="Article Article--solutions">
     
-      <div class="UseCase-content">
-        <div class="UseCase-contentAside">
-          <div class="js-useCaseStickyNav UseCaseSubNav-anchorLinks">
-          </div>
-        </div>
-        <div class="UseCase-contentBody js-useCaseContentBody">
-          
-          
-          <h2 id="overview" class="sectionHeading">Descripción general</h2>
-<h3 id="go-helps-enterprises-automate-and-scale">Go ayuda a las empresas a automatizarse y escalar</h3>
-<p>Los equipos de Operaciones de Desarrollo (DevOps) ayudan a las organizaciones de ingeniería a automatizar tareas y mejorar su proceso de integración continua, entregas y despliegues continuos (CI/CD). DevOps puede derribar los silos de desarrollo e implementar herramientas y automatización para mejorar el desarrollo, la despliegue y el soporte de software.</p>
-<p>Site Reliability Engineering (SRE) nació en Google para hacer que los "sitios a gran escala" de la empresa sean más confiables, eficientes y escalables,<a href="https://opensource.com/article/18/10/what-site-reliability-engineer" rel="noreferrer" target="_blank"> escribe Silvia Fressard</a>, consultora independiente de DevOps. "Y las prácticas que desarrollaron respondieron tan bien a las necesidades de Google que otras grandes empresas tecnológicas, como Amazon y Netflix, también las adoptaron". SRE requiere una combinación de habilidades de desarrollo y operaciones, y “<a href="https://stackify.com/site-reliability-engineering/" rel="noreferrer" target="_blank">empodera a los desarrolladores de software</a> ser dueño del funcionamiento diario continuo de sus aplicaciones en producción”.</p>
-<p>Go sirve a sus dos hermanos, DevOps y SRE, desde sus tiempos de compilación rápidos y su sintaxis sencilla hasta su soporte de seguridad y confiabilidad. Las características de simultaneidad y redes de Go también lo hacen ideal para herramientas que administran la implementación en la nube, lo que admite fácilmente la automatización y, al mismo tiempo, aumenta la velocidad y la capacidad de mantenimiento del código a medida que la infraestructura de desarrollo crece con el tiempo.</p>
-<p>Los equipos de DevOps/SRE escriben software que va desde pequeños scripts hasta interfaces de línea de comandos (CLI), pasando por servicios y automatización complejos, y el conjunto de funciones de Go tiene beneficios para cada situación.</p>
-<h2 id="key-benefits" class="sectionHeading">Beneficios clave</h2>
-<h3 id="easily-build-small-scripts-with-gos-robust-standard-library-and-static-typing">Crea fácilmente pequeños scripts con la sólida biblioteca estándar y el tipado estática de Go.</h3>
-<p>Los rápidos tiempos de construcción e inicio de Go. La extensa biblioteca estándar de Go, que incluye paquetes para necesidades comunes como HTTP, E/S de archivos, hora, expresiones regulares, exec y formatos JSON/CSV, permite a DevOps/SRE acceder directamente a su lógica empresarial. Además, el sistema de tipos estáticos de Go y el manejo explícito de errores hacen que incluso los scripts pequeños sean más sólidos.</p>
-<h3 id="quickly-deploy-clis-with-gos-fast-build-times">Despliega CLIs rápidamente con los rápidos tiempos de compilación de Go</h3>
-<p>Cada ingeniero de confiabilidad del sitio ha escrito scripts de "uso único" que se convirtieron en CLI utilizados por docenas de otros ingenieros todos los días. Y los pequeños scripts de automatización de implementación se convierten en servicios de gestión de implementación. Con Go, DevOps/SRE están en una excelente posición para tener éxito cuando el alcance del software inevitablemente aumenta. Comenzar con Go lo coloca en una excelente posición para tener éxito cuando eso suceda.</p>
-<h3 id="scale-and-maintain-larger-applications-with-gos-low-memory-footprint-and-doc-generator">Escala y mantén aplicaciones más grandes con el bajo consumo de memoria y el generador de documentación de Go</h3>
-<p>El recolector de basura de Go significa que los equipos de DevOps/SRE no tienen que preocuparse por la administración de la memoria. Y el generador automático de documentación de Go (godoc) hace que el código se autodocumente, lo que reduce los gastos de mantenimiento y establece las mejores prácticas desde el principio.</p>
-<div class="FeaturedUsers">
-<h2 id="featured-users" class="sectionHeading">Usuarios destacados</h2>
-<table>
-  <thead>
-    <tr>
-      <th class="FeaturedUsers--hiddenMobile">Cliente</th>
-      <th>Breve introducción</th>
-      <th>Proyectos usando go</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr class="js-featuredUsersRow FeaturedUsers-row">
-      <td class="FeaturedUsers--hiddenMobile">
-        <img src="/images/logos/docker.svg" alt="Docker" class="DarkMode-img">
-        <img src="/images/logos/docker.svg" alt="Docker" class="LightMode-img">
-      </td>
-      <td>
-        <img class="FeaturedUsers--hiddenDesktop" src="/images/logos/docker.svg" alt="Docker">
-        Docker es un producto de software como servicio (SaaS), escrito en Go, que los equipos de DevOps/SRE aprovechan para "impulsar la automatización y despliegues seguros a escala masiva", respaldando su esfuerzos de CI/CD.
-      </td>
-      <td>
-        <ul>
-          <li><a href="https://www.docker.com/solutions/cicd">Docker CI/CD</a></li>
-        </ul>
-      </td>
-    </tr>
-    <tr class="js-featuredUsersRow FeaturedUsers-row">
-      <td class="FeaturedUsers--hiddenMobile">
-        <img src="/images/logos/drone.svg" alt="Drone" class="DarkMode-img">
-        <img src="/images/logos/drone.svg" alt="Drone" class="LightMode-img">
-      </td>
-      <td>
-        <img class="FeaturedUsers--hiddenDesktop" src="/images/logos/drone.svg" alt="Drone">
-        Drone es un sistema de entrega continua basado en tecnología de contenedores, escrito en Go, que utiliza un archivo de configuración YAML simple, un superconjunto de docker-compose, para definir y ejecutar tuberías dentro de contenedores Docker.
-      </td>
-      <td>
-        <ul>
-          <li><a href="https://github.com/drone">Drone</a></li>
-        </ul>
-      </td>
-    </tr>
-    <tr class="js-featuredUsersRow FeaturedUsers-row">
-      <td class="FeaturedUsers--hiddenMobile">
-        <img src="/images/logos/etcd.svg" alt="etcd" class="DarkMode-img">
-        <img src="/images/logos/etcd.svg" alt="etcd" class="LightMode-img">
-      </td>
-      <td>
-        <img class="FeaturedUsers--hiddenDesktop" src="/images/logos/etcd.svg" alt="etcd">
-        etcd es un almacén de valores clave distribuido y fuertemente consistente que proporciona una forma confiable de almacenar datos a los que debe acceder un sistema distribuido o un grupo de máquinas, y está escrito en Go.
-      </td>
-      <td>
-        <ul>
-          <li><a href="https://github.com/etcd-io/etcd">etcd</a></li>
-        </ul>
-      </td>
-    </tr>
-    <tr class="js-featuredUsersRow FeaturedUsers-row" hidden="">
-      <td class="FeaturedUsers--hiddenMobile">
-        <img src="/images/logos/ibm.svg" alt="IBM" class="DarkMode-img">
-        <img src="/images/logos/ibm.svg" alt="IBM" class="LightMode-img">
-      </td>
-      <td>
-        <img class="FeaturedUsers--hiddenDesktop" src="/images/logos/ibm.svg" alt="IBM">
-        Los equipos de DevOps de IBM usan Go a través de Docker y Kubernetes, además de otras herramientas DevOps y CI/CD escritas en Go. La empresa también admite la conexión a su middleware de mensajería a través de una API específica de Go.
-      </td>
-      <td>
-        <ul>
-          <li><a href="https://developer.ibm.com/messaging/2019/02/05/simplified-ibm-mq-applications-golang/">Aplicaciones IBM en Golang</a></li>
-        </ul>
-      </td>
-    </tr>
-    <tr class="js-featuredUsersRow FeaturedUsers-row" hidden="">
-      <td class="FeaturedUsers--hiddenMobile">
-        <img src="/images/logos/netflix.svg" alt="Netflix" class="DarkMode-img">
-        <img src="/images/logos/netflix.svg" alt="Netflix" class="LightMode-img">
-      </td>
-      <td>
-        <img class="FeaturedUsers--hiddenDesktop" src="/images/logos/netflix.svg" alt="Netflix">
-        Netflix usa Go para manejar el almacenamiento en caché de datos a gran escala, con un servicio llamado Rend, que administra el almacenamiento replicado globalmente para datos de personalización.
-      </td>
-      <td>
-        <ul>
-          <li><a href="https://medium.com/netflix-techblog/application-data-caching-using-ssds-5bf25df851ef">Almacenamiento en caché de datos de aplicaciones</a></li>
-          <li><a href="https://github.com/netflix/rend">Rend</a></li>
-        </ul>
-      </td>
-    </tr>
-    <tr class="js-featuredUsersRow FeaturedUsers-row" hidden="">
-      <td class="FeaturedUsers--hiddenMobile">
-        <img src="/images/logos/microsoft_dark.svg" alt="Microsoft" class="DarkMode-img">
-        <img src="/images/logos/microsoft_light.svg" alt="Microsoft" class="LightMode-img">
-      </td>
-      <td>
-        <img class="FeaturedUsers--hiddenDesktop" src="/images/logos/microsoft_light.svg" alt="Microsoft">
-        Microsoft usa Go en los servicios Azure Red Hat OpenShift. Esta solución de Microsoft proporciona a los equipos de DevOps clústeres OpenShift para mantener el cumplimiento normativo y centrarse en el desarrollo de aplicaciones.
-      </td>
-      <td>
-        <ul>
-          <li><a href="https://azure.microsoft.com/en-us/services/openshift/">OpenShift</a></li>
-        </ul>
-      </td>
-    </tr>
-    <tr class="js-featuredUsersRow FeaturedUsers-row" hidden="">
-      <td class="FeaturedUsers--hiddenMobile">
-        <img src="/images/logos/terraform-icon.svg" alt="Terraform" class="DarkMode-img">
-        <img src="/images/logos/terraform-icon.svg" alt="Terraform" class="LightMode-img">
-      </td>
-      <td>
-        <img class="FeaturedUsers--hiddenDesktop" src="/images/logos/terraform-icon.svg" alt="Terraform">
-        Terraform es una herramienta para construir, cambiar y versionar infraestructura de forma segura y eficiente. Es compatible con varios proveedores de nube, como AWS, IBM Cloud, GCP y Microsoft Azure, y está escrito en Go.
-      </td>
-      <td>
-        <ul>
-          <li><a href="https://www.terraform.io/intro/index.html">Terraform</a></li>
-        </ul>
-      </td>
-    </tr>
-    <tr class="js-featuredUsersRow FeaturedUsers-row" hidden="">
-      <td class="FeaturedUsers--hiddenMobile">
-        <img src="/images/logos/prometheus.svg" alt="Prometheus" class="DarkMode-img">
-        <img src="/images/logos/prometheus.svg" alt="Prometheus" class="LightMode-img">
-      </td>
-      <td>
-        <img class="FeaturedUsers--hiddenDesktop" src="/images/logos/prometheus.svg" alt="Prometheus">
-        Prometheus es un conjunto de herramientas de alerta y monitoreo de sistemas de código abierto creado originalmente en SoundCloud. La mayoría de los componentes de Prometheus están escritos en Go, lo que los hace fáciles de construir e implementar como binarios estáticos.
-      </td>
-      <td>
-        <ul>
-          <li><a href="https://github.com/prometheus/prometheus">Prometheus</a></li>
-        </ul>
-      </td>
-    </tr>
-    <tr class="js-featuredUsersRow FeaturedUsers-row" hidden="">
-      <td class="FeaturedUsers--hiddenMobile">
-        <img src="/images/logos/youtube.svg" alt="YouTube" class="DarkMode-img">
-        <img src="/images/logos/youtube.svg" alt="YouTube" class="LightMode-img">
-      </td>
-      <td>
-        <img class="FeaturedUsers--hiddenDesktop" src="/images/logos/youtube.svg" alt="YouTube">
-        YouTube usa Go with Vitess (ahora parte de PlanetScale), su sistema de agrupación de bases de datos para el escalado horizontal de MySQL mediante fragmentación generalizada. Desde 2011 ha sido un componente central de la infraestructura de la base de datos de YouTube y ha crecido hasta abarcar decenas de miles de nodos MySQL.
-      </td>
-      <td>
-        <ul>
-          <li><a href="https://github.com/vitessio/vitess">Vitess</a></li>
-        </ul>
-      </td>
-    </tr>
-  </tbody>
-</table>
-<button class="js-moreProjectsBtn FeaturedUsers-moreProjectsBtn" type="button">
- Más proyectos
-</button>
+    <h1>Gestión de Vulnerabilidades en Go</h1>
+    <p><a href="/security">Volver a Seguridad en Go</a></p>
+<h2 id="overview">Descripción general</h2>
+<p>Go ayuda a los desarrolladores a detectar, evaluar y resolver errores o debilidades que corren el riesgo de ser explotados por atacantes. Detrás de escena, el equipo de Go ejecuta un proceso para seleccionar informes sobre vulnerabilidades, que se almacenan en la base de datos de vulnerabilidades de Go. Varias bibliotecas y herramientas pueden leer y analizar esos informes para comprender cómo pueden verse afectados proyectos de usuarios específicos. Esta funcionalidad está integrada en el <a href="https://pkg.go.dev" rel="noreferrer" target="_blank">sitio de descubrimiento de paquetes Go</a> y en una nueva herramienta CLI, govulncheck.</p>
+<p>Este proyecto es un trabajo en progreso y en desarrollo activo. ¡Agradecemos tus <a href="#feedback">comentarios</a> para ayudarnos a mejorar!</p>
+<p><strong>NOTA</strong>: Para informar una vulnerabilidad en el proyecto Go, consulta la <a href="https://go.dev/security/policy" rel="nofollow" target="_blank" title="Página todavía no traducida">Política de seguridad de Go ⬀</a>.</p>
+<h2 id="architecture">Arquitectura</h2>
+<div class="image">
+  <center>
+    <img style="width: 100%" width="2110"  height="952" src="architecture.png" alt="Go Vulnerability Management Architecture">
+  </center>
 </div>
-<h2 id="get-started" class="sectionHeading">Comienza</h2>
-<h3 id="go-books-on-devops--sre">Libros Go sobre DevOps y SRE</h3>
-<ul class="Learn-tileList">
-    <li class="Learn-tile">
-        <a href="https://www.amazon.com/Go-Programming-Network-Operations-Automation-ebook/dp/B07JKKN34L/ref=sr_1_16">
-              <img class="Learn-tileThumbnail Learn-tileThumbnail--book" alt="Go Programming for Network Operations thumbnail." src="/images/books/go-programming-for-network-operations.jpg">
-            <span class="Learn-tileTitle">
-                Programación Go para Operaciones de Red
-            </span>
-        </a>
-    </li>
-    <li class="Learn-tile">
-        <a href="https://github.com/matryer/goblueprints">
-              <img class="Learn-tileThumbnail Learn-tileThumbnail--book" alt="Go Programming Blueprints thumbnail." src="/images/learn/go-programming-blueprints.png">
-            <span class="Learn-tileTitle">
-                Go Blueprints de Programación
-            </span>
-        </a>
-    </li>
-    <li class="Learn-tile">
-        <a href="https://www.amazon.com/Go-Action-William-Kennedy/dp/1617291781">
-              <img class="Learn-tileThumbnail Learn-tileThumbnail--book" alt="Go in Action thumbnail." src="/images/books/go-in-action.jpg">
-            <span class="Learn-tileTitle">
-                Go en Acción
-            </span>
-        </a>
-    </li>
-    <li class="Learn-tile">
-        <a href="https://www.gopl.io/">
-              <img class="Learn-tileThumbnail Learn-tileThumbnail--book" alt="The Go Programming Language thumbnail." src="/images/learn/go-programming-language-book.png">
-            <span class="Learn-tileTitle">
-                El lenguaje de programación Go en Español
-            </span>
-        </a>
-    </li>
+<p>La gestión de vulnerabilidades en Go consta de las siguientes piezas de alto nivel:</p>
+<ol>
+<li>Un <strong>data pipeline</strong> recopila información sobre vulnerabilidades de varias fuentes, incluido el <a href="https://nvd.nist.gov/" rel="noreferrer" target="_blank">Base de datos nacional de vulnerabilidades (NVD)</a>, la <a href="https://github.com/advisories" rel="noreferrer" target="_blank">Base de datos de asesoramiento de GitHub</a> y <a href="https://go.dev/s/vulndb-report-new" rel="nofollow" target="_blank" title="Página todavía no traducida">directamente de los mantenedores del paquete Go ⬀</a>.</li>
+<li>Una <strong>base de datos de vulnerabilidad</strong> se llena con informes que utilizan información del data pipeline. Todos los informes de la base de datos son revisados y seleccionados por el equipo de Go Security. Los informes tienen el formato <a href="https://ossf.github.io/osv-schema/" rel="noreferrer" target="_blank">formato de vulnerabilidad de código abierto (OSV)</a> y se puede acceder a ellos a través de la <a href="https://go.dev/security/vuln/database" rel="nofollow" target="_blank" title="Página todavía no traducida">API ⬀</a>.</li>
+<li><strong>Integraciones</strong> con <a href="https://pkg.go.dev" rel="noreferrer" target="_blank">pkg.go.dev</a> y govulncheck para permitir a los desarrolladores encontrar vulnerabilidades en sus proyectos. El <a href="https://pkg.go.dev/golang.org/x/vuln/cmd/govulncheck" rel="noreferrer" target="_blank">comando govulncheck</a> analiza tu código base y solo muestra vulnerabilidades que realmente te afectan, en función de qué funciones en tu código llaman transitivamente a funciones vulnerables. Govulncheck proporciona una manera confiable y silenciosa de encontrar vulnerabilidades conocidas en tus proyectos.</li>
+</ol>
+<h2 id="resources">Recursos</h2>
+<h3 id="go-vulnerability-database">Base de datos de vulnerabilidades de Go</h3>
+<p>La <a href="https://vuln.go.dev" rel="noreferrer" target="_blank">base de datos de vulnerabilidades de Go</a> contiene información de muchos fuentes existentes además de los informes directos de los mantenedores de paquetes de Go al equipo de seguridad de Go. Cada entrada en la base de datos se revisa para garantizar que la descripción de la vulnerabilidad, la información del paquete y del símbolo, y los detalles de la versión sean precisos.</p>
+<p>Consulta <a href="https://go.dev/security/vuln/database" rel="nofollow" target="_blank" title="Página todavía no traducida">go.dev/security/vuln/database ⬀</a> para obtener más información sobre la base de datos de vulnerabilidades de Go, y <a href="https://pkg.go.dev/vuln" rel="noreferrer" target="_blank">pkg.go.dev/vuln</a> para ver las vulnerabilidades en la base de datos de tu navegador.</p>
+<p>Animamos a los mantenedores de paquetes a <a href="#feedback">contribuir</a> con información sobre vulnerabilidades públicas en sus propios proyectos y
+<a href="https://golang.org/s/vuln-feedback" rel="noreferrer" target="_blank">envíenos sugerencias</a> sobre cómo reducir la fricción.</p>
+<h3 id="vulnerability-detection-for-go">Detección de vulnerabilidades para Go</h3>
+<p>La detección de vulnerabilidades de Go tiene como objetivo proporcionar una forma confiable y silenciosa para que los usuarios de Go conozcan las vulnerabilidades conocidas que pueden afectar sus proyectos. La verificación de vulnerabilidades está integrada en las herramientas y servicios de Go, incluida una nueva herramienta de línea de comandos, <a href="https://pkg.go.dev/golang.org/x/vuln/cmd/govulncheck" rel="noreferrer" target="_blank">govulncheck</a>, el <a href="https://pkg.go.dev" rel="noreferrer" target="_blank">sitio de descubrimiento de paquetes Go</a>, <a href="/security/vuln/editor">editores importantes</a> como VS Code con la extensión Go.</p>
+<p>Para comenzar a usar govulncheck, ejecuta lo siguiente desde tu proyecto:</p>
+<pre><code>$ go install golang.org/x/vuln/cmd/govulncheck@latest
+$ govulncheck ./...
+</code></pre>
+<p>Para habilitar la detección de vulnerabilidades en tu editor, consulta las instrucciones en la página <a href="/security/vuln/editor">integración del editor</a>.</p>
+<h3 id="go-cna">Go CNA</h3>
+<p>El equipo de seguridad de Go es una <a href="https://www.cve.org/ProgramOrganization/CNAs" rel="noreferrer" target="_blank">Numeración CVE Autoridad</a>. Consulta <a href="/security/vuln/cna">go.dev/security/vuln/cna</a> para obtener más información.</p>
+<h2 id="feedback">Feedback</h2>
+<p>Nos encantaría que contribuyeras y nos ayudaras a realizar mejoras de las siguientes maneras:</p>
+<ul>
+<li><a href="https://golang.org/s/vulndb-report-new" rel="noreferrer" target="_blank">Contribuir nuevo</a> y <a href="https://go.dev/s/vulndb-report-feedback" rel="nofollow" target="_blank" title="Página todavía no traducida">actualizar la información existente ⬀</a> sobre las vulnerabilidades públicas de los paquetes Go que mantienes</li>
+<li><a href="https://golang.org/s/govulncheck-feedback" rel="noreferrer" target="_blank">Responde esta encuesta</a> para compartir tu experiencia usando govulncheck</li>
+<li><a href="https://golang.org/s/vuln-feedback" rel="noreferrer" target="_blank">Envíanos tus comentarios</a> sobre problemas y solicitudes de funciones</li>
 </ul>
-<div class="WhoUsesCaseStudy-librariesWrapper">
-  <div class="headerWithLink">
-    <h3>Monitoreo y rastreo</h3>
-  </div>
-  <ul class="WhoUsesCaseStudy-librariesList">
-    <li class="WhoUsesCaseStudy-library">
-      <a class="WhoUsesCaseStudy-libraryTitle" href="https://pkg.go.dev/go.opentelemetry.io/otel">open-telemetry/opentelemetry-go</a>
-      <p>API e instrumentación neutrales para el proveedor para monitoreo y seguimiento distribuido</p>
-    </li>
-    <li class="WhoUsesCaseStudy-library">
-      <a class="WhoUsesCaseStudy-libraryTitle" href="https://pkg.go.dev/github.com/jaegertracing/jaeger-client-go?tab=overview">jaegertracing/jaeger-client-go</a>
-      <p>Un sistema de rastreo distribuido de código abierto desarrollado por formatos Uber</p>
-    </li>
-    <li class="WhoUsesCaseStudy-library">
-      <a class="WhoUsesCaseStudy-libraryTitle" href="https://pkg.go.dev/github.com/grafana/grafana?tab=overview">grafana/grafana</a>
-      <p>Una plataforma de código abierto para monitoreo y observabilidad</p>
-    </li>
-    <li class="WhoUsesCaseStudy-library">
-      <a class="WhoUsesCaseStudy-libraryTitle" href="https://pkg.go.dev/github.com/istio/istio?tab=overview">istio/istio</a>
-      <p>Una malla de servicios de código abierto y una plataforma integrable</p>
-    </li>
-  </ul>
-  <a class="WhoUsesCaseStudy-librariesViewMoreLink" href="https://pkg.go.dev/search?q=tracing">Ver más</a>
-</div>
-<div class="WhoUsesCaseStudy-librariesWrapper">
-  <div class="headerWithLink">
-    <h3>Bibliotecas CLI</h3>
-  </div>
-  <ul class="WhoUsesCaseStudy-librariesList">
-    <li class="WhoUsesCaseStudy-library">
-      <a class="WhoUsesCaseStudy-libraryTitle" href="https://pkg.go.dev/github.com/spf13/cobra?tab=overview">spf13/cobra</a>
-      <p>Una biblioteca para crear potentes aplicaciones CLI modernas y un programa para generar aplicaciones y aplicaciones CLI en Go</p>
-    </li>
-    <li class="WhoUsesCaseStudy-library">
-      <a class="WhoUsesCaseStudy-libraryTitle" href="https://pkg.go.dev/github.com/spf13/viper?tab=overview">spf13/viper</a>
-      <p>Una solución de configuración completa para aplicaciones Go, diseñada para funcionar dentro de una aplicación para manejar las necesidades y formatos de configuración</p>
-    </li>
-    <li class="WhoUsesCaseStudy-library">
-      <a class="WhoUsesCaseStudy-libraryTitle" href="https://pkg.go.dev/github.com/urfave/cli?tab=overview">urfave/cli</a>
-      <p>Un framework mínimo para crear y organizar aplicaciones Go de línea de comandos</p>
-    </li>
-  </ul>
-  <a class="WhoUsesCaseStudy-librariesViewMoreLink" href="https://pkg.go.dev/search?q=command%20line%20OR%20CLI">Ver más</a>
-</div>
-<div class="WhoUsesCaseStudy-librariesWrapper">
-  <div class="headerWithLink">
-    <h3>Otros proyectos</h3>
-  </div>
-  <ul class="WhoUsesCaseStudy-librariesList">
-    <li class="WhoUsesCaseStudy-library">
-      <a class="WhoUsesCaseStudy-libraryTitle" href="https://pkg.go.dev/github.com/golang-migrate/migrate?tab=overview">golang-migrate/migrate</a>
-      <p>Una herramienta de migración de bases de datos escrita en Go</p>
-    </li>
-  </ul>
-  <a class="WhoUsesCaseStudy-librariesViewMoreLink" href="">Ver más</a>
-</div>
+<h2 id="faqs">FAQs</h2>
+<p><strong>¿Cómo reporto una vulnerabilidad en el proyecto Go?</strong></p>
+<p>Reportar todos los errores de seguridad en el proyecto Go por correo electrónico a <a href="mailto:security@golang.org">security@golang.org</a>. Lee la <a href="https://go.dev/security/policy" rel="nofollow" target="_blank" title="Página todavía no traducida">Política de seguridad de Go ⬀</a> para obtener más información sobre nuestros procesos.</p>
+<p><strong>¿Cómo agrego una vulnerabilidad pública a la base de datos de vulnerabilidades de Go?</strong></p>
+<p>Para solicitar la adición de una vulnerabilidad pública a la base de datos de vulnerabilidades de Go, <a href="https://go.dev/s/vulndb-report-new" rel="nofollow" target="_blank" title="Página todavía no traducida">completa este formulario ⬀</a>.</p>
+<p>Una vulnerabilidad se considera pública si ya se ha divulgado públicamente o si existe en un paquete que mantienes (y estás listo para divulgarlo). El formulario es solo para vulnerabilidades públicas en paquetes de Go importables que no son mantenidos por el equipo de Go (cualquier cosa fuera de la biblioteca estándar de Go, la cadena de herramientas de Go y los módulos de golang.org).</p>
+<p>El formulario también se puede utilizar para solicitar una nueva CVE ID. <a href="/security/vuln/cna">Lee más aquí</a> sobre la autoridad de numeración Go CVE.</p>
+<p><strong>¿Cómo sugiero una edición de una vulnerabilidad?</strong></p>
+<p>Para sugerir una edición de un informe existente en la base de datos de vulnerabilidades de Go, <a href="https://go.dev/s/vulndb-report-feedback" rel="nofollow" target="_blank" title="Página todavía no traducida">completa el formulario aquí ⬀</a>.</p>
+<p><strong>¿Cómo informo un problema o doy comentarios sobre govulncheck?</strong></p>
+<p>Envía tu problema o comentario <a href="https://go.dev/s/vuln-feedback" rel="nofollow" target="_blank" title="Página todavía no traducida">en el rastreador de issues de Go ⬀</a>.</p>
+<p><strong>Encontré esta vulnerabilidad en otra base de datos. ¿Por qué no está en la base de datos de vulnerabilidades de Go?</strong></p>
+<p>Los informes pueden excluirse de la base de datos de vulnerabilidades de Go por varias razones, incluida la vulnerabilidad relevante que no está presente en un paquete de Go, que la vulnerabilidad está en un comando instalable en lugar de un paquete importable, o la vulnerabilidad está subsumida por otra vulnerabilidad que ya está presente en la base de datos. Puede obtener más información sobre los <a href="https://go.dev/security/vuln/database" rel="nofollow" target="_blank" title="Página todavía no traducida">motivos para excluir informes del equipo de Go Security aquí ⬀</a>. Si crees que un informe se excluyó incorrectamente de vuln.go.dev, <a href="https://go.dev/s/vulndb-report-feedback" rel="nofollow" target="_blank" title="Página todavía no traducida">háznoslo saber ⬀</a>.</p>
+<p><strong>¿Por qué la base de datos de vulnerabilidades de Go no usa etiquetas de gravedad?</strong></p>
+<p>La mayoría de los formatos de informes de vulnerabilidades utilizan etiquetas de gravedad como "BAJO", "MEDIO" y "CRÍTICO" para indicar el impacto de diferentes vulnerabilidades y ayudar a los desarrolladores a priorizar los problemas de seguridad. Sin embargo, por varias razones, Go evita el uso de este tipo de etiquetas.</p>
+<p>El impacto de una vulnerabilidad rara vez es universal, lo que significa que los indicadores de gravedad a menudo pueden ser engañosos. Por ejemplo, una falla en un analizador puede ser un problema de gravedad crítico si se usa para analizar la entrada proporcionada por el usuario y se puede aprovechar en un ataque DoS, pero si el analizador se usa para analizar archivos de configuración locales, incluso llamar a la gravedad "bajo” podría ser una exageración.</p>
+<p>La severidad del etiquetado también es necesariamente subjetiva. Esto es cierto incluso para <a href="https://www.cve.org/About/Overview" rel="noreferrer" target="_blank">el programa CVE</a>, que propone una fórmula para descomponer aspectos relevantes de una vulnerabilidad, como el vector de ataque, la complejidad y la explotabilidad. Todo esto, sin embargo, requiere una evaluación subjetiva.</p>
+<p>Creemos que las buenas descripciones de las vulnerabilidades son más útiles que los indicadores de gravedad. Una buena descripción puede desglosar qué es un problema, cómo se puede desencadenar y qué deben considerar los consumidores al determinar el impacto en su propio software.</p>
+<p>No dudes en <a href="https://go.dev/s/vuln-feedback" rel="nofollow" target="_blank" title="Página todavía no traducida">presentar un issue ⬀</a> si deseas compartir tu opinión con nosotros sobre este tema.</p>
 
-        </div>
-      </div>
+
     
   </article>
-</div>
 
 </main>
 <footer class="Site-footer">
