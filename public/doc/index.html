@@ -1,0 +1,930 @@
+<!DOCTYPE html><html lang="es" data-theme="auto"><head>
+
+<link rel="preconnect" href="https://www.googletagmanager.com">
+
+  
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#00add8">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Material+Icons">
+<link rel="stylesheet" href="/css/styles.css">
+<link rel="icon" href="/images/favicon-gopher.png" sizes="any">
+<link rel="apple-touch-icon" href="/images/favicon-gopher-plain.png">
+<link rel="icon" href="/images/favicon-gopher.svg" type="image/svg+xml">
+
+  
+  
+  
+<script src="/js/site.js"></script>
+<meta name="og:url" content="https://go.dev/doc/">
+<meta name="og:title" content="Documentación - El lenguaje de programación Go en Español">
+<title>Documentación - El lenguaje de programación Go en Español</title>
+
+<meta name="og:image" content="https://go.dev/doc/gopher/gopher5logo.jpg">
+<meta name="twitter:image" content="https://go.dev/doc/gopher/gopherbelly300.jpg">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@golang">
+<script async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5376430835440290" crossorigin="anonymous"></script></head>
+<body class="Site">
+  
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W8MVQXG"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  
+
+
+<header class="Site-header js-siteHeader">
+  <div class="Header Header--dark">
+    <nav class="Header-nav">
+      <a href="/">
+        <img class="js-headerLogo Header-logo" src="/images/go-logo-white.svg" alt="Go">
+      </a>
+      <div class="skip-navigation-wrapper">
+        <a class="skip-to-content-link" aria-label="Saltar al contenido principal" href="#main-content"> Saltar al contenido principal </a>
+      </div>
+      <div class="Header-rightContent">
+        <ul class="Header-menu">
+          <li class="Header-menuItem ">
+            <a href="#" class="js-desktop-menu-hover" aria-label="Por qué Go" aria-describedby="dropdown-description">
+              Por qué Go <i class="material-icons" aria-hidden="true">arrow_drop_down</i>
+            </a>
+            <div class="screen-reader-only" id="dropdown-description" hidden=""> 
+              Presiona Enter para activar/desactivar el menú desplegable
+            </div>
+              <ul class="Header-submenu js-desktop-submenu-hover" aria-label="submenú">
+                  <li class="Header-submenuItem">
+                    <div>
+                        <a href="/solutions/case-studies">
+                          Estudio de casos
+                          
+                        </a>
+                    </div>
+                    <p>Problemas comunes que las empresas resuelven con Go</p>
+                  </li>
+                  <li class="Header-submenuItem">
+                    <div>
+                        <a href="/solutions/use-cases">
+                          Casos de uso
+                          
+                        </a>
+                    </div>
+                    <p>Historias sobre cómo y por qué las empresas usan Go</p>
+                  </li>
+                  <li class="Header-submenuItem">
+                    <div>
+                        <a href="/security/">
+                          Seguridad
+                          
+                        </a>
+                    </div>
+                    <p>Cómo Go puede ayudarte a mantenerte seguro de forma predeterminada</p>
+                  </li>
+              </ul>
+          </li>
+          <li class="Header-menuItem ">
+            <a href="/learn/" aria-label="Aprende" aria-describedby="dropdown-description">
+              Aprende 
+            </a>
+            <div class="screen-reader-only" id="dropdown-description" hidden=""> 
+              Presiona Enter para activar/desactivar el menú desplegable
+            </div>
+          </li>
+          <li class="Header-menuItem  Header-menuItem--active">
+            <a href="#" class="js-desktop-menu-hover" aria-label="Docs" aria-describedby="dropdown-description">
+              Docs <i class="material-icons" aria-hidden="true">arrow_drop_down</i>
+            </a>
+            <div class="screen-reader-only" id="dropdown-description" hidden=""> 
+              Presiona Enter para activar/desactivar el menú desplegable
+            </div>
+              <ul class="Header-submenu js-desktop-submenu-hover" aria-label="submenú">
+                  <li class="Header-submenuItem">
+                    <div>
+                        <a href="/doc/effective_go">
+                          Go efectivo
+                          
+                        </a>
+                    </div>
+                    <p>Consejos para escribir código Go claro, eficaz e idiomático</p>
+                  </li>
+                  <li class="Header-submenuItem">
+                    <div>
+                        <a href="/doc">
+                          Ir al Manual de usuario
+                          
+                        </a>
+                    </div>
+                    <p>Una introducción completa a la creación de software con Go</p>
+                  </li>
+                  <li class="Header-submenuItem">
+                    <div>
+                        <a href="https://pkg.go.dev/std">
+                          Biblioteca estándar
+                          
+                        </a>
+                    </div>
+                    <p>Documentación de referencia para la biblioteca estándar de Go</p>
+                  </li>
+                  <li class="Header-submenuItem">
+                    <div>
+                        <a href="https://go.dev/doc/devel/release" rel="nofollow" target="_blank" title="Página todavía no traducida">
+                          Notas de la versión
+                          
+                         ⬀</a>
+                    </div>
+                    <p>Conoce las novedades de cada versión de Go</p>
+                  </li>
+              </ul>
+          </li>
+          <li class="Header-menuItem ">
+            <a href="https://pkg.go.dev" aria-label="Paquetes" aria-describedby="dropdown-description">
+              Paquetes 
+            </a>
+            <div class="screen-reader-only" id="dropdown-description" hidden=""> 
+              Presiona Enter para activar/desactivar el menú desplegable
+            </div>
+          </li>
+          <li class="Header-menuItem ">
+            <a href="#" class="js-desktop-menu-hover" aria-label="Community" aria-describedby="dropdown-description">
+              Comunidad <i class="material-icons" aria-hidden="true">arrow_drop_down</i>
+            </a>
+            <div class="screen-reader-only" id="dropdown-description" hidden=""> 
+              Presiona Enter para activar/desactivar el menú desplegable
+            </div>
+              <ul class="Header-submenu js-desktop-submenu-hover" aria-label="submenú">
+                  <li class="Header-submenuItem">
+                    <div>
+                        <a href="https://go.dev/talks" rel="nofollow" target="_blank" title="Página todavía no traducida">
+                          Charlas Grabadas
+                          
+                         ⬀</a>
+                    </div>
+                    <p>Videos de eventos anteriores</p>
+                  </li>
+                  <li class="Header-submenuItem">
+                    <div>
+                        <a href="https://www.meetup.com/pro/go">
+                          Meetups
+                           <i class="material-icons">open_in_new</i>
+                        </a>
+                    </div>
+                    <p>Conoce a otros desarrolladores locales de Go</p>
+                  </li>
+                  <li class="Header-submenuItem">
+                    <div>
+                        <a href="https://github.com/golang/go/wiki/Conferences">
+                          Conferencias
+                           <i class="material-icons">open_in_new</i>
+                        </a>
+                    </div>
+                    <p>Aprende y establece contactos con desarrolladores de Go de todo el mundo</p>
+                  </li>
+                  <li class="Header-submenuItem">
+                    <div>
+                        <a href="https://go.dev/blog" rel="nofollow" target="_blank" title="Página todavía no traducida">
+                          Ir al blog
+                          
+                         ⬀</a>
+                    </div>
+                    <p>El blog oficial del proyecto Go.</p>
+                  </li>
+                  <li class="Header-submenuItem">
+                    <div>
+                        <a href="/help">
+                          Ir proyecto
+                          
+                        </a>
+                    </div>
+                    <p>Obtén ayuda y mantente informado acerca de Go</p>
+                  </li>
+                  <li class="Header-submenuItem">
+                    <div>
+                        Conéctate
+                    </div>
+                    <p></p>
+                      <div class="Header-socialIcons">
+                        
+                        <a class="Header-socialIcon" aria-label="Get connected with google-groups (Opens in new window)" href="https://groups.google.com/g/golang-nuts"><img src="/images/logos/social/google-groups.svg"></a>
+                        <a class="Header-socialIcon" aria-label="Get connected with github (Opens in new window)" href="https://github.com/golang"><img src="/images/logos/social/github.svg"></a>
+                        <a class="Header-socialIcon" aria-label="Get connected with twitter (Opens in new window)" href="https://twitter.com/golang"><img src="/images/logos/social/twitter.svg"></a>
+                        <a class="Header-socialIcon" aria-label="Get connected with reddit (Opens in new window)" href="https://www.reddit.com/r/golang/"><img src="/images/logos/social/reddit.svg"></a>
+                        <a class="Header-socialIcon" aria-label="Get connected with slack (Opens in new window)" href="https://invite.slack.golangbridge.org/"><img src="/images/logos/social/slack.svg"></a>
+                        <a class="Header-socialIcon" aria-label="Get connected with stack-overflow (Opens in new window)" href="https://stackoverflow.com/tags/go"><img src="/images/logos/social/stack-overflow.svg"></a>
+                      </div>
+                  </li>
+              </ul>
+          </li>
+        </ul>
+        <button class="Header-navOpen js-headerMenuButton Header-navOpen--white" aria-label="Abrir navegación.">
+        </button>
+      </div>
+    </nav>
+    
+  </div>
+</header>
+<aside class="NavigationDrawer js-header">
+  <nav class="NavigationDrawer-nav">
+    <div class="NavigationDrawer-header">
+      <a href="/">
+        <img class="NavigationDrawer-logo" src="/images/go-logo-blue.svg" alt="Go.">
+      </a>
+    </div>
+    <ul class="NavigationDrawer-list">
+        
+          <li class="NavigationDrawer-listItem js-mobile-subnav-trigger  NavigationDrawer-hasSubnav">
+            <a href="#"><span>Por qué Go</span> <i class="material-icons">navigate_next</i></a>
+
+            <div class="NavigationDrawer NavigationDrawer-submenuItem">
+              <nav class="NavigationDrawer-nav">
+                <div class="NavigationDrawer-header">
+                  <a href="#"><i class="material-icons">navigate_before</i>Por qué Go</a>
+                </div>
+                <ul class="NavigationDrawer-list">
+                    <li class="NavigationDrawer-listItem">
+                        <a href="/solutions/case-studies">
+                          Estudio de casos
+                          
+                        </a>
+                      
+                    </li>
+                    <li class="NavigationDrawer-listItem">
+                        <a href="/solutions/use-cases">
+                          Casos de uso
+                          
+                        </a>
+                      
+                    </li>
+                    <li class="NavigationDrawer-listItem">
+                        <a href="/security/">
+                          Seguridad
+                          
+                        </a>
+                      
+                    </li>
+                </ul>
+              </nav></div>
+            
+          </li>
+
+        
+        
+          <li class="NavigationDrawer-listItem ">
+            <a href="/learn/">Aprende</a>
+          </li>
+        
+        
+          <li class="NavigationDrawer-listItem js-mobile-subnav-trigger  NavigationDrawer-listItem--active NavigationDrawer-hasSubnav">
+            <a href="#"><span>Docs</span> <i class="material-icons">navigate_next</i></a>
+
+            <div class="NavigationDrawer NavigationDrawer-submenuItem">
+              <nav class="NavigationDrawer-nav">
+                <div class="NavigationDrawer-header">
+                  <a href="#"><i class="material-icons">navigate_before</i>Docs</a>
+                </div>
+                <ul class="NavigationDrawer-list">
+                    <li class="NavigationDrawer-listItem">
+                        <a href="/doc/effective_go">
+                          Go efectivo
+                          
+                        </a>
+                      
+                    </li>
+                    <li class="NavigationDrawer-listItem">
+                        <a href="/doc">
+                          Ir al Manual de usuario
+                          
+                        </a>
+                      
+                    </li>
+                    <li class="NavigationDrawer-listItem">
+                        <a href="https://pkg.go.dev/std">
+                          Biblioteca estándar
+                          
+                        </a>
+                      
+                    </li>
+                    <li class="NavigationDrawer-listItem">
+                        <a href="https://go.dev/doc/devel/release" rel="nofollow" target="_blank" title="Página todavía no traducida">
+                          Notas de la versión
+                          
+                         ⬀</a>
+                      
+                    </li>
+                </ul>
+              </nav></div>
+            
+          </li>
+
+        
+        
+          <li class="NavigationDrawer-listItem ">
+            <a href="https://pkg.go.dev">Paquetes</a>
+          </li>
+        
+        
+          <li class="NavigationDrawer-listItem js-mobile-subnav-trigger  NavigationDrawer-hasSubnav">
+            <a href="#"><span>Comunidad</span> <i class="material-icons">navigate_next</i></a>
+
+            <div class="NavigationDrawer NavigationDrawer-submenuItem">
+              <nav class="NavigationDrawer-nav">
+                <div class="NavigationDrawer-header">
+                  <a href="#"><i class="material-icons">navigate_before</i>Comunidad</a>
+                </div>
+                <ul class="NavigationDrawer-list">
+                    <li class="NavigationDrawer-listItem">
+                        <a href="https://go.dev/talks" rel="nofollow" target="_blank" title="Página todavía no traducida">
+                          Charlas Grabadas
+                          
+                         ⬀</a>
+                      
+                    </li>
+                    <li class="NavigationDrawer-listItem">
+                        <a href="https://www.meetup.com/pro/go">
+                          Meetups
+                           <i class="material-icons">open_in_new</i>
+                        </a>
+                      
+                    </li>
+                    <li class="NavigationDrawer-listItem">
+                        <a href="https://github.com/golang/go/wiki/Conferences">
+                          Conferencias
+                           <i class="material-icons">open_in_new</i>
+                        </a>
+                      
+                    </li>
+                    <li class="NavigationDrawer-listItem">
+                        <a href="https://go.dev/blog" rel="nofollow" target="_blank" title="Página todavía no traducida">
+                          Ir al blog
+                          
+                         ⬀</a>
+                      
+                    </li>
+                    <li class="NavigationDrawer-listItem">
+                        <a href="/help">
+                          Ir proyecto
+                          
+                        </a>
+                      
+                    </li>
+                    <li class="NavigationDrawer-listItem">
+                        <div>Conéctate</div>
+                        <div class="Header-socialIcons">
+                          
+                            <a class="Header-socialIcon" href="https://groups.google.com/g/golang-nuts"><img src="/images/logos/social/google-groups.svg"></a>
+                            <a class="Header-socialIcon" href="https://github.com/golang"><img src="/images/logos/social/github.svg"></a>
+                            <a class="Header-socialIcon" href="https://twitter.com/golang"><img src="/images/logos/social/twitter.svg"></a>
+                            <a class="Header-socialIcon" href="https://www.reddit.com/r/golang/"><img src="/images/logos/social/reddit.svg"></a>
+                            <a class="Header-socialIcon" href="https://invite.slack.golangbridge.org/"><img src="/images/logos/social/slack.svg"></a>
+                            <a class="Header-socialIcon" href="https://stackoverflow.com/tags/go"><img src="/images/logos/social/stack-overflow.svg"></a>
+                        </div>
+                    </li>
+                </ul>
+              </nav></div>
+            
+          </li>
+
+        
+    </ul>
+  </nav>
+</aside>
+<div class="NavigationDrawer-scrim js-scrim" role="presentation"></div>
+<main class="SiteContent SiteContent--default" id="main-content">
+  
+
+
+<article class="Doc Article">
+
+
+
+
+
+<h1>Documentación</h1>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p>
+El lenguaje de programación Go es un proyecto de código abierto para hacer que los programadores sean más productivos.
+</p>
+
+<p>
+Go es expresivo, conciso, limpio y eficiente. Sus mecanismos de concurrencia facilitan la escritura de programas que aprovechan al máximo las máquinas multinúcleo y en red, mientras que su novedoso sistema de tipos permite la construcción de programas flexibles y modulares. Go compila rápidamente en código de máquina pero tiene la conveniencia de la recolección de basura y el poder de la reflexión en tiempo de ejecución. Es un lenguaje compilado, rápido y de tipado estático que se siente como un lenguaje interpretado y de tipado dinámico.
+</p>
+
+<div class="Masonry">
+
+<section id="getting-started" class="BigCard">
+
+<h2>Primeros pasos</h2>
+
+<h3 id="installing"><a href="https://go.dev/doc/install" aria-describedby="index-description" rel="nofollow" target="_blank" title="Página todavía no traducida">Instalando Go ⬀</a></h3>
+<p>Instrucciones para descargar e instalar Go.</p>
+
+<h3 id="get-started-tutorial"><a href="https://go.dev/doc/tutorial/getting-started.html" aria-describedby="index-description" rel="nofollow" target="_blank" title="Página todavía no traducida">Tutorial: Primeros pasos ⬀</a></h3>
+<p>Un breve tutorial de Hola Mundo para comenzar. Aprende un poco sobre el código, las herramientas, los paquetes y los módulos de Go.</p>
+
+<h3 id="create-module-tutorial"><a href="https://go.dev/doc/tutorial/create-module.html" aria-describedby="index-description" rel="nofollow" target="_blank" title="Página todavía no traducida">Tutorial: Crear un módulo ⬀</a></h3>
+<p>Un tutorial de temas breves que presentan funciones, manejo de errores, arrays, maps, tests unitarios y compilación.</p>
+
+<h3 id="workspaces-tutorial"><a href="https://go.dev/doc/tutorial/workspaces.html" aria-describedby="index-description" rel="nofollow" target="_blank" title="Página todavía no traducida">Tutorial: Primeros pasos con espacios de trabajo de múltiples módulos ⬀</a></h3>
+<p>Presenta los conceptos básicos de la creación y el uso de espacios de trabajo de múltiples módulos en Go. Los espacios de trabajo de varios módulos son útiles para realizar cambios en varios módulos.</p>
+
+<h3 id="web-service-gin-tutorial"><a href="https://go.dev/doc/tutorial/web-service-gin.html" aria-describedby="index-description" rel="nofollow" target="_blank" title="Página todavía no traducida">Tutorial: Desarrollando una API RESTful con Go y Gin ⬀</a></h3>
+<p>Presenta los conceptos básicos para escribir una API de servicio web RESTful con Go y Gin Web Framework.</p>
+
+<h3 id="generics-tutorial"><a href="https://go.dev/doc/tutorial/generics.html" aria-describedby="index-description" rel="nofollow" target="_blank" title="Página todavía no traducida">Tutorial: Empezando con los generics ⬀</a></h3>
+<p>Con los generics, puedes declarar y usar funciones o tipos que están escritos para funcionar con cualquiera de un conjunto de tipos proporcionados mediante el código de llamada.</p>
+
+<h3 id="fuzz-tutorial"><a href="https://go.dev/doc/tutorial/fuzz.html" aria-describedby="index-description" rel="nofollow" target="_blank" title="Página todavía no traducida">Tutorial: Empezando con el fuzzing ⬀</a></h3>
+<p>Fuzzing puede generar entradas para tus tests que pueden detectar casos extremos y problemas de seguridad que quizás hayas pasado por alto.</p>
+
+<h3 id="writing-web-applications"><a href="https://go.dev/doc/articles/wiki" aria-describedby="index-description" rel="nofollow" target="_blank" title="Página todavía no traducida">Escribir aplicaciones web ⬀</a></h3>
+<p>Crear una aplicación web sencilla.</p>
+
+<h3 id="code"><a href="https://go.dev/code.html" aria-describedby="index-description" rel="nofollow" target="_blank" title="Página todavía no traducida">Cómo escribir código Go ⬀</a></h3>
+<p>Este documento explica cómo desarrollar un conjunto simple de paquetes Go dentro de un módulo y muestra cómo usar el <a href="https://go.dev/cmd/go" rel="nofollow" target="_blank" title="Página todavía no traducida"><code>go</code>&nbsp;(comando) ⬀</a> para crear y probar paquetes.</p>
+
+<h3 id="go_tour"><a href="https://go.dev/tour" aria-describedby="index-description" rel="nofollow" target="_blank" title="Página todavía no traducida">Un Tour de Go ⬀</a></h3>
+<p>Una introducción interactiva a Go en cuatro secciones. La primera sección cubre la sintaxis básica y las estructuras de datos; el segundo analiza métodos e interfaces; el tercero trata sobre generics; y el cuarto presenta las primitivas de concurrencia de Go. Cada sección concluye con algunos ejercicios para que puedas practicar lo que has aprendido. Puedes <a href="https://go.dev/tour" aria-describedby="index-description" rel="nofollow" target="_blank" title="Página todavía no traducida">realizar el tour en línea ⬀</a> o instalarlo localmente con:</p>
+
+<pre class="CopyPaste">	<span>$ go install golang.org/x/website/tour@latest</span>
+	<button aria-label="Copia y pega el código.">
+	  <img class="CopyPaste-icon" src="/images/icons/copy-paste.svg">
+	  <img class="CopyPaste-icon CopyPaste-icon-dark" src="/images/icons/copy-paste-dark.svg">
+	</button>
+</pre>
+
+<p>Esto colocará el binario <code>tour</code> en tu <a href="https://go.dev/cmd/go" rel="nofollow" target="_blank" title="Página todavía no traducida">GOPATH ⬀</a>, en el directorio <code>bin</code>.</p>
+
+</section>
+
+
+<section id="learning" class="BigCard">
+
+<h2>Usar y entender Go</h2>
+
+<h3 id="effective_go"><a href="https://go.dev/effective_go.html" aria-describedby="index-description" rel="nofollow" target="_blank" title="Página todavía no traducida">Go efectivo ⬀</a></h3>
+<p>
+Un documento que brinda consejos para escribir código Go claro e idiomático. Una lectura obligada para cualquier programador nuevo de Go. Complementa el tour y la especificación del lenguaje, los cuales deben leerse primero.
+</p>
+
+<h3 id="faq"><a href="https://go.dev/doc/faq" aria-describedby="index-description" rel="nofollow" target="_blank" title="Página todavía no traducida">Preguntas Frecuentes (FAQ) ⬀</a></h3>
+
+<p>
+Respuestas a preguntas comunes sobre Go.
+</p>
+
+<h3 id="editors"><a href="https://go.dev/editors.html" aria-describedby="index-description" rel="nofollow" target="_blank" title="Página todavía no traducida">Editor de plugins e IDE ⬀</a></h3>
+<p>
+Un documento que resume los plugins de editor e IDE de uso común compatibles con Go.
+</p>
+
+<h3 id="diagnostics"><a href="https://go.dev/doc/diagnostics.html" aria-describedby="index-description" rel="nofollow" target="_blank" title="Página todavía no traducida">Diagnóstico ⬀</a></h3>
+<p>
+Resume herramientas y metodologías para diagnosticar problemas en programas Go.
+</p>
+
+<h3 id="gc-guide"><a href="https://go.dev/doc/gc-guide" aria-describedby="index-description" rel="nofollow" target="_blank" title="Página todavía no traducida">Una guía para el recolector de basura de Go ⬀</a></h3>
+<p>
+Un documento que describe cómo Go administra la memoria y cómo aprovecharla al máximo.
+</p>
+
+<h3 id="dependencies"><a href="https://go.dev/doc/modules/managing-dependencies" aria-describedby="index-description" rel="nofollow" target="_blank" title="Página todavía no traducida">Administrar dependencias ⬀</a></h3>
+<p>
+Cuando tu código usa paquetes externos, esos paquetes (distribuidos como módulos) se convierten en dependencias.
+</p>
+
+<h3 id="fuzzing"><a href="/security/fuzz" aria-describedby="index-description">Fuzzing</a></h3>
+<p>
+Página de documentación principal de Go fuzzing.
+</p>
+
+<h3 id="coverage"><a href="https://go.dev/testing/coverage" aria-describedby="index-description" rel="nofollow" target="_blank" title="Página todavía no traducida">Cobertura para aplicaciones Go ⬀</a></h3>
+<p>
+Página principal de documentación para tests de cobertura de aplicaciones Go.
+</p>
+
+<h3 id="pgo"><a href="https://go.dev/doc/pgo" aria-describedby="index-description" rel="nofollow" target="_blank" title="Página todavía no traducida">Optimización guiada por perfil ⬀</a></h3>
+<p>
+Página de documentación principal para la optimización guiada por perfil (PGO) de aplicaciones Go.
+</p>
+
+</section>
+
+
+<section id="references" class="BigCard">
+
+<h2>Referencias</h2>
+
+<h3 id="pkg"><a href="https://go.dev/pkg" aria-describedby="index-description" rel="nofollow" target="_blank" title="Página todavía no traducida">Documentación de paquetes ⬀</a></h3>
+<p>
+La documentación de la biblioteca estándar de Go.
+</p>
+
+<h3 id="cmd"><a href="https://go.dev/doc/cmd" aria-describedby="index-description" rel="nofollow" target="_blank" title="Página todavía no traducida">Documentación de comandos ⬀</a></h3>
+<p>
+La documentación de las herramientas de Go.
+</p>
+
+<h3 id="spec"><a href="https://go.dev/ref/spec" aria-describedby="index-description" rel="nofollow" target="_blank" title="Página todavía no traducida">Especificación del lenguaje ⬀</a></h3>
+<p>
+La especificación oficial del lenguaje Go.
+</p>
+
+<h3 id="mod"><a href="https://go.dev/ref/mod" aria-describedby="index-description" rel="nofollow" target="_blank" title="Página todavía no traducida">Referencia de módulos de Go ⬀</a></h3>
+<p>
+Un manual de referencia detallado para el sistema de gestión de dependencias de Go.
+</p>
+
+<h3><a href="https://go.dev/doc/modules/gomod-ref" aria-describedby="index-description" rel="nofollow" target="_blank" title="Página todavía no traducida">Referencia del archivo go.mod ⬀</a></h3>
+<p>
+Referencia de las directivas incluidas en un archivo go.mod.
+</p>
+
+<h3 id="go_mem"><a href="https://go.dev/ref/mem" aria-describedby="index-description" rel="nofollow" target="_blank" title="Página todavía no traducida">El modelo de de memoria de Go ⬀</a></h3>
+<p>
+Un documento que especifica las condiciones bajo las cuales se puede garantizar que las lecturas de una variable en una rutina observen los valores producidos por las escrituras en la misma variable en una rutina diferente.
+</p>
+
+<h3 id="contributing"><a href="https://go.dev/doc/contribute" aria-describedby="index-description" rel="nofollow" target="_blank" title="Página todavía no traducida">Guía de Contribuciones ⬀</a></h3>
+<p>Contribuir a Go.</p>
+
+<h3 id="release"><a href="https://go.dev/doc/devel/release.html" aria-describedby="index-description" rel="nofollow" target="_blank" title="Página todavía no traducida">Historial de versiones ⬀</a></h3>
+<p>Un resumen de los cambios entre las versiones de Go.</p>
+
+</section>
+
+
+<section id="data-access" class="BigCard">
+
+<h2>Acceder a bases de datos</h2>
+
+<h3 id="data-access-tutorial"><a href="https://go.dev/doc/tutorial/database-access" aria-describedby="index-description" rel="nofollow" target="_blank" title="Página todavía no traducida">Tutorial: Accediendo a una base de datos relacional ⬀</a></h3>
+<p>Presenta los conceptos básicos para acceder a una base de datos relacional usando Go y el paquete <code>database/sql</code> en la biblioteca estándar.</p>
+
+<h3 id="accessing-databases"><a href="https://go.dev/doc/database/index" aria-describedby="index-description" rel="nofollow" target="_blank" title="Página todavía no traducida">Acceder a bases de datos relacionales ⬀</a></h3>
+<p>
+Una descripción general de las funciones de acceso a datos de Go.
+</p>
+
+<h3 id="open-handle"><a href="https://go.dev/doc/database/open-handle" aria-describedby="index-description" rel="nofollow" target="_blank" title="Página todavía no traducida">Abrir un identificador de base de datos ⬀</a></h3>
+<p>
+Utilizas el identificador Go de la base de datos para ejecutar operaciones de base de datos. Una vez que abres un identificador con propiedades de conexión de base de datos, el identificador representa un grupo de conexiones que administra en tu nombre.
+</p>
+
+<h3 id="change-data"><a href="https://go.dev/doc/database/change-data" aria-describedby="index-description" rel="nofollow" target="_blank" title="Página todavía no traducida">Ejecutar sentencias SQL que no devuelven datos ⬀</a></h3>
+<p>Para operaciones SQL que podrían cambiar la base de datos, incluidas SQL <code>INSERT</code>, <code>UPDATE</code> y <code>DELETE</code>, utiliza métodos <code>Exec</code>.</p>
+
+<h3 id="querying"><a href="https://go.dev/doc/database/querying" aria-describedby="index-description" rel="nofollow" target="_blank" title="Página todavía no traducida">Consulta de datos ⬀</a></h3>
+<p>Para declaraciones <code>SELECT</code> que devuelven datos de una consulta, utiliza el método <code>Query</code> o <code>QueryRow</code>.</p>
+
+<h3 id="prepared-statements"><a href="https://go.dev/doc/database/prepared-statements" aria-describedby="index-description" rel="nofollow" target="_blank" title="Página todavía no traducida">Usar declaraciones preparadas ⬀</a></h3>
+<p>
+Definir una declaración preparada para uso repetido puede ayudar a que tu código se ejecute un poco más rápido al evitar la sobrecarga de recrear la declaración cada vez que tu código realiza la operación de base de datos.
+</p>
+
+<h3 id="execute-transactions"><a href="https://go.dev/doc/database/execute-transactions" aria-describedby="index-description" rel="nofollow" target="_blank" title="Página todavía no traducida">Ejecutar transacciones ⬀</a></h3>
+<p>
+<code>sql.Tx</code> exporta métodos que representan la semántica específica de la transacción, incluidos <code>Commit</code> y <code>Rollback</code>, así como los métodos que utiliza para realizar operaciones comunes de bases de datos.</p>
+
+<h3 id="cancel-operations"><a href="https://go.dev/doc/database/cancel-operations" aria-describedby="index-description" rel="nofollow" target="_blank" title="Página todavía no traducida">Cancelar operaciones de base de datos en progreso ⬀</a></h3>
+<p>Usando <a href="https://pkg.go.dev/context#Context">context.Context</a>, puedes hacer que las llamadas a funciones y los servicios de tu aplicación dejen de trabajar antes de tiempo y devuelvan un error cuando ya no sea necesario su procesamiento.</p>
+
+<h3 id="manage-connections"><a href="https://go.dev/doc/database/manage-connections" aria-describedby="index-description" rel="nofollow" target="_blank" title="Página todavía no traducida">Administrar conexiones ⬀</a></h3>
+<p>
+Para algunos programas avanzados, es posible que necesites ajustar los parámetros del grupo de conexiones o trabajar con conexiones explícitamente.
+</p>
+
+<h3 id="sql-injection"><a href="https://go.dev/doc/database/sql-injection" aria-describedby="index-description" rel="nofollow" target="_blank" title="Página todavía no traducida">Evitar el riesgo de inyección SQL ⬀</a></h3>
+<p>Puedes evitar el riesgo de inyección SQL proporcionando valores de parámetros SQL como argumentos de función del paquete <code>sql</code>.</p>
+
+</section>
+
+
+<section id="developing-modules" class="BigCard">
+
+<h2>Desarrollar módulos</h2>
+
+<h3 id="modules-develop-publish"><a href="https://go.dev/doc/modules/developing" aria-describedby="index-description" rel="nofollow" target="_blank" title="Página todavía no traducida">Desarrollo y publicación de módulos ⬀</a></h3>
+<p>
+Puedes recopilar paquetes relacionados en módulos y luego publicar los módulos para que los utilicen otros desarrolladores. Este tópico ofrece una descripción general del desarrollo y publicación de módulos.
+</p>
+
+<h3 id="modules-release-workflow"><a href="https://go.dev/doc/modules/release-workflow" aria-describedby="index-description" rel="nofollow" target="_blank" title="Página todavía no traducida">Lanzamiento del módulo y flujo de trabajo versionado ⬀</a></h3>
+<p>
+Cuando desarrollas módulos para que los utilicen otros desarrolladores, puedes seguir un flujo de trabajo que ayuda a garantizar una experiencia confiable y consistente para los desarrolladores que usan el módulo. Este tópico describe los pasos de alto nivel en ese flujo de trabajo.
+</p>
+
+<h3 id="modules-managing-source"><a href="https://go.dev/doc/modules/managing-source" aria-describedby="index-description" rel="nofollow" target="_blank" title="Página todavía no traducida">Administrar la fuente del módulo ⬀</a></h3>
+<p>
+Cuando desarrollas módulos para publicarlos para que otros los usen, puedes ayudar a garantizar que tus módulos sean más fáciles de usar para otros desarrolladores siguiendo las convenciones de repositorio descritas en este tópico.
+</p>
+
+<h3 id="modules-layout"><a href="https://go.dev/doc/modules/layout" aria-describedby="index-description" rel="nofollow" target="_blank" title="Página todavía no traducida">Organizar un módulo Go ⬀</a></h3>
+<p>
+¿Cuál es la forma correcta de organizar los archivos y directorios en un proyecto tópico de Go? En este tema se analizan algunos diseños comunes según el tipo de módulo que tenga.
+</p>
+
+<h3 id="modules-major-version"><a href="https://go.dev/doc/modules/major-version" aria-describedby="index-description" rel="nofollow" target="_blank" title="Página todavía no traducida">Desarrollando una actualización de versión importante (major version) ⬀</a></h3>
+<p>
+Una actualización de versión mayor (major) puede ser muy perjudicial para los usuarios de tu módulo porque incluye cambios importantes y representa un módulo nuevo. Obtén más información en este tema.
+</p>
+
+<h3 id="modules-publishing"><a href="https://go.dev/doc/modules/publishing" aria-describedby="index-description" rel="nofollow" target="_blank" title="Página todavía no traducida">Publicar un módulo ⬀</a></h3>
+
+<p>Cuando quieres que un módulo esté disponible para otros desarrolladores, lo publicas para que sea visible para las herramientas Go. Una vez que hayas publicado el módulo, los desarrolladores que importen tus paquetes podrán resolver una dependencia en el módulo ejecutando comandos como <code>go get</code>.</p>
+
+<h3 id="modules-version-numbers"><a href="https://go.dev/doc/modules/version-numbers" aria-describedby="index-description" rel="nofollow" target="_blank" title="Página todavía no traducida">Numeración de versiones de módulos ⬀</a></h3>
+
+<p>
+El desarrollador de un módulo usa cada parte del número de versión de un módulo para indicar la estabilidad y compatibilidad con versiones anteriores de la versión. Para cada nueva versión, el número de versión de un módulo refleja específicamente la naturaleza de los cambios del módulo desde la versión anterior.
+</p>
+
+</section>
+
+
+<section id="talks" class="BigCard">
+
+<h2>Charlas</h2>
+
+<h3 id="video_tour_of_go"><a href="https://research.swtch.com/gotour" aria-describedby="index-description">Un recorrido en video por Go</a></h3>
+<p>
+Tres cosas que hacen que Go sea rápido, divertido y productivo: interfaces, reflexión y concurrencia. Construye un rastreador web de juguete para demostrarlos.
+</p>
+
+<h3 id="go_code_that_grows"><a href="https://vimeo.com/53221560" aria-describedby="index-description">Código que crece con gracia</a></h3>
+<p>
+Uno de los objetivos de diseño clave de Go es la adaptabilidad del código; que debería ser fácil tomar un diseño simple y construir sobre él de una manera limpia y natural. En esta charla, Andrew Gerrand describe un servidor de "ruleta de chat" simple que relaciona pares de conexiones TCP entrantes y luego utiliza los mecanismos de concurrencia, las interfaces y la biblioteca estándar de Go para ampliarlo con una interfaz web y otras características. Si bien la función del programa cambia drásticamente, la flexibilidad de Go preserva el diseño original a medida que crece.
+</p>
+
+<h3 id="go_concurrency_patterns"><a href="https://www.youtube.com/watch?v=f6kdp27TYZs" aria-describedby="index-description">Patrones de Concurrencia en Go</a></h3>
+<p>
+La concurrencia es la clave para diseñar servicios de red de alto rendimiento. Las primitivas de concurrencia de Go (gorrutinas y channels) proporcionan un medio simple y eficiente para expresar la ejecución concurrente. En esta charla veremos cómo los complicados problemas de concurrencia se pueden resolver elegantemente con un simple código Go.
+</p>
+
+<h3 id="advanced_go_concurrency_patterns"><a href="https://www.youtube.com/watch?v=QDDwwePbDtw" aria-describedby="index-description">Patrones de concurrencia avanzados de Go</a></h3>
+<p>Esta charla amplía la charla sobre los <i>Patrones de concurrencia de Go</i> para profundizar en las primitivas de concurrencia de Go.</p>
+
+<h4 id="talks_more">Más</h4>
+<p>Consulta el <a href="https://go.dev/talks" aria-describedby="index-description" rel="nofollow" target="_blank" title="Página todavía no traducida">sitio de Go Talks ⬀</a> y la <a href="https://go.dev/wiki/GoTalks" aria-describedby="index-description" rel="nofollow" target="_blank" title="Página todavía no traducida">página wiki ⬀</a> para obtener más charlas sobre Go.</p>
+
+</section>
+
+
+<section id="codewalks" class="BigCard">
+
+<h2>Codewalks</h2>
+<p>
+Tours guiados a los programas de Go.
+</p>
+
+<ul>
+<li><a href="https://go.dev/doc/codewalk/functions" aria-describedby="index-description" rel="nofollow" target="_blank" title="Página todavía no traducida">Funciones de primera clase en Go ⬀</a></li>
+<li><a href="https://go.dev/doc/codewalk/markov" aria-describedby="index-description" rel="nofollow" target="_blank" title="Página todavía no traducida">Generación de texto arbitrario: un algoritmo de cadena de Markov ⬀</a></li>
+<li><a href="https://go.dev/doc/codewalk/sharemem" aria-describedby="index-description" rel="nofollow" target="_blank" title="Página todavía no traducida">Comparte Memoria Comunicándote ⬀</a></li>
+</ul>
+
+<h3>Lenguaje</h3>
+<ul>
+<li><a href="https://go.dev/blog/json-rpc-tale-of-interfaces" aria-describedby="index-description" rel="nofollow" target="_blank" title="Página todavía no traducida">JSON-RPC: una historia de interfaces ⬀</a></li>
+<li><a href="https://go.dev/blog/gos-declaration-syntax" aria-describedby="index-description" rel="nofollow" target="_blank" title="Página todavía no traducida">Sintaxis de declaración de Go ⬀</a></li>
+<li><a href="https://go.dev/blog/defer-panic-and-recover" aria-describedby="index-description" rel="nofollow" target="_blank" title="Página todavía no traducida">Defer, Panic, y Recover ⬀</a></li>
+<li><a href="https://go.dev/blog/go-concurrency-patterns-timing-out-and" aria-describedby="index-description" rel="nofollow" target="_blank" title="Página todavía no traducida">Patrones de concurrencia de Go: tiempo de espera, seguir adelante ⬀</a></li>
+<li><a href="https://go.dev/blog/go-slices-usage-and-internals" aria-describedby="index-description" rel="nofollow" target="_blank" title="Página todavía no traducida">Go Slices: uso y aspectos internos ⬀</a></li>
+<li><a href="https://go.dev/blog/gif-decoder-exercise-in-go-interfaces" aria-describedby="index-description" rel="nofollow" target="_blank" title="Página todavía no traducida">Un decodificador GIF: un ejercicio en interfaces Go ⬀</a></li>
+<li><a href="https://go.dev/blog/error-handling-and-go" aria-describedby="index-description" rel="nofollow" target="_blank" title="Página todavía no traducida">Manejo de errores y Go ⬀</a></li>
+</ul>
+
+<h3>Paquetes</h3>
+<ul>
+<li><a href="https://go.dev/blog/json-and-go" aria-describedby="index-description" rel="nofollow" target="_blank" title="Página todavía no traducida">JSON y Go ⬀</a> - usando <a href="https://go.dev/pkg/encoding/json" aria-describedby="index-description" rel="nofollow" target="_blank" title="Página todavía no traducida">paquete json ⬀</a>.</li>
+<li><a href="https://go.dev/blog/gobs-of-data" aria-describedby="index-description" rel="nofollow" target="_blank" title="Página todavía no traducida">Gobs de datos ⬀</a> - el diseño y uso del Paquete <a href="https://go.dev/pkg/encoding/gob" aria-describedby="index-description" rel="nofollow" target="_blank" title="Página todavía no traducida">gob ⬀</a> .</li>
+<li><a href="https://go.dev/blog/laws-of-reflection" aria-describedby="index-description" rel="nofollow" target="_blank" title="Página todavía no traducida">Las leyes de la reflexión ⬀</a> - los fundamentos del paquete <a href="https://go.dev/pkg/reflect" aria-describedby="index-description" rel="nofollow" target="_blank" title="Página todavía no traducida">reflect ⬀</a>.</li>
+<li><a href="https://go.dev/blog/go-image-package" aria-describedby="index-description" rel="nofollow" target="_blank" title="Página todavía no traducida">El paquete de imágenes de Go ⬀</a> - los fundamentos del paquete <a href="https://go.dev/pkg/image" aria-describedby="index-description" rel="nofollow" target="_blank" title="Página todavía no traducida">image ⬀</a>.</li>
+<li><a href="https://go.dev/blog/go-imagedraw-package" rel="nofollow" target="_blank" title="Página todavía no traducida">El paquete Go image/draw ⬀</a>: los fundamentos del paquete <a href="https://go.dev/pkg/image/draw" rel="nofollow" target="_blank" title="Página todavía no traducida">image/draw ⬀</a> .</li>
+</ul>
+
+<h3>Módulos</h3>
+<ul>
+<li><a href="https://go.dev/blog/using-go-modules" aria-describedby="index-description" rel="nofollow" target="_blank" title="Página todavía no traducida">Uso de módulos en Go ⬀</a> - una introducción al uso de módulos en un proyecto sencillo.</li>
+<li><a href="https://go.dev/blog/migrating-to-go-modules" aria-describedby="index-description" rel="nofollow" target="_blank" title="Página todavía no traducida">Migración a módulos Go ⬀</a> - convertir un proyecto existente para utilizar módulos.</li>
+<li><a href="https://go.dev/blog/publishing-go-modules" aria-describedby="index-description" rel="nofollow" target="_blank" title="Página todavía no traducida">Publicar módulos Go ⬀</a> - cómo crear nuevas versiones de módulos disponibles para otros.</li>
+<li><a href="https://go.dev/blog/v2-go-modules" aria-describedby="index-description" rel="nofollow" target="_blank" title="Página todavía no traducida">Módulos Go: v2 y más allá ⬀</a> - creación y publicación versiones major 2 y superiores.</li>
+<li><a href="https://go.dev/blog/module-compatibility" aria-describedby="index-description" rel="nofollow" target="_blank" title="Página todavía no traducida">Mantener tus módulos compatibles ⬀</a> - cómo mantener tus módulos compatibles con versiones menores/de parche anteriores.</li>
+</ul>
+
+<h3>Herramientas</h3>
+<ul>
+<li><a href="https://go.dev/doc/articles/go_command.html" aria-describedby="index-description" rel="nofollow" target="_blank" title="Página todavía no traducida">Acerca del comando Go ⬀</a> - por qué lo escribimos, qué es, qué no es y cómo utilizarlo.</li>
+<li><a href="https://go.dev/doc/comment" aria-describedby="index-description" rel="nofollow" target="_blank" title="Página todavía no traducida">Comentarios Doc de Go ⬀</a> - escribir buena documentación para programas</li>
+<li><a href="https://go.dev/doc/gdb" aria-describedby="index-description" rel="nofollow" target="_blank" title="Página todavía no traducida">Depurar Go Code con GDB ⬀</a></li>
+<li><a href="https://go.dev/doc/articles/race_detector.html" aria-describedby="index-description" rel="nofollow" target="_blank" title="Página todavía no traducida">Data Race Detector ⬀</a> - un manual para el detector de carreras de datos.</li>
+<li><a href="https://go.dev/doc/asm" aria-describedby="index-description" rel="nofollow" target="_blank" title="Página todavía no traducida">Guía rápida para el ensamblador de Go ⬀</a> - una introducción al ensamblador utilizado por Go.</li>
+<li><a href="https://go.dev/blog/c-go-cgo" aria-describedby="index-description" rel="nofollow" target="_blank" title="Página todavía no traducida">¿C? ¿Go? ¡Cgo! ⬀</a> - vinculación con código C con <a href="https://go.dev/cmd/cgo" aria-describedby="index-description" rel="nofollow" target="_blank" title="Página todavía no traducida">cgo ⬀</a>.</li>
+<li><a href="https://go.dev/blog/profiling-go-programs" aria-describedby="index-description" rel="nofollow" target="_blank" title="Página todavía no traducida">Profiling programas Go ⬀</a></li>
+<li><a href="https://go.dev/blog/race-detector" aria-describedby="index-description" rel="nofollow" target="_blank" title="Página todavía no traducida">Presentación del Go Race Detector ⬀</a> - una introducción al detector de carreras.</li>
+</ul>
+
+</section>
+
+
+<section id="wiki" class="BigCard">
+
+<h2>Wiki</h2>
+<p>La <a href="https://go.dev/wiki" aria-describedby="index-description" rel="nofollow" target="_blank" title="Página todavía no traducida">Wiki de Go ⬀</a>, mantenida por la comunidad Go, incluye artículos sobre el lenguaje Go, herramientas y otros recursos.</p>
+
+<p id="learn_more">Consulta la página <a href="https://go.dev/wiki/Learn" aria-describedby="index-description" rel="nofollow" target="_blank" title="Página todavía no traducida">Learn ⬀</a> en la <a href="https://go.dev/wiki" aria-describedby="index-description" rel="nofollow" target="_blank" title="Página todavía no traducida">Wiki ⬀</a> para obtener más recursos de aprendizaje de Go.</p>
+
+</section>
+
+
+<section id="nonenglish" class="BigCard">
+
+<h2>Documentación no inglesa</h2> Consulta la <a href="https://go.dev/wiki/NonEnglish" aria-describedby="index-description" rel="nofollow" target="_blank" title="Página todavía no traducida">Non English ⬀</a> en la <a href="https://go.dev/wiki" aria-describedby="index-description" rel="nofollow" target="_blank" title="Página todavía no traducida">Wiki ⬀</a> para obtener documentación localizada.<p></p>
+
+</section>
+
+<div class="screen-reader-only" id="index-description" hidden="">
+	Se abre en una ventana nueva.
+</div>
+</div>
+
+
+
+</article>
+
+
+
+</main>
+<footer class="Site-footer">
+  <div class="Footer">
+    <div class="Container">
+      <div class="Footer-links">
+          <div class="Footer-linkColumn">
+            <a href="/solutions/" class="Footer-link Footer-link--primary" aria-describedby="footer-description">
+              Por qué Go
+            </a>
+              <a href="/solutions/use-cases" class="Footer-link" aria-describedby="footer-description">
+                Casos de uso
+              </a>
+              <a href="/solutions/case-studies" class="Footer-link" aria-describedby="footer-description">
+                Estudio de casos
+              </a>
+          </div>
+          <div class="Footer-linkColumn">
+            <a href="/learn/" class="Footer-link Footer-link--primary" aria-describedby="footer-description">
+              Comienza
+            </a>
+              <a href="https://go.dev/play" class="Footer-link" aria-describedby="footer-description" rel="nofollow" target="_blank" title="Página todavía no traducida">
+                Playground
+               ⬀</a>
+              <a href="https://go.dev/tour" class="Footer-link" aria-describedby="footer-description" rel="nofollow" target="_blank" title="Página todavía no traducida">
+                Tour
+               ⬀</a>
+              <a href="https://stackoverflow.com/questions/tagged/go?tab=Newest" class="Footer-link" aria-describedby="footer-description">
+                Stack Overflow
+              </a>
+              <a href="/help/" class="Footer-link" aria-describedby="footer-description">
+                Ayuda
+              </a>
+          </div>
+          <div class="Footer-linkColumn">
+            <a href="https://pkg.go.dev" class="Footer-link Footer-link--primary" aria-describedby="footer-description">
+              Paquetes
+            </a>
+              <a href="https://go.dev/pkg" class="Footer-link" aria-describedby="footer-description" rel="nofollow" target="_blank" title="Página todavía no traducida">
+                Biblioteca estándar
+               ⬀</a>
+              <a href="https://pkg.go.dev/about" class="Footer-link" aria-describedby="footer-description">
+                Acerca de los Paquetes Go
+              </a>
+          </div>
+          <div class="Footer-linkColumn">
+            <a href="https://go.dev/project" class="Footer-link Footer-link--primary" aria-describedby="footer-description" rel="nofollow" target="_blank" title="Página todavía no traducida">
+              Acerca de
+             ⬀</a>
+              <a href="https://go.dev/dl" class="Footer-link" aria-describedby="footer-description" rel="nofollow" target="_blank" title="Página todavía no traducida">
+                Descargar
+               ⬀</a>
+              <a href="https://go.dev/blog" class="Footer-link" aria-describedby="footer-description" rel="nofollow" target="_blank" title="Página todavía no traducida">
+                Blog
+               ⬀</a>
+              <a href="https://github.com/golang/go/issues" class="Footer-link" aria-describedby="footer-description">
+                Issue Tracker
+              </a>
+              <a href="https://go.dev/doc/devel/release" class="Footer-link" aria-describedby="footer-description" rel="nofollow" target="_blank" title="Página todavía no traducida">
+                Notas de la versión
+               ⬀</a>
+              <a href="https://go.dev/brand" class="Footer-link" aria-describedby="footer-description" rel="nofollow" target="_blank" title="Página todavía no traducida">
+                Pautas de marca
+               ⬀</a>
+              <a href="https://go.dev/conduct" class="Footer-link" aria-describedby="footer-description" rel="nofollow" target="_blank" title="Página todavía no traducida">
+                Código de Conducta
+               ⬀</a>
+          </div>
+          <div class="Footer-linkColumn">
+            <a href="https://www.twitter.com/golang" class="Footer-link Footer-link--primary" aria-describedby="footer-description">
+              Conéctate
+            </a>
+              <a href="https://www.twitter.com/golang" class="Footer-link" aria-describedby="footer-description">
+                Twitter
+              </a>
+              <a href="https://github.com/golang" class="Footer-link" aria-describedby="footer-description">
+                GitHub
+              </a>
+              <a href="https://invite.slack.golangbridge.org/" class="Footer-link" aria-describedby="footer-description">
+                Slack
+              </a>
+              <a href="https://reddit.com/r/golang" class="Footer-link" aria-describedby="footer-description">
+                r/golang
+              </a>
+              <a href="https://www.meetup.com/pro/go" class="Footer-link" aria-describedby="footer-description">
+                Meetup
+              </a>
+              <a href="https://golangweekly.com/" class="Footer-link" aria-describedby="footer-description">
+                Golang Weekly
+              </a>
+          </div>
+      </div>
+    </div>
+  </div>
+  <div class="screen-reader-only" id="footer-description" hidden="">
+          Se abre en una ventana nueva.
+  </div>
+  <div class="Footer">
+    <div class="Container Container--fullBleed">
+      <div class="Footer-bottom">
+        <img class="Footer-gopher" src="/images/gophers/pilot-bust.svg" alt="The Go Gopher">
+        <ul class="Footer-listRow">
+          <li class="Footer-listItem">
+            <a href="https://go.dev/copyright" aria-describedby="footer-description" rel="nofollow" target="_blank" title="Página todavía no traducida">Copyright ⬀</a>
+          </li>
+          <li class="Footer-listItem">
+            <a href="https://go.dev/tos" aria-describedby="footer-description" rel="nofollow" target="_blank" title="Página todavía no traducida">Términos de servicio ⬀</a>
+          </li>
+          <li class="Footer-listItem">
+            <a href="http://www.google.com/intl/en/policies/privacy/" aria-describedby="footer-description" target="_blank" rel="noopener">
+              Política de Privacidad
+            </a>
+            </li>
+          <li class="Footer-listItem">
+            <a href="https://go.dev/s/website-issue" aria-describedby="footer-description" target="_blank" rel="nofollow" title="Página todavía no traducida">
+              Informar un problema
+             ⬀</a>
+          </li>
+          <li class="Footer-listItem go-Footer-listItem">
+            <button class="go-Button go-Button--text go-Footer-toggleTheme js-toggleTheme" aria-label="Alternar tema">
+              <img data-value="auto" class="go-Icon go-Icon--inverted" height="24" width="24" src="/images/icons/brightness_6_gm_grey_24dp.svg" alt="System theme">
+              <img data-value="dark" class="go-Icon go-Icon--inverted" height="24" width="24" src="/images/icons/brightness_2_gm_grey_24dp.svg" alt="Dark theme">
+              <img data-value="light" class="go-Icon go-Icon--inverted" height="24" width="24" src="/images/icons/light_mode_gm_grey_24dp.svg" alt="Light theme">
+            </button>
+          </li>
+        </ul>
+        <a class="Footer-googleLogo" target="_blank" href="https://google.com" rel="noopener">
+          <img class="Footer-googleLogoImg" src="/images/google-white.png" alt="Google logo">
+        </a>
+      </div>
+    </div>
+  </div>
+  <script src="/js/jquery.js"></script>
+  <script src="/js/carousels.js"></script>
+  <script src="/js/searchBox.js"></script>
+  <script src="/js/misc.js"></script>
+  <script src="/js/hats.js"></script>
+  
+  <script src="/js/godocs.js"></script>
+  <script async="" src="/js/copypaste.js"></script>
+</footer>
+<section class="Cookie-notice js-cookieNotice">
+  <div>go.dev utiliza cookies de Google para ofrecer y mejorar la calidad de sus servicios y analizar el tráfico. <a target="_blank" href="https://policies.google.com/technologies/cookies">Más información.</a></div>
+  <div><button class="go-Button">Ok</button></div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body></html>
