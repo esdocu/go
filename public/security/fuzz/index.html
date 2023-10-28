@@ -16,9 +16,9 @@
   
   
 <script src="/js/site.js"></script>
-<meta name="og:url" content="https://go.dev/security/vuln/cna">
-<meta name="og:title" content="Política de Go CNA - El lenguaje de programación Go en Español">
-<title>Política de Go CNA - El lenguaje de programación Go en Español</title>
+<meta name="og:url" content="https://go.dev/security/fuzz/">
+<meta name="og:title" content="Go Fuzzing - El lenguaje de programación Go en Español">
+<title>Go Fuzzing - El lenguaje de programación Go en Español</title>
 
 <meta name="og:image" content="https://go.dev/doc/gopher/gopher5logo.jpg">
 <meta name="twitter:image" content="https://go.dev/doc/gopher/gopherbelly300.jpg">
@@ -391,26 +391,187 @@
   <article class="Article Article--security">
 
     
-    <h1>Política CNA de Go</h1>
-    <p><a href="/security/vuln">Volver a Gestión de vulnerabilidades de Go</a></p>
+      
+<ol class="SiteBreadcrumb">
+  
+<li class="BreadcrumbNav-li ">
+  <a class="BreadcrumbNav-link" href="/security/">
+  Seguridad
+  </a>
+</li>
+<li class="BreadcrumbNav-li active">
+  <a class="BreadcrumbNav-link" href="/security/fuzz/">
+  Go Fuzzing
+  </a>
+</li>
+</ol>
+    <h1>Go Fuzzing</h1>
+    <p>Go admite fuzzing en su cadena de herramientas estándar a partir de Go 1.18. Los tests nativos de Go Fuzz son <a href="https://google.github.io/oss-fuzz/getting-started/new-project-guide/go-lang/#native-go-fuzzing-support" rel="noreferrer" target="_blank">impulsados por OSS-Fuzz</a>.</p>
+<p><strong>Prueba el <a href="https://go.dev/doc/tutorial/fuzz" rel="nofollow" target="_blank" title="Página todavía no traducida">tutorial para hacer fuzzing con Go ⬀</a>.</strong></p>
 <h2 id="overview">Descripción general</h2>
-<p>Go CNA es una 
-<a href="https://www.cve.org/ProgramOrganization/CNAs" rel="noreferrer" target="_blank">Autoridad de numeración CVE</a>, que emite 
-<a href="https://www.cve.org/ResourcesSupport/Glossary?activeTerm=glossaryCVEID" rel="noreferrer" target="_blank">ID CVE</a> y publica 
-<a href="https://www.cve.org/ResourcesSupport/Glossary?activeTerm=glossaryRecord" rel="noreferrer" target="_blank">Registros CVE</a> 
-para vulnerabilidades públicas en el ecosistema Go. Es una sub-CNA de la CNA de Google.</p>
-<h2 id="scope">Alcance</h2>
-<p>Go CNA cubre vulnerabilidades en el proyecto Go (la <a href="https://go.dev/pkg" rel="nofollow" target="_blank" title="Página todavía no traducida">biblioteca estándar ⬀</a> de Go y <a href="https://pkg.go.dev/golang.org/x" rel="noreferrer" target="_blank">sub-repositorios</a>) y vulnerabilidades públicas en módulos Go importables que aún no están cubiertos por otro CNA.</p>
-<p>Este alcance está destinado a excluir explícitamente vulnerabilidades en aplicaciones o paquetes escritos en Go que no son importables (por ejemplo, cualquier cosa en el paquete <code>main</code>). Consulta <a href="/security/vuln/database#excluded-reports">go.dev/security/vuln/database#excluded-reports</a> para obtener más información sobre los informes excluidos.</p>
-<p>Para informar posibles nuevas vulnerabilidades en el proyecto Go, consulta
-<a href="/security/policy">go.dev/security/policy</a>.</p>
-<h2 id="requesting-a-cve-id-for-a-public-vulnerability">Solicitar una CVE ID para una vulnerabilidad pública</h2>
-<p><strong>IMPORTANTE</strong>: el formulario vinculado a continuación crea un issue público en el rastreador de issues y, por lo tanto,
-<em>no</em> debe usarse para informar vulnerabilidades no reveladas en Go (consulta nuestra 
-<a href="/security/policy">política de seguridad</a> para obtener instrucciones sobre cómo informar problemas no revelados).</p>
-<p>Para solicitar un CVE ID para una vulnerabilidad PÚBLICA existente en el ecosistema Go,
-<a href="https://go.dev/s/vulndb-report-new" rel="nofollow" target="_blank" title="Página todavía no traducida">envía una solicitud a través de este formulario ⬀</a>.</p>
-<p>Una vulnerabilidad se considera pública si ya se ha divulgado públicamente o existe en un paquete que mantienes y estás listo para divulgarlo públicamente.</p>
+<p>Fuzzing es un tipo de test automatizado que manipula continuamente las entradas de un programa para encontrar errores. Go Fuzzing utiliza la guía de cobertura para recorrer de manera inteligente el código que se está analizando para encontrar e informar fallas al usuario. Dado que puede llegar a casos extremos que los humanos a menudo pasan por alto, los tests fuzz pueden ser particularmente valiosas para encontrar vulnerabilidades y vulnerabilidades de seguridad.</p>
+<p>A continuación se muestra un ejemplo de una <a href="#glos-fuzz-test">prueba fuzz</a>, destacando sus componentes principales.</p>
+<p><img class="DarkMode-img" alt="Example code showing the overall fuzz test, with a fuzz target within
+it. Before the fuzz target is a corpus addition with f.Add, and the parameters
+of the fuzz target are highlighted as the fuzzing arguments." src="/security/fuzz/example-dark.png" style="width: 600px; height:
+auto;">
+<img alt="Example code showing the overall fuzz test, with a fuzz target within
+it. Before the fuzz target is a corpus addition with f.Add, and the parameters
+of the fuzz target are highlighted as the fuzzing arguments." src="/security/fuzz/example.png" style="width: 600px; height:
+auto;" class="LightMode-img"></p>
+<h2 id="writing-fuzz-tests">Escribir tests fuzz</h2>
+<h3 id="requirements">Requisitos</h3>
+<p>A continuación se detallan las reglas que deben seguir las pruebas fuzz.</p>
+<ul>
+<li>Una prueba fuzz debe ser una función llamada <code>FuzzXxx</code>, que acepta solo un <code>*testing.F</code> y no tiene valor de retorno.</li>
+<li>Las pruebas Fuzz deben estar en archivos *_test.go para ejecutarse.</li>
+<li>Un <a href="#glos-fuzz-target">objetivo fuzz</a> debe ser una llamada a un método para <code><a href="https://pkg.go.dev/testing#F.Fuzz" rel="noreferrer" target="_blank">(*testing.F).Fuzz</a></code> que acepte un <code>*testing.T</code> como primer parámetro, seguido de los argumentos fuzzing. No hay valor de retorno.</li>
+<li>Debe haber exactamente un objetivo de fuzz por prueba de fuzz.</li>
+<li>Todas las entradas del <a href="#glos-seed-corpus">seed corpus</a> deben tener tipos que sean idénticos al <a href="#glos-fuzzing-arguments">argumentos fuzz</a>, en el mismo orden. Esto es cierto para las llamadas a <code><a href="https://pkg.go.dev/testing#F.Add" rel="noreferrer" target="_blank">(*testing.F).Add</a></code> y cualquier archivo de corpus en el directorio testdata/fuzz de la prueba fuzz.</li>
+<li>Los argumentos fuzzing solo pueden ser de los siguientes tipos: <ul>
+<li><code>string</code>, <code>[]byte</code></li>
+<li><code>int</code>, <code>int8</code>, <code>int16</code>, <code>int32</code>/<code>rune</code>, <code>int64</code></li>
+<li><code>uint</code>, <code>uint8</code>/<code>byte</code>, <code>uint16</code>, <code>uint32</code>, <code>uint64</code></li>
+<li><code>float32</code>, <code>float64</code></li>
+<li><code>bool</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="suggestions">Sugerencias</h3>
+<p>A continuación encontrarás sugerencias que te ayudarán a aprovechar al máximo el fuzzing.</p>
+<ul>
+<li>Los objetivos de fuzz deben ser rápidos y deterministas para que el motor de fuzz pueda funcionar de manera eficiente y se puedan reproducir fácilmente nuevas fallas y cobertura de código.</li>
+<li>Dado que el objetivo (fuzz target) se invoca en paralelo entre varios trabajadores y en orden no determinista, el estado de un fuzz target no debería persistir más allá del final de cada llamada, y el comportamiento de un fuzz target no debería persistir más allá del final de cada llamada. Depende del estado global.</li>
+</ul>
+<h2 id="running-fuzz-tests">Ejecutar pruebas fuzz</h2>
+<p>Hay dos modos de ejecutar tu test fuzz: como test unitario (<code>go test</code> predeterminado) o con fuzzing (<code>go test -fuzz=FuzzTestName</code>).</p>
+<p>Los tests Fuzz se ejecutan de manera muy similar a un test unitario de forma predeterminada. Cada <a href="#glos-seed-corpus">entrada de la semilla corpus</a> se probará con el fuzz target y se informará de cualquier error antes de salir.</p>
+<p>Para habilitar el fuzzing, ejecuta <code>go test</code> con el indicador <code>-fuzz</code>, proporcionando una expresión regular que coincida con un solo test de fuzz. De forma predeterminada, todos los demás tests de ese paquete se ejecutarán antes de que comience el fuzzing. Esto es para garantizar que el fuzzing no informe ningún problema que ya habría sido detectado por un test existente.</p>
+<p>Ten en cuenta que depende de ti decidir cuánto tiempo ejecutar el fuzzing. Es muy posible que una ejecución de fuzzing se ejecute indefinidamente si no encuentra ningún error. Habrá soporte para ejecutar estos tests fuzz continuamente usando herramientas como OSS-Fuzz en el futuro, consulta <a href="https://github.com/golang/go/issues/50192" rel="noreferrer" target="_blank">Issue n.º 50192</a>.</p>
+<p><strong>Nota:</strong> Fuzzing debe ejecutarse en una plataforma que admita instrumentación de cobertura (actualmente AMD64 y ARM64) para que el corpus pueda crecer significativamente a medida que se ejecuta, y se puede cubrir más código mientras se realiza el fuzzing.</p>
+<h3 id="command-line-output">Salida de la línea de comando</h3>
+<p>Mientras el fuzzing está en progreso, el <a href="#glos-fuzzing-engine">motor de fuzzing</a> genera nuevas entradas y las ejecuta contra el objetivo de fuzzing proporcionado. De forma predeterminada, continúa ejecutándose hasta que se encuentra una <a href="#glos-failing-input">entrada fallida</a> o el usuario cancela el proceso (por ejemplo, con Ctrl^C).</p>
+<p>El resultado se verá así:</p>
+<pre><code>~ go test -fuzz FuzzFoo
+fuzz: elapsed: 0s, gathering baseline coverage: 0/192 completed
+fuzz: elapsed: 0s, gathering baseline coverage: 192/192 completed, now fuzzing with 8 workers
+fuzz: elapsed: 3s, execs: 325017 (108336/sec), new interesting: 11 (total: 202)
+fuzz: elapsed: 6s, execs: 680218 (118402/sec), new interesting: 12 (total: 203)
+fuzz: elapsed: 9s, execs: 1039901 (119895/sec), new interesting: 19 (total: 210)
+fuzz: elapsed: 12s, execs: 1386684 (115594/sec), new interesting: 21 (total: 212)
+PASS
+ok      foo 12.692s
+</code></pre>
+<p>Las primeras líneas indican que la “cobertura de referencia” se recopila antes de que comience el fuzzing.</p>
+<p>Para recopilar una cobertura de referencia, el motor de fuzzing ejecuta tanto la <a href="#glos-seed-corpus">semilla de corpus</a> como el <a href="#glos-generated-corpus">corpus generado</a>, para garantizar que no se produzcan errores y comprender la cobertura del código que el corpus existente ya proporciona.</p>
+<p>Las siguientes líneas brindan información sobre la ejecución activa de fuzzing:</p>
+<ul>
+<li>elapsed: la cantidad de tiempo que ha transcurrido desde que comenzó el proceso</li>
+<li>execs: el número total de entradas que se han ejecutado contra el objetivo fuzz (con un promedio de ejecutivos/seg desde la última línea de registro)</li>
+<li>new interesting: el número total de entradas “interesantes” que se han agregado al corpus generado durante esta ejecución de fuzzing (con el tamaño total de todo el corpus)</li>
+</ul>
+<p>Para que una entrada sea "interesante", debe expandir la cobertura del código más allá de lo que puede alcanzar el corpus generado existente. Es típico que el número de nuevas entradas interesantes crezca rápidamente al principio y eventualmente disminuya, con explosiones ocasionales a medida que se descubren nuevas ramas.</p>
+<p>Deberías esperar ver que el número "nuevo interesante" disminuya con el tiempo a medida que las entradas en el corpus comiencen a cubrir más líneas del código, con ráfagas ocasionales si el motor de fuzzing encuentra un nuevo path de código.</p>
+<h3 id="failing-input">Entrada fallida</h3>
+<p>Puede ocurrir una falla durante el fuzzing por varias razones:</p>
+<ul>
+<li>Se produjo un pánico en el código o en la test.</li>
+<li>El fuzz target llamado <code>t.Fail</code>, ya sea directamente o mediante métodos como <code>t.Error</code> o <code>t.Fatal</code>.</li>
+<li>Se produjo un error no recuperable, como un <code>os.Exit</code> o un desbordamiento de pila.</li>
+<li>El fuzz target tardó demasiado en completarse. Actualmente, el tiempo de espera para la ejecución de un fuzz target es de 1 segundo. Esto puede fallar debido a un punto muerto o un bucle infinito, o debido al comportamiento previsto en el código. Ésta es una de las razones por las que se <a href="#suggestions">sugiere que el fuzz target sea rápido</a>.</li>
+</ul>
+<p>Si ocurre un error, el motor de fuzzing intentará minimizar la entrada al valor más pequeño posible y más legible por humanos, lo que aún producirá un error. Para configurar esto, consulta la sección <a href="#custom-settings">configuración personalizada</a>.</p>
+<p>Una vez que se complete la minimización, se registrará el mensaje de error y el resultado terminará con algo como esto:</p>
+<pre><code>    Failing input written to testdata/fuzz/FuzzFoo/a878c3134fe0404d44eb1e662e5d8d4a24beb05c3d68354903670ff65513ff49
+    To re-run:
+    go test -run=FuzzFoo/a878c3134fe0404d44eb1e662e5d8d4a24beb05c3d68354903670ff65513ff49
+FAIL
+exit status 1
+FAIL    foo 0.839s
+</code></pre>
+<p>El motor de fuzzing escribió esta <a href="#glos-failing-input">entrada fallida</a> en el corpus semilla para esa test de fuzz, y ahora será ejecutado de forma predeterminada con <code>go test</code>, que sirve como test de regresión una vez que se ha corregido el error.</p>
+<p>El siguiente paso será diagnosticar el problema, corregir el error, verificar la solución volviendo a ejecutar <code>go test</code> y enviar el parche con el nuevo archivo testdata actuando como test de regresión.</p>
+<h3 id="custom-settings">Configuraciones personalizadas</h3>
+<p>La configuración predeterminada del comando go debería funcionar para la mayoría de los casos de uso de fuzzing. Por lo general, una ejecución de fuzzing en la línea de comando debería verse así:</p>
+<pre><code>$ go test -fuzz={FuzzTestName}
+</code></pre>
+<p>Sin embargo, el comando <code>go</code> proporciona algunas configuraciones cuando se ejecuta fuzzing. Estos están documentados en la documentación de <a href="https://pkg.go.dev/cmd/go" rel="noreferrer" target="_blank"><code>cmd/go</code> (paquete)</a>.</p>
+<p>Por destacar algunos:</p>
+<ul>
+<li><code>-fuzztime</code>: el tiempo total o número de iteraciones que se ejecutará el fuzz target antes de salir, predeterminado de forma indefinida.</li>
+<li><code>-fuzzminimizetime</code>: el tiempo o número de iteraciones que se ejecutará el fuzz target durante cada intento de minimización, por defecto 60 segundos. Puede deshabilitar completamente la minimización configurando <code>-fuzzminimizetime 0</code> al realizar el fuzzing.</li>
+<li><code>-parallel</code>: la cantidad de procesos de fuzzing que se ejecutan a la vez, predeterminado <code>$GOMAXPROCS</code>. Actualmente, configurar -cpu durante el fuzzing no tiene ningún efecto.</li>
+</ul>
+<h2 id="corpus-file-format">Formato del archivo Corpus</h2>
+<p>Los archivos Corpus están codificados en un formato especial. Este es el mismo formato tanto para el <a href="#glos-seed-corpus">seed corpus</a> como para el <a href="#glos-generated-corpus">corpus generado</a>.</p>
+<p>A continuación se muestra un ejemplo de un archivo corpus:</p>
+<pre><code>go test fuzz v1
+[]byte("hello\\xbd\\xb2=\\xbc ⌘")
+int64(572293)
+</code></pre>
+<p>La primera línea se usa para informar al motor de fuzzing de la versión de codificación del archivo. Aunque actualmente no se planean versiones futuras del formato de codificación, el diseño debe admitir esta posibilidad.</p>
+<p>Cada una de las líneas siguientes son los valores que componen la entrada del corpus y se pueden copiar directamente al código Go si lo deseas.</p>
+<p>En el ejemplo anterior, tenemos un <code>[]byte</code> seguido de un <code>int64</code>. Estos tipos deben coincidir exactamente con los argumentos fuzz, en ese orden. Un fuzz target para estos tipos se vería así:</p>
+<pre><code>f.Fuzz(func(*testing.T, []byte, int64) {})
+</code></pre>
+<p>La forma más fácil de especificar tus propios valores de semilla corpus es usar el método <code>(*testing.F).Add</code>. En el ejemplo anterior, se vería así:</p>
+<pre><code>f.Add([]byte("hello\\xbd\\xb2=\\xbc ⌘"), int64(572293))
+</code></pre>
+<p>Sin embargo, es posible que tengas archivos binarios grandes que preferirías no copiar como código en tu test y, en su lugar, permanecer como entradas de semilla corpus individuales en el directorio testdata/fuzz/{FuzzTestName}. La herramienta <a href="https://pkg.go.dev/golang.org/x/tools/cmd/file2fuzz" rel="noreferrer" target="_blank"><code>file2fuzz</code></a> en golang.org/x/tools/cmd/file2fuzz se puede utilizar para convertir estos archivos binarios en archivos corpus codificados para <code>[]byte</code>.</p>
+<p>Para usar esta herramienta:</p>
+<pre><code>$ go install golang.org/x/tools/cmd/file2fuzz@latest
+$ file2fuzz -h
+</code></pre>
+<h2 id="resources">Recursos</h2>
+<ul>
+<li><strong>Tutorial</strong>: <ul>
+<li>Prueba el <a href="https://go.dev/doc/tutorial/fuzz" rel="nofollow" target="_blank" title="Página todavía no traducida">tutorial para fuzzing con Go ⬀</a> para profundizar en los nuevos conceptos.</li>
+<li>Para obtener un tutorial introductorio más breve sobre fuzzing con Go, consulta <a href="https://go.dev/blog/fuzz-beta" rel="nofollow" target="_blank" title="Página todavía no traducida">la publicación del blog ⬀</a>.</li>
+</ul>
+</li>
+<li><strong>Documentación</strong>: <ul>
+<li>La documentación de <a href="https://pkg.go.dev//testing#hdr-Fuzzing" rel="noreferrer" target="_blank"><code>testing</code></a> del paquete describen el tipo <code>testing.F</code> que se utiliza al escribir tests fuzz.</li>
+<li>Documentación del paquete <a href="https://pkg.go.dev/cmd/go" rel="noreferrer" target="_blank"><code>cmd/go</code></a> describe las banderas asociadas con el fuzzing.</li>
+</ul>
+</li>
+<li><strong>Detalles técnicos</strong>: <ul>
+<li><a href="https://golang.org/s/draft-fuzzing-design" rel="noreferrer" target="_blank">Borrador de diseño</a></li>
+<li><a href="https://golang.org/issue/44551" rel="noreferrer" target="_blank">Propuesta</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="glossary">Glosario</h2>
+<p><a id="glos-corpus-entry"></a>
+<strong>entrada de corpus:</strong> Una entrada en el corpus que se puede usar durante la fuzzing. Puede ser un archivo con formato especial o una llamada a <code><a href="https://pkg.go.dev/testing#F.Add" rel="noreferrer" target="_blank">(*testing.F).Add</a></code>.</p>
+<p><a id="glos-coverage-guidance"></a>
+<strong>guía de cobertura:</strong> Un método de fuzzing que utiliza expansiones en la cobertura del código para determinar qué entradas del corpus vale la pena conservar para uso futuro.</p>
+<p><a id="glos-failing-input"></a>
+<strong>entrada fallida:</strong> Una entrada fallida es una entrada del corpus que causará un error o entrar en pánico al correr contra el <a href="#glos-fuzz-target">fuzz target</a>.</p>
+<p><a id="glos-fuzz-target"></a>
+<strong>fuzz target:</strong> La función del test fuzz que se ejecuta para las entradas del corpus y valores generados mientras se fuzzing. Se proporciona al test fuzz pasando la función a <code><a href="https://pkg.go.dev/testing#F.Fuzz" rel="noreferrer" target="_blank">(*testing.F).Fuzz</a></code>.</p>
+<p><a id="glos-fuzz-test"></a>
+<strong>test fuzz:</strong> Una función en un archivo de test del formulario <code>func FuzzXxx(*testing.F)</code> que se puede utilizar para realizar fuzzing.</p>
+<p><a id="glos-fuzzing"></a>
+<strong>fuzzing:</strong> Un tipo de test automatizado que manipula continuamente las entradas de un programa para encontrar problemas como errores o <a href="#glos-vulnerability">vulnerabilidades</a> a las que el código puede ser susceptible.</p>
+<p><a id="glos-fuzzing-arguments"></a>
+<strong>argumentos de fuzzing:</strong> Los tipos que se pasarán al objetivo de fuzzing, y mutado por el <a href="#glos-mutator">mutador</a>.</p>
+<p><a id="glos-fuzzing-engine"></a>
+<strong>motor de fuzzing:</strong> una herramienta que gestiona el fuzzing, incluido el mantenimiento del corpus, la invocación el mutador, identificando nuevas coberturas y reportando fallas.</p>
+<p><a id="glos-generated-corpus"></a>
+<strong>corpus generado:</strong> Un corpus que es mantenido por el motor de fuzzing a lo largo del tiempo durante el fuzzing para realizar un seguimiento del progreso. Se almacena en <code>$GOCACHE</code>/fuzz. Estas entradas sólo se utilizan durante el fuzzing.</p>
+<p><a id="glos-mutator"></a>
+<strong>mutador:</strong> una herramienta utilizada durante el fuzzing que manipula aleatoriamente las entradas del corpus antes de pasarlas a un fuzz target.</p>
+<p><a id="glos-package"></a>
+<strong>paquete:</strong> Una colección de archivos fuente en el mismo directorio que se compilan juntos. Consulta la <a href="https://go.dev/ref/spec" rel="nofollow" target="_blank" title="Página todavía no traducida">sección Paquetes ⬀</a> en la Especificación de lenguaje de Go.</p>
+<p><a id="glos-seed-corpus"></a>
+<strong>seed corpus:</strong> Un corpus proporcionado por el usuario para un test de fuzz que puede ser utilizado para guiar el motor fuzzing. Se compone de las entradas del corpus proporcionadas por las llamadas f.Add dentro del test fuzz y los archivos en el directorio testdata/fuzz/{FuzzTestName} dentro del paquete. Estas entradas se ejecutan de forma predeterminada con <code>go test</code>, ya sea con fuzzing o no.</p>
+<p><a id="glos-test-file"></a>
+<strong>archivo de test:</strong> Un archivo del formato xxx_test.go que puede contener tests, puntos de referencia, ejemplos y tests fuzz.</p>
+<p><a id="glos-vulnerability"></a>
+<strong>vulnerabilidad:</strong> Una debilidad en el código sensible a la seguridad que puede ser explotada por un atacante.</p>
+<h2 id="feedback">Feedback</h2>
+<p>Si tienes algún problema o tienes una idea para una función, <a href="https://github.com/golang/go/issues/new?&amp;labels=fuzz" rel="noreferrer" target="_blank">presenta un issue</a>.</p>
+<p>Para debates y comentarios generales sobre la función, también puedes participar en el <a href="https://gophers.slack.com/archives/CH5KV1AKE" rel="noreferrer" target="_blank">channel #fuzzing</a> en Gophers Slack.</p>
 
 
     

@@ -16,9 +16,9 @@
   
   
 <script src="/js/site.js"></script>
-<meta name="og:url" content="https://go.dev/security/vuln/cna">
-<meta name="og:title" content="Política de Go CNA - El lenguaje de programación Go en Español">
-<title>Política de Go CNA - El lenguaje de programación Go en Español</title>
+<meta name="og:url" content="https://go.dev/security/policy">
+<meta name="og:title" content="Política de seguridad de Go - El lenguaje de programación Go en Español">
+<title>Política de seguridad de Go - El lenguaje de programación Go en Español</title>
 
 <meta name="og:image" content="https://go.dev/doc/gopher/gopher5logo.jpg">
 <meta name="twitter:image" content="https://go.dev/doc/gopher/gopherbelly300.jpg">
@@ -391,26 +391,88 @@
   <article class="Article Article--security">
 
     
-    <h1>Política CNA de Go</h1>
-    <p><a href="/security/vuln">Volver a Gestión de vulnerabilidades de Go</a></p>
-<h2 id="overview">Descripción general</h2>
-<p>Go CNA es una 
-<a href="https://www.cve.org/ProgramOrganization/CNAs" rel="noreferrer" target="_blank">Autoridad de numeración CVE</a>, que emite 
-<a href="https://www.cve.org/ResourcesSupport/Glossary?activeTerm=glossaryCVEID" rel="noreferrer" target="_blank">ID CVE</a> y publica 
-<a href="https://www.cve.org/ResourcesSupport/Glossary?activeTerm=glossaryRecord" rel="noreferrer" target="_blank">Registros CVE</a> 
-para vulnerabilidades públicas en el ecosistema Go. Es una sub-CNA de la CNA de Google.</p>
-<h2 id="scope">Alcance</h2>
-<p>Go CNA cubre vulnerabilidades en el proyecto Go (la <a href="https://go.dev/pkg" rel="nofollow" target="_blank" title="Página todavía no traducida">biblioteca estándar ⬀</a> de Go y <a href="https://pkg.go.dev/golang.org/x" rel="noreferrer" target="_blank">sub-repositorios</a>) y vulnerabilidades públicas en módulos Go importables que aún no están cubiertos por otro CNA.</p>
-<p>Este alcance está destinado a excluir explícitamente vulnerabilidades en aplicaciones o paquetes escritos en Go que no son importables (por ejemplo, cualquier cosa en el paquete <code>main</code>). Consulta <a href="/security/vuln/database#excluded-reports">go.dev/security/vuln/database#excluded-reports</a> para obtener más información sobre los informes excluidos.</p>
-<p>Para informar posibles nuevas vulnerabilidades en el proyecto Go, consulta
-<a href="/security/policy">go.dev/security/policy</a>.</p>
-<h2 id="requesting-a-cve-id-for-a-public-vulnerability">Solicitar una CVE ID para una vulnerabilidad pública</h2>
-<p><strong>IMPORTANTE</strong>: el formulario vinculado a continuación crea un issue público en el rastreador de issues y, por lo tanto,
-<em>no</em> debe usarse para informar vulnerabilidades no reveladas en Go (consulta nuestra 
-<a href="/security/policy">política de seguridad</a> para obtener instrucciones sobre cómo informar problemas no revelados).</p>
-<p>Para solicitar un CVE ID para una vulnerabilidad PÚBLICA existente en el ecosistema Go,
-<a href="https://go.dev/s/vulndb-report-new" rel="nofollow" target="_blank" title="Página todavía no traducida">envía una solicitud a través de este formulario ⬀</a>.</p>
-<p>Una vulnerabilidad se considera pública si ya se ha divulgado públicamente o existe en un paquete que mantienes y estás listo para divulgarlo públicamente.</p>
+      
+<ol class="SiteBreadcrumb">
+  
+<li class="BreadcrumbNav-li ">
+  <a class="BreadcrumbNav-link" href="/security/">
+  Seguridad
+  </a>
+</li>
+<li class="BreadcrumbNav-li active">
+  <a class="BreadcrumbNav-link" href="/security/policy">
+  Política de Seguridad de Go
+  </a>
+</li>
+</ol>
+    <h1>Política de Seguridad de Go</h1>
+    <h2 id="overview">Descripción general</h2>
+<p>Este documento explica el proceso del equipo de Go Security para manejar los problemas reportados y qué esperar a cambio.</p>
+<h2 id="reporting-a-security-bug">Reportar un error de seguridad</h2>
+<p>Todos los errores de seguridad en la distribución Go deben informarse por correo electrónico a <a href="mailto:security@golang.org">security@golang.org</a>. Este correo se entrega al equipo de Go Security.</p>
+<p>Para asegurarte de que tu informe no se marque como spam, <strong>incluye la palabra "vulnerabilidad"</strong> en cualquier parte de tu correo electrónico. Utiliza una línea de asunto descriptiva para el correo electrónico de tu informe.</p>
+<p>Tu correo electrónico será reconocido dentro de los 7 días y se te mantendrá actualizado con el progreso hasta la resolución. Tu problema se solucionará o se hará público dentro de los 90 días.</p>
+<p>Si no has recibido una respuesta a tu correo electrónico dentro de 7 días, comunícate nuevamente con el equipo de seguridad de Go en <a href="mailto:security@golang.org">seguridad@golang.org</a>. Asegúrate de que la palabra <strong>vulnerabilidad</strong> esté en tu correo electrónico.</p>
+<p>Si después de 3 días más aún no has recibido un acuse de recibo de tu reporte, es posible que tu correo electrónico haya sido marcado como spam. En ese caso, <a href="https://g.co/vulnz" rel="noreferrer" target="_blank">presenta un issue aquí</a>. Selecciona <em>“Quiero informar de un error técnico relacionado con la seguridad o un riesgo de abuso en un producto de Google (SQLi, XSS, etc.)”</em> y escribe <em>“Go”</em> como producto afectado.</p>
+<h2 id="tracks">Tracks</h2>
+<p>Dependiendo de la naturaleza de tu problema, el equipo de seguridad de Go lo clasificará como un problema en la categoría PÚBLICO, PRIVADO o URGENTE. A todos los problemas de seguridad se les emitirán números CVE.</p>
+<h3 id="public">PÚBLICO</h3>
+<p>Los problemas en la vía PÚBLICA afectan a configuraciones de nicho, tienen un impacto muy limitado o ya son ampliamente conocidos.</p>
+<p>Los problemas de seguimiento PÚBLICO están etiquetados con <a href="https://github.com/golang/go/labels/Proposal-Security" rel="noreferrer" target="_blank"><code>Proposal-Security</code></a>, discutido a través del <a href="https://go.googlesource.com/proposal/+/master/README.md#proposal-review" rel="noreferrer" target="_blank">proceso de revisión de la propuesta Go</a>
+<strong>corregido en público</strong> y se obtiene una actualización para las próximas <a href="https://go.dev/wiki/MinorReleases" rel="nofollow" target="_blank" title="Página todavía no traducida">versiones menores ⬀</a> programadas. (que ocurren ~mensualmente). El anuncio del lanzamiento incluye detalles de estos problemas, pero no hay ningún anuncio previo.</p>
+<p>Ejemplos de ediciones PÚBLICAS pasadas incluyen:</p>
+<ul>
+<li><a href="https://go.dev/issue/44916" rel="nofollow" target="_blank" title="Página todavía no traducida">#44916 ⬀</a>: archive/zip: puede entrar en pánico al llamar a Reader.Open</li>
+<li><a href="https://go.dev/issue/44913" rel="nofollow" target="_blank" title="Página todavía no traducida">#44913 ⬀</a>: encoding/xml: bucle infinito cuando se usa xml.NewTokenDecoder con un TokenReader personalizado</li>
+<li><a href="https://go.dev/issue/43786" rel="nofollow" target="_blank" title="Página todavía no traducida">#43786 ⬀</a>: cripto/elliptic: operaciones incorrectas en la curva P-224</li>
+<li><a href="https://go.dev/issue/40928" rel="nofollow" target="_blank" title="Página todavía no traducida">#40928 ⬀</a>: net/http/cgi,net/http/fcgi: Cross-Site Scripting (XSS) cuando el tipo de contenido no está especificado</li>
+<li><a href="https://go.dev/issue/40618" rel="nofollow" target="_blank" title="Página todavía no traducida">#40618 ⬀</a>: encoding/binary: ReadUvarint y ReadVarint pueden leer un número ilimitado de bytes de entradas no válidas</li>
+<li><a href="https://go.dev/issue/36834" rel="nofollow" target="_blank" title="Página todavía no traducida">#36834 ⬀</a>: crypto/x509: omisión de validación de certificados en Windows 10</li>
+</ul>
+<h3 id="private">PRIVADO</h3>
+<p>Los problemas en la vía PRIVADA son violaciones de propiedades de seguridad comprometidas.</p>
+<p>Los problemas de las pistas PRIVADAS se <strong>solucionan en los próximos <a href="https://go.dev/wiki/MinorReleases" rel="nofollow" target="_blank" title="Página todavía no traducida">lanzamientos menores ⬀</a></strong> programados y se mantienen privados hasta entonces.</p>
+<p>De tres a siete días antes del lanzamiento, se envía un anuncio previo a golang-announce, anunciando la presencia de una o más correcciones de seguridad en las próximas versiones y si los problemas afectan a la biblioteca estándar, la cadena de herramientas o ambos, así como los ID de CVE reservados para cada una de las correcciones.</p>
+<p>Algunos ejemplos de problemas PRIVADOS pasados incluyen:</p>
+<ul>
+<li><a href="https://go.dev/issue/53416" rel="nofollow" target="_blank" title="Página todavía no traducida">#53416 ⬀</a>: path/filePath: agotamiento de pila en Glob</li>
+<li><a href="https://go.dev/issue/53616" rel="nofollow" target="_blank" title="Página todavía no traducida">#53616 ⬀</a>: go/parser: agotamiento de pila en todas las funciones de Parse*</li>
+<li><a href="https://go.dev/issue/54658" rel="nofollow" target="_blank" title="Página todavía no traducida">#54658 ⬀</a>: net/http: maneja errores del servidor después de enviar GOAWAY</li>
+<li><a href="https://go.dev/issue/56284" rel="nofollow" target="_blank" title="Página todavía no traducida">#56284 ⬀</a>: syscall, os/exec: NUL no sanitizado en variables de entorno</li>
+</ul>
+<h3 id="urgent">URGENTE</h3>
+<p>Los problemas URGENTES en las pistas son una amenaza para la integridad del ecosistema de Go o están siendo explotados activamente, lo que provoca daños graves. No hay ejemplos recientes, pero incluirían la ejecución remota de código en net/http o la recuperación práctica de claves en crypto/tls.</p>
+<p>Los problemas de seguimiento URGENTES se solucionan en privado y <strong>activan una versión de seguridad dedicada inmediata</strong>, posiblemente sin anuncio previo.</p>
+<h2 id="flagging-existing-issues-as-security-related">Marcar problemas existentes como relacionados con la seguridad</h2>
+<p>Si crees que un <a href="https://go.dev/issue" rel="nofollow" target="_blank" title="Página todavía no traducida">problema existente ⬀</a> está relacionado con la seguridad, te pedimos que envíes un correo electrónico a <a href="mailto:security@golang.org">security@golang.org</a>. El correo electrónico debe incluir el ID del problema y una breve descripción de por qué debe manejarse de acuerdo con esta política de seguridad.</p>
+<h2 id="disclosure-process">Proceso de Divulgación</h2>
+<p>El proyecto Go utiliza el siguiente proceso de divulgación:</p>
+<ol>
+<li>
+<p>Una vez que se recibe el informe de seguridad, se le asigna un controlador principal. Esta persona coordina el proceso de reparación y liberación.</p>
+</li>
+<li>
+<p>Se confirma el problema y se determina una lista del software afectado.</p>
+</li>
+<li>
+<p>El código se audita para encontrar posibles problemas similares.</p>
+</li>
+<li>
+<p>Si se determina, en consulta con el remitente, que se requiere un número CVE, el controlador principal obtendrá uno.</p>
+</li>
+<li>
+<p>Se preparan correcciones para las dos versiones principales más recientes y la revisión principal/master. Las correcciones se preparan para las dos versiones principales más recientes y se fusionan en head/master.</p>
+</li>
+<li>
+<p>En la fecha en que se aplican las correcciones, los anuncios se envían a <a href="https://groups.google.com/group/golang-announce" rel="noreferrer" target="_blank">golang-announce</a>, <a href="https://groups.google.com/group/golang-dev" rel="noreferrer" target="_blank">golang-dev</a> y <a href="https://groups.google.com/group/golang-nuts" rel="noreferrer" target="_blank">golang-nuts</a>.</p>
+</li>
+</ol>
+<p>Este proceso puede llevar algún tiempo, especialmente cuando se requiere coordinación con mantenedores de otros proyectos. Se hará todo lo posible para solucionar el error lo más oportunamente posible; sin embargo, es importante que sigamos el proceso descrito anteriormente para garantizar que las divulgaciones se manejen de manera consistente.</p>
+<p>Para problemas de seguridad que incluyen la asignación de un número CVE, el problema se enumera públicamente en <a href="https://www.cvedetails.com/vulnerability-list/vendor_id-14185/Golang.html" rel="noreferrer" target="_blank">producto “Golang” en el sitio web CVEDetails</a> así como en <a href="https://web.nvd.nist.gov/view/vuln/search" rel="noreferrer" target="_blank">Sitio de divulgación nacional de vulnerabilidades</a>.</p>
+<h2 id="receiving-security-updates">Recibir actualizaciones de seguridad</h2>
+<p>La mejor manera de recibir anuncios de seguridad es suscribirte a la <a href="https://groups.google.com/forum/#!forum/golang-announce" rel="noreferrer" target="_blank">golang-announce</a>. Cualquier mensaje relacionado con un problema de seguridad tendrá el prefijo <code>[security]</code>.</p>
+<h2 id="comments-on-this-policy">Comentarios sobre esta política</h2>
+<p>Si tienes alguna sugerencia para mejorar esta política, <a href="https://go.dev/issue/new" rel="nofollow" target="_blank" title="Página todavía no traducida">presenta un issue ⬀</a> para discutirlo.</p>
 
 
     

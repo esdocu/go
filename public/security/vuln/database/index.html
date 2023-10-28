@@ -16,9 +16,9 @@
   
   
 <script src="/js/site.js"></script>
-<meta name="og:url" content="https://go.dev/security/vuln/cna">
-<meta name="og:title" content="Política de Go CNA - El lenguaje de programación Go en Español">
-<title>Política de Go CNA - El lenguaje de programación Go en Español</title>
+<meta name="og:url" content="https://go.dev/security/vuln/database">
+<meta name="og:title" content="Go Vulnerability Database - El lenguaje de programación Go en Español">
+<title>Go Vulnerability Database - El lenguaje de programación Go en Español</title>
 
 <meta name="og:image" content="https://go.dev/doc/gopher/gopher5logo.jpg">
 <meta name="twitter:image" content="https://go.dev/doc/gopher/gopherbelly300.jpg">
@@ -391,26 +391,136 @@
   <article class="Article Article--security">
 
     
-    <h1>Política CNA de Go</h1>
+    <h1>Base de datos de vulnerabilidades de Go</h1>
     <p><a href="/security/vuln">Volver a Gestión de vulnerabilidades de Go</a></p>
 <h2 id="overview">Descripción general</h2>
-<p>Go CNA es una 
-<a href="https://www.cve.org/ProgramOrganization/CNAs" rel="noreferrer" target="_blank">Autoridad de numeración CVE</a>, que emite 
-<a href="https://www.cve.org/ResourcesSupport/Glossary?activeTerm=glossaryCVEID" rel="noreferrer" target="_blank">ID CVE</a> y publica 
-<a href="https://www.cve.org/ResourcesSupport/Glossary?activeTerm=glossaryRecord" rel="noreferrer" target="_blank">Registros CVE</a> 
-para vulnerabilidades públicas en el ecosistema Go. Es una sub-CNA de la CNA de Google.</p>
-<h2 id="scope">Alcance</h2>
-<p>Go CNA cubre vulnerabilidades en el proyecto Go (la <a href="https://go.dev/pkg" rel="nofollow" target="_blank" title="Página todavía no traducida">biblioteca estándar ⬀</a> de Go y <a href="https://pkg.go.dev/golang.org/x" rel="noreferrer" target="_blank">sub-repositorios</a>) y vulnerabilidades públicas en módulos Go importables que aún no están cubiertos por otro CNA.</p>
-<p>Este alcance está destinado a excluir explícitamente vulnerabilidades en aplicaciones o paquetes escritos en Go que no son importables (por ejemplo, cualquier cosa en el paquete <code>main</code>). Consulta <a href="/security/vuln/database#excluded-reports">go.dev/security/vuln/database#excluded-reports</a> para obtener más información sobre los informes excluidos.</p>
-<p>Para informar posibles nuevas vulnerabilidades en el proyecto Go, consulta
-<a href="/security/policy">go.dev/security/policy</a>.</p>
-<h2 id="requesting-a-cve-id-for-a-public-vulnerability">Solicitar una CVE ID para una vulnerabilidad pública</h2>
-<p><strong>IMPORTANTE</strong>: el formulario vinculado a continuación crea un issue público en el rastreador de issues y, por lo tanto,
-<em>no</em> debe usarse para informar vulnerabilidades no reveladas en Go (consulta nuestra 
-<a href="/security/policy">política de seguridad</a> para obtener instrucciones sobre cómo informar problemas no revelados).</p>
-<p>Para solicitar un CVE ID para una vulnerabilidad PÚBLICA existente en el ecosistema Go,
-<a href="https://go.dev/s/vulndb-report-new" rel="nofollow" target="_blank" title="Página todavía no traducida">envía una solicitud a través de este formulario ⬀</a>.</p>
-<p>Una vulnerabilidad se considera pública si ya se ha divulgado públicamente o existe en un paquete que mantienes y estás listo para divulgarlo públicamente.</p>
+<p>La base de datos de vulnerabilidades de Go (<a href="https://vuln.go.dev" rel="noreferrer" target="_blank">https://vuln.go.dev</a>) proporciona información sobre la vulnerabilidad de Go en <a href="https://ossf.github.io/osv-schema/" rel="noreferrer" target="_blank">Vulnerabilidad de código abierto (OSV) esquema</a>.</p>
+<p>También puedes buscar vulnerabilidades en la base de datos en <a href="https://pkg.go.dev/vuln" rel="noreferrer" target="_blank">pkg.go.dev/vuln</a>.</p>
+<p><strong>No</strong> confíes en el contenido del repositorio Git x/vulndb. Los archivos YAML en ese repositorio se mantienen usando un formato interno que puede cambiar sin previo aviso.</p>
+<h2 id="contributing">Contribuyendo</h2>
+<p>Nos encantaría que todos los mantenedores de paquetes Go <a href="https://go.dev/s/vulndb-report-new" rel="nofollow" target="_blank" title="Página todavía no traducida">contribuyan ⬀</a> con información sobre vulnerabilidades públicas en sus propios proyectos y <a href="https://go.dev/s/vulndb-report-feedback" rel="nofollow" target="_blank" title="Página todavía no traducida">actualicen ⬀</a> la información existente sobre las vulnerabilidades en sus paquetes Go.</p>
+<p>Nuestro objetivo es que la presentación de informes sea un proceso de baja fricción, así que no dudes en <a href="https://go.dev/s/vuln-feedback" rel="nofollow" target="_blank" title="Página todavía no traducida">envíanos tus sugerencias ⬀</a>.</p>
+<p>Por favor, <strong>no</strong> utilices los formularios anteriores para informar una vulnerabilidad en la biblioteca estándar o los subrepositorios de Go. En su lugar, sigue el proceso en <a href="/security/policy">go.dev/security/policy</a> para conocer las vulnerabilidades del proyecto Go.</p>
+<h2 id="api">API</h2>
+<p>La base de datos canónica de vulnerabilidades de Go, <a href="https://vuln.go.dev" rel="noreferrer" target="_blank">https://vuln.go.dev</a>, es un servidor HTTP que puede responder a solicitudes GET para los endpoints especificados a continuación.</p>
+<p>Los endpoints no tienen parámetros de consulta y no se requieren encabezados específicos. Debido a esto, incluso un sitio que sirve desde un sistema de archivos fijo (incluida una URL <code>file://</code> ) puede implementar esta API.</p>
+<p>Cada endpoint devuelve una respuesta codificada en JSON, ya sea sin comprimir (si se solicita como <code>.json</code>) o en formato comprimido (si se solicita como <code>.json.gz</code>).</p>
+<p>Los endpoints son:</p>
+<ul>
+<li>
+<p><code>/index/db.json[.gz]</code></p>
+<p>Devuelve metadatos sobre la base de datos:</p>
+<pre><code class="language-json">{
+  // The latest time the database should be considered
+  // to have been modified, as an RFC3339-formatted UTC
+  // timestamp ending in "Z".
+  "modified": string
+}
+</code></pre>
+<p>Ten en cuenta que la hora modificada <em>no</em> debe compararse con la hora del reloj de pared, por ejemplo, para fines de invalidación de caché, ya que puede haber un retraso en la realización de modificaciones de la base de datos.</p>
+<p>Ver <a href="https://vuln.go.dev/index/db.json" rel="noreferrer" target="_blank">/index/db.json</a> para ver un ejemplo en vivo.</p>
+</li>
+<li>
+<p><code>/index/modules.json[.gz]</code></p>
+<p>Devuelve una lista que contiene metadatos sobre cada módulo en la base de datos:</p>
+<pre><code class="language-json">[ {
+  // The module path.
+  "path": string,
+  // The vulnerabilities that affect this module.
+  "vulns":
+    [ {
+      // The vulnerability ID.
+      "id": string,
+      // The latest time the vulnerability should be considered
+      // to have been modified, as an RFC3339-formatted UTC
+      // timestamp ending in "Z".
+      "modified": string,
+      // (Optional) The module version (in SemVer 2.0.0 format)
+      // that contains the latest fix for the vulnerability.
+      // If unknown or unavailable, this should be omitted.
+      "fixed": string,
+    } ]
+} ]
+</code></pre>
+<p>Ver <a href="https://vuln.go.dev/index/modules.json" rel="noreferrer" target="_blank">/index/modules.json</a> para ver un ejemplo en vivo.</p>
+</li>
+<li>
+<p><code>/index/vulns.json[.gz]</code></p>
+<p>Devuelve una lista que contiene metadatos sobre cada vulnerabilidad en la base de datos:</p>
+<pre><code class="language-json"> [ {
+     // The vulnerability ID.
+     "id": string,
+     // The latest time the vulnerability should be considered
+     // to have been modified, as an RFC3339-formatted UTC
+     // timestamp ending in "Z".
+     "modified": string,
+     // A list of IDs of the same vulnerability in other databases.
+     "aliases": [ string ]
+ } ]
+</code></pre>
+<p>Ver <a href="https://vuln.go.dev/index/vulns.json" rel="noreferrer" target="_blank">/index/vulns.json</a> para ver un ejemplo en vivo.</p>
+</li>
+<li>
+<p><code>/ID/$id.json[.gz]</code></p>
+<p>Devuelve el informe individual de la vulnerabilidad con ID <code>$id</code>, en formato OSV (descrito a continuación en <a href="#schema">Esquema</a>).</p>
+<p>Ver <a href="https://vuln.go.dev/ID/GO-2022-0191.json" rel="noreferrer" target="_blank">/ID/GO-2022-0191.json</a> para ver un ejemplo en vivo.</p>
+</li>
+</ul>
+<h3 id="usage-in-govulncheck">Uso en <code>govulncheck</code></h3>
+<p>De forma predeterminada, <code>govulncheck</code> usa la base de datos canónica de vulnerabilidades de Go en <a href="https://vuln.go.dev" rel="noreferrer" target="_blank">vuln.go.dev</a>.</p>
+<p>El comando se puede configurar para contactar una base de datos de vulnerabilidad diferente usando el indicador <code>-db</code>, que acepta una URL de base de datos de vulnerabilidad con protocolo <code>http://</code>, <code>https://</code> o <code>file://</code>.</p>
+<p>Para funcionar correctamente con <code>govulncheck</code>, la base de datos de vulnerabilidades especificada debe implementar la API descrita anteriormente. El comando <code>govulncheck</code> utiliza puntos finales comprimidos “.json.gz” cuando lee desde una fuente http(s), y los puntos finales “.json” cuando lee desde una fuente de archivo.</p>
+<h3 id="legacy-api">Legacy API</h3>
+<p>La base de datos canónica contiene algunos endpoints adicionales que son parte de una Legacy API. Planeamos eliminar pronto la compatibilidad con estos endpoints. Si utilizas la Legacy API y necesitas tiempo adicional para migrar, <a href="https://go.dev/s/govulncheck-feedback" rel="nofollow" target="_blank" title="Página todavía no traducida">háganoslo saber ⬀</a>.</p>
+<h2 id="schema">Esquema</h2>
+<p>Los informes utilizan el <a href="https://ossf.github.io/osv-schema/" rel="noreferrer" target="_blank">esquema de Vulnerabilidad de código abierto (OSV)</a>. La base de datos de vulnerabilidades de Go asigna los siguientes significados a los campos:</p>
+<h3 id="id">id</h3>
+<p>El campo id es un identificador único para la entrada de vulnerabilidad. Es una cadena con el formato GO-&lt;YEAR&gt;-&lt;ENTRYID&gt;.</p>
+<h3 id="affected">affected</h3>
+<p>Los campos <a href="https://ossf.github.io/osv-schema/#affected-fields" rel="noreferrer" target="_blank">afectados</a> es una array JSON que contiene objetos que describen las versiones del módulo que contienen la vulnerabilidad.</p>
+<h4 id="affectedpackage">affected[].package</h4>
+<p>El <a href="https://ossf.github.io/osv-schema/#affectedpackage-field" rel="noreferrer" target="_blank">affected[].package</a> es un objeto JSON que identifica el <em>módulo afectado.</em> El objeto tiene dos campos obligatorios:</p>
+<ul>
+<li><strong>ecosystem</strong>: esto siempre será “Go”</li>
+<li><strong>name</strong>: esta es la ruta del módulo Go <ul>
+<li>Los paquetes importables en la biblioteca estándar tendrán el nombre <em>stdlib</em>.</li>
+<li>El comando go tendrá el nombre <em>toolchain</em>.</li>
+</ul>
+</li>
+</ul>
+<h4 id="affectedecosystem-specific">affected[].ecosystem_specific</h4>
+<p>El <a href="https://ossf.github.io/osv-schema/#affectedecosystem_specific-field" rel="noreferrer" target="_blank">affected[].ecosystem_specific</a> es un objeto JSON con información adicional sobre la vulnerabilidad, que utilizan las herramientas de detección de vulnerabilidades de Go.</p>
+<p>Por ahora, el ecosistema específico siempre será un objeto con un solo campo, <code>imports</code>.</p>
+<h5 id="affectedecosystem-specificimports">affected[].ecosystem_specific.imports</h5>
+<p>El campo <code>affected[].ecosystem_specific.imports</code> es una array JSON que contiene los paquetes y símbolos afectados por la vulnerabilidad. Cada objeto del array tendrá estos dos campos:</p>
+<ul>
+<li><strong>path:</strong> una cadena con la ruta de importación del paquete que contiene la vulnerabilidad</li>
+<li><strong>symbols:</strong> un array de cadenas con los nombres de los símbolos (función o método) que contiene la vulnerabilidad</li>
+<li><strong>goos</strong>: un array de cadenas con el sistema operativo de ejecución donde aparecen los símbolos, si se conocen</li>
+<li><strong>goarch</strong>: un array de cadenas con la arquitectura donde aparecen los símbolos, si se conoce</li>
+</ul>
+<h3 id="database-specificurl">database_specific.url</h3>
+<p>El campo <code>database_specific.url</code> es una cadena que representa la URL completa del informe de vulnerabilidad de Go, por ejemplo, “<a href="https://pkg.go.dev/vuln/GO-2023-1621%22" rel="noreferrer" target="_blank">https://pkg.go.dev/vuln/GO-2023-1621"</a>.</p>
+<p>Para obtener información sobre otros campos del esquema, consulta la <a href="https://ossf.github.io/osv-schema" rel="noreferrer" target="_blank">Especificación OSV</a>.</p>
+<h2 id="examples">Ejemplos</h2>
+<p>Todas las vulnerabilidades en la base de datos de vulnerabilidades de Go utilizan el esquema OSV descrito anteriormente.</p>
+<p>Consulta los enlaces a continuación para ver ejemplos de diferentes vulnerabilidades de Go:</p>
+<ul>
+<li><strong>Vulnerabilidad de la biblioteca estándar Go</strong> (GO-2022-0191): <a href="https://vuln.go.dev/ID/GO-2022-0191.json" rel="noreferrer" target="_blank">JSON</a>, <a href="https://pkg.go.dev/vuln/GO-2022-0191" rel="noreferrer" target="_blank">HTML</a></li>
+<li><strong>Vulnerabilidad de la cadena de herramientas Go</strong> (GO-2022-0189): <a href="https://vuln.go.dev/ID/GO-2022-0189.json" rel="noreferrer" target="_blank">JSON</a>, <a href="https://pkg.go.dev/vuln/GO-2022-0189" rel="noreferrer" target="_blank">HTML</a></li>
+<li><strong>Vulnerabilidad en el módulo Go</strong> (GO-2020-0015): <a href="https://vuln.go.dev/ID/GO-2020-0015.json" rel="noreferrer" target="_blank">JSON</a>, <a href="https://pkg.go.dev/vuln/GO-2020-0015" rel="noreferrer" target="_blank">HTML</a></li>
+</ul>
+<h2 id="excluded-reports">Informes excluidos</h2>
+<p>Los informes en la base de datos de vulnerabilidades de Go se recopilan de diferentes fuentes y son seleccionados por el equipo de seguridad de Go. Es posible que nos encontremos con un aviso de vulnerabilidad (por ejemplo, un CVE o GHSA) y decidamos excluirlo por diversas razones. En estos casos, se creará un informe mínimo en el repositorio x/vulndb, en <a href="https://github.com/golang/vulndb/tree/master/data/excluded" rel="noreferrer" target="_blank">x/vulndb/data/excluded</a>.</p>
+<p>Los informes pueden excluirse por estos motivos:</p>
+<ul>
+<li><code>NOT_GO_CODE</code>: la vulnerabilidad no está en un paquete Go, pero otra fuente la marcó como un aviso de seguridad para el ecosistema Go. Esta vulnerabilidad no puede afectar a ningún paquete Go. (Por ejemplo, una vulnerabilidad en una biblioteca de C++).</li>
+<li><code>NOT_IMPORTABLE</code>: La vulnerabilidad ocurre en el paquete <code>main</code>, un paquete <code>internal/</code> solo importado por paquete <code>main</code>, o alguna otra ubicación que nunca pueda ser importada por otro módulo.</li>
+<li><code>EFFECTIVELY_PRIVATE</code>: Si bien la vulnerabilidad ocurre en un paquete Go que puede ser importado por otro módulo, el paquete no está diseñado para uso externo y no es probable que nunca sea importado fuera del módulo en el que está definido.</li>
+<li><code>DEPENDENT_VULNERABILITY</code>: Esta vulnerabilidad es un subconjunto de otra vulnerabilidad en la base de datos. Por ejemplo, si el paquete A contiene una vulnerabilidad, el paquete B depende del paquete A y hay CVE ID separados para los paquetes A y B, podríamos marcar el informe de B como una vulnerabilidad dependiente completamente reemplazada por el informe de A.</li>
+<li><code>NOT_A_VULNERABILITY</code>: si bien se ha asignado un CVE ID o GHSA, no existe ninguna vulnerabilidad conocida asociada a él.</li>
+</ul>
+<p>Por el momento, los informes excluidos no se entregan a través de la API <a href="https://vuln.go.dev" rel="noreferrer" target="_blank">vuln.go.dev</a>. Sin embargo, si tienes un caso de uso específico y sería útil tener acceso a esta información a través de la API, <a href="https://go.dev/s/govulncheck-feedback" rel="nofollow" target="_blank" title="Página todavía no traducida">háznoslo saber ⬀</a>.</p>
 
 
     
