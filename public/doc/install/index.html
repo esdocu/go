@@ -16,9 +16,9 @@
   
   
 <script src="/js/site.js"></script>
-<meta name="og:url" content="https://go.dev/security/best-practices">
-<meta name="og:title" content="Mejores prácticas de seguridad para desarrolladores de Go: el lenguaje de programación Go en Español">
-<title>Mejores prácticas de seguridad para desarrolladores de Go: el lenguaje de programación Go en Español</title>
+<meta name="og:url" content="https://go.dev/doc/install">
+<meta name="og:title" content="Descargar e instalar - El lenguaje de programación Go en Español (Golang)">
+<title>Descargar e instalar - El lenguaje de programación Go en Español (Golang)</title>
 
 <meta name="og:image" content="https://go.dev/doc/gopher/gopher5logo.jpg">
 <meta name="twitter:image" content="https://go.dev/doc/gopher/gopherbelly300.jpg">
@@ -88,7 +88,7 @@
               Presiona Enter para activar/desactivar el menú desplegable
             </div>
           </li>
-          <li class="Header-menuItem ">
+          <li class="Header-menuItem  Header-menuItem--active">
             <a href="#" class="js-desktop-menu-hover" aria-label="Docs" aria-describedby="dropdown-description">
               Docs <i class="material-icons" aria-hidden="true">arrow_drop_down</i>
             </a>
@@ -271,7 +271,7 @@
           </li>
         
         
-          <li class="NavigationDrawer-listItem js-mobile-subnav-trigger  NavigationDrawer-hasSubnav">
+          <li class="NavigationDrawer-listItem js-mobile-subnav-trigger  NavigationDrawer-listItem--active NavigationDrawer-hasSubnav">
             <a href="#"><span>Docs</span> <i class="material-icons">navigate_next</i></a>
 
             <div class="NavigationDrawer NavigationDrawer-submenuItem">
@@ -388,35 +388,176 @@
 <div class="NavigationDrawer-scrim js-scrim" role="presentation"></div>
 <main class="SiteContent SiteContent--default" id="main-content">
   
-  <article class="Article Article--security">
-
-    
-    <h1>Mejores prácticas de seguridad para desarrolladores de Go</h1>
-    <p><a href="/security">Volver a Seguridad en Go</a></p>
-<p>Esta página proporciona a los desarrolladores de Go las mejores prácticas para priorizar la seguridad de sus proyectos. Desde automatizar tests con fuzzing hasta verificar fácilmente las condiciones de carrera, estos consejos pueden ayudar a que tu código base sea más seguro y confiable.</p>
-<h2 id="scan-source-code-and-binaries-for-vulnerabilities">Escanea el código fuente y los binarios en busca de vulnerabilidades</h2>
-<p>Escanear periódicamente tu código y archivos binarios en busca de vulnerabilidades ayuda a identificar posibles riesgos de seguridad de manera temprana. Puedes usar <a href="https://pkg.go.dev/golang.org/x/vuln/cmd/govulncheck" rel="noreferrer" target="_blank">govulncheck</a>, respaldado por la <a href="https://pkg.go.dev" rel="noreferrer" target="_blank">base de datos de vulnerabilidades de Go</a> para escanear tu código en busca de vulnerabilidades y analizar cuáles realmente te afectan. Comienza con <a href="https://go.dev/doc/tutorial/govulncheck" rel="nofollow" target="_blank" title="Página todavía no traducida">el tutorial de govulncheck ⬀</a>.</p>
-<p>Govulncheck también se puede integrar en flujos de CI/CD. El equipo de Go proporciona una <a href="https://github.com/marketplace/actions/golang-govulncheck-action" rel="noreferrer" target="_blank">GitHub Action para govulncheck</a> en GitHub Marketplace. Govulncheck también admite un indicador <code>-json</code> para ayudar a los desarrolladores a integrar el escaneo de vulnerabilidades con otros sistemas CI/CD.</p>
-<p>También puedes buscar vulnerabilidades directamente en tu editor de código usando la <a href="/security/vuln/editor" rel="noreferrer" target="_blank">Extensión Go para Visual Studio Code</a>. Comienza con <a href="https://go.dev/doc/tutorial/govulncheck-ide" rel="nofollow" target="_blank" title="Página todavía no traducida">este tutorial ⬀</a>.</p>
-<h2 id="keep-your-go-version-and-dependencies-up-to-date">Mantén actualizada tu versión de Go y tus dependencias</h2>
-<p>Mantener tu <a href="/doc/install" rel="noreferrer" target="_blank">Versión Go actualizada</a> ofrece acceso a las últimas funciones del lenguaje, mejoras de rendimiento y parches para vulnerabilidades de seguridad conocidas. Una versión actualizada de Go también garantiza la compatibilidad con versiones más recientes de dependencias, lo que ayuda a evitar posibles problemas de integración. Revisa el <a href="https://go.dev/doc/devel/release" rel="nofollow" target="_blank" title="Página todavía no traducida">Historial de lanzamientos de Go ⬀</a> para ver qué cambios se han realizado en Go entre lanzamientos. El equipo de Go emite lanzamientos puntuales a lo largo del ciclo de lanzamiento para solucionar errores de seguridad. Asegúrate de actualizar a la última versión menor de Go para asegurarse de tener las últimas correcciones de seguridad.</p>
-<p>Mantener dependencias de terceros actualizadas también es crucial para la seguridad, el rendimiento y el cumplimiento del software con los últimos estándares en el ecosistema Go. Sin embargo, actualizar a las últimas versiones sin una revisión exhaustiva <a href="https://research.swtch.com/npm-colors" rel="noreferrer" target="_blank">también puede ser riesgoso</a>, ya que podría introducir nuevos errores, cambios incompatibles o incluso código malicioso. Por lo tanto, si bien es esencial actualizar las dependencias para obtener los últimos parches y mejoras de seguridad, cada actualización debe revisarse y probarse cuidadosamente.</p>
-<h2 id="test-with-fuzzing-to-uncover-edge-case-exploits">Testing con fuzzing para descubrir edge-case exploits</h2>
-<p><a href="/security/fuzz" rel="noreferrer" target="_blank">Fuzzing</a> es un tipo de testing que utilizan una guía de cobertura para manipular entradas aleatorias y recorrer el código para encontrar e informar vulnerabilidades potenciales como inyecciones de SQL, desbordamientos de búfer, denegación de servicio y ataques de cross-site scripting. Fuzzing a menudo puede llegar a casos extremos que los programadores pasan por alto o consideran demasiado improbables para probar. Comienza con <a href="https://go.dev/doc/tutorial/fuzz" rel="nofollow" target="_blank" title="Página todavía no traducida">este tutorial ⬀</a>.</p>
-<h2 id="check-for-race-conditions-with-gos-race-detector">Verifica las condiciones de carrera con el detector de carrera de Go</h2>
-<p>Las condiciones de carrera ocurren cuando dos o más <a href="https://go.dev/tour/concurrency/1" rel="nofollow" target="_blank" title="Página todavía no traducida">gorrutinas ⬀</a>
-acceden al mismo recurso simultáneamente y al menos uno de esos accesos es una escritura. Esto puede generar problemas impredecibles y difíciles de diagnosticar en tu software. Identifica posibles condiciones de carrera en tu código Go utilizando el software integrado <a href="https://go.dev/doc/articles/race_detector" rel="nofollow" target="_blank" title="Página todavía no traducida">detector de carreras ⬀</a>, que puede ayudarte a garantizar la seguridad y confiabilidad de tus programas concurrentes. Sin embargo, el detector de carreras encuentra carreras que ocurren en tiempo de ejecución, por lo que no encontrará carreras en rutas de código que no se ejecuten.</p>
-<p>Para usar el detector de carrera, agrega el indicador <code>-race</code> cuando ejecutes tus tests o crees tu aplicación, por ejemplo, <code>go test -race</code>. Esto compilará tu código con el detector de carreras habilitado e informará cualquier condición de carrera que detecte en tiempo de ejecución. Cuando el detector de carreras encuentre una carrera de datos en el programa, <a href="https://go.dev/doc/articles/race_detector" rel="nofollow" target="_blank" title="Página todavía no traducida">imprime un informe ⬀</a> que contiene seguimientos de pila para accesos en conflicto y pilas donde se crearon las rutinas involucradas.</p>
-<h2 id="use-vet-to-examine-suspicious-constructs">Usa Vet para examinar construcciones sospechosas</h2>
-<p>El <a href="https://pkg.go.dev/cmd/vet" rel="noreferrer" target="_blank">comando vet</a> de Go es diseñado para analizar tu código fuente y señalar problemas potenciales que podrían no ser necesariamente errores de sintaxis, pero que podrían generar problemas durante el tiempo de ejecución. Estos incluyen construcciones sospechosas, como código inalcanzable, variables no utilizadas y errores comunes en torno a las rutinas. Al detectar estos problemas desde el principio durante el proceso de desarrollo, go vet ayuda a mantener la calidad del código, reduce el tiempo de depuración y mejora la confiabilidad general del software. Para ejecutar go vet para un proyecto específico, ejecuta:</p>
-<pre><code>go vet ./...
-</code></pre>
-<h2 id="subscribe-to-golang-announce-for-notification-of-security-releases">Suscríbete a golang-announce para recibir notificaciones sobre versiones de seguridad</h2>
-<p>Las versiones de Go que contienen correcciones de seguridad se anuncian previamente en la lista de correo de bajo volumen <a href="https://groups.google.com/group/golang-announce" rel="noreferrer" target="_blank">golang-announce@googlegroups.com</a>. Si deseas saber cuándo están en camino las correcciones de seguridad para Go, suscríbete.</p>
 
 
-    
-  </article>
+<article class="Doc Article">
+
+<div class="Article-columns">
+<div class="Article-content">
+
+
+
+  
+<ol class="SiteBreadcrumb">
+  
+<li class="BreadcrumbNav-li ">
+  <a class="BreadcrumbNav-link" href="/doc/">
+  Documentación
+  </a>
+</li>
+<li class="BreadcrumbNav-li active">
+  <a class="BreadcrumbNav-link" href="/doc/install">
+  Descargar e instalar
+  </a>
+</li>
+</ol>
+
+
+
+<h1>Descargar e instalar</h1>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p>
+  Descarga e instala Go rápidamente con los pasos que se describen aquí.
+</p>
+<p>Para más contenido sobre instalación, quizás te interese:</p>
+<ul>
+  <li>
+    <a href="https://go.dev/doc/manage-install" rel="nofollow" target="_blank" title="Página todavía no traducida">Administración de instalaciones de Go ⬀</a> -- cómo instalar varias versiones y desinstalarlas.  </li>
+  <li>
+    <a href="https://go.dev/doc/install/source" rel="nofollow" target="_blank" title="Página todavía no traducida">Instalar Go desde el código fuente ⬀</a> - Cómo verificar las fuentes, compilarlas en tu propia máquina y ejecutarlos.  </li>
+</ul>
+<p class="DownloadBtn">
+  <a href="https://go.dev/dl" id="start" class="btn download" rel="nofollow" target="_blank" title="Página todavía no traducida">
+    <span id="download-description" class="js-downloadDescription">
+      Descargar
+    </span>
+  </a>
+</p>
+<p> ¿No ves tu sistema operativo aquí? Prueba una de las <a href="https://go.dev/dl" rel="nofollow" target="_blank" title="Página todavía no traducida">otras descargas ⬀</a>.</p>
+
+<h2 id="install">Instalación de Go</h2>
+<p>
+  Selecciona la pestaña correspondiente al sistema operativo de tu computadora a continuación y luego sigue las instrucciones de instalación.
+</p>
+<div id="os-install-tabs" class="TabSection js-tabSection">
+  <div id="os-install-tablist" class="TabSection-tabList" role="tablist">
+    <button role="tab" aria-selected="true" aria-controls="linux-tab" id="linux" tabindex="0" class="TabSection-tab active">
+      Linux
+      <img class="TabSection-underline" src="/images/icons/underline.svg" width="51" height="4" aria-hidden="true">
+    </button>
+    <button role="tab" aria-selected="false" aria-controls="mac-tab" id="mac" tabindex="-1" class="TabSection-tab">
+      Mac
+      <img class="TabSection-underline" src="/images/icons/underline.svg" width="51" height="4" aria-hidden="true">
+    </button>
+    <button role="tab" aria-selected="false" aria-controls="windows-tab" id="windows" tabindex="-1" class="TabSection-tab">
+      Windows
+      <img class="TabSection-underline" src="/images/icons/underline.svg" width="51" height="4" aria-hidden="true">
+    </button>
+  </div>
+  <div role="tabpanel" id="linux-tab" class="TabSection-tabPanel" aria-labelledby="linux">
+    <ol>
+      <li>
+        <strong>Elimina cualquier instalación anterior de Go</strong> eliminando la carpeta /usr/local/go (si existe), luego extrae el archivo que acabas de descargar en /usr/local, creando un árbol Go nuevo en /usr/local/go: 		<pre class="CopyPaste">      <span>$ rm -rf /usr/local/go &amp;&amp; tar -C /usr/local -xzf <span id="linux-filename">go1.14.3.linux-amd64.tar.gz</span></span>
+      <button aria-label="Copy and paste the code.">
+        <img class="CopyPaste-icon" src="/images/icons/copy-paste.svg">
+        <img class="CopyPaste-icon CopyPaste-icon-dark" src="/images/icons/copy-paste-dark.svg">
+      </button>
+    </pre>
+		<p>     (Es posible que debas ejecutar el comando como root o mediante <code>sudo</code>).    </p>
+		<p>
+		  <strong>No</strong> descomprimas el archivo en un árbol /usr/local/go existente. Se sabe que esto produce instalaciones Go rotas. 		</p>
+      </li>
+      <li>     Agrega /usr/local/go/bin a la variable de entorno <code>PATH</code>.     <p>     Puedes hacer esto agregando la siguiente línea a tu $HOME/.profile o /etc/profile (para una instalación en todo el sistema):    </p>
+        <pre class="CopyPaste">          <span>export PATH=$PATH:/usr/local/go/bin</span>
+          <button aria-label="Copy and paste the code.">
+            <img class="CopyPaste-icon" src="/images/icons/copy-paste.svg">
+            <img class="CopyPaste-icon CopyPaste-icon-dark" src="/images/icons/copy-paste-dark.svg">
+          </button>
+        </pre>
+        <p>
+          <strong>Nota:</strong> Es posible que los cambios realizados en un archivo profile no se apliquen hasta la próxima vez que inicies sesión en tu computadora. Para aplicar los cambios inmediatamente, simplemente ejecuta los comandos del shell directamente o ejecútalos desde el perfil usando un comando como      <code>source $HOME/.profile</code>.    </p>
+      </li>
+      <li>     Verifica que hayas instalado Go abriendo un símbolo del sistema y escribiendo el siguiente comando:     <pre class="CopyPaste">          <span>$ go version</span>
+          <button aria-label="Copy and paste the code.">
+            <img class="CopyPaste-icon" src="/images/icons/copy-paste.svg">
+            <img class="CopyPaste-icon CopyPaste-icon-dark" src="/images/icons/copy-paste-dark.svg">
+          </button>
+        </pre>
+      </li>
+      <li>Confirma que el comando imprime la versión instalada de Go.</li>
+    </ol>
+  </div>
+  <div role="tabpanel" id="mac-tab" class="TabSection-tabPanel" aria-labelledby="mac" hidden="">
+    <ol>
+      <li>     Abre el archivo del paquete que descargaste y sigue las instrucciones para instalar Go.     <p>     El paquete instala la distribución Go en /usr/local/go. El paquete debe colocar el directorio /usr/local/go/bin en tu variable de entorno <code>PATH</code>. Es posible que debas reiniciar cualquier sesión de Terminal abierta para que el cambio surta efecto.    </p>
+      </li>
+      <li>     Verifica que hayas instalado Go abriendo un símbolo del sistema y escribiendo el siguiente comando:     <pre class="CopyPaste">          <span>$ go version</span>
+          <button aria-label="Copy and paste the code.">
+            <img class="CopyPaste-icon" src="/images/icons/copy-paste.svg">
+            <img class="CopyPaste-icon CopyPaste-icon-dark" src="/images/icons/copy-paste-dark.svg">
+          </button>
+        </pre>
+      </li>
+      <li>Confirma que el comando imprime la versión instalada de Go.</li>
+    </ol>
+  </div>
+  <div role="tabpanel" id="windows-tab" class="TabSection-tabPanel" aria-labelledby="windows" hidden="">
+    <ol>
+      <li>     Abre el archivo MSI que descargaste y sigue las instrucciones para instalar Go.     <p>     De forma predeterminada, el instalador instalará Go en <code>Program Files</code> o <code>Program Files (x86)</code>. Puedes cambiar la ubicación según sea necesario. Después de la instalación, deberás cerrar y volver a abrir cualquier símbolo del sistema abierto para que los cambios en el entorno realizados por el instalador se reflejen en el símbolo del sistema.    </p>
+      </li>
+      <li>     Verifica que hayas instalado Go.     <ol>
+          <li>       En <strong>Windows</strong>, haz clic en el menú <strong>Inicio</strong>.      </li>
+          <li>       En el cuadro de búsqueda del menú, escribe <code>cmd</code> y luego presiona la tecla       <strong>Intro</strong>.      </li>
+          <li>       En la ventana del símbolo del sistema que aparece, escribe el siguiente comando:       <pre class="CopyPaste">              <span>$ go version</span>
+              <button aria-label="Copy and paste the code.">
+                <img class="CopyPaste-icon" src="/images/icons/copy-paste.svg">
+                <img class="CopyPaste-icon CopyPaste-icon-dark" src="/images/icons/copy-paste-dark.svg">
+              </button>
+            </pre>
+          </li>
+          <li>Confirma que el comando imprime la versión instalada de Go.</li>
+        </ol>
+      </li>
+    </ol>
+  </div>
+</div>
+<h2 id="code">¡Ya estás listo!</h2>
+<p class="DocInstall-footer">  Visita el  <a href="https://go.dev/tutorial/getting-started.html" rel="nofollow" target="_blank" title="Página todavía no traducida">tutorial de introducción ⬀</a> para escribir un código Go sencillo. Tarda unos 10 minutos en completarse.</p>
+
+<script async="" src="/doc/download.js"></script>
+<script async="" src="/doc/hats.js"></script>
+
+
+
+</div>
+
+
+<aside class="Sidebar">
+  <h4>Informar problemas</h4>
+  <p>Si detectas bugs, errores o inconsistencias en el código o la documentación del proyecto Go, infórmanos presentando un ticket en nuestro <a href="https://github.com/golang/go/issues">rastreador de issues.</a> Por supuesto, debes comprobar que no es un problema existente antes de crear uno nuevo.</p>
+  <a class="btn" href="https://github.com/golang/go/issues" aria-describedby="footer-description">Presentar un ticket</a>
+</aside>
+
+
+</div>
+
+</article>
+
+
 
 </main>
 <footer class="Site-footer">

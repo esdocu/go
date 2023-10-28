@@ -16,9 +16,9 @@
   
   
 <script src="/js/site.js"></script>
-<meta name="og:url" content="https://go.dev/security/best-practices">
-<meta name="og:title" content="Mejores prácticas de seguridad para desarrolladores de Go: el lenguaje de programación Go en Español">
-<title>Mejores prácticas de seguridad para desarrolladores de Go: el lenguaje de programación Go en Español</title>
+<meta name="og:url" content="https://go.dev/doc/tutorial/getting-started">
+<meta name="og:title" content="Tutorial: Comienza con Go - El lenguaje de programación Go en Español (Golang)">
+<title>Tutorial: Comienza con Go - El lenguaje de programación Go en Español (Golang)</title>
 
 <meta name="og:image" content="https://go.dev/doc/gopher/gopher5logo.jpg">
 <meta name="twitter:image" content="https://go.dev/doc/gopher/gopherbelly300.jpg">
@@ -88,7 +88,7 @@
               Presiona Enter para activar/desactivar el menú desplegable
             </div>
           </li>
-          <li class="Header-menuItem ">
+          <li class="Header-menuItem  Header-menuItem--active">
             <a href="#" class="js-desktop-menu-hover" aria-label="Docs" aria-describedby="dropdown-description">
               Docs <i class="material-icons" aria-hidden="true">arrow_drop_down</i>
             </a>
@@ -271,7 +271,7 @@
           </li>
         
         
-          <li class="NavigationDrawer-listItem js-mobile-subnav-trigger  NavigationDrawer-hasSubnav">
+          <li class="NavigationDrawer-listItem js-mobile-subnav-trigger  NavigationDrawer-listItem--active NavigationDrawer-hasSubnav">
             <a href="#"><span>Docs</span> <i class="material-icons">navigate_next</i></a>
 
             <div class="NavigationDrawer NavigationDrawer-submenuItem">
@@ -388,35 +388,209 @@
 <div class="NavigationDrawer-scrim js-scrim" role="presentation"></div>
 <main class="SiteContent SiteContent--default" id="main-content">
   
-  <article class="Article Article--security">
-
-    
-    <h1>Mejores prácticas de seguridad para desarrolladores de Go</h1>
-    <p><a href="/security">Volver a Seguridad en Go</a></p>
-<p>Esta página proporciona a los desarrolladores de Go las mejores prácticas para priorizar la seguridad de sus proyectos. Desde automatizar tests con fuzzing hasta verificar fácilmente las condiciones de carrera, estos consejos pueden ayudar a que tu código base sea más seguro y confiable.</p>
-<h2 id="scan-source-code-and-binaries-for-vulnerabilities">Escanea el código fuente y los binarios en busca de vulnerabilidades</h2>
-<p>Escanear periódicamente tu código y archivos binarios en busca de vulnerabilidades ayuda a identificar posibles riesgos de seguridad de manera temprana. Puedes usar <a href="https://pkg.go.dev/golang.org/x/vuln/cmd/govulncheck" rel="noreferrer" target="_blank">govulncheck</a>, respaldado por la <a href="https://pkg.go.dev" rel="noreferrer" target="_blank">base de datos de vulnerabilidades de Go</a> para escanear tu código en busca de vulnerabilidades y analizar cuáles realmente te afectan. Comienza con <a href="https://go.dev/doc/tutorial/govulncheck" rel="nofollow" target="_blank" title="Página todavía no traducida">el tutorial de govulncheck ⬀</a>.</p>
-<p>Govulncheck también se puede integrar en flujos de CI/CD. El equipo de Go proporciona una <a href="https://github.com/marketplace/actions/golang-govulncheck-action" rel="noreferrer" target="_blank">GitHub Action para govulncheck</a> en GitHub Marketplace. Govulncheck también admite un indicador <code>-json</code> para ayudar a los desarrolladores a integrar el escaneo de vulnerabilidades con otros sistemas CI/CD.</p>
-<p>También puedes buscar vulnerabilidades directamente en tu editor de código usando la <a href="/security/vuln/editor" rel="noreferrer" target="_blank">Extensión Go para Visual Studio Code</a>. Comienza con <a href="https://go.dev/doc/tutorial/govulncheck-ide" rel="nofollow" target="_blank" title="Página todavía no traducida">este tutorial ⬀</a>.</p>
-<h2 id="keep-your-go-version-and-dependencies-up-to-date">Mantén actualizada tu versión de Go y tus dependencias</h2>
-<p>Mantener tu <a href="/doc/install" rel="noreferrer" target="_blank">Versión Go actualizada</a> ofrece acceso a las últimas funciones del lenguaje, mejoras de rendimiento y parches para vulnerabilidades de seguridad conocidas. Una versión actualizada de Go también garantiza la compatibilidad con versiones más recientes de dependencias, lo que ayuda a evitar posibles problemas de integración. Revisa el <a href="https://go.dev/doc/devel/release" rel="nofollow" target="_blank" title="Página todavía no traducida">Historial de lanzamientos de Go ⬀</a> para ver qué cambios se han realizado en Go entre lanzamientos. El equipo de Go emite lanzamientos puntuales a lo largo del ciclo de lanzamiento para solucionar errores de seguridad. Asegúrate de actualizar a la última versión menor de Go para asegurarse de tener las últimas correcciones de seguridad.</p>
-<p>Mantener dependencias de terceros actualizadas también es crucial para la seguridad, el rendimiento y el cumplimiento del software con los últimos estándares en el ecosistema Go. Sin embargo, actualizar a las últimas versiones sin una revisión exhaustiva <a href="https://research.swtch.com/npm-colors" rel="noreferrer" target="_blank">también puede ser riesgoso</a>, ya que podría introducir nuevos errores, cambios incompatibles o incluso código malicioso. Por lo tanto, si bien es esencial actualizar las dependencias para obtener los últimos parches y mejoras de seguridad, cada actualización debe revisarse y probarse cuidadosamente.</p>
-<h2 id="test-with-fuzzing-to-uncover-edge-case-exploits">Testing con fuzzing para descubrir edge-case exploits</h2>
-<p><a href="/security/fuzz" rel="noreferrer" target="_blank">Fuzzing</a> es un tipo de testing que utilizan una guía de cobertura para manipular entradas aleatorias y recorrer el código para encontrar e informar vulnerabilidades potenciales como inyecciones de SQL, desbordamientos de búfer, denegación de servicio y ataques de cross-site scripting. Fuzzing a menudo puede llegar a casos extremos que los programadores pasan por alto o consideran demasiado improbables para probar. Comienza con <a href="https://go.dev/doc/tutorial/fuzz" rel="nofollow" target="_blank" title="Página todavía no traducida">este tutorial ⬀</a>.</p>
-<h2 id="check-for-race-conditions-with-gos-race-detector">Verifica las condiciones de carrera con el detector de carrera de Go</h2>
-<p>Las condiciones de carrera ocurren cuando dos o más <a href="https://go.dev/tour/concurrency/1" rel="nofollow" target="_blank" title="Página todavía no traducida">gorrutinas ⬀</a>
-acceden al mismo recurso simultáneamente y al menos uno de esos accesos es una escritura. Esto puede generar problemas impredecibles y difíciles de diagnosticar en tu software. Identifica posibles condiciones de carrera en tu código Go utilizando el software integrado <a href="https://go.dev/doc/articles/race_detector" rel="nofollow" target="_blank" title="Página todavía no traducida">detector de carreras ⬀</a>, que puede ayudarte a garantizar la seguridad y confiabilidad de tus programas concurrentes. Sin embargo, el detector de carreras encuentra carreras que ocurren en tiempo de ejecución, por lo que no encontrará carreras en rutas de código que no se ejecuten.</p>
-<p>Para usar el detector de carrera, agrega el indicador <code>-race</code> cuando ejecutes tus tests o crees tu aplicación, por ejemplo, <code>go test -race</code>. Esto compilará tu código con el detector de carreras habilitado e informará cualquier condición de carrera que detecte en tiempo de ejecución. Cuando el detector de carreras encuentre una carrera de datos en el programa, <a href="https://go.dev/doc/articles/race_detector" rel="nofollow" target="_blank" title="Página todavía no traducida">imprime un informe ⬀</a> que contiene seguimientos de pila para accesos en conflicto y pilas donde se crearon las rutinas involucradas.</p>
-<h2 id="use-vet-to-examine-suspicious-constructs">Usa Vet para examinar construcciones sospechosas</h2>
-<p>El <a href="https://pkg.go.dev/cmd/vet" rel="noreferrer" target="_blank">comando vet</a> de Go es diseñado para analizar tu código fuente y señalar problemas potenciales que podrían no ser necesariamente errores de sintaxis, pero que podrían generar problemas durante el tiempo de ejecución. Estos incluyen construcciones sospechosas, como código inalcanzable, variables no utilizadas y errores comunes en torno a las rutinas. Al detectar estos problemas desde el principio durante el proceso de desarrollo, go vet ayuda a mantener la calidad del código, reduce el tiempo de depuración y mejora la confiabilidad general del software. Para ejecutar go vet para un proyecto específico, ejecuta:</p>
-<pre><code>go vet ./...
-</code></pre>
-<h2 id="subscribe-to-golang-announce-for-notification-of-security-releases">Suscríbete a golang-announce para recibir notificaciones sobre versiones de seguridad</h2>
-<p>Las versiones de Go que contienen correcciones de seguridad se anuncian previamente en la lista de correo de bajo volumen <a href="https://groups.google.com/group/golang-announce" rel="noreferrer" target="_blank">golang-announce@googlegroups.com</a>. Si deseas saber cuándo están en camino las correcciones de seguridad para Go, suscríbete.</p>
 
 
-    
-  </article>
+<article class="Doc Article">
+
+
+
+  
+<ol class="SiteBreadcrumb">
+  
+<li class="BreadcrumbNav-li ">
+  <a class="BreadcrumbNav-link" href="/doc/">
+  Documentación
+  </a>
+</li>
+<li class="BreadcrumbNav-li ">
+  <a class="BreadcrumbNav-link" href="https://go.dev/doc/tutorial" rel="nofollow" target="_blank" title="Página todavía no traducida">
+  Tutoriales
+   ⬀</a>
+</li>
+<li class="BreadcrumbNav-li active">
+  <a class="BreadcrumbNav-link" href="/doc/tutorial/getting-started">
+  Tutorial: Comienza con Go
+  </a>
+</li>
+</ol>
+
+
+
+<h1>Tutorial: Comienza con Go</h1>
+
+
+
+
+
+
+<div id="nav" class="TOC"></div>
+
+
+
+
+
+
+
+
+<p>
+  En este tutorial, obtendrás una breve introducción a la programación en Go. En el camino, podrás:
+</p>
+
+<ul>
+  <li>Instalar Go (si aún no lo has hecho).</li>
+  <li>Escribir un código simple de "Hola mundo".</li>
+  <li>Usar el comando <code>go</code> para ejecutar tu código.</li>
+  <li>
+    Usa la herramienta de descubrimiento de paquetes de Go para encontrar paquetes que puedas usar en tu propio código.
+  </li>
+  <li>Llamar funciones de un módulo externo.</li>
+</ul>
+
+<aside class="Note">
+  <strong>Nota:</strong> Para otros tutoriales, consulta  <a href="https://go.dev/doc/tutorial/index.html" rel="nofollow" target="_blank" title="Página todavía no traducida">Tutoriales ⬀</a>.</aside>
+
+<h2 id="prerequisites">Requisitos previos</h2>
+
+<ul>
+  <li>
+    <strong>Alguna experiencia en programación.</strong> El código aquí es bastante simple, pero ayuda saber algo sobre funciones.  </li>
+  <li>
+    <strong>Una herramienta para editar tu código.</strong> Cualquier editor de texto que tengas funcionará bien. La mayoría de los editores de texto tienen buen soporte para Go. Los más populares son VSCode (gratis), GoLand (pago) y Vim (gratis).  </li>
+  <li>
+    <strong>Una terminal de comandos.</strong> Go funciona bien con cualquier terminal en Linux y Mac, y en PowerShell o cmd en Windows.  </li>
+</ul>
+
+<h2 id="install">Instalar Go</h2>
+
+<p>Solo sigue los pasos de <a href="/doc/install">Descargar e instalar</a>.</p>
+
+<h2 id="code">Escribir el código</h2>
+
+<p>
+  Comencemos con Hello, World.
+</p>
+
+<ol>
+  <li>   Abre un símbolo del sistema y accede a tu directorio de inicio.   <p>   En Linux o Mac:  </p>
+
+    <pre>cd </pre>
+
+    <p>   En Windows:  </p>
+
+    <pre>cd %HOMEPATH% </pre>
+  </li>
+
+  <li>   Crea un directorio hello para tu primer código fuente de Go.   <p>   Por ejemplo, utiliza los siguientes comandos:  </p>
+
+    <pre>mkdir hello cd hello </pre>
+  </li>
+
+  <li>   Habilita el seguimiento de dependencias para tu código.   <p>   Cuando tu código importa paquetes contenidos en otros módulos, tú administras esas dependencias a través del propio módulo de tu código. Ese módulo está definido por un archivo go.mod que rastrea los módulos que proporcionan esos paquetes. Ese archivo go.mod permanece con tu código, incluso en tu repositorio de código fuente.  </p>
+
+    <p>   Para habilitar el seguimiento de dependencias para tu código mediante la creación de un archivo go.mod, ejecuta    <a href="https://go.dev/ref/mod" rel="nofollow" target="_blank" title="Página todavía no traducida"><code>go mod init</code> (comando) ⬀</a>, dándole el nombre del módulo en el que estará tu código. El nombre es la ruta del módulo del módulo.</p>
+    <p>En el desarrollo real, la ruta del módulo normalmente será la ubicación del repositorio donde el código fuente se mantendrá. Por ejemplo, la ruta del módulo podría ser <code>github.com/mymodule</code>. Si planeas publicar tu módulo para que otros lo utilicen, la ruta del módulo <em>debe</em> ser una ubicación desde la cual las herramientas de Go puedan descargar tu módulo. Para obtener más información sobre cómo nombrar un módulo con una ruta de módulo, consulta     <a href="https://go.dev/doc/modules/managing-dependencies" rel="nofollow" target="_blank" title="Página todavía no traducida">Administrar dependencias ⬀</a>.  </p>
+
+      <p>Para los propósitos de este tutorial, simplemente usa      <code>example/hello</code>.  </p>
+
+    <pre>$ go mod init example/hello
+go: creating new go.mod: module example/hello </pre>
+  </li>
+
+  <li>
+    <p>En tu editor de texto, crea un archivo hello.go en el que escribir tu código.</p>
+  </li>
+
+  <li>
+    <p>Pega el siguiente código en tu archivo hello.go y guarda el archivo.</p>
+
+    <pre>package main
+
+import "fmt"
+
+func main() {
+    fmt.Println("Hello, World!")
+}
+</pre>
+
+    <p>
+      Este es tu código Go. En este código, tú:
+    </p>
+
+    <ul>
+      <li>     Declaras un paquete <code>main</code> (un paquete es una forma de agrupar funciones y está formado por todos los archivos en el mismo directorio).    </li>
+      <li> Importas el popular <a href="https://pkg.go.dev/fmt/"><code>fmt</code> (paquete)</a>, que contiene funciones para formatear texto, incluida la impresión en la consola. Este paquete es uno de los paquetes de la <a href="https://pkg.go.dev/std">biblioteca estándar</a> que obtuviste cuando instalaste Go. </li>
+      <li>     Implementas una función <code>main</code> para imprimir un mensaje en la consola. Una función <code>main</code> se ejecuta de forma predeterminada cuando ejecutas el paquete <code>main</code>.    </li>
+    </ul>
+  </li>
+
+  <li>
+    <p>Ejecuta tu código para ver el saludo.</p>
+
+    <pre>$ go run .
+Hello, World!
+</pre>
+
+    <p> El comando <a href="https://go.dev/cmd/go" rel="nofollow" target="_blank" title="Página todavía no traducida"><code>go run</code>, ⬀</a> es uno de muchos comandos <code>go</code> que usarás para hacer cosas con Go. Utiliza el siguiente comando para obtener una lista de los demás: </p>
+
+    <pre>$ go help
+</pre>
+  </li>
+</ol>
+
+<h2 id="call">Código de llamada en un paquete externo</h2>
+
+<p>
+  Cuando necesites que tu código haga algo que podría haber sido implementado por otra persona, puedes buscar un paquete que tenga funciones que puedas usar en tu código.
+</p>
+
+<ol>
+  <li>   Haz que tu mensaje impreso sea un poco más interesante con una función de un módulo externo.   <ol>
+      <li>     Visita pkg.go.dev y     <a href="https://pkg.go.dev/search?q=quote">busca un paquete de "quote"</a>.    </li>
+      <li>     Localiza y haz clic en el paquete <code>rsc.io/quote</code> en los resultados de búsqueda (si ves <code>rsc.io/quote/v3</code>, ignóralo por ahora).    </li>
+      <li>     En la sección <strong>Documentación</strong>, en <strong>Índice</strong>, observa la lista de funciones que puedes llamar desde tu código. Utilizarás la función     <code>Go</code>.    </li>
+      <li>     En la parte superior de esta página, ten en cuenta que el paquete <code>quote</code> está incluido en el módulo <code>rsc.io/quote</code>.    </li>
+    </ol>
+
+    <p>   Puedes utilizar el sitio pkg.go.dev para buscar módulos publicados cuyos paquetes tengan funciones que puedas utilizar en tu propio código. Los paquetes se publican en módulos, como <code>rsc.io/quote</code>, donde otros pueden usarlos. Los módulos se mejoran con nuevas versiones con el tiempo y tú puedes actualizar tu código para usar las versiones mejoradas.  </p>
+  </li>
+
+  <li> En tu código Go, importa el paquete <code>rsc.io/quote</code> y agrega una llamada a su función <code>Go</code>. <p> Después de agregar las líneas resaltadas, tu código debe incluir lo siguiente: </p>
+
+    <pre>package main 
+
+import "fmt" 
+
+<ins>import "rsc.io/quote"</ins> 
+
+func main() {
+   <ins>fmt.Println(quote.Go())</ins> 
+} </pre>
+  </li>
+
+  <li>   Agrega nuevos requisitos de módulos y sums.   <p>   Go agregará el módulo <code>quote</code> como requisito, así como un archivo go.sum para usarlo en la autenticación del módulo. Para obtener más información, consulta    <a href="https://go.dev/ref/mod" rel="nofollow" target="_blank" title="Página todavía no traducida">Autenticación de módulos ⬀</a> en la Referencia de módulos de Go.  </p>
+    <pre>$ go mod tidy
+go: finding module for package rsc.io/quote
+go: found rsc.io/quote in rsc.io/quote v1.5.2 </pre>
+  </li>
+
+  <li>   Ejecuta tu código para ver el mensaje generado por la función que estás llamando.   <pre>$ go run .
+Don't communicate by sharing memory, share memory by communicating. </pre>
+
+    <p>   Observe que tu código llama a la función <code>Go</code>, imprimiendo un mensaje inteligente sobre la comunicación.  </p>
+
+    <p>   Cuando ejecutaste <code>go mod tidy</code>, se localizó y descargó el módulo    <code>rsc.io/quote</code> que contiene el paquete que importaste. De forma predeterminada, se descargó la última versión: v1.5.2.  </p>
+  </li>
+</ol>
+
+<h2 id="write-more">Escribe más código</h2>
+
+<p> Con esta rápida introducción, instalaste Go y aprendiste algunos de los conceptos básicos. Para escribir más código con otro tutorial, consulta  <a href="https://go.dev/doc/tutorial/create-module.html" rel="nofollow" target="_blank" title="Página todavía no traducida">Crear un módulo Go ⬀</a>.</p>
+
+
+
+</article>
+
+
 
 </main>
 <footer class="Site-footer">
