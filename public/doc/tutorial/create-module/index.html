@@ -16,9 +16,9 @@
   
   
 <script src="/js/site.js"></script>
-<meta name="og:url" content="https://go.dev/doc/install">
-<meta name="og:title" content="Descargar e instalar - El lenguaje de programación Go en Español (Golang)">
-<title>Descargar e instalar - El lenguaje de programación Go en Español (Golang)</title>
+<meta name="og:url" content="https://go.dev/doc/tutorial/create-module">
+<meta name="og:title" content="Tutorial: Crear un módulo Go - El lenguaje de programación Go en Español (Golang)">
+<title>Tutorial: Crear un módulo Go - El lenguaje de programación Go en Español (Golang)</title>
 
 <meta name="og:image" content="https://go.dev/doc/gopher/gopher5logo.jpg">
 <meta name="twitter:image" content="https://go.dev/doc/gopher/gopherbelly300.jpg">
@@ -392,9 +392,6 @@
 
 <article class="Doc Article">
 
-<div class="Article-columns">
-<div class="Article-content">
-
 
 
   
@@ -405,16 +402,28 @@
   Documentación
   </a>
 </li>
+<li class="BreadcrumbNav-li ">
+  <a class="BreadcrumbNav-link" href="https://go.dev/doc/tutorial" rel="nofollow" target="_blank" title="Página todavía no traducida">
+  Tutoriales
+   ⬀</a>
+</li>
 <li class="BreadcrumbNav-li active">
-  <a class="BreadcrumbNav-link" href="/doc/install">
-  Descargar e instalar
+  <a class="BreadcrumbNav-link" href="/doc/tutorial/create-module">
+  Tutorial: Crear un módulo Go
   </a>
 </li>
 </ol>
 
 
 
-<h1>Descargar e instalar</h1>
+<h1>Tutorial: Crear un módulo Go</h1>
+
+
+
+
+
+
+<div id="nav" class="TOC"></div>
 
 
 
@@ -423,137 +432,132 @@
 
 
 
-
-
-
-
-
-
+<p> Esta es la primera parte de un tutorial que presenta algunas características fundamentales del lenguaje Go. Si recién estás comenzando con Go, asegúrate de consultar el <a href="/doc/tutorial/getting-started">Tutorial: Introducción a Go</a>, que presenta el comando <code>go</code>, módulos Go y código Go muy simple.</p>
 
 <p>
-  Descarga e instala Go rápidamente con los pasos que se describen aquí.
+  En este tutorial crearás dos módulos. La primera es una biblioteca destinada a ser importada por otras bibliotecas o aplicaciones. La segunda es una aplicación de llamada que utilizará la primera.
 </p>
-<p>Para más contenido sobre instalación, quizás te interese:</p>
+
+<p>
+  La secuencia de este tutorial incluye siete temas breves, cada uno de los cuales ilustra una parte diferente del lenguaje.
+</p>
+
+<ol>
+  <li>
+    Crea un módulo -- escribe un módulo pequeño con funciones que puedas llamar desde otro módulo.
+  </li>
+  <li>
+    <a href="https://go.dev/doc/tutorial/call-module-code" rel="nofollow" target="_blank" title="Página todavía no traducida">Llama tu código desde otro módulo ⬀</a> -- Importa y usa tu nuevo módulo.  </li>
+  <li>
+    <a href="https://go.dev/doc/tutorial/handle-errors" rel="nofollow" target="_blank" title="Página todavía no traducida">Devolver y manejar un error ⬀</a> -- Agrega un manejo de errores simple.  </li>
+  <li>
+    <a href="https://go.dev/doc/tutorial/random-greeting" rel="nofollow" target="_blank" title="Página todavía no traducida">Devolver un saludo aleatorio ⬀</a> -- Manejar datos en slices (arrays de tamaño dinámico de Go).  </li>
+  <li>
+    <a href="https://go.dev/doc/tutorial/greetings-multiple-people" rel="nofollow" target="_blank" title="Página todavía no traducida">Devolver saludos para varias personas ⬀</a>   -- Almacenar pares clave/valor en un map.  </li>
+  <li>
+    <a href="https://go.dev/doc/tutorial/add-a-test" rel="nofollow" target="_blank" title="Página todavía no traducida">Agregar una test ⬀</a> -- usa las funciones de test unitarios integradas de Go para realizar tests a tu codigo.  </li>
+  <li>
+    <a href="https://go.dev/doc/tutorial/compile-install" rel="nofollow" target="_blank" title="Página todavía no traducida">Compila e instala la aplicación ⬀</a> -- Compila e instala tu código localmente.  </li>
+</ol>
+
+<aside class="Note">
+  <strong>Nota:</strong> Para otros tutoriales, consulta  <a href="https://go.dev/doc/tutorial" rel="nofollow" target="_blank" title="Página todavía no traducida">Tutoriales ⬀</a>.</aside>
+
+<h2 id="prerequisites">Requisitos previos</h2>
+
 <ul>
   <li>
-    <a href="https://go.dev/doc/manage-install" rel="nofollow" target="_blank" title="Página todavía no traducida">Administración de instalaciones de Go ⬀</a> -- cómo instalar varias versiones y desinstalarlas.  </li>
+    <strong>Alguna experiencia en programación.</strong> El código aquí es bastante simple, pero ayuda saber algo sobre funciones, bucles y arrays.  </li>
   <li>
-    <a href="https://go.dev/doc/install/source" rel="nofollow" target="_blank" title="Página todavía no traducida">Instalar Go desde el código fuente ⬀</a> - Cómo verificar las fuentes, compilarlas en tu propia máquina y ejecutarlos.  </li>
+    <strong>Una herramienta para editar tu código.</strong> Cualquier editor de texto que tengas funcionará bien. La mayoría de los editores de texto tienen buen soporte para Go. Los más populares son VSCode (gratis), GoLand (pago) y Vim (gratis).  </li>
+  <li>
+    <strong>Una terminal de comandos.</strong> Go funciona bien con cualquier terminal en Linux y Mac, y en PowerShell o cmd en Windows.  </li>
 </ul>
-<p class="DownloadBtn">
-  <a href="https://go.dev/dl" id="start" class="btn download" rel="nofollow" target="_blank" title="Página todavía no traducida">
-    <span id="download-description" class="js-downloadDescription">
-      Descargar
-    </span>
-  </a>
-</p>
-<p> ¿No ves tu sistema operativo aquí? Prueba una de las <a href="https://go.dev/dl" rel="nofollow" target="_blank" title="Página todavía no traducida">otras descargas ⬀</a>.</p>
 
-<h2 id="install">Instalación de Go</h2>
+<h2 id="start">Inicia un módulo que otros puedan usar</h2>
+
+<p> Comienza creando un módulo Go. En un módulo, recopilas uno o más paquetes relacionados para un conjunto de funciones discreto y útil. Por ejemplo, podrías crear un módulo con paquetes que tengan funciones para realizar análisis financieros para que otros que escriban aplicaciones financieras puedan utilizar tu trabajo. Para obtener más información sobre el desarrollo de módulos, consulta <a href="https://go.dev/doc/modules/developing" rel="nofollow" target="_blank" title="Página todavía no traducida">Desarrollo y publicación de módulos ⬀</a>.</p>
+
 <p>
-  Selecciona la pestaña correspondiente al sistema operativo de tu computadora a continuación y luego sigue las instrucciones de instalación.
+  El código Go se agrupa en paquetes y los paquetes se agrupan en módulos. Tu módulo especifica las dependencias necesarias para ejecutar su código, incluida la versión de Go y el conjunto de otros módulos que requiere.
 </p>
-<div id="os-install-tabs" class="TabSection js-tabSection">
-  <div id="os-install-tablist" class="TabSection-tabList" role="tablist">
-    <button role="tab" aria-selected="true" aria-controls="linux-tab" id="linux" tabindex="0" class="TabSection-tab active">
-      Linux
-      <img class="TabSection-underline" src="/images/icons/underline.svg" width="51" height="4" aria-hidden="true">
-    </button>
-    <button role="tab" aria-selected="false" aria-controls="mac-tab" id="mac" tabindex="-1" class="TabSection-tab">
-      Mac
-      <img class="TabSection-underline" src="/images/icons/underline.svg" width="51" height="4" aria-hidden="true">
-    </button>
-    <button role="tab" aria-selected="false" aria-controls="windows-tab" id="windows" tabindex="-1" class="TabSection-tab">
-      Windows
-      <img class="TabSection-underline" src="/images/icons/underline.svg" width="51" height="4" aria-hidden="true">
-    </button>
-  </div>
-  <div role="tabpanel" id="linux-tab" class="TabSection-tabPanel" aria-labelledby="linux">
-    <ol>
-      <li>
-        <strong>Elimina cualquier instalación anterior de Go</strong> eliminando la carpeta /usr/local/go (si existe), luego extrae el archivo que acabas de descargar en /usr/local, creando un árbol Go nuevo en /usr/local/go: 		<pre class="CopyPaste">      <span>$ rm -rf /usr/local/go &amp;&amp; tar -C /usr/local -xzf <span id="linux-filename">go1.14.3.linux-amd64.tar.gz</span></span>
-      <button aria-label="Copy and paste the code.">
-        <img class="CopyPaste-icon" src="/images/icons/copy-paste.svg">
-        <img class="CopyPaste-icon CopyPaste-icon-dark" src="/images/icons/copy-paste-dark.svg">
-      </button>
-    </pre>
-		<p>     (Es posible que debas ejecutar el comando como root o mediante <code>sudo</code>).    </p>
-		<p>
-		  <strong>No</strong> descomprimas el archivo en un árbol /usr/local/go existente. Se sabe que esto produce instalaciones Go rotas. 		</p>
+
+<p>
+  A medida que agregas o mejoras la funcionalidad de tu módulo, publicas nuevas versiones del módulo. Los desarrolladores que escriben código que llaman a funciones en tu módulo pueden importar los paquetes actualizados del módulo y probar con la nueva versión antes de ponerlo en uso en producción.
+</p>
+
+<ol>
+  <li>   Abre un símbolo del sistema y haz <code>cd</code> a tu directorio de inicio.   <p>   En Linux o Mac:  </p>
+
+    <pre>cd </pre>
+
+    <p>   En Windows:  </p>
+
+    <pre>cd %HOMEPATH% </pre>
+  </li>
+
+  <li>   Crea un directorio <code>greetings</code> para el código fuente de tu módulo Go.   <p>   Por ejemplo, desde tu directorio personal utiliza los siguientes comandos:  </p>
+
+    <pre>mkdir greetings 
+cd greetings </pre>
+  </li>
+
+  <li> Inicia tu módulo usando <a href="https://go.dev/ref/mod" rel="nofollow" target="_blank" title="Página todavía no traducida"><code>go mod init</code> (comando) ⬀</a>. <p> Ejecuta el comando <code>go mod init</code>, dándole la ruta de tu módulo; aquí, usa <code>example.com/greetings</code>. Si publicas un módulo, <em>debe</em> ser una ruta desde la cual las herramientas de Go puedan descargar tu módulo. Ese sería el repositorio de tu código. </p>
+
+    <p> Para obtener más información sobre cómo nombrar tu módulo con una ruta de módulo, consulta <a href="https://go.dev/doc/modules/managing-dependencies" rel="nofollow" target="_blank" title="Página todavía no traducida">Administrar dependencias ⬀</a>. </p>
+
+    <pre>$ go mod init example.com/greetings
+go: creating new go.mod: module example.com/greetings</pre>
+
+    <p> El comando <code>go mod init</code> crea un archivo go.mod para rastrear las dependencias de tu código. Hasta ahora, el archivo incluye solo el nombre de tu módulo y la versión de Go que admite tu código. Pero a medida que agregues dependencias, el archivo go.mod enumerará las versiones de las que depende tu código. Esto mantiene las compilaciones reproducibles y te brinda control directo sobre qué versiones de módulo usar. </p>
+  </li>
+
+  <li>
+    En tu editor de texto, crea un archivo en el que escribir tu código y llámalo greetings.go.
+  </li>
+
+  <li> Pega el siguiente código en tu archivo greetings.go y guárdalo. <pre>package greetings
+
+import "fmt"
+
+// Hello returns a greeting for the named person.
+func Hello(name string) string {
+    // Return a greeting that embeds the name in a message.
+    message := fmt.Sprintf("Hi, %v. Welcome!", name)
+    return message
+}</pre>
+
+    <p> Este es el primer código para tu módulo. Devuelve un saludo a cualquier llamador que lo solicite. Escribirás código que llame a esta función en el siguiente paso. </p>
+
+    <p> En este código: </p>
+
+    <ul>
+      <li> Declaraste un paquete <code>greetings</code> para recopilar funciones relacionadas. </li>
+      <li> Implementaste una función <code>Hello</code> para devolver el saludo.<p> Esta función toma un parámetro <code>name</code> cuyo tipo es <code>string</code>. La función también devuelve un <code>string</code>. En Go, una función cuyo nombre comienza con una letra mayúscula puede ser llamada por una función que no esté en el mismo paquete. Esto se conoce en Go como nombre exportado. Para obtener más información sobre los nombres exportados, consulta <a href="https://go.dev/tour/basics/3" rel="nofollow" target="_blank" title="Página todavía no traducida">Nombres exportados ⬀</a> en el tour de Go. </p>
+        <img src="images/function-syntax.png" width="300px">
       </li>
-      <li>     Agrega /usr/local/go/bin a la variable de entorno <code>PATH</code>.     <p>     Puedes hacer esto agregando la siguiente línea a tu $HOME/.profile o /etc/profile (para una instalación en todo el sistema):    </p>
-        <pre class="CopyPaste">          <span>export PATH=$PATH:/usr/local/go/bin</span>
-          <button aria-label="Copy and paste the code.">
-            <img class="CopyPaste-icon" src="/images/icons/copy-paste.svg">
-            <img class="CopyPaste-icon CopyPaste-icon-dark" src="/images/icons/copy-paste-dark.svg">
-          </button>
-        </pre>
-        <p>
-          <strong>Nota:</strong> Es posible que los cambios realizados en un archivo profile no se apliquen hasta la próxima vez que inicies sesión en tu computadora. Para aplicar los cambios inmediatamente, simplemente ejecuta los comandos del shell directamente o ejecútalos desde el perfil usando un comando como      <code>source $HOME/.profile</code>.    </p>
+
+      <li> Declaraste una variable <code>message</code> para contener tu saludo. <p> En Go, el operador <code>:=</code> es un atajo para declarar e inicializar una variable en una línea (Go usa el valor de la derecha para determinar el tipo de variable). Tomando el camino más largo, podrías haber escrito esto como: </p>
+        <pre>var message string
+message = fmt.Sprintf("Hi, %v. Welcome!", name)</pre>
       </li>
-      <li>     Verifica que hayas instalado Go abriendo un símbolo del sistema y escribiendo el siguiente comando:     <pre class="CopyPaste">          <span>$ go version</span>
-          <button aria-label="Copy and paste the code.">
-            <img class="CopyPaste-icon" src="/images/icons/copy-paste.svg">
-            <img class="CopyPaste-icon CopyPaste-icon-dark" src="/images/icons/copy-paste-dark.svg">
-          </button>
-        </pre>
-      </li>
-      <li>Confirma que el comando imprime la versión instalada de Go.</li>
-    </ol>
-  </div>
-  <div role="tabpanel" id="mac-tab" class="TabSection-tabPanel" aria-labelledby="mac" hidden="">
-    <ol>
-      <li>     Abre el archivo del paquete que descargaste y sigue las instrucciones para instalar Go.     <p>     El paquete instala la distribución Go en /usr/local/go. El paquete debe colocar el directorio /usr/local/go/bin en tu variable de entorno <code>PATH</code>. Es posible que debas reiniciar cualquier sesión de Terminal abierta para que el cambio surta efecto.    </p>
-      </li>
-      <li>     Verifica que hayas instalado Go abriendo un símbolo del sistema y escribiendo el siguiente comando:     <pre class="CopyPaste">          <span>$ go version</span>
-          <button aria-label="Copy and paste the code.">
-            <img class="CopyPaste-icon" src="/images/icons/copy-paste.svg">
-            <img class="CopyPaste-icon CopyPaste-icon-dark" src="/images/icons/copy-paste-dark.svg">
-          </button>
-        </pre>
-      </li>
-      <li>Confirma que el comando imprime la versión instalada de Go.</li>
-    </ol>
-  </div>
-  <div role="tabpanel" id="windows-tab" class="TabSection-tabPanel" aria-labelledby="windows" hidden="">
-    <ol>
-      <li>     Abre el archivo MSI que descargaste y sigue las instrucciones para instalar Go.     <p>     De forma predeterminada, el instalador instalará Go en <code>Program Files</code> o <code>Program Files (x86)</code>. Puedes cambiar la ubicación según sea necesario. Después de la instalación, deberás cerrar y volver a abrir cualquier símbolo del sistema abierto para que los cambios en el entorno realizados por el instalador se reflejen en el símbolo del sistema.    </p>
-      </li>
-      <li>     Verifica que hayas instalado Go.     <ol>
-          <li>       En <strong>Windows</strong>, haz clic en el menú <strong>Inicio</strong>.      </li>
-          <li>       En el cuadro de búsqueda del menú, escribe <code>cmd</code> y luego presiona la tecla       <strong>Intro</strong>.      </li>
-          <li>       En la ventana del símbolo del sistema que aparece, escribe el siguiente comando:       <pre class="CopyPaste">              <span>$ go version</span>
-              <button aria-label="Copy and paste the code.">
-                <img class="CopyPaste-icon" src="/images/icons/copy-paste.svg">
-                <img class="CopyPaste-icon CopyPaste-icon-dark" src="/images/icons/copy-paste-dark.svg">
-              </button>
-            </pre>
-          </li>
-          <li>Confirma que el comando imprime la versión instalada de Go.</li>
-        </ol>
-      </li>
-    </ol>
-  </div>
-</div>
-<h2 id="code">¡Ya estás listo!</h2>
-<p class="DocInstall-footer">  Visita el  <a href="https://go.dev/tutorial/getting-started" rel="nofollow" target="_blank" title="Página todavía no traducida">tutorial de introducción ⬀</a> para escribir un código Go sencillo. Tarda unos 10 minutos en completarse.</p>
 
-<script async="" src="/doc/download.js"></script>
-<script async="" src="/doc/hats.js"></script>
+      <li> Utilizaste del paquete <code>fmt</code> la <a href="https://pkg.go.dev/fmt/#Sprintf">
+        <code>Sprintf</code> (función)</a> para crear un mensaje de saludo. El primer argumento es una cadena de formato y <code>Sprintf</code> sustituye el valor del parámetro <code>name</code> por el verbo de formato <code>%v</code>. Insertar el valor del parámetro <code>name</code> completa el texto del saludo. </li>
+      <li>Devolviste el texto de saludo formateado a el llamador.</li>
+    </ul>
+  </li>
+</ol>
+
+<p>
+  En el siguiente paso, llamarás a esta función desde otro módulo.
+</p>
+
+<p class="Navigation">
+  <a class="Navigation-next" href="https://go.dev/doc/tutorial/call-module-code" rel="nofollow" target="_blank" title="Página todavía no traducida">Llama a tu código desde otro módulo &gt; ⬀</a>
+</p>
 
 
-
-</div>
-
-
-<aside class="Sidebar">
-  <h4>Informar problemas</h4>
-  <p>Si detectas bugs, errores o inconsistencias en el código o la documentación del proyecto Go, infórmanos presentando un ticket en nuestro <a href="https://github.com/golang/go/issues">rastreador de issues.</a> Por supuesto, debes comprobar que no es un problema existente antes de crear uno nuevo.</p>
-  <a class="btn" href="https://github.com/golang/go/issues" aria-describedby="footer-description">Presentar un ticket</a>
-</aside>
-
-
-</div>
 
 </article>
 
